@@ -1,0 +1,110 @@
+{
+  "miniprogramRoot": "miniprogram/",
+  "cloudfunctionRoot": "cloudfunctions/",
+  "setting": {
+    "urlCheck": true,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": true,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": true,
+    "useApiHook": true,
+    "useApiHostProcess": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "bundle": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": true,
+    "packNpmRelationList": [
+      {
+        "packageJsonPath": "./package.json",
+        "miniprogramNpmDistDir": "./miniprogram/"
+      }
+    ],
+    "minifyWXSS": true
+  },
+  "appid": "wx424f77966597b181",
+  "projectname": "%E6%8E%A5%E6%B3%A2Got%20Next",
+  "libVersion": "2.14.1",
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
+        },
+        {
+          "name": "联盟",
+          "pathName": "pages/league/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "球员卡",
+          "pathName": "pages/player_card/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "球队卡",
+          "pathName": "pages/team_card/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "活动详情",
+          "pathName": "pages/event_detail/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "比赛详情",
+          "pathName": "pages/game_detail/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "活动",
+          "pathName": "pages/event/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "球员主页",
+          "pathName": "pages/player/index",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

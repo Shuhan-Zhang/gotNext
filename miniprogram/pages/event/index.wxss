@@ -1,0 +1,452 @@
+view.all view.top_image swiper {
+  height: 220px;
+}
+view.all view.top_image swiper image {
+  width: 100%;
+}
+view.all view.big {
+  width: 97%;
+  margin: 0px auto;
+}
+view.all view.participated {
+  margin-top: 10px;
+}
+view.all view.participated view.title {
+  font-family: PingFangSC-Semibold;
+  font-size: 30px;
+  color: #FF5400;
+  margin-bottom: 10px;
+}
+view.all view.participated view.rows {
+  background: #FF5400;
+  border-radius: 10px;
+  padding-top: 1px;
+  padding-bottom: 15px;
+}
+view.all view.participated view.rows view.wrapper {
+  width: 95%;
+  margin: 0 auto;
+}
+view.all view.participated view.rows view.row {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  width: 100%;
+  display: flex;
+  margin-top: 15px;
+  background: #FFF0E8;
+  border-radius: 8px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+view.all view.participated view.rows view.row view.left {
+  flex: 0 0 50%;
+  max-width: 50%;
+  margin-left: 10px;
+}
+view.all view.participated view.rows view.row view.left image {
+  width: 90%;
+  height: 100px;
+  border-radius: 8px;
+}
+view.all view.participated view.rows view.row view.left view.name {
+  font-family: PingFangSC-Semibold;
+  font-size: 25px;
+  color: #FF0000;
+  text-align: left;
+}
+view.all view.participated view.rows view.row view.left view.line {
+  margin-top: 5px;
+  margin-bottom: 5px;
+  width: 100%;
+  height: 1rpx;
+  background-color: #D1D1D1;
+}
+view.all view.participated view.rows view.row view.left view.description {
+  font-family: PingFangSC-Regular;
+  font-size: 13px;
+  color: #000000;
+}
+view.all view.participated view.rows view.row view.right {
+  flex: 0 0 50%;
+  max-width: 50%;
+  text-align: left;
+}
+view.all view.participated view.rows view.row view.right view.location {
+  margin-top: 10px;
+  font-family: PingFangSC-Regular;
+  font-size: 15px;
+  color: #FF5400;
+}
+view.all view.participated view.rows view.row view.right view.time {
+  margin-top: 10px;
+  font-family: PingFangSC-Regular;
+  font-size: 13px;
+  color: #147CE5;
+}
+view.all view.participated view.rows view.row view.right view.reward {
+  margin-top: 10px;
+  font-family: PingFangSC-Regular;
+  font-size: 15px;
+  color: #FF0000;
+}
+view.all view.participated view.rows view.row view.right button.check_in {
+  margin-top: 20px;
+  background: #FF5400;
+  border-radius: 8px;
+  font-family: PingFangSC-Semibold;
+  font-size: 20px;
+  color: #FFFFFF;
+  width: 70%;
+}
+view.all view.category_selection {
+  margin-top: 15px;
+}
+view.all view.category_selection view.wrapper {
+  width: 100%;
+  display: flex;
+}
+view.all view.category_selection view.wrapper view.wrapper2 {
+  width: 90%;
+  margin: 0px auto;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  height: 50px;
+  border-radius: 8px;
+}
+view.all view.category_selection view.wrapper view.personal {
+  background-color: #FF5400;
+}
+view.all view.category_selection view.wrapper view.team {
+  background-color: #147CE5;
+}
+view.all view.category_selection view.wrapper view.challenge {
+  background-color: #51976A;
+}
+view.all view.category_selection view.wrapper view.social {
+  background-color: #DA463C;
+}
+view.all view.category_selection view.wrapper view.reward_column {
+  height: 50px;
+  text-align: center;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+view.all view.category_selection view.wrapper view.reward_column text {
+  position: relative;
+  top: 25%;
+  transform: translateY(-25%);
+  font-family: PingFangSC-Semibold;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+view.all view.recent {
+  margin-top: 15px;
+}
+view.all view.recent view.title {
+  font-family: PingFangSC-Semibold;
+  font-size: 30px;
+  color: #FF5400;
+}
+view.all view.recent view.recent_row {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  width: 100%;
+  display: flex;
+  background: #FFF0E8;
+  border-radius: 8px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+view.all view.recent view.recent_row view.left {
+  margin-left: 5px;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+view.all view.recent view.recent_row view.left view.wrapper {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+view.all view.recent view.recent_row view.left view.wrapper image {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+view.all view.recent view.recent_row .row_content {
+  padding-left: 10px;
+  flex: 0 0 45%;
+  max-width: 45%;
+}
+view.all view.recent view.recent_row .row_content view.wrapper {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+view.all view.recent view.recent_row .row_content view.wrapper text.name {
+  font-family: PingFangSC-Semibold;
+  font-size: 20px;
+  color: #000000;
+}
+view.all view.recent view.recent_row .row_content view.wrapper view.line {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  width: 100%;
+  height: 1px;
+  background-color: #D1D1D1;
+}
+view.all view.recent view.recent_row .row_content view.wrapper text.location {
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #FF5400;
+}
+view.all view.recent view.recent_row .row_content view.wrapper text.time {
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #147CE5;
+}
+view.all view.recent view.recent_row view.join {
+  flex: 0 0 30%;
+  max-width: 30%;
+}
+view.all view.recent view.recent_row view.join view.wrapper {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+view.all view.recent view.recent_row view.join view.wrapper button {
+  padding: 10px 0px 10px 0px;
+  width: 80%;
+  margin-left: 2px;
+  background: #FF5400;
+  border-radius: 8px;
+  font-family: PingFangSC-Semibold;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+view.all view.recent view.recent_row view.join view.wrapper text.money {
+  font-family: PingFangSC-Regular;
+  font-size: 10px;
+  color: #FF0000;
+}
+view.all view.recent navigator.more {
+  margin-top: 10px;
+  font-family: PingFangSC-Semibold;
+  font-size: 13px;
+  color: #FF9E6E;
+  background-color: white;
+  text-align: center;
+}
+view.all view.recent view.basketball_map view.title {
+  font-family: PingFangSC-Regular;
+  font-size: 15px;
+  color: #FF5400;
+  text-align: left;
+}
+view.all view.recent view.basketball_map map {
+  width: 100%;
+  border: 2px solid #FFE9DE;
+  border-radius: 8px;
+  height: 300px;
+}
+view.all view.calendar {
+  margin-top: 15px;
+}
+view.all view.calendar view.title {
+  margin-bottom: 10px;
+  font-family: PingFangSC-Semibold;
+  font-size: 30px;
+  color: #FF5400;
+}
+view.all view.calendar view.wrapper {
+  background: #FF8B52;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-radius: 10px;
+}
+view.all view.calendar view.wrapper .actual_calendar {
+  --calendar-height: 500px;
+  --calendar-background-color: #FF8B52;
+  color: #FFFFFF;
+}
+view.all view.calendar view.wrapper view.today {
+  width: 95%;
+  margin: 0px auto;
+}
+view.all view.calendar view.wrapper view.today view.today_title {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-family: PingFangSC-Semibold;
+  font-size: 20px;
+  color: #FFFFFF;
+  text-align: left;
+}
+view.all view.calendar view.wrapper view.today view.recent_row {
+  margin-top: 10px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  margin: 0px auto;
+  display: flex;
+  background: #FFF0E8;
+  border-radius: 8px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+view.all view.calendar view.wrapper view.today view.recent_row view.left {
+  margin-left: 5px;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+view.all view.calendar view.wrapper view.today view.recent_row view.left view.wrapper2 {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+view.all view.calendar view.wrapper view.today view.recent_row view.left view.wrapper2 image {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+view.all view.calendar view.wrapper view.today view.recent_row .row_content {
+  padding-left: 10px;
+  flex: 0 0 45%;
+  max-width: 45%;
+}
+view.all view.calendar view.wrapper view.today view.recent_row .row_content view.wrapper2 {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+view.all view.calendar view.wrapper view.today view.recent_row .row_content view.wrapper2 text.name {
+  font-family: PingFangSC-Semibold;
+  font-size: 20px;
+  color: #000000;
+}
+view.all view.calendar view.wrapper view.today view.recent_row .row_content view.wrapper2 view.line {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  width: 100%;
+  height: 1px;
+  background-color: #D1D1D1;
+}
+view.all view.calendar view.wrapper view.today view.recent_row .row_content view.wrapper2 text.location {
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #FF5400;
+}
+view.all view.calendar view.wrapper view.today view.recent_row .row_content view.wrapper2 text.time {
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #147CE5;
+}
+view.all view.calendar view.wrapper view.today view.recent_row view.join {
+  flex: 0 0 30%;
+  max-width: 30%;
+}
+view.all view.calendar view.wrapper view.today view.recent_row view.join view.wrapper2 {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+view.all view.calendar view.wrapper view.today view.recent_row view.join view.wrapper2 button {
+  padding: 10px 0px 10px 0px;
+  width: 80%;
+  margin-left: 2px;
+  background: #FF5400;
+  border-radius: 8px;
+  font-family: PingFangSC-Semibold;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+view.all view.calendar view.wrapper view.today view.recent_row view.join view.wrapper2 text.money {
+  font-family: PingFangSC-Regular;
+  font-size: 10px;
+  color: #FF0000;
+}
+view.all view.upcoming {
+  margin-top: 10px;
+}
+view.all view.upcoming view.title {
+  margin-bottom: 10px;
+  font-family: PingFangSC-Regular;
+  font-size: 30px;
+  color: #FF0000;
+  text-align: left;
+}
+view.all view.upcoming view.upcoming_row {
+  margin-top: 10px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  margin: 0px auto;
+  display: flex;
+  background: #FFEDED;
+  border-radius: 8px;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  margin-bottom: 10px;
+}
+view.all view.upcoming view.upcoming_row view.left {
+  margin-left: 5px;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+view.all view.upcoming view.upcoming_row view.left view.wrapper2 {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+view.all view.upcoming view.upcoming_row view.left view.wrapper2 image {
+  width: 100%;
+  height: 100%;
+  border-radius: 8px;
+}
+view.all view.upcoming view.upcoming_row .row_content {
+  padding-left: 10px;
+  flex: 0 0 45%;
+  max-width: 45%;
+}
+view.all view.upcoming view.upcoming_row .row_content view.wrapper2 {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+view.all view.upcoming view.upcoming_row .row_content view.wrapper2 text.name {
+  font-family: PingFangSC-Semibold;
+  font-size: 20px;
+  color: #000000;
+}
+view.all view.upcoming view.upcoming_row .row_content view.wrapper2 view.line {
+  margin-top: 3px;
+  margin-bottom: 3px;
+  width: 100%;
+  height: 1px;
+  background-color: #D1D1D1;
+}
+view.all view.upcoming view.upcoming_row .row_content view.wrapper2 text.location {
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #FF5400;
+}
+view.all view.upcoming view.upcoming_row .row_content view.wrapper2 text.time {
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: #147CE5;
+}
+view.all view.upcoming view.upcoming_row view.join {
+  flex: 0 0 30%;
+  max-width: 30%;
+}
+view.all view.upcoming view.upcoming_row view.join view.wrapper2 {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+view.all view.upcoming view.upcoming_row view.join view.wrapper2 button {
+  padding: 10px 0px 10px 0px;
+  width: 80%;
+  margin-left: 2px;
+  background: #FF5400;
+  border-radius: 8px;
+  font-family: PingFangSC-Semibold;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+view.all view.upcoming view.upcoming_row view.join view.wrapper2 text.money {
+  font-family: PingFangSC-Regular;
+  font-size: 10px;
+  color: #FF0000;
+}

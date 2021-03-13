@@ -1,0 +1,161 @@
+<view class="all">
+    <view class="top_information">
+        <view class="left">
+            <image src="../../img/player_card/charlotte.png"></image>
+        </view>
+        <view class="middle">
+            <image src="../../img/player_card/melo.png" mode="aspectFill"></image>
+        </view>
+        <view class="right">
+            <view class="name">张书晗</view>
+            <view class="detail">185cm/控球后卫/19岁/110kg</view>
+            <view class="rewards">
+                <text class="event iconfont icon-gou_wu_che2"> 0</text>
+                <text class="rings iconfont icon-gou_wu_che2"> 0</text>
+            </view>
+        </view>
+    </view>
+    <view class="main_card">
+        <view class = "card">
+            <view class="career_stats">
+                <view class="title">生涯数据</view>
+                <view class="stat_line">
+                    <view class='stat_column'>
+                        <view class="wrapper">
+                            <view class="number">20.5</view>
+                            <view class="description">场均得分</view>
+                        </view>
+                    </view>
+                    <view class='stat_column'>
+                        <view class="wrapper">
+                            <view class="number">11.8</view>
+                            <view class="description">场均篮板</view>
+                        </view>
+                    </view>
+                    <view class='stat_column'>
+                        <view class="wrapper">
+                            <view class="number">9.4</view>
+                            <view class="description">场均助攻</view>
+                        </view>
+                    </view>
+                </view>
+                <view class="stat_line_small">
+                    <view class="stat_column">44%命中率</view>
+                    <view class="stat_column">34%三分命中率</view>
+                    <view class="stat_column">3.1失误</view>
+                </view>
+            </view>
+            <view class="history_games">
+                <view class="title">历史比赛数据</view>
+                <view class="history_game_row">
+                    <view class="left">
+                        <view class="wrapper">
+                            <image src="../../img/player_card/hawks.png"></image>
+                            <text>V.S</text>
+                            <image src="../../img/player_card/warriors.png"></image>
+                        </view>
+                    </view>
+                    <view class="middle">
+                        <view class="stat">
+                            <view class="wrapper">
+                                <view class="number">21</view>
+                                <view class="description">得分</view>
+                            </view>
+                        </view>
+                        <view class="stat">
+                            <view class="wrapper">
+                                <view class="number">11</view>
+                                <view class="description">篮板</view>
+                            </view>
+                        </view>
+                        <view class="stat">
+                            <view class="wrapper">
+                                <view class="number">14</view>
+                                <view class="description">助攻</view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="right">
+                        <view class="wrapper">
+                        <view class="result">W</view>
+                    </view>
+                    </view>
+                </view>
+            </view>
+            <view class="total_reward">
+                <view class="title">历史联盟荣誉</view>
+                <view class="reward_row">
+                    <view class="stats_column">
+                        <view class="wrapper">
+                            <view class="number">0</view>
+                            <view class="description">总冠军</view>
+                        </view>
+                    </view>
+                    <view class="stats_column">
+                        <view class="wrapper">
+                            <view class="number">0</view>
+                            <view class="description">MVP</view>
+                        </view>
+                    </view>
+                    <view class="stats_column">
+                        <view class="wrapper">
+                            <view class="number">0</view>
+                            <view class="description">最佳新秀</view>
+                        </view>
+                    </view>
+                    <view class="stats_column">
+                        <view class="wrapper">
+                            <view class="number">0</view>
+                            <view class="description">得分王</view>
+                        </view>
+                    </view>
+                    <view class="stats_column">
+                        <view class="wrapper">
+                            <view class="number">0</view>
+                            <view class="description">篮板王</view>
+                        </view>
+                    </view>
+                    <view class="stats_column">
+                        <view class="wrapper">
+                            <view class="number">0</view>
+                            <view class="description">助攻王</view>
+                        </view>
+                    </view>
+                    <view class="stats_column">
+                        <view class="wrapper">
+                            <view class="number">0</view>
+                            <view class="description">其他</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="event_reward">
+                <view class="title">
+                    历史活动奖项
+                </view>
+                <view class="wrapper">
+                    <view class="reward_column">
+                        <view class="personal wrapper2">
+                            <text class="iconfont icon-gou_wu_che2"> 0</text>
+                        </view>
+                    </view>
+                    <view class="reward_column">
+                        <view class="team wrapper2">
+                            <text class="iconfont icon-gou_wu_che2"> 0</text>
+                        </view>
+                    </view>
+                    <view class="reward_column">
+                        <view class="challenge wrapper2">
+                            <text class="iconfont icon-gou_wu_che2"> 0</text>
+                        </view>
+                    </view>
+                    <view class="reward_column">
+                        <view class="social wrapper2">
+                            <text class="iconfont icon-gou_wu_che2"> 0</text>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

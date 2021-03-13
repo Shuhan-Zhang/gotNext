@@ -1,0 +1,27 @@
+{
+  "name": "got_next",
+  "version": "1.0.0",
+  "description": "接波篮球app",
+  "main": "index.js",
+  "dependencies": {
+    "@vant/weapp": "^1.6.7"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Shuhan-Zhang/-.git"
+  },
+  "keywords": [
+    "gotNext",
+    "接波"
+  ],
+  "author": "张书晗",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Shuhan-Zhang/-/issues"
+  },
+  "homepage": "https://github.com/Shuhan-Zhang/-#readme"
+}

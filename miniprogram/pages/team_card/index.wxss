@@ -1,0 +1,360 @@
+view.all {
+  height: 100%;
+}
+view.all view.top_information {
+  padding-bottom: 20px;
+  padding-top: 10px;
+  display: flex;
+  background: #00788C;
+}
+view.all view.top_information view.left {
+  flex: 0 0 30%;
+  max-width: 30%;
+}
+view.all view.top_information view.left image {
+  padding-left: 5px;
+  margin-left: 5px;
+  z-index: 1000;
+  width: 100px;
+  height: 100px;
+}
+view.all view.top_information view.right {
+  position: relative;
+  transform: translate(-5%, 0%);
+  flex: 0 0 70%;
+  max-width: 70%;
+  text-align: right;
+}
+view.all view.top_information view.right view.name {
+  font-family: PingFangSC-Semibold;
+  font-size: 31px;
+  color: #FFFFFF;
+}
+view.all view.top_information view.right view.detail {
+  font-family: PingFangSC-Regular;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+view.all view.top_information view.right view.rewards text {
+  font-family: PingFangSC-Thin;
+  font-size: 17px;
+  color: #FFFFFF;
+}
+view.all view.main_card {
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  background: #006272;
+  border-radius: 23px 23px 0px 0px;
+  margin-top: -20px;
+  z-index: 1000;
+}
+view.all view.main_card view.card {
+  width: 95%;
+  margin: 0 auto;
+}
+view.all view.main_card view.card view.team_stats {
+  padding-top: 15px;
+}
+view.all view.main_card view.card view.team_stats view.title {
+  font-family: PingFangSC-Regular;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.team_stats view.stat_line {
+  height: 90px;
+  width: 100%;
+  display: flex;
+  margin-top: 15px;
+  background: #00788C;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 23px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+view.all view.main_card view.card view.team_stats view.stat_line view.stat_column {
+  text-align: center;
+  flex: 0 0 33.333%;
+  max-width: 33.333%;
+}
+view.all view.main_card view.card view.team_stats view.stat_line view.stat_column view.wrapper {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+view.all view.main_card view.card view.team_stats view.stat_line view.stat_column view.wrapper view.number {
+  font-family: PingFangSC-Semibold;
+  font-size: 25px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.team_stats view.stat_line view.stat_column view.wrapper view.description {
+  margin-top: 5px;
+  font-family: PingFangSC-Thin;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.history_games {
+  margin-top: 15px;
+}
+view.all view.main_card view.card view.history_games view.title {
+  font-family: PingFangSC-Regular;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.history_games view.game_row {
+  height: 80px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  width: 100%;
+  display: flex;
+  margin-top: 15px;
+  background: #00788C;
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+view.all view.main_card view.card view.history_games view.game_row .top {
+  height: 40px;
+  position: relative;
+  top: 25%;
+  transform: translate(0%, -25%);
+}
+view.all view.main_card view.card view.history_games view.game_row .bottom {
+  height: 40px;
+  position: relative;
+  top: 35%;
+  transform: translate(0%, -35%);
+}
+view.all view.main_card view.card view.history_games view.game_row view.left {
+  margin-left: 10px;
+  flex: 0 0 45%;
+  max-width: 45%;
+}
+view.all view.main_card view.card view.history_games view.game_row view.left view.team1 image {
+  vertical-align: middle;
+  width: 35px;
+  height: 35px;
+}
+view.all view.main_card view.card view.history_games view.game_row view.left view.team1 text.team_name {
+  margin-left: 15px;
+  font-family: PingFangSC-Regular;
+  font-size: 13px;
+  color: #FF0000;
+}
+view.all view.main_card view.card view.history_games view.game_row view.left view.team2 {
+  margin-top: 10px;
+}
+view.all view.main_card view.card view.history_games view.game_row view.left view.team2 image {
+  vertical-align: middle;
+  width: 35px;
+  height: 35px;
+}
+view.all view.main_card view.card view.history_games view.game_row view.left view.team2 text.team_name {
+  margin-left: 15px;
+  font-family: PingFangSC-Regular;
+  font-size: 13px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.history_games view.game_row view.middle {
+  flex: 20%;
+  max-width: 20%;
+  font-family: PingFangSC-Thin;
+  font-size: 10px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.history_games view.game_row view.right {
+  display: flex;
+  flex: 0 0 35%;
+  max-width: 35%;
+}
+view.all view.main_card view.card view.history_games view.game_row view.right view.vertical_line {
+  margin-top: 9px;
+  border-left: 1px solid #FFFFFF;
+  height: 60px;
+}
+view.all view.main_card view.card view.history_games view.game_row view.right view.score {
+  margin-left: 30px;
+  margin-top: -10px;
+}
+view.all view.main_card view.card view.history_games view.game_row view.right view.score view.team1_score text {
+  font-family: PingFangSC-Regular;
+  font-size: 13px;
+  color: #FF0000;
+}
+view.all view.main_card view.card view.history_games view.game_row view.right view.score view.team1_score image {
+  margin-left: 10px;
+  width: 11px;
+  height: 11px;
+  vertical-align: middle;
+}
+view.all view.main_card view.card view.history_games view.game_row view.right view.score view.team2_score text {
+  font-family: PingFangSC-Regular;
+  font-size: 13px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.history_games view.game_row view.right view.score view.team2_score image {
+  margin-left: 10px;
+  width: 11px;
+  height: 11px;
+  vertical-align: middle;
+}
+view.all view.main_card view.card view.roster {
+  margin-top: 15px;
+}
+view.all view.main_card view.card view.roster view.title {
+  font-family: PingFangSC-Regular;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.roster .table {
+  margin-top: 15px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 27px;
+  padding: 20px 25px 20px 25px;
+  background-color: #00788C;
+}
+view.all view.main_card view.card view.roster .table .left {
+  padding-left: 10px;
+  width: 3%;
+  align-items: center;
+  justify-content: left;
+}
+view.all view.main_card view.card view.roster .table .middle {
+  padding-left: 20px;
+  width: 55%;
+  align-items: left;
+}
+view.all view.main_card view.card view.roster .table .right {
+  padding-left: 20px;
+  width: 30%;
+  align-items: center;
+  justify-content: right;
+  border-right: 0px;
+}
+view.all view.main_card view.card view.roster .table .tr {
+  display: flex;
+  width: 100%;
+  height: 3rem;
+  align-items: center;
+  border-bottom: 1px solid #FFFFFF;
+}
+view.all view.main_card view.card view.roster .table .tr .td {
+  font-family: PingFangSC-Thin;
+  font-size: 17px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.roster .table .tr image {
+  height: 30px;
+  width: 30px;
+  vertical-align: middle;
+  margin-right: 10px;
+  border-radius: 50%;
+}
+view.all view.main_card view.card view.roster .table .tr .td.right {
+  border-right: 0px;
+}
+view.all view.main_card view.card view.roster .table .tr.top {
+  border-top: 1px solid #FFFFFF;
+}
+view.all view.main_card view.card view.upcoming {
+  margin-top: 15px;
+}
+view.all view.main_card view.card view.upcoming view.title {
+  font-family: PingFangSC-Regular;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.upcoming view.upcoming_row {
+  position: relative;
+  height: 205px;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  width: 100%;
+  display: flex;
+  margin-top: 15px;
+  margin-bottom: 15px;
+  background: #00788C;
+  border-radius: 27px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+view.all view.main_card view.card view.upcoming view.upcoming_row view.content {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+view.all view.main_card view.card view.upcoming view.upcoming_row view.content.middle {
+  text-align: center;
+  position: relative;
+  top: 70%;
+  transform: translateY(-70%);
+}
+view.all view.main_card view.card view.upcoming view.upcoming_row view.team1 {
+  text-align: center;
+  flex: 37.5%;
+  max-width: 37.5%;
+}
+view.all view.main_card view.card view.upcoming view.upcoming_row view.team1 image {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+view.all view.main_card view.card view.upcoming view.upcoming_row view.team1 view.team_name {
+  font-family: PingFangSC-Regular;
+  font-size: 13px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.upcoming view.upcoming_row view.team1 view.record {
+  margin-top: 5px;
+  font-family: PingFangSC-Regular;
+  font-size: 10px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.upcoming view.upcoming_row view.extra {
+  text-align: center;
+  flex: 25%;
+  max-width: 25%;
+}
+view.all view.main_card view.card view.upcoming view.upcoming_row view.extra view.VS {
+  text-align: center;
+  font-family: PingFangSC-Regular;
+  font-size: 25px;
+  color: #FF0000;
+}
+view.all view.main_card view.card view.upcoming view.upcoming_row view.extra view.name {
+  margin-top: 5px;
+  font-family: PingFangSC-Semibold;
+  font-size: 16px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.upcoming view.upcoming_row view.extra view.location {
+  margin-top: 5px;
+  font-family: PingFangSC-Regular;
+  font-size: 10px;
+  color: #FF5400;
+}
+view.all view.main_card view.card view.upcoming view.upcoming_row view.extra view.time {
+  margin-top: 5px;
+  font-family: PingFangSC-Regular;
+  font-size: 10px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.upcoming view.upcoming_row view.team2 {
+  text-align: center;
+  flex: 37.5%;
+  max-width: 37.5%;
+}
+view.all view.main_card view.card view.upcoming view.upcoming_row view.team2 image {
+  height: 100px;
+  width: 100px;
+  border-radius: 50%;
+}
+view.all view.main_card view.card view.upcoming view.upcoming_row view.team2 view.team_name {
+  font-family: PingFangSC-Regular;
+  font-size: 13px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.upcoming view.upcoming_row view.team2 view.record {
+  margin-top: 5px;
+  font-family: PingFangSC-Regular;
+  font-size: 10px;
+  color: #FFFFFF;
+}

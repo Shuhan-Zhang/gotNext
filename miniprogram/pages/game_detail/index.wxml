@@ -1,0 +1,39 @@
+<view class="all">
+    <view class="top">
+        <image class="background" src="../../img/game_detail/lebron.jpg" mode="aspectFill"></image>
+        <view class="upcoming_row">
+            <view class="team1">    
+                <view class="content">
+                    <image src="{{team1.logo}}" mode="aspectFill"></image>
+                    <view class="team_name">{{team1.team_name}}</view>
+                    <view class="record">{{team1.win}}W/{{team1.loss}}L</view>
+                    <view class="ranking">{{game.league_name}}第{{team1.ranking}}名</view>
+                </view>
+            </view>
+            <view class="extra">
+                <view class="content middle">
+                    <view class="VS">V.S</view>
+                </view>
+            </view>
+            <view class="team2">
+                <view class="content">
+                    <image src="{{team2.logo}}" mode="aspectFill"></image>
+                    <view class="team_name">{{team2.team_name}}</view>
+                    <view class="record">{{team2.win}}W/{{team2.loss}}L</view>
+                    <view class="ranking">{{game.league}}第{{team2.ranking}}名</view>
+                </view>
+            </view>
+        </view>
+    </view>
+    <view class="main_card">
+        <view class="card">
+            <view class="title">{{game.name}}</view>
+            <view class="time iconfont icon-shijian"> 时间{{game.written_time}}</view>
+            <view class="location iconfont icon-map-thumbtack"> 地址:{{game.location_name}}</view>
+            <map id = "12345" markers="{{marker}}"></map>
+        </view>
+        <button class="join_button">
+            买球票
+        </button>
+    </view>
+</view>

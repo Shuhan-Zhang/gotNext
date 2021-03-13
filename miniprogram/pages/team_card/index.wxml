@@ -1,0 +1,137 @@
+<view class="all">
+    <view class="top_information">
+        <view class="left">
+            <image src="../../img/team_card/charlotte.png" mode="aspectFill"></image>
+        </view>
+        <view class="right">
+            <view class="name">U16夏洛特黄蜂队</view>
+            <view class="detail">5胜-1负</view>
+            <view class="rewards">
+                <text> U16排名第5</text>
+            </view>
+        </view>
+    </view>
+    <view class="main_card">
+        <view class = "card">
+            <view class="team_stats">
+                <view class="title">球队数据</view>
+                <view class="stat_line">
+                    <view class='stat_column'>
+                        <view class="wrapper">
+                            <view class="number">70</view>
+                            <view class="description">场均得分</view>
+                        </view>
+                    </view>
+                    <view class='stat_column'>
+                        <view class="wrapper">
+                            <view class="number">23.1</view>
+                            <view class="description">场均篮板</view>
+                        </view>
+                    </view>
+                    <view class='stat_column'>
+                        <view class="wrapper">
+                            <view class="number">15.4</view>
+                            <view class="description">场均助攻</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="history_games">
+                <view class="title">
+                    近期比赛
+                </view>
+                <view class="game_row">
+                    <view class="left">
+                        <view class="team1">
+                            <image src="../../img/team_card/hawks.png" mode="aspectFill"></image>
+                            <text class="team_name  top">亚特兰大老鹰队</text>
+                        </view>
+                        <view class="team2">
+                            <image src="../../img/team_card/charlotte.png" mode="aspectFill"></image>
+                            <text class="team_name bottom">夏洛特黄蜂队</text>
+                        </view>
+                    </view>
+                    <view class="middle">
+                        <view class="record top">11胜:1负</view>
+                        <view class="record bottom">9胜:2负</view>
+                    </view>
+                    <view class="right">
+                        <view class="vertical_line"></view>
+                        <view class="score">
+                            <view class="team1_score top">
+                                <text class="">74分</text>
+                                <image src="../../img/team_card/Triangle.png" mode="aspectFill"></image>
+                            </view>
+                            <view class="team2_score bottom">
+                                <text class="">35分</text>
+                                <image></image>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="roster">
+                <view class="title">球员列表</view>
+                <view class="table ranking">
+                    <view class="tr top">
+                        <view class="td left">1.</view>
+                        <view class="td middle">
+                            <image src="../../img/team_card/point.png" mode="aspectFill"></image>
+                            <text>张书晗</text>
+                        </view>
+                        <view class="td right">控球后卫</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td left">2.</view>
+                        <view class="td middle">
+                            <image src="../../img/team_card/point.png" mode="aspectFill"></image>
+                            <text>张书晗</text>
+                        </view>
+                        <view class="td right">控球后卫</view>
+                    </view>
+                    <view class="tr">
+                        <view class="td left">3.</view>
+                        <view class="td middle">
+                            <image src="../../img/team_card/point.png" mode="aspectFill"></image>
+                            <text>张书晗</text>
+                        </view>
+                        <view class="td right">控球后卫</view>
+                    </view>
+                </view>
+            </view>
+            <view class="upcoming">
+                <view class="title">即将开打</view>
+                <view class="upcoming_row">
+                    <view class="team1">
+                        <view class="content">
+                            <image src="../../img/team_card/warriors.png" mode="aspectFill"></image>
+                            <view class="team_name">金州勇士队</view>
+                            <view class="record">73W/9L</view>
+                        </view>
+                    </view>
+                    <view class="extra">
+                        <view class="content middle">
+                            <view class="VS">V.S</view>
+                            <view class="name">U16常规赛</view>
+                            <view class="location">
+                                <text class="location iconfont icon-map-thumbtack"></text>
+                                <text class="location">北京工业大学</text>
+                            </view>
+                            <view class="time">
+                                <text class="time iconfont icon-shijian"></text>
+                                <text class="time">2021/1/13 19:00-22:00</text>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="team2">
+                        <view class="content">
+                            <image src="../../img/team_card/hawks.png" mode="aspectFill"></image>
+                            <view class="team_name">亚特兰大老鹰队</view>
+                            <view class="record">34W/48L</view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

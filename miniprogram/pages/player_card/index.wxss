@@ -1,0 +1,279 @@
+view.all {
+  height: 100%;
+}
+view.all view.top_information {
+  display: flex;
+  background: #FF5400;
+}
+view.all view.top_information view.left {
+  flex: 0 0 10%;
+  max-width: 10%;
+}
+view.all view.top_information view.left image {
+  margin-left: 5px;
+  z-index: 1000;
+  width: 50px;
+  height: 50px;
+}
+view.all view.top_information view.middle {
+  flex: 0 0 30%;
+  max-width: 30%;
+}
+view.all view.top_information view.middle image {
+  width: 150px;
+  height: 150px;
+}
+view.all view.top_information view.right {
+  position: relative;
+  transform: translate(-5%, 5%);
+  flex: 0 0 60%;
+  max-width: 60%;
+  text-align: right;
+}
+view.all view.top_information view.right view.name {
+  font-family: PingFangSC-Semibold;
+  font-size: 35px;
+  color: #FFFFFF;
+}
+view.all view.top_information view.right view.detail {
+  margin-top: 7px;
+  font-family: PingFangSC-Thin;
+  font-size: 17px;
+  color: #FFFFFF;
+}
+view.all view.top_information view.right view.rewards {
+  padding-top: 7px;
+  font-family: PingFangSC-Semibold;
+  font-size: 18px;
+  color: #FFFFFF;
+}
+view.all view.top_information view.right view.rewards text.event {
+  padding-right: 10px;
+}
+view.all view.top_information view.right view.rewards text.rings {
+  padding-right: 10px;
+}
+view.all view.main_card {
+  height: 100vh;
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  background: #9D3400;
+  border-radius: 23px 23px 0px 0px;
+  margin-top: -25px;
+  z-index: 1000;
+}
+view.all view.main_card view.card {
+  width: 92%;
+  margin: 0 auto;
+}
+view.all view.main_card view.card view.career_stats {
+  padding-top: 15px;
+}
+view.all view.main_card view.card view.career_stats view.title {
+  font-family: PingFangSC-Regular;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.career_stats view.stat_line {
+  height: 90px;
+  width: 100%;
+  display: flex;
+  margin-top: 15px;
+  background: #FF5400;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 23px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+view.all view.main_card view.card view.career_stats view.stat_line view.stat_column {
+  text-align: center;
+  flex: 0 0 33.333%;
+  max-width: 33.333%;
+}
+view.all view.main_card view.card view.career_stats view.stat_line view.stat_column view.wrapper {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+view.all view.main_card view.card view.career_stats view.stat_line view.stat_column view.number {
+  font-family: PingFangSC-Semibold;
+  font-size: 25px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.career_stats view.stat_line view.stat_column view.description {
+  margin-top: 5px;
+  font-family: PingFangSC-Thin;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.career_stats view.stat_line_small {
+  height: 25px;
+  width: 100%;
+  display: flex;
+  margin-top: 15px;
+}
+view.all view.main_card view.card view.career_stats view.stat_line_small view.stat_column {
+  text-align: center;
+  flex: 0 0 33.333%;
+  max-width: 33.333%;
+  font-family: PingFangSC-Ultralight;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.history_games {
+  margin-top: 10px;
+}
+view.all view.main_card view.card view.history_games view.title {
+  font-family: PingFangSC-Regular;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.history_games view.history_game_row {
+  padding-left: 10px;
+  height: 75px;
+  width: 100%;
+  display: flex;
+  margin-top: 15px;
+  background: #FF5400;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 23px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+view.all view.main_card view.card view.history_games view.history_game_row view.wrapper {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+view.all view.main_card view.card view.history_games view.history_game_row view.left {
+  flex: 0 0 40%;
+  max-width: 40%;
+}
+view.all view.main_card view.card view.history_games view.history_game_row view.left image {
+  width: 85rpx;
+  height: 85rpx;
+  vertical-align: middle;
+}
+view.all view.main_card view.card view.history_games view.history_game_row view.left text {
+  margin: 0px 10px 0px 10px;
+  font-family: PingFangSC-Semibold;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.history_games view.history_game_row view.middle {
+  flex: 0 0 45%;
+  max-width: 45%;
+  display: flex;
+}
+view.all view.main_card view.card view.history_games view.history_game_row view.middle view.stat {
+  text-align: center;
+  flex: 0 0 33.333%;
+  max-width: 33.333%;
+}
+view.all view.main_card view.card view.history_games view.history_game_row view.middle view.stat view.number {
+  font-family: PingFangSC-Semibold;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.history_games view.history_game_row view.middle view.stat view.description {
+  font-family: PingFangSC-Thin;
+  font-size: 10px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.history_games view.history_game_row view.right {
+  padding-left: 10px;
+  flex: 0 0 15%;
+  max-width: 15%;
+}
+view.all view.main_card view.card view.history_games view.history_game_row view.right view.result {
+  font-family: PingFangSC-Semibold;
+  font-size: 30px;
+  color: #00FE02;
+}
+view.all view.main_card view.card view.total_reward {
+  margin-top: 10px;
+}
+view.all view.main_card view.card view.total_reward view.title {
+  font-family: PingFangSC-Regular;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.total_reward view.reward_row {
+  padding-left: 10px;
+  height: 75px;
+  width: 100%;
+  display: flex;
+  margin-top: 15px;
+  background: #FF5400;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 23px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+view.all view.main_card view.card view.total_reward view.reward_row view.stats_column {
+  flex: 0 0 14.28%;
+  max-width: 14.28%;
+  text-align: center;
+}
+view.all view.main_card view.card view.total_reward view.reward_row view.stats_column view.wrapper {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+view.all view.main_card view.card view.total_reward view.reward_row view.stats_column view.wrapper view.number {
+  font-family: PingFangSC-Semibold;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.total_reward view.reward_row view.stats_column view.wrapper view.description {
+  font-family: PingFangSC-Thin;
+  font-size: 10px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.event_reward {
+  margin-top: 10px;
+}
+view.all view.main_card view.card view.event_reward view.title {
+  font-family: PingFangSC-Regular;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.event_reward view.wrapper {
+  margin-top: 10px;
+  width: 100%;
+  display: flex;
+}
+view.all view.main_card view.card view.event_reward view.wrapper view.wrapper2 {
+  width: 90%;
+  margin: 0px auto;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  height: 50px;
+  border-radius: 8px;
+}
+view.all view.main_card view.card view.event_reward view.wrapper view.personal {
+  background-color: #FF5400;
+}
+view.all view.main_card view.card view.event_reward view.wrapper view.team {
+  background-color: #147CE5;
+}
+view.all view.main_card view.card view.event_reward view.wrapper view.challenge {
+  background-color: #51976A;
+}
+view.all view.main_card view.card view.event_reward view.wrapper view.social {
+  background-color: #DA463C;
+}
+view.all view.main_card view.card view.event_reward view.wrapper view.reward_column {
+  height: 50px;
+  text-align: center;
+  flex: 0 0 25%;
+  max-width: 25%;
+}
+view.all view.main_card view.card view.event_reward view.wrapper view.reward_column text {
+  position: relative;
+  top: 25%;
+  transform: translateY(-25%);
+  font-family: PingFangSC-Semibold;
+  font-size: 20px;
+  color: #FFFFFF;
+}

@@ -1,0 +1,145 @@
+<view class="index">
+    <!--轮播图开始-->
+    <view class="index_swiper">
+        <swiper autoplay circular>
+            <swiper-item wx:for="{{swiper_image}}">
+                <navigator>
+                    <image mode = "widthFix" src="{{item.img}}"></image>
+                </navigator>
+            </swiper-item>
+        </swiper>
+    </view>
+    <view>{{games[0]}}</view>
+    
+    <!--轮播图结束-->
+    <view class="content">
+        <view class="close_by">
+            <view class="title" style="clear:both;">
+                <text class="top">附近</text>
+                <view class="category_selector">
+                    <button bindtap="eventOnly" data-type="close_by">活动</button>
+                    <text>/</text>
+                    <button bindtap="gameOnly"  data-type="close_by">比赛</button>
+                    <text>/</text>
+                    <button bindtap="allItems"  data-type="close_by">全部</button>
+                </view>
+            </view>
+            <view class="nothing" wx:if="{{closeby_items.length == 0}}">没有这个诶</view>
+                <view class="close_row" wx:for="{{closeby_items}}" bindtap="rowNavigator" data-id="{{item._id}}" data-category="{{item.category}}">
+                    <view class="left">
+                        <view class="wrapper">
+                            <image src="{{item.img}}" mode="aspectFill"></image>
+                        </view>
+                    </view>
+                    <view class="middle">
+                        <view class="wrapper">
+                            <text class="name">{{item.name}}</text>
+                            <view class="line"></view>
+                            <text class="category iconfont icon-fenlei" wx:for="{{item.category}}"> {{item}}</text>
+                            <view class="location iconfont icon-map-thumbtack"> {{item.location_name}}</view>
+                            <view class="time iconfont icon-shijian"> {{item.written_time}}</view>
+                        </view>
+                    </view>
+                    <view class="right">
+                        <view class="wrapper">
+                            <button>立即加入</button>
+                            <text class="money" wx:if="{{item.price_money}}">第一名奖金:{{item.price_money}}¥</text>
+                        </view>
+                    </view>
+                </view>
+            <navigator class="more">查看更多</navigator>
+            <view class="map">
+                <text>篮球地图</text>
+                <map id= "123" markers="{{markers}}"></map>
+            </view>
+            
+        </view>
+
+        <view class="upcoming">
+            <view class="title" style="clear:both;">
+                <text class="top">最近</text>
+                <view class="category_selector">
+                    <button bindtap="eventOnly" data-type="recent">活动</button>
+                    <text>/</text>
+                    <button bindtap="gameOnly" data-type="recent">比赛</button>
+                    <text>/</text>
+                    <button bindtap="allItems" data-type="recent">全部</button>
+                </view>
+            </view>
+            <view class="nothing" wx:if="{{recent.length == 0}}">没有这个诶</view>
+            <view class="upcoming_row" wx:for="{{recent}}" bindtap="rowNavigator" data-id="{{item._id}}" data-category="{{item.category}}">
+                <view class="left">
+                    <view class="wrapper">
+                        <image src="{{item.img}}" mode="aspectFill"></image>
+                    </view>
+                </view>
+                <view class="middle">
+                    <view class="wrapper">
+                        <text class="name">{{item.name}}</text>
+                        <view class="line"></view>
+                        <text class="category iconfont icon-fenlei" wx:for="{{item.category}}"> {{item}}</text>
+                        <view class="location iconfont icon-map-thumbtack">  {{item.location_name}}</view>
+                        <view class="time iconfont icon-shijian">  {{item.written_time}}</view>
+                    </view>
+                </view>
+                <view class="right">
+                    <view class="wrapper">
+                        <button>立即加入</button>
+                        <text class="money" wx:if="{{item.price_money}}">第一名奖金:{{item.price_money}}¥</text>
+                    </view>
+                </view>
+            </view>
+            <navigator class="more">查看更多</navigator>
+            <view class="MVP">
+                <view class="title">今日最佳球员</view>
+                <view class="card">
+                    <view class="row">
+                        <view class="left">
+                            <image src="{{mvp.img}}" mode="aspectFill"></image>
+                        </view>
+                        <view class="middle">
+                            <view class="name">{{mvp.name}}</view>
+                            <view class="stats">{{mvp.point}}分/{{mvp.rebound}}篮板/{{mvp.assist}}助攻</view>
+                        </view>
+                        <view class="right">
+                            <image src="{{MVPTeamImage}}" mode="aspectFill"></image>
+                        </view>
+                    </view>
+                    <view class="video">
+                        <video src="{{mvp.video}}"></video>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="news">
+            <view class="title" style="clear:both">
+                <text class="top">最新新闻</text>
+                <view class="category_selector">
+                    <view class="container" bindtap="close">
+                        <view class="select-wrap">
+                            <select id="select" options="{{options}}" key="city_id" text="city_name" bind:change="change"></select>
+                        </view>
+                    </view>
+                </view>
+            </view>
+            <view class="nothing" wx:if="{{news.length == 0}}">
+                <text>没有这个诶</text>
+            </view>
+            <view class="news_row" wx:for="{{news}}">
+                <view class="left">
+                    <view class="category">
+                        <text class="iconfont icon-fenlei">  {{item.category}}</text>
+                    </view>
+                    <view class="written">
+                        <view class="title">{{item.title}}</view>
+                        <view class="line"></view>
+                        <view class="news_description">{{item.description}}</view>
+                    </view>
+                </view>
+                <view class="right">
+                    <image src="{{item.img}}" mode="aspectFill"></image>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

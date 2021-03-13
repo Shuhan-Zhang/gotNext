@@ -1,0 +1,479 @@
+view.all {
+    width:97%;
+    margin: 0px auto;
+    view.player_card {
+        margin-top: 10px;
+      view.title {
+        font-family: PingFangSC-Semibold;
+        font-size: 30px;
+        color: #FF5400;
+      }
+  
+      view.card {
+        view.top_information {
+            border-radius: 23px 23px 0px 0px;
+            display: flex;
+            background: #FF5400;
+          view.left {
+            flex: 0 0 10%;
+            max-width: 10%;
+            image {
+                margin-top: 10px;
+                margin-left: 10px;
+                z-index: 1000;
+                width: 50px;
+                height: 50px;
+            }
+          }
+      
+          view.middle {
+            flex: 0 0 30%;
+            max-width: 30%;
+            image {
+                width:150px;
+                height: 150px;
+            }
+          }
+      
+          view.right {
+            position: relative;
+            transform: translate(-5%, 10%);
+            flex: 0 0 60%;
+            max-width: 60%;
+            text-align: right;
+            view.name {
+                font-family: PingFangSC-Semibold;
+                font-size: 30px;
+                color: #FFFFFF;
+            }
+      
+            view.detail {
+                margin-top: 7px;
+                font-family: PingFangSC-Thin;
+                font-size: 15px;
+                color: #FFFFFF;
+            }
+      
+            view.rewards {
+                padding-top: 7px;
+                font-family: PingFangSC-Semibold;
+                font-size: 18px;
+                color: #FFFFFF;
+              text.event {
+                padding-right: 10px;
+              }
+      
+              text.rings {
+                padding-right: 10px;
+              }
+            }
+          }
+        }
+      
+        view.main_card {
+            display:flex;
+            flex-flow: column;
+            position: relative;
+            background: #9D3400;
+            border-radius: 23px 23px 23px 23px;
+            margin-top: -25px;
+            z-index: 1000;
+            padding-bottom: 10px;
+          view.card {
+              width:92%;
+              margin:0 auto;
+            view.career_stats {
+                padding-top: 15px;
+              view.title {
+                font-family: PingFangSC-Regular;
+                font-size: 15px;
+                color: #FFFFFF;
+              }
+      
+              view.stat_line {
+                height: 90px;
+                width:100%;
+                display: flex;
+                margin-top: 15px;
+                background: #FF5400;
+                box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+                border-radius: 23px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                view.stat_column {
+                    text-align: center;
+                    flex: 0 0 33.333%;
+                    max-width: 33.333%;
+                  view.wrapper{
+                    position: relative;
+                    top:50%;
+                    transform: translateY(-50%);
+                  }
+                  view.number {
+                    font-family: PingFangSC-Semibold;
+                    font-size: 25px;
+                    color: #FFFFFF;
+                  }
+      
+                  view.description {
+                    margin-top: 5px;
+                    font-family: PingFangSC-Thin;
+                    font-size: 15px;
+                    color: #FFFFFF;
+                  }
+                }
+              }
+      
+              view.stat_line_small {
+                height: 25px;
+                width:100%;
+                display: flex;
+                margin-top: 15px;
+                view.stat_column{
+                    text-align: center;
+                    flex: 0 0 33.333%;
+                    max-width: 33.333%;
+                    font-family: PingFangSC-Ultralight;
+                    font-size: 15px;
+                    color: #FFFFFF;
+                }
+              }
+            }
+      
+            view.history_games {
+               margin-top: 10px;
+              view.title {
+                font-family: PingFangSC-Regular;
+                font-size: 15px;
+                color: #FFFFFF;
+              }
+      
+              view.history_game_row {
+                padding-left: 10px;
+                height: 75px;
+                width:100%;
+                display: flex;
+                margin-top: 15px;
+                background: #FF5400;
+                box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+                border-radius: 23px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                view.wrapper{
+                    position: relative;
+                    top:50%;
+                    transform: translateY(-50%);
+                }
+                view.left {
+                    flex: 0 0 40%;
+                    max-width: 40%;
+                  image {
+                    width: 83rpx;
+                    height:83rpx;
+                    vertical-align: middle;
+                  }
+      
+                  text {
+                    margin:0px 10px 0px 10px;
+                    font-family: PingFangSC-Semibold;
+                    font-size: 20px;
+                    color: #FFFFFF;
+                  }
+                }
+      
+                view.middle {
+                    flex: 0 0 45%;
+                    max-width: 45%;
+                    display: flex;
+                  view.stat {
+                    text-align: center;
+                    flex: 0 0 33.333%;
+                    max-width: 33.333%;
+                    view.number {
+                        font-family: PingFangSC-Semibold;
+                        font-size: 20px;
+                        color: #FFFFFF;
+                      }
+          
+                      view.description {
+                        font-family: PingFangSC-Thin;
+                        font-size: 10px;
+                        color: #FFFFFF;
+                      }
+                  }
+                }
+      
+                view.right {
+                    padding-left: 10px;
+                    flex: 0 0 15%;
+                    max-width: 15%;
+                  view.result {
+                    font-family: PingFangSC-Semibold;
+                    font-size: 30px;
+                    color: #00FE02;
+                  }
+                }
+              }
+            }
+      
+            view.total_reward {
+                margin-top: 10px;
+              view.title {
+                font-family: PingFangSC-Regular;
+                font-size: 15px;
+                color: #FFFFFF;
+              }
+      
+              view.reward_row {
+                padding-left: 10px;
+                height: 75px;
+                width:100%;
+                display: flex;
+                margin-top: 15px;
+                background: #FF5400;
+                box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+                border-radius: 23px;
+                padding-top: 5px;
+                padding-bottom: 5px;
+                view.stats_column {
+                    flex: 0 0 14.28%;
+                    max-width: 14.28%;
+                    text-align: center;
+                    view.wrapper{
+                        position: relative;
+                        top:50%;
+                        transform: translateY(-50%);
+                        view.number {
+                            font-family: PingFangSC-Semibold;
+                            font-size: 20px;
+                            color: #FFFFFF;
+                        }
+            
+                        view.description {
+                            font-family: PingFangSC-Thin;
+                            font-size: 10px;
+                            color: #FFFFFF;
+                        }
+                    }
+                }
+              }
+            }
+      
+            view.event_reward {
+                margin-top: 10px;
+              view.title {
+                font-family: PingFangSC-Regular;
+                font-size: 15px;
+                color: #FFFFFF;
+              }
+              view.wrapper{
+                margin-top: 10px;
+                width:100%;
+                display: flex;
+                view.wrapper2{
+                    width:90%;
+                    margin: 0px auto;
+                    box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+                    height:50px;
+                    border-radius: 8px;
+                }
+                view.personal{
+                    background-color: #FF5400;
+                }
+                view.team{
+                    background-color: #147CE5;
+                }
+                view.challenge{
+                    background-color: #51976A;
+                }
+                view.social{
+                    background-color: #DA463C;
+                }
+                view.reward_column {
+                    height: 50px;
+                    text-align: center;
+                    flex: 0 0 25%;
+                    max-width: 25%;
+                    text {
+                        position:relative;
+                        top:25%;
+                        transform: translateY(-25%);
+                        font-family: PingFangSC-Semibold;
+                        font-size: 20px;
+                        color: #FFFFFF;
+                    }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  
+    view.calendar {
+        margin-top: 15px;
+      view.title {
+        margin-bottom: 10px;
+        font-family: PingFangSC-Semibold;
+        font-size: 30px;
+        color: #FF5400;
+      }
+      view.wrapper{
+        background:#FF8B52;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        border-radius: 10px;
+        .actual_calendar{
+            --calendar-height:500px;
+            --calendar-background-color:#FF8B52;
+            color:#FFFFFF;
+        }
+        view.today{
+            width:95%;
+            margin:0px auto;
+            view.today_title{
+                margin-top: 10px;
+                margin-bottom: 10px;
+                font-family: PingFangSC-Semibold;
+                font-size: 23px;
+                color: #FFFFFF;
+                text-align: left;
+            }
+            view.recent_row {
+                margin-top: 10px;
+                box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
+                margin:0px auto;
+                display: flex;
+                background: #FFF0E8;
+                border-radius: 8px;
+                padding-top: 15px;
+                padding-bottom: 15px;
+                view.left{
+                    margin-left: 5px;
+                    flex: 0 0 25%;
+                    max-width: 25%;
+                    view.wrapper2{
+                        position:relative;
+                        top:50%;
+                        transform: translateY(-50%);
+                        image {
+                            width:100%;
+                            height: 100%;
+                            border-radius: 8px;
+                        }
+                    }
+                }
+        
+                .row_content{
+                    padding-left: 10px;
+                    flex: 0 0 45%;
+                    max-width: 45%;
+                    view.wrapper2{
+                        position:relative;
+                        top:50%;
+                        transform: translateY(-50%);
+                        text.name {
+                            font-family: PingFangSC-Semibold;
+                            font-size: 20px;
+                            color: #000000;
+                
+                        }
+                        view.line{
+                            margin-top:3px;
+                            margin-bottom: 3px;
+                            width:100%;
+                            height:1px;
+                            background-color: #D1D1D1;
+                        }
+                        text.location {
+                            font-family: PingFangSC-Regular;
+                            font-size: 12px;
+                            color: #FF5400;
+                        }
+                
+                        text.time {
+                            font-family: PingFangSC-Regular;
+                            font-size: 12px;
+                            color: #147CE5;
+                        }
+                    }
+                }
+                view.join{
+                    flex: 0 0 30%;
+                    max-width: 30%;
+                    view.wrapper2{
+                        position:relative;
+                        top:50%;
+                        transform: translateY(-50%);
+                        button {
+                            padding:10px 0px 10px 0px;
+                            width:80%;
+                            margin-left: 2px;
+                            background: #FF5400;
+                            border-radius: 8px;
+                            font-family: PingFangSC-Semibold;
+                            font-size: 15px;
+                            color: #FFFFFF;
+                        }
+                        text.money{
+                            font-family: PingFangSC-Regular;
+                            font-size: 10px;
+                            color: #FF0000;
+                        }
+                    }
+                }
+            }
+        }
+
+      }
+    
+    }
+  
+    view.setting {
+        margin-top: 10px;
+      view.title {
+        font-family: PingFangSC-Semibold;
+        font-size: 30px;
+        color: #FF5400;
+        margin-bottom: 10px;
+      }
+  
+      view.setting_row {
+        margin-bottom: 15px;
+        background: #FF5400;
+        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+        border-radius: 4px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        display: flex;
+        view.wrapper{
+            position: relative;
+            top:50%;
+            transform: translateY(-50%);
+        }
+        view.caption {
+            margin-left: 15px;
+            flex: 0 0 45%;
+            max-width: 45%;
+            font-family: PingFangSC-Semibold;
+            font-size: 25px;
+            color: #FFFFFF;
+        }
+  
+        view.icon {
+            text-align:right;
+            flex: 0 0 45%;
+            max-width: 45%;
+            image{
+                width:40px;
+                height:40px;
+                vertical-align: middle;
+            }
+            image.tip{
+                width:45px;
+                height:45px;
+            }
+        }
+      }
+    }
+  }

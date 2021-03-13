@@ -1,0 +1,151 @@
+<view class="all">
+    <view class="top_image">
+        <swiper autoplay indicator-dots circular>
+            <swiper-item>
+                <navigator>
+                    <image src="../../img/event/top.jpg" mode="aspectFill"></image>
+                </navigator>
+            </swiper-item>
+        </swiper>
+        
+    </view>
+    <view class="big">
+        <view class="participated">
+            <view class="title">已参加活动</view>
+            <view class="rows">
+                <view class="wrapper">
+                    <view class="row">
+                        <view class="left">
+                            <image src="../../img/event/event1.jpg" mode="aspectFill"></image>
+                            <view class="name">NBA2K挑战</view>
+                            <view class="line"></view>
+                            <view class="description">看看你能连续赢几局？</view>
+                        </view>
+                        <view class="right">
+                            <view class="location iconfont icon-map-thumbtack">优肯篮球万柳校区</view>
+                            <view class="time iconfont icon-shijian">2021/1/15 16:40-18:00</view>
+                            <view class="reward">第一名奖金:500¥</view>
+                            <button class="check_in">现场登记</button>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="category_selection">
+            <view class="wrapper">
+                <view class="reward_column">
+                    <view class="personal wrapper2">
+                        <text class="iconfont icon-gou_wu_che2"> 个人活动</text>
+                    </view>
+                </view>
+                <view class="reward_column">
+                    <view class="team wrapper2">
+                        <text class="iconfont icon-gou_wu_che2"> 团队活动</text>
+                    </view>
+                </view>
+                <view class="reward_column">
+                    <view class="challenge wrapper2">
+                        <text class="iconfont icon-gou_wu_che2"> 挑战</text>
+                    </view>
+                </view>
+                <view class="reward_column">
+                    <view class="social wrapper2">
+                        <text class="iconfont icon-gou_wu_che2"> 社交</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="recent">
+            <view class="title">最近</view>
+            <view class="recent_row">
+                <view class="left">
+                    <view class="wrapper">
+                        <image src="../../img/event/event2.jpg" mode="widthFix"></image>
+                    </view>
+                </view>
+                <view class="row_content">
+                    <view class="wrapper">
+                        <text class="name">周五1V1球场之王</text>
+                        <view class="line"></view>
+                        <text class="location iconfont icon-map-thumbtack"></text>
+                        <text class="location">北京工业大学</text>
+                        <text>\n</text>
+                        <text class="time iconfont icon-shijian"></text>
+                        <text class="time">2021/1/13 19:00-22:00</text>
+                    </view>
+                </view>
+                <view class="join">
+                    <view class="wrapper">
+                        <button>立即加入</button>
+                        <text class="money">第一名奖金：500¥</text>
+                    </view>
+                </view>
+            </view>
+            <navigator class="more">查看更多</navigator>
+            <view class="basketball_map">
+                <view class="title">篮球地图</view>
+                <map></map>
+            </view>
+        </view>
+        <view class="calendar">
+            <view class="title">活动时间表</view>
+            <view class="wrapper">
+                <van-calendar title="日历" poppable="{{ false }}" show-confirm="{{ false }}" show-title = "{{ false }}" class="actual_calendar" type="single" color="#FF5400" show-mark="{{ false }}" />
+                <view class="today">
+                    <view class="today_title">当日行程</view>
+                    <view class="recent_row">
+                        <view class="left">
+                            <view class="wrapper2">
+                                <image src="../../img/event/event2.jpg" mode="widthFix"></image>
+                            </view>
+                        </view>
+                        <view class="row_content">
+                            <view class="wrapper2">
+                                <text class="name">周五1V1球场之王</text>
+                                <view class="line"></view>
+                                <text class="location iconfont icon-map-thumbtack"></text>
+                                <text class="location">北京工业大学</text>
+                                <text>\n</text>
+                                <text class="time iconfont icon-shijian"></text>
+                                <text class="time">2021/1/13 19:00-22:00</text>
+                            </view>
+                        </view>
+                        <view class="join">
+                            <view class="wrapper2">
+                                <button>立即加入</button>
+                                <text class="money">第一名奖金：500¥</text>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <view class="upcoming">
+            <view class="title">即将</view>
+            <view class="upcoming_row">
+                <view class="left">
+                    <view class="wrapper2">
+                        <image src="../../img/event/event1.jpg" mode="widthFix"></image>
+                    </view>
+                </view>
+                <view class="row_content">
+                    <view class="wrapper2">
+                        <text class="name">周五1V1球场之王</text>
+                        <view class="line"></view>
+                        <text class="location iconfont icon-map-thumbtack"></text>
+                        <text class="location">北京工业大学</text>
+                        <text>\n</text>
+                        <text class="time iconfont icon-shijian"></text>
+                        <text class="time">2021/1/13 19:00-22:00</text>
+                    </view>
+                </view>
+                <view class="join">
+                    <view class="wrapper2">
+                        <button>立即加入</button>
+                        <text class="money">第一名奖金：500¥</text>
+                    </view>
+                </view>
+            </view>
+        </view>
+    </view>
+</view>

@@ -1,0 +1,64 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/league/index",
+    "pages/event/index",
+    "pages/player/index",
+    "pages/player_card/index",
+    "pages/team_card/index",
+    "pages/event_detail/index",
+    "pages/game_detail/index"
+  ],
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于寻找周围活动和比赛"
+    }
+  },
+  "window": {
+    "backgroundColor": "#FF5400",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#FF5400",
+    "navigationBarTitleText": "接波GotNext",
+    "navigationBarTextStyle": "white"
+  },"tabBar": {
+    "color": "FFFFFF",
+    "selectedColor": "#FF5400",
+    "backgroundColor": "FFFFFF",
+    "position": "bottom",
+    "borderStyle": "black",
+    "list": [
+      {
+        "pagePath": "pages/index/index",
+        "text": "首页",
+        "iconPath": "icons/index.png",
+        "selectedIconPath": "icons/index_filled.png"
+      },{
+        "pagePath": "pages/league/index",
+        "text": "联盟",
+        "iconPath": "icons/league.png",
+        "selectedIconPath": "icons/league_filled.png"
+      },
+      {
+        "pagePath": "pages/event/index",
+        "text": "活动",
+        "iconPath": "icons/event.png",
+        "selectedIconPath": "icons/event_filled.png"
+      },{
+        "pagePath": "pages/player/index",
+        "text": "我的",
+        "iconPath": "icons/user.png",
+        "selectedIconPath": "icons/user_filled.png"
+      }
+    ]
+  },
+  "sitemapLocation": "sitemap.json",
+  "usingComponents": {
+    "van-button": "/miniprogram_npm/vant-weapp/button/index",
+    "van-cell": "/miniprogram_npm/vant-weapp/cell/index",
+    "van-calendar": "/miniprogram_npm/vant-weapp/calendar/index",
+    "van-calendar": "@vant/weapp/calendar/index",
+     "van-button": "@vant/weapp/button/index",
+      "van-cell": "@vant/weapp/cell/index",
+      "van-cell-group": "@vant/weapp/cell-group/index"
+  }
+}
