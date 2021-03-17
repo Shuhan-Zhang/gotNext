@@ -3,20 +3,18 @@ var getDate = require('../../getDate.js');
 Page({
   data:{
     user_location:{},
+    markers:[],
+    points:[],
     today:0,
     swiper_image:[],
     closeby_items:[],
-    recent:[],
     news:[],
     events:[],
     games:[],
-    mvp:{},
-    markers:[],
-    points:[],
+    recent:[],
     past:[],
+    mvp:{},
     MVPTeamImage:"",
-    show:true,
-    content:"",
     options: [{
       city_id: '001',
       city_name: 'NBA'
@@ -29,14 +27,17 @@ Page({
     }],
     selected: {}
   },
+
   onLoad(){
+    //获取今天的时间
     var time = getDate.formatTime(new Date());
     this.setData({
       today:time
     })
-
     wx.setStorageSync('today', time);
 
+
+    //获取用户的地址
     wx.getLocation({
     }).then(res=>{
       wx.setStorageSync('user_location', res);
@@ -45,47 +46,39 @@ Page({
       })
     })
 
-    
-
+    //读取所有云开发的数据
     this.getEventGames();
     this.getMVP();
     this.getSwiperImage();
     this.getNews();
+    this.getTeams();
   },
 
-
-  // SET UP FUNCTIONS START
-
-
-
+  // LOAD DATA FUNCTIONS START
   getEventGames(){
+    //读取活动数据
     wx.cloud.database().collection("event").orderBy("time",'asc').get()
     .then(res => {
-      this.setData({
-        events: res.data
-      })
-      wx.setStorageSync('allEvents', res.data);
+      this.processEventTime(res.data);
     }).catch(err => {
       console.log("failed to pull data",err);
     })
-
-
+    //读取比赛数据
     wx.cloud.database().collection("game").orderBy("time",'asc').get()
     .then(res => {
       this.setData({
         games: res.data
       })
-      wx.setStorage({
-        data: res.data,
-        key: 'allGames',
-      })
-      this.setToday();
+      wx.setStorageSync('allGames', res.data)
+      //处理比赛和游戏数据
+      this.processToday();
+      this.processGames();
     }).catch(err => {
       console.log("failed to pull data",err);
     })
-    
   },
   getSwiperImage(){
+    //读取轮播图图片
     wx.cloud.database().collection("index_swiper").get()
     .then(res => {
       this.setData({
@@ -96,6 +89,7 @@ Page({
     })
   },
   getMVP(){
+    //读取今日最佳球员的信息
     wx.cloud.database().collection("MVP").get()
     .then(res => {
       this.setData({
@@ -107,7 +101,7 @@ Page({
     })
   },
   getLeagueInfo(league, team){
-    console.log(league, team)
+    //读取今日最佳球员的球队信息
     wx.cloud.database().collection("teams").where({
       league_name:league,
       team_name:team
@@ -121,6 +115,7 @@ Page({
     })
   },
   getNews(){
+    //读取新闻信息
     wx.cloud.database().collection("news").get()
     .then(res => {
       this.setData({
@@ -131,7 +126,69 @@ Page({
       console.log("failed to pull data",err);
     })
   },
-  setMap(point_list){
+  getTeams(){
+    //读取所有的球队信息
+    wx.cloud.database().collection("teams").get()
+    .then(res => {
+      this.setData({
+        allTeams:res.data
+      })
+      wx.setStorage({
+        data: res.data,
+        key: 'allTeams',
+      })
+    }).catch(err => {
+      console.log("failed to pull data",err);
+    })
+},
+  // LOAD DATA FUNCTIONS END
+
+  // DATA PROCESSING FUNCTIONS START
+
+  processGames(){
+    //在所有的比赛数据里加入对应的球队信息
+    var loaded_teams = wx.getStorageSync('allTeams');
+    var loaded_games = wx.getStorageSync('allGames');
+  
+    loaded_games.forEach(v=>{
+      v.written_time = getDate.formatTime(new Date(v.time));
+      var team_1_name = v.team_1;
+      var team_2_name = v.team_2;
+      loaded_teams.forEach(j=>{
+        if(team_1_name == j.team_name){
+          v.team_1_data = j
+        }else if(team_2_name == j.team_name){
+          v.team_2_data = j
+        }
+      })
+    })
+    this.processGameTime(loaded_games);
+  },
+
+  processEventTime(data){
+    var loaded_events = data;
+    loaded_events.forEach(v=>{
+      v.specific_time = getDate.formatTime(new Date(v.time));
+    })
+    this.setData({
+      events: loaded_events
+    })
+    wx.setStorageSync('allEvents', loaded_events);
+  },
+
+  processGameTime(data){
+    var loaded_games = data;
+    loaded_games.forEach(v=>{
+      v.specific_time = getDate.formatTime(new Date(v.time));
+    })
+    this.setData({
+      games: loaded_games
+    })
+    wx.setStorageSync('allGames', loaded_games);
+  },
+
+  processMap(point_list){
+    //处理篮球地图的标记信息
     var map = wx.createMapContext('123', this);
     // map.moveToLocation({
     //   longitude:116.29845,
@@ -148,7 +205,8 @@ Page({
       }
     )
   },
-  setToday(){
+  processToday(){
+    //处理所有最近信息以及附近信息
     var today = wx.getStorageSync('today');
     var final_closeby = [];
     var final_recent = [];
@@ -244,7 +302,8 @@ Page({
       recent: final_recent,
       past:final_past
     })
-    this.setMap(final_points);
+    this.processMap(final_points);
+
     wx.setStorage({
       data: final_closeby,
       key: 'close_by',
@@ -256,7 +315,9 @@ Page({
   },
 
 
-  // SET UP FUNCTIONS END
+  // PROCESS DATA FUNCTIONS END
+
+
 
   // EXTERNAL FUNCTIONS START
   Rad: function(d) { //根据经纬度判断距离
@@ -278,6 +339,7 @@ Page({
     return s
 },
   change (e) {
+    //实现新闻的分类选择功能
     this.setData({
       selected: { ...e.detail }
     })
@@ -302,9 +364,12 @@ Page({
   },
   // EXTERNAL FUNCTIONS END
 
-  // BUTTON FUNCTIONS START
 
+
+
+  // BUTTON FUNCTIONS START
   eventOnly(e){
+    //实现活动按钮功能
     var type = e.currentTarget.dataset.type;
     if(type=="close_by"){
       var list = wx.getStorageSync("close_by");
@@ -328,6 +393,7 @@ Page({
     }
   },
   gameOnly(e){
+    //实现比赛按钮功能
     var type = e.currentTarget.dataset.type;
     if(type=="close_by"){
       var list = wx.getStorageSync("close_by");
@@ -351,6 +417,7 @@ Page({
     }
   },
   allItems(e){
+    //实现全部按钮功能
     var type = e.currentTarget.dataset.type;
     if(type=="close_by"){
       var list = wx.getStorageSync("close_by");
@@ -365,7 +432,7 @@ Page({
     }
   },
   rowNavigator(e){
-
+    //转到game_detail或者event_detail页面
     if(e.currentTarget.dataset.category.includes("活动")){
       wx.navigateTo({
         url:"/pages/event_detail/index?id=" + e.currentTarget.dataset.id
@@ -375,7 +442,6 @@ Page({
         url:"/pages/game_detail/index?id=" + e.currentTarget.dataset.id
       })
     }
-},
-
+}
   // BUTTON FUNCTIONS END
 })

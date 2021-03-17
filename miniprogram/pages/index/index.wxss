@@ -18,7 +18,7 @@ view.index view.content {
   margin: 0 auto;
 }
 view.index view.content view.close_by {
-  padding-top: 15px;
+  padding-top: 20px;
 }
 view.index view.content view.close_by view.title text.top {
   font-family: LiGothicMed;
@@ -152,6 +152,9 @@ view.index view.content view.close_by navigator.more {
   background-color: white;
   text-align: center;
 }
+view.index view.content view.close_by view.map {
+  margin-top: 15px;
+}
 view.index view.content view.close_by view.map text {
   font-family: PingFangSC-Regular;
   font-size: 15px;
@@ -159,13 +162,14 @@ view.index view.content view.close_by view.map text {
   text-align: left;
 }
 view.index view.content view.close_by view.map map {
+  margin-top: 5px;
   width: 100%;
   border: 2px solid #FFE9DE;
   border-radius: 8px;
   height: 300px;
 }
 view.index view.content view.upcoming {
-  padding-top: 20rpx;
+  margin-top: 20px;
 }
 view.index view.content view.upcoming view.title text.top {
   font-family: LiGothicMed;
@@ -298,8 +302,10 @@ view.index view.content view.upcoming navigator.more {
   background-color: white;
   text-align: center;
 }
-view.index view.content view.upcoming view.MVP view.title {
+view.index view.content view.upcoming view.MVP {
   margin-top: 15px;
+}
+view.index view.content view.upcoming view.MVP view.title {
   margin-bottom: 10px;
   font-family: PingFangSC-Semibold;
   font-size: 20px;
@@ -395,7 +401,7 @@ view.index view.content view.news view.nothing {
   display: flex;
 }
 view.index view.content view.news view.nothing text {
-  margin-left: 40%;
+  margin-left: 33%;
 }
 view.index view.content view.news view.news_row {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);

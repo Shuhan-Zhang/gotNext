@@ -28,8 +28,8 @@
     <view class="main_card">
         <view class="card">
             <view class="title">{{game.name}}</view>
-            <view class="time iconfont icon-shijian"> 时间{{game.written_time}}</view>
-            <view class="location iconfont icon-map-thumbtack"> 地址:{{game.location_name}}</view>
+            <view class="time iconfont icon-shijian"> 时间: {{game.written_time}}</view>
+            <view class="location iconfont icon-map-thumbtack"> 地址: {{game.location_name}}</view>
             <map id = "12345" markers="{{marker}}"></map>
         </view>
         <button class="join_button">

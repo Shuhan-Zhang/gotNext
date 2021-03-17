@@ -4,210 +4,146 @@
         <button bindgetuserinfo="login" open-type="getUserInfo">登陆</button>
     </view>
     <scroll-view class="league_selector" scroll-x = "true">
-        <button class="leagues">U16</button>
-        <button class="leagues">U15</button>
-        <button class="leagues">U14</button>
-        <button class="leagues">成人</button>
-        <button class="leagues">幼儿</button>
+        <button class="leagues {{league == item.league_name ? 'active' : ''}}" wx:for="{{allLeagues}}" data-league="{{item.league_name}}" bindtap="changeLeague">{{item.league_name}}</button>
     </scroll-view>
     <view class="main">
         <view class="newest">
             <text class="title">最新比赛</text>
+            <view class="nothing" wx:if="{{pastGames.length == 0}}">
+                <text>暂时还没有这个哦</text>
+            </view>
             <view class="game_row" wx:for="{{pastGames}}">
                 <view class="left">
                     <view class="team1">
                         <image src="{{item.team_1_data.logo}}"></image>
                         <!-- <text class="team_name  top">{{item.team_1}}</text> -->
-                        <text class="team_name  top">{{item.team_1_logo}}</text>
+                        <text class="team_name  top">{{item.team_1}}</text>
                     </view>
                     <view class="team2">
-                        <image src="../../img/league/warriors.png"></image>
-                        <text class="team_name bottom">金州勇士队</text>
+                        <image src="{{item.team_2_data.logo}}"></image>
+                        <text class="team_name bottom">{{item.team_2}}</text>
                     </view>
                 </view>
                 <view class="middle">
-                    <view class="record top">11胜:1负</view>
-                    <view class="record bottom">9胜:2负</view>
+                    <view class="record top">{{item.team_1_data.win}}胜:{{item.team_1_data.loss}}负</view>
+                    <view class="record bottom">{{item.team_2_data.win}}胜:{{item.team_2_data.loss}}负</view>
                 </view>
                 <view class="right">
                     <view class="vertical_line"></view>
                     <view class="score">
                         <view class="team1_score top">
-                            <text class="">74分</text>
-                            <image src="../../img/league/Triangle.png"></image>
+                            <text class="">{{item.team_1_score}}分</text>
+                            <image src="../../img/league/Triangle.png" wx:if="{{item.team_1_score > item.team_2_score}}"></image>
                         </view>
                         <view class="team2_score bottom">
-                            <text class="">35分</text>
-                            <image></image>
+                            <text class="">{{item.team_2_score}}分</text>
+                            <image src="../../img/league/Triangle.png" wx:if="{{item.team_2_score > item.team_1_score}}"></image>
                         </view>
                     </view>
                 </view>
             </view>
-            <view class="game_row">
-                <view class="left">
-                    <view class="team1">
-                        <image src="../../img/league/hawks.png"></image>
-                        <text class="team_name  top">亚特兰大老鹰队</text>
-                    </view>
-                    <view class="team2">
-                        <image src="../../img/league/warriors.png"></image>
-                        <text class="team_name bottom">金州勇士队</text>
-                    </view>
-                </view>
-                <view class="middle">
-                    <view class="record top">11胜:1负</view>
-                    <view class="record bottom">9胜:2负</view>
-                </view>
-                <view class="right">
-                    <view class="vertical_line"></view>
-                    <view class="score">
-                        <view class="team1_score top">
-                            <text class="">74分</text>
-                            <image src="../../img/league/Triangle.png"></image>
-                        </view>
-                        <view class="team2_score bottom">
-                            <text class="">35分</text>
-                            <image></image>
-                        </view>
-                    </view>
-                </view>
-            </view>
-            <navigator class="view_more">查看更多</navigator>
+            <navigator class="view_more" wx:if="{{pastGames.length > 3}}">查看更多</navigator>
         </view>
         <view class="stats_leaders">
             <text class="title">数据王</text>
-            <view class="stats_leader_row point">
+            <view class="nothingPoints" wx:if="{{!pointLeader}}">
+                <text>暂时还没有这个哦</text>
+            </view>
+            <view class="stats_leader_row point" wx:if="{{pointLeader}}">
                 <view class="points">
                     <text>得分</text>
                 </view>
                 <view class="name_and_stats">
-                    <view class="name">张书晗</view>
-                    <view class="stats">37.8分</view>
+                    <view class="name">{{pointLeader.player_name}}</view>
+                    <view class="stats">{{pointLeader.average_points_string}}分</view>
                 </view>
                 <view class="player_pic">
-                    <image src="../../img/league/point.png" mode="aspectFill"></image>
+                    <image src="{{pointLeader.player_pic}}" mode="aspectFill"></image>
                 </view>
             </view>
-            <view class="stats_leader_row rebound">
+            <view class="nothingRebounds" wx:if="{{!reboundLeader}}">
+                <text>暂时还没有这个哦</text>
+            </view>
+            <view class="stats_leader_row rebound" wx:if="{{reboundLeader}}">
                 <view class="player_pic">
-                    <image src="../../img/league/rebound.png" mode="aspectFill"></image>
+                    <image src="{{reboundLeader.player_pic}}" mode="aspectFill"></image>
                 </view>
                 <view class="name_and_stats">
-                    <view class="name">赵子凯</view>
-                    <view class="stats">14.3板</view>
+                    <view class="name">{{reboundLeader.player_name}}</view>
+                    <view class="stats">{{reboundLeader.average_rebounds_string}}板</view>
                 </view>
                 <view class="rebounds">
                     <text>篮板</text>
                 </view>
             </view>
-            <view class="stats_leader_row assist">
+            <view class="nothingAssists" wx:if="{{!assistLeader}}">
+                <text>暂时还没有这个哦</text>
+            </view>
+            <view class="stats_leader_row assist" wx:if="{{assistLeader}}">
                 <view class="assists">
                     <text>助攻</text>
                 </view>
                 <view class="name_and_stats">
-                    <view class="name">王明</view>
-                    <view class="stats">17.3助</view>
+                    <view class="name">{{assistLeader.player_name}}</view>
+                    <view class="stats">{{assistLeader.average_assists_string}}助</view>
                 </view>
                 <view class="player_pic">
-                    <image src="../../img/league/assist.png" mode="aspectFill"></image>
+                    <image src="{{assistLeader.player_pic}}" mode="aspectFill"></image>
                 </view>
             </view>
         </view>
         <view class="team_ranking">
             <view class="title">联盟排名</view>
-            <view class="table ranking">
+            <view class="nothing" wx:if="{{leagueOnlyTeamData.length == 0}}">
+                <text>暂时还没有这个哦</text>
+            </view>
+            <view class="table ranking" wx:if="{{leagueOnlyTeamData.length != 0}}">
                 <view class="tr bg-w">
                     <view class="left th">排名</view>
                     <view class="th middle">队名</view>
                     <view class="th right">赢场/输场</view>
                 </view>
-                <view class="tr">
-                    <view class="td left">1.</view>
+                <view class="tr" wx:for="{{leagueOnlyTeamData}}">
+                    <view class="td left">{{index+1}}.</view>
                     <view class="td middle">
-                        <image src="../../img/league/warriors.png"></image>
-                        <text>金州勇士队</text>
+                        <image src="{{item.logo}}"></image>
+                        <text>{{item.team_name}}</text>
                     </view>
-                    <view class="td right">73W/9L</view>
-                </view>
-                <view class="tr">
-                    <view class="td left"><text>2.</text></view>
-                    <view class="td middle">
-                        <image src="../../img/league/warriors.png"></image>
-                        <text>金州勇士队</text>
-                    </view>
-                    <view class="td right">73W/9L</view>
-                </view>
-                <view class="tr">
-                    <view class="td left">3.</view>
-                    <view class="td middle">
-                        <image src="../../img/league/warriors.png"></image>
-                        <text>金州勇士队</text>
-                    </view>
-                    <view class="td right">73W/9L</view>
+                    <view class="td right">{{item.win}}W/{{item.loss}}L</view>
                 </view>
             </view>
         </view>
         <view class="upcoming">
             <text class="title">即将打响</text>
-            <view class="upcoming_row">
+            <view class="nothing" wx:if="{{upcomingGames.length == 0}}">
+                <text>暂时还没有这个哦</text>
+            </view>
+            <view class="upcoming_row" wx:for="{{upcomingGames}}">
                 <view class="team1">
                     <view class="content">
-                        <image src="../../img/league/warriors.png"></image>
-                        <view class="team_name">金州勇士队</view>
-                        <view class="record">73W/9L</view>
+                        <image src="{{item.team_1_data.logo}}"></image>
+                        <view class="team_name">{{item.team_1}}</view>
+                        <view class="record">{{item.team_1_data.win}}W/{{item.team_1_data.loss}}L</view>
                     </view>
                 </view>
                 <view class="extra">
                     <view class="content middle">
                         <view class="VS">V.S</view>
-                        <view class="name">U16常规赛</view>
+                        <view class="name">{{item.name}}</view>
                         <view class="location">
-                            <text class="location iconfont icon-map-thumbtack"></text>
-                            <text class="location">北京工业大学</text>
+                            <text class="location iconfont icon-map-thumbtack">{{item.location_name}}</text>
                         </view>
                         <view class="time">
-                            <text class="time iconfont icon-shijian"></text>
-                            <text class="time">2021/1/13 19:00-22:00</text>
+                            <text class="time iconfont icon-shijian">{{item.written_time}}</text>
                         </view>
                         <button>立即加入</button>
                     </view>
                 </view>
                 <view class="team2">
                     <view class="content">
-                        <image src="../../img/league/hawks.png"></image>
-                        <view class="team_name">亚特兰大老鹰队</view>
-                        <view class="record">34W/48L</view>
-                    </view>
-                </view>
-            </view>
-            <view class="upcoming_row">
-                <view class="team1">
-                    <view class="content">
-                        <image src="../../img/league/warriors.png"></image>
-                        <view class="team_name">金州勇士队</view>
-                        <view class="record">73W/9L</view>
-                    </view>
-                </view>
-                <view class="extra">
-                    <view class="content">
-                        <view class="VS">V.S</view>
-                        <view class="name">U16常规赛</view>
-                        <view class="location">
-                            <text class="location iconfont icon-map-thumbtack"></text>
-                            <text class="location">北京工业大学</text>
-                        </view>
-                        <view class="time">
-                            <text class="time iconfont icon-shijian"></text>
-                            <text class="time">2021/1/13 19:00-22:00</text>
-                        </view>
-                        <button>立即加入</button>
-                    </view>
-                </view>
-                <view class="team2">
-                    <view class="content">
-                        <image src="../../img/league/hawks.png"></image>
-                        <view class="team_name">亚特兰大老鹰队</view>
-                        <view class="record">34W/48L</view>
+                        <image src="{{item.team_2_data.logo}}"></image>
+                        <view class="team_name">{{item.team_2}}</view>
+                        <view class="record">{{item.team_2_data.win}}W/{{item.team_2_data.loss}}L</view>
                     </view>
                 </view>
             </view>

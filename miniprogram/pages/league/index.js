@@ -1,24 +1,76 @@
 Page({
 
   data: {
+    allTeamData:[],
+    leagueOnlyTeamData:[],
+    leagueOnlyGames:[],
+    allPlayerData:[],
     allGames:[],
     pastGames:[],
     upcomingGames:[],
-    allTeamNames:[],
-    allTeamData:[],
-    league:"U16"
+    league:"U16",
+    pointLeader:{},
+    reboundLeader:{},
+    assistLeader:{},
+    allLeagues:[],
+    clickedButtonColor:"#FF784B",
+    unclickedButtonColor:"#ffb38e"
   },
   onLoad: function (options) {
-    this.getAllGames()
+    this.processAllGames();
+    this.getPlayers();
+    this.getTeamData();
+    this.processTeams();
+    this.getLeagues();
   },
-  //setup functions start
-  getAllGames(e){
+
+  //LOAD DATA FUNCTIONS START
+  getPlayers(){
+    wx.cloud.database().collection("players").where({
+      league:this.data.league
+    }).get()
+    .then(res => {
+      // this.setData({
+      //   allPlayerData: res.data
+      // })
+      this.processPlayers(res.data);
+    }).catch(err => {
+      console.log("failed to pull data",err);
+    })
+  },
+  getTeamData(){
+    var teams = wx.getStorageSync('allTeams');
+    this.setData({
+      allTeamData: teams
+    })
+  },
+  getLeagues(){
+    wx.cloud.database().collection("league").get()
+    .then(res => {
+      this.setData({
+        allLeagues: res.data
+      })
+    }).catch(err => {
+      console.log("failed to pull data",err);
+    })
+  },
+  //LOAD DATA FUNCTIONS END
+
+  //PROCESS DATA FUNCTIONS START
+  processAllGames(e){
     var all_games = wx.getStorageSync('allGames');
     var today = wx.getStorageSync('today');
+    var league_games = []
     var finishedGames = [];
     var upcomingGames = [];
     var finalTeams = [];
     all_games.forEach(v=>{
+      if(v.league_name == this.data.league){
+        league_games.push(v);
+      }
+    })
+    
+    league_games.forEach(v=>{
       if(!finalTeams.includes(v.team_1)){
         finalTeams.push(v.team_1)
       }
@@ -42,45 +94,73 @@ Page({
       var value2 = Date.parse(b.time);
       return value1 - value2;
     })
-    this.getLeagueInfo("U16", finalTeams);
     this.setData({
       allGames: all_games,
       pastGames: finishedGames,
       upcomingGames: upcomingGames,
-      allTeamNames: finalTeams
+      leagueOnlyGames: league_games
     })
   },
-  getLeagueInfo(league, team_list){
-    var final_list = []
-    team_list.forEach(v=>{
-      wx.cloud.database().collection("teams").where({
-        league_name:league,
-        team_name:v
-      }).get()
-      .then(res => {
-        final_list.push(res.data[0])
-      }).catch(err => {
-        console.log("failed to pull data",err);
-      })
-    })
-    console.log(final_list)
+  processPlayers(data){
+    if(data.length == 0){
+      players = data;
+      points_leader = false;
+      assists_leader = false;
+      rebounds_leader = false;
       this.setData({
-        allTeamData: final_list
+        allPlayerData:players,
+        pointLeader:points_leader,
+        assistLeader:assists_leader,
+        reboundLeader:rebounds_leader
       })
-    // wx.cloud.database().collection("teams").where({
-    //   league_name:league,
-    //   team_name:team
-    // }).get()
-    // .then(res => {
-    //   this.setData({
-    //     [team]:res.data[0]
-    //   })
-    // }).catch(err => {
-    //   console.log("failed to pull data",err);
-    // })
+    }else{
+      var players = data;
+      players.forEach(v=>{
+        v.average_points = v.total_points/v.total_games_played
+        v.average_rebounds = v.total_rebounds/v.total_games_played
+        v.average_assists = v.total_assists/v.total_games_played
+        v.average_points_string = (v.total_points/v.total_games_played).toFixed(2);
+        v.average_rebounds_string = (v.total_rebounds/v.total_games_played).toFixed(2);
+        v.average_assists_string = (v.total_assists/v.total_games_played).toFixed(2);
+      })
+      players.sort(function(first, second) {
+        return second.average_points - first.average_points;
+       });
+       var points_leader = players[0]
+       players.sort(function(first, second) {
+        return second.average_assists - first.average_assists;
+       });
+       var assists_leader = players[0]
+       players.sort(function(first, second) {
+        return second.average_rebounds - first.average_rebounds;
+       });
+       var rebounds_leader = players[0]
+      this.setData({
+        allPlayerData:players,
+        pointLeader:points_leader,
+        assistLeader:assists_leader,
+        reboundLeader:rebounds_leader
+      })
+    }
   },
-  //setup functions end
-  //button functions start
+  processTeams(){
+    var all_teams = wx.getStorageSync('allTeams');
+    var league_teams = []
+    all_teams.forEach(v=>{
+      if(v.league_name == this.data.league){
+        league_teams.push(v);
+      }
+    })
+    league_teams.sort(function(first, second) {
+      return second.win - first.win;
+     });
+    this.setData({
+      leagueOnlyTeamData: league_teams
+    })
+  },
+  //PROCESS DATA FUNCTIONS END
+
+  //BUTTON FUNCTIONS START
   login(e){
     wx.login({
       timeout: 3000
@@ -96,5 +176,12 @@ Page({
       console.log("login failed",err);
     })
   },
-  //button functions end
+  changeLeague(e){
+    console.log(e);
+    this.setData({
+      league:e.currentTarget.dataset.league
+    })
+    this.onLoad();
+  }
+  //BUTTON FUNCTIONS END
 })
