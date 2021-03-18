@@ -31,7 +31,7 @@ view.all view.participated view.rows view.row {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
   width: 100%;
   display: flex;
-  margin-top: 15px;
+  margin-top: 10px;
   background: #FFF0E8;
   border-radius: 8px;
   padding-top: 15px;
@@ -145,72 +145,90 @@ view.all view.recent view.title {
   font-size: 30px;
   color: #FF5400;
 }
-view.all view.recent view.recent_row {
+view.all view.recent view.nothing {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  margin-top: 40px;
+  width: 100%;
+  font-size: 20px;
+  background: #FFF0E8;
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  color: #FF5400;
+}
+view.all view.recent view.close_row {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
   width: 100%;
   display: flex;
+  margin-top: 15px;
   background: #FFF0E8;
   border-radius: 8px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-view.all view.recent view.recent_row view.left {
-  margin-left: 5px;
+view.all view.recent view.close_row .wrapper {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+view.all view.recent view.close_row .left {
   flex: 0 0 25%;
   max-width: 25%;
+  text-align: center;
+  margin-left: 5px;
 }
-view.all view.recent view.recent_row view.left view.wrapper {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-view.all view.recent view.recent_row view.left view.wrapper image {
-  width: 100%;
-  height: 100%;
+view.all view.recent view.close_row .left image {
+  width: 95%;
+  height: 95px;
   border-radius: 8px;
 }
-view.all view.recent view.recent_row .row_content {
-  padding-left: 10px;
+view.all view.recent view.close_row .middle {
   flex: 0 0 45%;
   max-width: 45%;
+  margin-left: 5px;
 }
-view.all view.recent view.recent_row .row_content view.wrapper {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-view.all view.recent view.recent_row .row_content view.wrapper text.name {
+view.all view.recent view.close_row .middle text.name {
   font-family: PingFangSC-Semibold;
   font-size: 20px;
   color: #000000;
 }
-view.all view.recent view.recent_row .row_content view.wrapper view.line {
-  margin-top: 3px;
-  margin-bottom: 3px;
+view.all view.recent view.close_row .middle view.line {
+  margin-top: 5px;
+  margin-bottom: 5px;
   width: 100%;
-  height: 1px;
-  background-color: #D1D1D1;
+  height: 1rpx;
+  background-color: #d1d1d1bb;
 }
-view.all view.recent view.recent_row .row_content view.wrapper text.location {
+view.all view.recent view.close_row .middle text.category {
+  width: 33%;
+  margin-top: 3px;
+  margin-right: 3px;
+  padding: 4px 5px 4px 5px;
+  border-radius: 10px;
+  background: #DA463C;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: white;
+}
+view.all view.recent view.close_row .middle view.location {
+  margin-top: 3px;
   font-family: PingFangSC-Regular;
   font-size: 12px;
   color: #FF5400;
 }
-view.all view.recent view.recent_row .row_content view.wrapper text.time {
+view.all view.recent view.close_row .middle view.time {
+  margin-top: 3px;
   font-family: PingFangSC-Regular;
   font-size: 12px;
   color: #147CE5;
 }
-view.all view.recent view.recent_row view.join {
+view.all view.recent view.close_row view.right {
   flex: 0 0 30%;
   max-width: 30%;
+  margin-left: 5px;
 }
-view.all view.recent view.recent_row view.join view.wrapper {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-view.all view.recent view.recent_row view.join view.wrapper button {
+view.all view.recent view.close_row view.right button {
   padding: 10px 0px 10px 0px;
   width: 80%;
   margin-left: 2px;
@@ -220,7 +238,8 @@ view.all view.recent view.recent_row view.join view.wrapper button {
   font-size: 15px;
   color: #FFFFFF;
 }
-view.all view.recent view.recent_row view.join view.wrapper text.money {
+view.all view.recent view.close_row view.right text.money {
+  margin-left: 10px;
   font-family: PingFangSC-Regular;
   font-size: 10px;
   color: #FF0000;
@@ -254,22 +273,22 @@ view.all view.calendar view.title {
   font-size: 30px;
   color: #FF5400;
 }
-view.all view.calendar view.wrapper {
+view.all view.calendar view.wrapper3 {
   background: #FF8B52;
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 10px;
 }
-view.all view.calendar view.wrapper .actual_calendar {
+view.all view.calendar view.wrapper3 .actual_calendar {
   --calendar-height: 500px;
   --calendar-background-color: #FF8B52;
   color: #FFFFFF;
 }
-view.all view.calendar view.wrapper view.today {
+view.all view.calendar view.wrapper3 view.today {
   width: 95%;
   margin: 0px auto;
 }
-view.all view.calendar view.wrapper view.today view.today_title {
+view.all view.calendar view.wrapper3 view.today view.today_title {
   margin-top: 10px;
   margin-bottom: 10px;
   font-family: PingFangSC-Semibold;
@@ -277,73 +296,90 @@ view.all view.calendar view.wrapper view.today view.today_title {
   color: #FFFFFF;
   text-align: left;
 }
-view.all view.calendar view.wrapper view.today view.recent_row {
-  margin-top: 10px;
+view.all view.calendar view.wrapper3 view.today view.nothing {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
-  margin: 0px auto;
-  display: flex;
+  margin-top: 40px;
+  width: 100%;
+  font-size: 20px;
   background: #FFF0E8;
   border-radius: 8px;
-  padding-top: 15px;
-  padding-bottom: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  color: #FF5400;
 }
-view.all view.calendar view.wrapper view.today view.recent_row view.left {
-  margin-left: 5px;
+view.all view.calendar view.wrapper3 view.today view.close_row {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  width: 100%;
+  display: flex;
+  margin-top: 15px;
+  background: #FFF0E8;
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+view.all view.calendar view.wrapper3 view.today view.close_row .wrapper {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+view.all view.calendar view.wrapper3 view.today view.close_row .left {
   flex: 0 0 25%;
   max-width: 25%;
+  text-align: center;
+  margin-left: 5px;
 }
-view.all view.calendar view.wrapper view.today view.recent_row view.left view.wrapper2 {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-view.all view.calendar view.wrapper view.today view.recent_row view.left view.wrapper2 image {
-  width: 100%;
-  height: 100%;
+view.all view.calendar view.wrapper3 view.today view.close_row .left image {
+  width: 95%;
+  height: 95px;
   border-radius: 8px;
 }
-view.all view.calendar view.wrapper view.today view.recent_row .row_content {
-  padding-left: 10px;
+view.all view.calendar view.wrapper3 view.today view.close_row .middle {
   flex: 0 0 45%;
   max-width: 45%;
+  margin-left: 5px;
 }
-view.all view.calendar view.wrapper view.today view.recent_row .row_content view.wrapper2 {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-view.all view.calendar view.wrapper view.today view.recent_row .row_content view.wrapper2 text.name {
+view.all view.calendar view.wrapper3 view.today view.close_row .middle text.name {
   font-family: PingFangSC-Semibold;
   font-size: 20px;
   color: #000000;
 }
-view.all view.calendar view.wrapper view.today view.recent_row .row_content view.wrapper2 view.line {
-  margin-top: 3px;
-  margin-bottom: 3px;
+view.all view.calendar view.wrapper3 view.today view.close_row .middle view.line {
+  margin-top: 5px;
+  margin-bottom: 5px;
   width: 100%;
-  height: 1px;
-  background-color: #D1D1D1;
+  height: 1rpx;
+  background-color: #d1d1d1bb;
 }
-view.all view.calendar view.wrapper view.today view.recent_row .row_content view.wrapper2 text.location {
+view.all view.calendar view.wrapper3 view.today view.close_row .middle text.category {
+  width: 33%;
+  margin-top: 3px;
+  margin-right: 3px;
+  padding: 4px 5px 4px 5px;
+  border-radius: 10px;
+  background: #DA463C;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: white;
+}
+view.all view.calendar view.wrapper3 view.today view.close_row .middle view.location {
+  margin-top: 3px;
   font-family: PingFangSC-Regular;
   font-size: 12px;
   color: #FF5400;
 }
-view.all view.calendar view.wrapper view.today view.recent_row .row_content view.wrapper2 text.time {
+view.all view.calendar view.wrapper3 view.today view.close_row .middle view.time {
+  margin-top: 3px;
   font-family: PingFangSC-Regular;
   font-size: 12px;
   color: #147CE5;
 }
-view.all view.calendar view.wrapper view.today view.recent_row view.join {
+view.all view.calendar view.wrapper3 view.today view.close_row view.right {
   flex: 0 0 30%;
   max-width: 30%;
+  margin-left: 5px;
 }
-view.all view.calendar view.wrapper view.today view.recent_row view.join view.wrapper2 {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-view.all view.calendar view.wrapper view.today view.recent_row view.join view.wrapper2 button {
+view.all view.calendar view.wrapper3 view.today view.close_row view.right button {
   padding: 10px 0px 10px 0px;
   width: 80%;
   margin-left: 2px;
@@ -353,7 +389,8 @@ view.all view.calendar view.wrapper view.today view.recent_row view.join view.wr
   font-size: 15px;
   color: #FFFFFF;
 }
-view.all view.calendar view.wrapper view.today view.recent_row view.join view.wrapper2 text.money {
+view.all view.calendar view.wrapper3 view.today view.close_row view.right text.money {
+  margin-left: 10px;
   font-family: PingFangSC-Regular;
   font-size: 10px;
   color: #FF0000;
@@ -368,74 +405,90 @@ view.all view.upcoming view.title {
   color: #FF0000;
   text-align: left;
 }
-view.all view.upcoming view.upcoming_row {
-  margin-top: 10px;
+view.all view.upcoming view.nothing {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
-  margin: 0px auto;
-  display: flex;
+  margin-top: 40px;
+  width: 100%;
+  font-size: 20px;
   background: #FFEDED;
   border-radius: 8px;
-  padding-top: 15px;
-  padding-bottom: 15px;
-  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  color: #DA463C;
 }
-view.all view.upcoming view.upcoming_row view.left {
-  margin-left: 5px;
+view.all view.upcoming view.upcoming_row {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  width: 100%;
+  display: flex;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  background: #FFEDED;
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+view.all view.upcoming view.upcoming_row .wrapper {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+view.all view.upcoming view.upcoming_row .left {
   flex: 0 0 25%;
   max-width: 25%;
+  margin-left: 5px;
 }
-view.all view.upcoming view.upcoming_row view.left view.wrapper2 {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-view.all view.upcoming view.upcoming_row view.left view.wrapper2 image {
-  width: 100%;
-  height: 100%;
+view.all view.upcoming view.upcoming_row .left image {
+  width: 95%;
+  height: 95px;
   border-radius: 8px;
 }
-view.all view.upcoming view.upcoming_row .row_content {
-  padding-left: 10px;
+view.all view.upcoming view.upcoming_row .middle {
   flex: 0 0 45%;
   max-width: 45%;
+  margin-left: 5px;
 }
-view.all view.upcoming view.upcoming_row .row_content view.wrapper2 {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-view.all view.upcoming view.upcoming_row .row_content view.wrapper2 text.name {
+view.all view.upcoming view.upcoming_row .middle text.name {
   font-family: PingFangSC-Semibold;
   font-size: 20px;
   color: #000000;
 }
-view.all view.upcoming view.upcoming_row .row_content view.wrapper2 view.line {
-  margin-top: 3px;
-  margin-bottom: 3px;
+view.all view.upcoming view.upcoming_row .middle view.line {
+  margin-top: 5px;
+  margin-bottom: 2px;
   width: 100%;
-  height: 1px;
-  background-color: #D1D1D1;
+  height: 1rpx;
+  background-color: #d1d1d1bb;
 }
-view.all view.upcoming view.upcoming_row .row_content view.wrapper2 text.location {
+view.all view.upcoming view.upcoming_row .middle text.category {
+  width: 33%;
+  margin-top: 3px;
+  margin-right: 3px;
+  padding: 4px 5px 4px 5px;
+  border-radius: 10px;
+  background: #DA463C;
+  font-family: PingFangSC-Regular;
+  font-size: 12px;
+  color: white;
+}
+view.all view.upcoming view.upcoming_row .middle view.location {
+  margin-top: 3px;
   font-family: PingFangSC-Regular;
   font-size: 12px;
   color: #FF5400;
 }
-view.all view.upcoming view.upcoming_row .row_content view.wrapper2 text.time {
+view.all view.upcoming view.upcoming_row .middle view.time {
+  margin-top: 3px;
   font-family: PingFangSC-Regular;
   font-size: 12px;
   color: #147CE5;
 }
-view.all view.upcoming view.upcoming_row view.join {
+view.all view.upcoming view.upcoming_row view.right {
   flex: 0 0 30%;
   max-width: 30%;
+  margin-left: 5px;
 }
-view.all view.upcoming view.upcoming_row view.join view.wrapper2 {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-view.all view.upcoming view.upcoming_row view.join view.wrapper2 button {
+view.all view.upcoming view.upcoming_row view.right button {
   padding: 10px 0px 10px 0px;
   width: 80%;
   margin-left: 2px;
@@ -445,7 +498,8 @@ view.all view.upcoming view.upcoming_row view.join view.wrapper2 button {
   font-size: 15px;
   color: #FFFFFF;
 }
-view.all view.upcoming view.upcoming_row view.join view.wrapper2 text.money {
+view.all view.upcoming view.upcoming_row view.right text.money {
+  margin-left: 10px;
   font-family: PingFangSC-Regular;
   font-size: 10px;
   color: #FF0000;

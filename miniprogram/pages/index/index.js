@@ -168,7 +168,8 @@ Page({
   processEventTime(data){
     var loaded_events = data;
     loaded_events.forEach(v=>{
-      v.specific_time = getDate.formatTime(new Date(v.time));
+      v.written_time = getDate.formatTime(new Date(v.time));
+      v.specific_time = getDate.formatSpecific(new Date(v.time));
     })
     this.setData({
       events: loaded_events
@@ -179,7 +180,8 @@ Page({
   processGameTime(data){
     var loaded_games = data;
     loaded_games.forEach(v=>{
-      v.specific_time = getDate.formatTime(new Date(v.time));
+      v.written_time = getDate.formatTime(new Date(v.time));
+      v.specific_time = getDate.formatSpecific(new Date(v.time));
     })
     this.setData({
       games: loaded_games
@@ -218,7 +220,10 @@ Page({
     var user_longitude = user_location.longitude;
     const all_events = wx.getStorageSync('allEvents');
     const all_games = wx.getStorageSync('allGames');
-
+    all_games.forEach(v=>{
+      v.written_time = getDate.formatTime(new Date(v.time));
+      v.specific_time = getDate.formatSpecific(new Date(v.time));
+    })
     all_events.slice(0,3).forEach(v=>{
       if(this.getDistance(user_latitude, user_longitude, v.location_specific.latitude, v.location_specific.longitude) <= 20 && v.written_time == today){
         final_closeby.push(v);
@@ -268,12 +273,10 @@ Page({
       width:35,
       height:35
     })
-    final_points.push(
-      {
+    final_points.push({
         longitude:user_location.longitude,
         latitude:user_location.latitude
-      }
-    )
+      })
       
     final_recent.sort(function(a, b) {
       var value1 = Date.parse(a.time);

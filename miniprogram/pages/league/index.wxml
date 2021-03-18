@@ -12,7 +12,7 @@
             <view class="nothing" wx:if="{{pastGames.length == 0}}">
                 <text>暂时还没有这个哦</text>
             </view>
-            <view class="game_row" wx:for="{{pastGames}}">
+            <view class="game_row" wx:for="{{pastGames}}" data-id="{{item._id}}" bindtap="gameNavigator">
                 <view class="left">
                     <view class="team1">
                         <image src="{{item.team_1_data.logo}}"></image>

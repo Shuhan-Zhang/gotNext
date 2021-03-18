@@ -32,7 +32,7 @@ view.all {
             box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
             width:100%;
             display: flex;
-            margin-top: 15px;
+            margin-top: 10px;
             background: #FFF0E8;
             border-radius: 8px;
             padding-top: 15px;
@@ -156,87 +156,103 @@ view.all {
         font-size: 30px;
         color: #FF5400;
       }
-  
-      view.recent_row {
+      view.nothing{
+        box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
+        margin-top: 40px;
+        width:100%;
+        font-size: 20px;
+        background: #FFF0E8;
+        border-radius: 8px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        color:#FF5400;
+    }
+      view.close_row {
         box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
         width:100%;
         display: flex;
+        margin-top: 15px;
         background: #FFF0E8;
         border-radius: 8px;
-        padding-top: 15px;
-        padding-bottom: 15px;
-        view.left{
-            margin-left: 5px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        .wrapper{
+            position: relative;
+            top:50%;
+            transform: translateY(-50%);
+        }
+        .left {
             flex: 0 0 25%;
             max-width: 25%;
-            view.wrapper{
-                position:relative;
-                top:50%;
-                transform: translateY(-50%);
-                image {
-                    width:100%;
-                    height: 100%;
-                    border-radius: 8px;
-                }
+            text-align: center;
+            margin-left: 5px;
+            image{
+                width: 95%;
+                height:95px;
+                border-radius: 8px;
             }
         }
-
-        .row_content{
-            padding-left: 10px;
+        .middle{
             flex: 0 0 45%;
             max-width: 45%;
-            view.wrapper{
-                position:relative;
-                top:50%;
-                transform: translateY(-50%);
-                text.name {
-                    font-family: PingFangSC-Semibold;
-                    font-size: 20px;
-                    color: #000000;
-        
-                }
-                view.line{
-                    margin-top:3px;
-                    margin-bottom: 3px;
-                    width:100%;
-                    height:1px;
-                    background-color: #D1D1D1;
-                }
-                text.location {
-                    font-family: PingFangSC-Regular;
-                    font-size: 12px;
-                    color: #FF5400;
-                }
-        
-                text.time {
-                    font-family: PingFangSC-Regular;
-                    font-size: 12px;
-                    color: #147CE5;
-                }
+            margin-left: 5px;
+            text.name {
+                font-family: PingFangSC-Semibold;
+                font-size: 20px;
+                color: #000000;
+    
+            }
+            view.line{
+                margin-top: 5px;
+                margin-bottom: 5px;
+                width:100%;
+                height:1rpx;
+                background-color: #d1d1d1bb;
+            }
+            text.category{
+                width: 33%;
+                margin-top: 3px;
+                margin-right: 3px;
+                padding: 4px 5px 4px 5px;
+                border-radius: 10px;
+                background: #DA463C;
+                font-family: PingFangSC-Regular;
+                font-size: 12px;
+                color:white;
+            }
+            view.location {
+                margin-top: 3px;
+                font-family: PingFangSC-Regular;
+                font-size: 12px;
+                color: #FF5400;
+            }
+            view.time {
+                margin-top: 3px;
+                font-family: PingFangSC-Regular;
+                font-size: 12px;
+                color: #147CE5;
             }
         }
-        view.join{
+        view.right{
             flex: 0 0 30%;
             max-width: 30%;
-            view.wrapper{
-                position:relative;
-                top:50%;
-                transform: translateY(-50%);
-                button {
-                    padding:10px 0px 10px 0px;
-                    width:80%;
-                    margin-left: 2px;
-                    background: #FF5400;
-                    border-radius: 8px;
-                    font-family: PingFangSC-Semibold;
-                    font-size: 15px;
-                    color: #FFFFFF;
-                }
-                text.money{
-                    font-family: PingFangSC-Regular;
-                    font-size: 10px;
-                    color: #FF0000;
-                }
+            margin-left: 5px;
+            button {
+                padding:10px 0px 10px 0px;
+                width:80%;
+                margin-left: 2px;
+                background: #FF5400;
+                border-radius: 8px;
+                font-family: PingFangSC-Semibold;
+                font-size: 15px;
+                color: #FFFFFF;
+            }
+            text.money{
+                margin-left: 10px;
+                font-family: PingFangSC-Regular;
+                font-size: 10px;
+                color: #FF0000;
             }
         }
     }
@@ -275,7 +291,7 @@ view.all {
         font-size: 30px;
         color: #FF5400;
       }
-      view.wrapper{
+      view.wrapper3{
         background:#FF8B52;
         padding-top: 10px;
         padding-bottom: 10px;
@@ -296,87 +312,103 @@ view.all {
                 color: #FFFFFF;
                 text-align: left;
             }
-            view.recent_row {
-                margin-top: 10px;
+            view.nothing{
                 box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
-                margin:0px auto;
-                display: flex;
+                margin-top: 40px;
+                width:100%;
+                font-size: 20px;
                 background: #FFF0E8;
                 border-radius: 8px;
-                padding-top: 15px;
-                padding-bottom: 15px;
-                view.left{
-                    margin-left: 5px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                text-align: center;
+                color:#FF5400;
+            }
+            view.close_row {
+                box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
+                width:100%;
+                display: flex;
+                margin-top: 15px;
+                background: #FFF0E8;
+                border-radius: 8px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                .wrapper{
+                    position: relative;
+                    top:50%;
+                    transform: translateY(-50%);
+                }
+                .left {
                     flex: 0 0 25%;
                     max-width: 25%;
-                    view.wrapper2{
-                        position:relative;
-                        top:50%;
-                        transform: translateY(-50%);
-                        image {
-                            width:100%;
-                            height: 100%;
-                            border-radius: 8px;
-                        }
+                    text-align: center;
+                    margin-left: 5px;
+                    image{
+                        width: 95%;
+                        height:95px;
+                        border-radius: 8px;
                     }
                 }
-        
-                .row_content{
-                    padding-left: 10px;
+                .middle{
                     flex: 0 0 45%;
                     max-width: 45%;
-                    view.wrapper2{
-                        position:relative;
-                        top:50%;
-                        transform: translateY(-50%);
-                        text.name {
-                            font-family: PingFangSC-Semibold;
-                            font-size: 20px;
-                            color: #000000;
-                
-                        }
-                        view.line{
-                            margin-top:3px;
-                            margin-bottom: 3px;
-                            width:100%;
-                            height:1px;
-                            background-color: #D1D1D1;
-                        }
-                        text.location {
-                            font-family: PingFangSC-Regular;
-                            font-size: 12px;
-                            color: #FF5400;
-                        }
-                
-                        text.time {
-                            font-family: PingFangSC-Regular;
-                            font-size: 12px;
-                            color: #147CE5;
-                        }
+                    margin-left: 5px;
+                    text.name {
+                        font-family: PingFangSC-Semibold;
+                        font-size: 20px;
+                        color: #000000;
+            
+                    }
+                    view.line{
+                        margin-top: 5px;
+                        margin-bottom: 5px;
+                        width:100%;
+                        height:1rpx;
+                        background-color: #d1d1d1bb;
+                    }
+                    text.category{
+                        width: 33%;
+                        margin-top: 3px;
+                        margin-right: 3px;
+                        padding: 4px 5px 4px 5px;
+                        border-radius: 10px;
+                        background: #DA463C;
+                        font-family: PingFangSC-Regular;
+                        font-size: 12px;
+                        color:white;
+                    }
+                    view.location {
+                        margin-top: 3px;
+                        font-family: PingFangSC-Regular;
+                        font-size: 12px;
+                        color: #FF5400;
+                    }
+                    view.time {
+                        margin-top: 3px;
+                        font-family: PingFangSC-Regular;
+                        font-size: 12px;
+                        color: #147CE5;
                     }
                 }
-                view.join{
+                view.right{
                     flex: 0 0 30%;
                     max-width: 30%;
-                    view.wrapper2{
-                        position:relative;
-                        top:50%;
-                        transform: translateY(-50%);
-                        button {
-                            padding:10px 0px 10px 0px;
-                            width:80%;
-                            margin-left: 2px;
-                            background: #FF5400;
-                            border-radius: 8px;
-                            font-family: PingFangSC-Semibold;
-                            font-size: 15px;
-                            color: #FFFFFF;
-                        }
-                        text.money{
-                            font-family: PingFangSC-Regular;
-                            font-size: 10px;
-                            color: #FF0000;
-                        }
+                    margin-left: 5px;
+                    button {
+                        padding:10px 0px 10px 0px;
+                        width:80%;
+                        margin-left: 2px;
+                        background: #FF5400;
+                        border-radius: 8px;
+                        font-family: PingFangSC-Semibold;
+                        font-size: 15px;
+                        color: #FFFFFF;
+                    }
+                    text.money{
+                        margin-left: 10px;
+                        font-family: PingFangSC-Regular;
+                        font-size: 10px;
+                        color: #FF0000;
                     }
                 }
             }
@@ -395,89 +427,103 @@ view.all {
         color: #FF0000;
         text-align: left;
       }
-  
-      view.upcoming_row {
-        margin-top: 10px;
+      view.nothing{
         box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
-        margin:0px auto;
-        display: flex;
+        margin-top: 40px;
+        width:100%;
+        font-size: 20px;
         background: #FFEDED;
         border-radius: 8px;
-        padding-top: 15px;
-        padding-bottom: 15px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        text-align: center;
+        color:#DA463C;
+    }
+      view.upcoming_row {
+        box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
+        width:100%;
+        display: flex;
+        margin-top: 10px;
         margin-bottom: 10px;
-        view.left{
-            margin-left: 5px;
+        background: #FFEDED;
+        border-radius: 8px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        .wrapper{
+            position: relative;
+            top:50%;
+            transform: translateY(-50%);
+        }
+        .left {
             flex: 0 0 25%;
             max-width: 25%;
-            view.wrapper2{
-                position:relative;
-                top:50%;
-                transform: translateY(-50%);
-                image {
-                    width:100%;
-                    height: 100%;
-                    border-radius: 8px;
-                }
+            margin-left: 5px;
+            image{
+                width: 95%;
+                height:95px;
+                border-radius: 8px;
             }
         }
-
-        .row_content{
-            padding-left: 10px;
+        .middle{
             flex: 0 0 45%;
             max-width: 45%;
-            view.wrapper2{
-                position:relative;
-                top:50%;
-                transform: translateY(-50%);
-                text.name {
-                    font-family: PingFangSC-Semibold;
-                    font-size: 20px;
-                    color: #000000;
-        
-                }
-                view.line{
-                    margin-top:3px;
-                    margin-bottom: 3px;
-                    width:100%;
-                    height:1px;
-                    background-color: #D1D1D1;
-                }
-                text.location {
-                    font-family: PingFangSC-Regular;
-                    font-size: 12px;
-                    color: #FF5400;
-                }
-        
-                text.time {
-                    font-family: PingFangSC-Regular;
-                    font-size: 12px;
-                    color: #147CE5;
-                }
+            margin-left: 5px;
+            text.name {
+                font-family: PingFangSC-Semibold;
+                font-size: 20px;
+                color: #000000;
+    
+            }
+            view.line{
+                margin-top: 5px;
+                margin-bottom: 2px;
+                width:100%;
+                height:1rpx;
+                background-color: #d1d1d1bb;
+            }
+            text.category{
+                width: 33%;
+                margin-top: 3px;
+                margin-right: 3px;
+                padding: 4px 5px 4px 5px;
+                border-radius: 10px;
+                background: #DA463C;
+                font-family: PingFangSC-Regular;
+                font-size: 12px;
+                color:white;
+            }
+            view.location {
+                margin-top: 3px;
+                font-family: PingFangSC-Regular;
+                font-size: 12px;
+                color: #FF5400;
+            }
+            view.time {
+                margin-top: 3px;
+                font-family: PingFangSC-Regular;
+                font-size: 12px;
+                color: #147CE5;
             }
         }
-        view.join{
+        view.right{
             flex: 0 0 30%;
             max-width: 30%;
-            view.wrapper2{
-                position:relative;
-                top:50%;
-                transform: translateY(-50%);
-                button {
-                    padding:10px 0px 10px 0px;
-                    width:80%;
-                    margin-left: 2px;
-                    background: #FF5400;
-                    border-radius: 8px;
-                    font-family: PingFangSC-Semibold;
-                    font-size: 15px;
-                    color: #FFFFFF;
-                }
-                text.money{
-                    font-family: PingFangSC-Regular;
-                    font-size: 10px;
-                    color: #FF0000;
-                }
+            margin-left: 5px;
+            button {
+                padding:10px 0px 10px 0px;
+                width:80%;
+                margin-left: 2px;
+                background: #FF5400;
+                border-radius: 8px;
+                font-family: PingFangSC-Semibold;
+                font-size: 15px;
+                color: #FFFFFF;
+            }
+            text.money{
+                margin-left: 10px;
+                font-family: PingFangSC-Regular;
+                font-size: 10px;
+                color: #FF0000;
             }
         }
     }

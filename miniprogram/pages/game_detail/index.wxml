@@ -20,7 +20,7 @@
                     <image src="{{team2.logo}}" mode="aspectFill"></image>
                     <view class="team_name">{{team2.team_name}}</view>
                     <view class="record">{{team2.win}}W/{{team2.loss}}L</view>
-                    <view class="ranking">{{game.league}}第{{team2.ranking}}名</view>
+                    <view class="ranking">{{game.league_name}}第{{team2.ranking}}名</view>
                 </view>
             </view>
         </view>
@@ -28,7 +28,7 @@
     <view class="main_card">
         <view class="card">
             <view class="title">{{game.name}}</view>
-            <view class="time iconfont icon-shijian"> 时间: {{game.written_time}}</view>
+            <view class="time iconfont icon-shijian"> 时间: {{game.specific_time}}</view>
             <view class="location iconfont icon-map-thumbtack"> 地址: {{game.location_name}}</view>
             <map id = "12345" markers="{{marker}}"></map>
         </view>

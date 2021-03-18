@@ -7,8 +7,18 @@ function formatTime(date) {
   var minute = date.getMinutes()
   var second = date.getSeconds()
  
-  // return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute].map(formatNumber).join(':')
   return [year, month, day].map(formatNumber).join('/')
+}
+function formatTimeWithHours(date) {
+  var year = date.getFullYear()
+  var month = date.getMonth() + 1
+  var day = date.getDate()
+ 
+  var hour = date.getHours()
+  var minute = date.getMinutes()
+  var second = date.getSeconds()
+ 
+  return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute].map(formatNumber).join(':')
 }
  
 function formatNumber(n) {
@@ -17,4 +27,6 @@ function formatNumber(n) {
 }
  
 module.exports = {
-  formatTime: formatTime}
+  formatTime: formatTime,
+  formatSpecific: formatTimeWithHours
+}

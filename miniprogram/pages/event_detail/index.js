@@ -1,3 +1,4 @@
+var getDate = require('../../getDate.js');
 Page({
 
   data: {
@@ -13,6 +14,8 @@ Page({
     wx.cloud.database().collection("event").doc(eventID).get()
     .then(res=>{
       console.log("data pulled successfully",res);
+      res.data.written_time = getDate.formatTime(new Date(res.data.time));
+      res.data.specific_time = getDate.formatSpecific(new Date(res.data.time));
       this.setLocation(res.data);
       this.setData({
         event: res.data
@@ -74,5 +77,13 @@ Page({
         }
       }
     )
+  },
+  setTime(data){
+    var loaded_events = data;
+    loaded_events.written_time = getDate.formatTime(new Date(v.time));
+    loaded_events.specific_time = getDate.formatSpecific(new Date(v.time));
+    this.setData({
+      event: loaded_events
+    })
   }
 })

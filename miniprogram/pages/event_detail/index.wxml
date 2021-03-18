@@ -7,8 +7,8 @@
         <view class="card">
             <view class="title">{{event.name}}</view>
             <view class="description">{{event.description}}</view>
-            <view class="price_money">第一名:{{event.price_money}}¥</view>
-            <view class="time iconfont icon-shijian"> 时间:{{event.written_time}}</view>
+            <view class="price_money" wx:if="{{event.price_money != 0}}">第一名:{{event.price_money}}¥</view>
+            <view class="time iconfont icon-shijian"> 时间:{{event.specific_time}}</view>
             <view class="location iconfont icon-map-thumbtack"> 地址:{{event.location_name}}</view>
             <map id = "1234" markers="{{marker}}"></map>
         </view>

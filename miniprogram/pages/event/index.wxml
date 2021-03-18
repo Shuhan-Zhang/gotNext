@@ -1,9 +1,9 @@
 <view class="all">
     <view class="top_image">
-        <swiper autoplay indicator-dots circular>
-            <swiper-item>
+        <swiper autoplay circular>
+            <swiper-item wx:for="{{swiper_image}}">
                 <navigator>
-                    <image src="../../img/event/top.jpg" mode="aspectFill"></image>
+                    <image mode = "widthFix" src="{{item.img}}"></image>
                 </navigator>
             </swiper-item>
         </swiper>
@@ -56,64 +56,66 @@
             </view>
         </view>
         <view class="recent">
-            <view class="title">最近</view>
-            <view class="recent_row">
+            <view class="title">附近活动</view>
+            <view class="nothing" wx:if="{{closeBy.length == 0}}">
+                <text>当日没有任何活动哦</text>
+            </view>
+            <view class="close_row" wx:for="{{closeBy}}" bindtap="eventNavigator" data-id="{{item._id}}" data-category="{{item.category}}">
                 <view class="left">
                     <view class="wrapper">
-                        <image src="../../img/event/event2.jpg" mode="widthFix"></image>
+                        <image src="{{item.img}}" mode="aspectFill"></image>
                     </view>
                 </view>
-                <view class="row_content">
+                <view class="middle">
                     <view class="wrapper">
-                        <text class="name">周五1V1球场之王</text>
+                        <text class="name">{{item.name}}</text>
                         <view class="line"></view>
-                        <text class="location iconfont icon-map-thumbtack"></text>
-                        <text class="location">北京工业大学</text>
-                        <text>\n</text>
-                        <text class="time iconfont icon-shijian"></text>
-                        <text class="time">2021/1/13 19:00-22:00</text>
+                        <text class="category iconfont icon-fenlei" wx:for="{{item.category}}"> {{item}}</text>
+                        <view class="location iconfont icon-map-thumbtack"> {{item.location_name}}</view>
+                        <view class="time iconfont icon-shijian"> {{item.specific_time}}</view>
                     </view>
                 </view>
-                <view class="join">
+                <view class="right">
                     <view class="wrapper">
                         <button>立即加入</button>
-                        <text class="money">第一名奖金：500¥</text>
+                        <text class="money" wx:if="{{item.price_money}}">第一名奖金:{{item.price_money}}¥</text>
                     </view>
                 </view>
             </view>
             <navigator class="more">查看更多</navigator>
             <view class="basketball_map">
                 <view class="title">篮球地图</view>
-                <map></map>
+                <map id = "123456" markers="{{markers}}"></map>
             </view>
         </view>
         <view class="calendar">
             <view class="title">活动时间表</view>
-            <view class="wrapper">
-                <van-calendar title="日历" poppable="{{ false }}" show-confirm="{{ false }}" show-title = "{{ false }}" class="actual_calendar" type="single" color="#FF5400" show-mark="{{ false }}" />
+            <view class="wrapper3">
+                <van-calendar title="日历" poppable="{{ false }}" show-confirm="{{ false }}" show-title = "{{ false }}" class="actual_calendar" type="single" color="#FF5400" show-mark="{{ false }}" bind:confirm="onConfirm"/>
                 <view class="today">
                     <view class="today_title">当日行程</view>
-                    <view class="recent_row">
+                    <view class="nothing" wx:if="{{selectedDateEvents.length == 0}}">
+                        <text>当日没有任何活动哦</text>
+                    </view>
+                    <view class="close_row" wx:for="{{selectedDateEvents}}" bindtap="eventNavigator" data-id="{{item._id}}" data-category="{{item.category}}">
                         <view class="left">
-                            <view class="wrapper2">
-                                <image src="../../img/event/event2.jpg" mode="widthFix"></image>
+                            <view class="wrapper">
+                                <image src="{{item.img}}" mode="aspectFill"></image>
                             </view>
                         </view>
-                        <view class="row_content">
-                            <view class="wrapper2">
-                                <text class="name">周五1V1球场之王</text>
+                        <view class="middle">
+                            <view class="wrapper">
+                                <text class="name">{{item.name}}</text>
                                 <view class="line"></view>
-                                <text class="location iconfont icon-map-thumbtack"></text>
-                                <text class="location">北京工业大学</text>
-                                <text>\n</text>
-                                <text class="time iconfont icon-shijian"></text>
-                                <text class="time">2021/1/13 19:00-22:00</text>
+                                <text class="category iconfont icon-fenlei" wx:for="{{item.category}}"> {{item}}</text>
+                                <view class="location iconfont icon-map-thumbtack"> {{item.location_name}}</view>
+                                <view class="time iconfont icon-shijian"> {{item.specific_time}}</view>
                             </view>
                         </view>
-                        <view class="join">
-                            <view class="wrapper2">
+                        <view class="right">
+                            <view class="wrapper">
                                 <button>立即加入</button>
-                                <text class="money">第一名奖金：500¥</text>
+                                <text class="money" wx:if="{{item.price_money}}">第一名奖金:{{item.price_money}}¥</text>
                             </view>
                         </view>
                     </view>
@@ -121,28 +123,29 @@
             </view>
         </view>
         <view class="upcoming">
-            <view class="title">即将</view>
-            <view class="upcoming_row">
+            <view class="title">即将开始</view>
+            <view class="nothing" wx:if="{{recent.length == 0}}">
+                <text>当日没有任何活动哦</text>
+            </view>
+            <view class="upcoming_row" wx:for="{{recent}}" bindtap="eventNavigator" data-id="{{item._id}}" data-category="{{item.category}}">
                 <view class="left">
-                    <view class="wrapper2">
-                        <image src="../../img/event/event1.jpg" mode="widthFix"></image>
+                    <view class="wrapper">
+                        <image src="{{item.img}}" mode="aspectFill"></image>
                     </view>
                 </view>
-                <view class="row_content">
-                    <view class="wrapper2">
-                        <text class="name">周五1V1球场之王</text>
+                <view class="middle">
+                    <view class="wrapper">
+                        <text class="name">{{item.name}}</text>
                         <view class="line"></view>
-                        <text class="location iconfont icon-map-thumbtack"></text>
-                        <text class="location">北京工业大学</text>
-                        <text>\n</text>
-                        <text class="time iconfont icon-shijian"></text>
-                        <text class="time">2021/1/13 19:00-22:00</text>
+                        <text class="category iconfont icon-fenlei" wx:for="{{item.category}}"> {{item}}</text>
+                        <view class="location iconfont icon-map-thumbtack">  {{item.location_name}}</view>
+                        <view class="time iconfont icon-shijian">  {{item.specific_time}}</view>
                     </view>
                 </view>
-                <view class="join">
-                    <view class="wrapper2">
+                <view class="right">
+                    <view class="wrapper">
                         <button>立即加入</button>
-                        <text class="money">第一名奖金：500¥</text>
+                        <text class="money" wx:if="{{item.price_money}}">第一名奖金:{{item.price_money}}¥</text>
                     </view>
                 </view>
             </view>

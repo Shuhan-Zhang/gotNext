@@ -1,3 +1,4 @@
+var getDate = require('../../getDate.js');
 Page({
 
   data: {
@@ -16,6 +17,8 @@ Page({
     wx.cloud.database().collection("game").doc(gameID).get()
     .then(res=>{
       console.log("data pulled successfully",res);
+      res.data.written_time = getDate.formatTime(new Date(res.data.time));
+      res.data.specific_time = getDate.formatSpecific(new Date(res.data.time));
       this.setLocation(res.data);
       this.getLeagueInfo(res.data.league, res.data.team_1, res.data.team_2);
       this.setData({

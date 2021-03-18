@@ -36,7 +36,7 @@
                             <view class="line"></view>
                             <text class="category iconfont icon-fenlei" wx:for="{{item.category}}"> {{item}}</text>
                             <view class="location iconfont icon-map-thumbtack"> {{item.location_name}}</view>
-                            <view class="time iconfont icon-shijian"> {{item.written_time}}</view>
+                            <view class="time iconfont icon-shijian"> {{item.specific_time}}</view>
                         </view>
                     </view>
                     <view class="right">
@@ -78,7 +78,7 @@
                         <view class="line"></view>
                         <text class="category iconfont icon-fenlei" wx:for="{{item.category}}"> {{item}}</text>
                         <view class="location iconfont icon-map-thumbtack">  {{item.location_name}}</view>
-                        <view class="time iconfont icon-shijian">  {{item.written_time}}</view>
+                        <view class="time iconfont icon-shijian">  {{item.specific_time}}</view>
                     </view>
                 </view>
                 <view class="right">

@@ -182,6 +182,11 @@ Page({
       league:e.currentTarget.dataset.league
     })
     this.onLoad();
+  },
+  gameNavigator(e){
+    wx.navigateTo({
+      url:"/pages/game_detail/index?id=" + e.currentTarget.dataset.id
+    })
   }
   //BUTTON FUNCTIONS END
 })
