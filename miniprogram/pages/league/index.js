@@ -1,3 +1,4 @@
+const app = getApp();
 Page({
 
   data: {
@@ -14,7 +15,10 @@ Page({
     assistLeader:{},
     allLeagues:[],
     clickedButtonColor:"#FF784B",
-    unclickedButtonColor:"#ffb38e"
+    unclickedButtonColor:"#ffb38e",
+    isShowUserName: false,
+    userInfo: null,
+    userStatus:0
   },
   onLoad: function (options) {
     this.processAllGames();
@@ -22,17 +26,23 @@ Page({
     this.getTeamData();
     this.processTeams();
     this.getLeagues();
+    this.getUserStatus();
   },
-
+  onShow() {
+    var user = app.globalData.userInfo;
+    if (user && user.nickName) {
+      this.setData({
+        isShowUserName: true,
+        userInfo: user,
+      })
+    }
+  },
   //LOAD DATA FUNCTIONS START
   getPlayers(){
     wx.cloud.database().collection("players").where({
       league:this.data.league
     }).get()
     .then(res => {
-      // this.setData({
-      //   allPlayerData: res.data
-      // })
       this.processPlayers(res.data);
     }).catch(err => {
       console.log("failed to pull data",err);
@@ -52,6 +62,12 @@ Page({
       })
     }).catch(err => {
       console.log("failed to pull data",err);
+    })
+  },
+  getUserStatus(){
+    var userStatus = wx.getStorageSync('userStatus');
+    this.setData({
+      userStatus: userStatus
     })
   },
   //LOAD DATA FUNCTIONS END
@@ -119,9 +135,9 @@ Page({
         v.average_points = v.total_points/v.total_games_played
         v.average_rebounds = v.total_rebounds/v.total_games_played
         v.average_assists = v.total_assists/v.total_games_played
-        v.average_points_string = (v.total_points/v.total_games_played).toFixed(2);
-        v.average_rebounds_string = (v.total_rebounds/v.total_games_played).toFixed(2);
-        v.average_assists_string = (v.total_assists/v.total_games_played).toFixed(2);
+        v.average_points_string = (v.total_points/v.total_games_played).toFixed(1);
+        v.average_rebounds_string = (v.total_rebounds/v.total_games_played).toFixed(1);
+        v.average_assists_string = (v.total_assists/v.total_games_played).toFixed(1);
       })
       players.sort(function(first, second) {
         return second.average_points - first.average_points;
@@ -162,19 +178,18 @@ Page({
 
   //BUTTON FUNCTIONS START
   login(e){
-    wx.login({
-      timeout: 3000
-    }).then(res=>{
-      console.log("successful login", res);
-      wx.getUserInfo({
-      }).then(res=>{
-        console.log("successfully got user info", res);
-      }).catch(err=>{
-        console.log("faield to get user info", err);
+    console.log('用户信息', e)
+    if (e.detail.userInfo) {
+      var user = e.detail.userInfo;
+      this.setData({
+        isShowUserName: true,
+        userInfo: e.detail.userInfo,
       })
-    }).catch(err=>{
-      console.log("login failed",err);
-    })
+      user.openid = app.globalData.openid;
+      app._saveUserInfo(user);
+    } else {
+      app.showErrorToastUtils('登陆需要允许授权');
+    }
   },
   changeLeague(e){
     console.log(e);
@@ -183,10 +198,25 @@ Page({
     })
     this.onLoad();
   },
-  gameNavigator(e){
+  registerUser(e){
+    wx.navigateTo({
+      url:"/pages/player_form/index?openid=" + e.currentTarget.dataset.openid
+    })
+  },
+  playerNavigator(e){
+    wx.navigateTo({
+      url:"/pages/player_card/index?openid=" + e.currentTarget.dataset.id
+    })
+  },
+  teamNavigator(e){
+    wx.navigateTo({
+      url:"/pages/team_card/index?league=" + e.currentTarget.dataset.league + "&team=" + e.currentTarget.dataset.team
+    })
+  },
+    gameNavigator(e){
     wx.navigateTo({
       url:"/pages/game_detail/index?id=" + e.currentTarget.dataset.id
     })
-  }
+  },
   //BUTTON FUNCTIONS END
 })

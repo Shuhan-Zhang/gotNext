@@ -35,22 +35,22 @@
             <view class="wrapper">
                 <view class="reward_column">
                     <view class="personal wrapper2">
-                        <text class="iconfont icon-gou_wu_che2"> 个人活动</text>
+                        <text class="iconfont icon-lanqiu"> 个人活动</text>
                     </view>
                 </view>
                 <view class="reward_column">
                     <view class="team wrapper2">
-                        <text class="iconfont icon-gou_wu_che2"> 团队活动</text>
+                        <text class="iconfont icon-lanqiuchang"> 团队活动</text>
                     </view>
                 </view>
                 <view class="reward_column">
                     <view class="challenge wrapper2">
-                        <text class="iconfont icon-gou_wu_che2"> 挑战</text>
+                        <text class="iconfont icon-mubiao"> 挑战</text>
                     </view>
                 </view>
                 <view class="reward_column">
                     <view class="social wrapper2">
-                        <text class="iconfont icon-gou_wu_che2"> 社交</text>
+                        <text class="iconfont icon-huodongzujian-29"> 社交</text>
                     </view>
                 </view>
             </view>

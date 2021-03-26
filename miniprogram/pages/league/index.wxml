@@ -1,7 +1,11 @@
 <view class="league">
-    <view class="login">
+    <view class="login" wx:if="{{userStatus == 0}}">
         <image class="background" src="../../img/league/top1.jpg" mode="aspectFill"></image>
         <button bindgetuserinfo="login" open-type="getUserInfo">登陆</button>
+    </view>
+    <view class="login" wx:if="{{userStatus == 1}}">
+        <image class="background" src="../../img/league/top2.jpg" mode="aspectFill"></image>
+        <button bindtap="registerUser" data-openid = "{{userInfo.openid}}">立即加入</button>
     </view>
     <scroll-view class="league_selector" scroll-x = "true">
         <button class="leagues {{league == item.league_name ? 'active' : ''}}" wx:for="{{allLeagues}}" data-league="{{item.league_name}}" bindtap="changeLeague">{{item.league_name}}</button>
@@ -12,14 +16,14 @@
             <view class="nothing" wx:if="{{pastGames.length == 0}}">
                 <text>暂时还没有这个哦</text>
             </view>
-            <view class="game_row" wx:for="{{pastGames}}" data-id="{{item._id}}" bindtap="gameNavigator">
+            <view class="game_row" wx:for="{{pastGames}}" data-id="{{item._id}}" bindtap="gameNavigator" >
                 <view class="left">
-                    <view class="team1">
+                    <view class="team1" bindtap="teamNavigator" data-team="{{item.team_1_data.team_name}}" data-league="{{item.league_name}}">
                         <image src="{{item.team_1_data.logo}}"></image>
                         <!-- <text class="team_name  top">{{item.team_1}}</text> -->
                         <text class="team_name  top">{{item.team_1}}</text>
                     </view>
-                    <view class="team2">
+                    <view class="team2" bindtap="teamNavigator" data-team="{{item.team_2_data.team_name}}" data-league="{{item.league_name}}">
                         <image src="{{item.team_2_data.logo}}"></image>
                         <text class="team_name bottom">{{item.team_2}}</text>
                     </view>
@@ -49,7 +53,7 @@
             <view class="nothingPoints" wx:if="{{!pointLeader}}">
                 <text>暂时还没有这个哦</text>
             </view>
-            <view class="stats_leader_row point" wx:if="{{pointLeader}}">
+            <view class="stats_leader_row point" wx:if="{{pointLeader}}" bindtap="playerNavigator" data-id="{{pointLeader.player_id}}">
                 <view class="points">
                     <text>得分</text>
                 </view>
@@ -64,7 +68,7 @@
             <view class="nothingRebounds" wx:if="{{!reboundLeader}}">
                 <text>暂时还没有这个哦</text>
             </view>
-            <view class="stats_leader_row rebound" wx:if="{{reboundLeader}}">
+            <view class="stats_leader_row rebound" wx:if="{{reboundLeader}}" bindtap="playerNavigator" data-id="{{reboundLeader.player_id}}">
                 <view class="player_pic">
                     <image src="{{reboundLeader.player_pic}}" mode="aspectFill"></image>
                 </view>
@@ -79,7 +83,7 @@
             <view class="nothingAssists" wx:if="{{!assistLeader}}">
                 <text>暂时还没有这个哦</text>
             </view>
-            <view class="stats_leader_row assist" wx:if="{{assistLeader}}">
+            <view class="stats_leader_row assist" wx:if="{{assistLeader}}" bindtap="playerNavigator" data-id="{{assistLeader.player_id}}">
                 <view class="assists">
                     <text>助攻</text>
                 </view>
@@ -103,7 +107,7 @@
                     <view class="th middle">队名</view>
                     <view class="th right">赢场/输场</view>
                 </view>
-                <view class="tr" wx:for="{{leagueOnlyTeamData}}">
+                <view class="tr" wx:for="{{leagueOnlyTeamData}}" bindtap="teamNavigator" data-team="{{item.team_name}}" data-league="{{item.league_name}}">
                     <view class="td left">{{index+1}}.</view>
                     <view class="td middle">
                         <image src="{{item.logo}}"></image>
@@ -118,8 +122,8 @@
             <view class="nothing" wx:if="{{upcomingGames.length == 0}}">
                 <text>暂时还没有这个哦</text>
             </view>
-            <view class="upcoming_row" wx:for="{{upcomingGames}}">
-                <view class="team1">
+            <view class="upcoming_row" wx:for="{{upcomingGames}}" data-id="{{item._id}}" bindtap="gameNavigator">
+                <view class="team1" bindtap="teamNavigator" data-team="{{item.team_1_data.team_name}}" data-league="{{item.league_name}}">
                     <view class="content">
                         <image src="{{item.team_1_data.logo}}"></image>
                         <view class="team_name">{{item.team_1}}</view>
@@ -139,7 +143,7 @@
                         <button>立即加入</button>
                     </view>
                 </view>
-                <view class="team2">
+                <view class="team2" bindtap="teamNavigator" data-team="{{item.team_2_data.team_name}}" data-league="{{item.league_name}}">
                     <view class="content">
                         <image src="{{item.team_2_data.logo}}"></image>
                         <view class="team_name">{{item.team_2}}</view>

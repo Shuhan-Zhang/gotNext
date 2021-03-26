@@ -1,3 +1,15 @@
+view.index .nothing {
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  margin-top: 40px;
+  width: 100%;
+  font-size: 20px;
+  background: #FFF0E8;
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  color: #DA463C;
+}
 view.index view.index_swiper {
   background-image: linear-gradient(180deg, #FF5400 0%, #FFCECE 100%);
   box-shadow: 0 5px 4px 0 #FFCECE;
@@ -44,18 +56,6 @@ view.index view.content view.close_by view.title view.category_selector button {
   color: #FFA97E;
   padding-right: 5px;
   padding-left: 5px;
-}
-view.index view.content view.close_by view.nothing {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
-  margin-top: 40px;
-  width: 100%;
-  font-size: 20px;
-  background: #FFF0E8;
-  border-radius: 8px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-  color: #DA463C;
 }
 view.index view.content view.close_by view.close_row {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
@@ -169,7 +169,11 @@ view.index view.content view.close_by view.map map {
   height: 300px;
 }
 view.index view.content view.upcoming {
-  margin-top: 20px;
+  padding-top: 20px;
+}
+view.index view.content view.upcoming view.nothing {
+  background: #FFEDED;
+  color: #FF0000;
 }
 view.index view.content view.upcoming view.title text.top {
   font-family: LiGothicMed;
@@ -195,18 +199,6 @@ view.index view.content view.upcoming view.title view.category_selector button {
   color: #FF8F8F;
   padding-right: 5px;
   padding-left: 5px;
-}
-view.index view.content view.upcoming view.nothing {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
-  margin-top: 40px;
-  width: 100%;
-  font-size: 20px;
-  background: #FFEDED;
-  border-radius: 8px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-  color: #DA463C;
 }
 view.index view.content view.upcoming view.upcoming_row {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
@@ -369,8 +361,13 @@ view.index view.content view.upcoming view.MVP view.card view.video video {
   border-radius: 8px;
 }
 view.index view.content view.news {
-  margin-top: 20px;
-  margin-bottom: 10px;
+  padding-top: 20px;
+  padding-bottom: 10px;
+}
+view.index view.content view.news view.nothing {
+  background: #C0DFFF;
+  color: #147CE5;
+  text-align: left;
 }
 view.index view.content view.news view.title text.top {
   font-family: LiGothicMed;
@@ -386,22 +383,6 @@ view.index view.content view.news view.title view.category_selector {
   color: #147CE5;
   float: right;
   width: 30%;
-}
-view.index view.content view.news view.nothing {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
-  margin-top: 30px;
-  width: 100%;
-  font-size: 20px;
-  background: #C0DFFF;
-  border-radius: 8px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
-  color: #0080ff;
-  display: flex;
-}
-view.index view.content view.news view.nothing text {
-  margin-left: 33%;
 }
 view.index view.content view.news view.news_row {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);

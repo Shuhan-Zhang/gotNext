@@ -7,7 +7,9 @@
     "pages/player_card/index",
     "pages/team_card/index",
     "pages/event_detail/index",
-    "pages/game_detail/index"
+    "pages/game_detail/index",
+    "pages/player_form/index",
+    "pages/item_list/index"
   ],
   "permission": {
     "scope.userLocation": {

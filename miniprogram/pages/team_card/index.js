@@ -1,66 +1,130 @@
-// pages/team_card/index.js
+var getDate = require('../../getDate.js');
 Page({
-
-  /**
-   * 页面的初始数据
-   */
   data: {
-
+    finishedGames:[],
+    upcomingGames:[],
+    allPlayers:[],
+    teamInfo:{}
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
-
+    this.getAllGames(options.league, options.team);
+    this.getAllPlayers(options.league, options.team);
+    this.getTeamInfo(options.league, options.team);
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  getAllGames(league, team){
+    let db = wx.cloud.database()
+    const _ = db.command
+    wx.cloud.database().collection("game").where({
+      team_list: team,
+      league_name:league,
+      team_1_score: _.exists(true)
+    }).get()
+    .then(res => {
+      this.processFinishedGames(res.data);
+    }).catch(err => {
+      console.log("failed to pull data",err);
+    })
+    wx.cloud.database().collection("game").where({
+      team_list: team,
+      league_name:league,
+      team_1_score: _.exists(false)
+    }).get()
+    .then(res => {
+      this.processUpcomingGames(res.data);
+    }).catch(err => {
+      console.log("failed to pull data",err);
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  getAllPlayers(league, team){
+    wx.cloud.database().collection("players").where({
+      team_name: team,
+      league:league
+    }).get()
+    .then(res => {
+      this.setData({
+        allPlayers:res.data
+      })
+    }).catch(err => {
+      console.log("failed to pull data",err);
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
+  getTeamInfo(league, team){
+    wx.cloud.database().collection("teams").where({
+      team_name: team,
+      league_name:league
+    }).get()
+    .then(res => {
+      this.processTeamInfo(res.data[0]);
+    }).catch(err => {
+      console.log("failed to pull data",err);
+    })
   },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
+  processTeamInfo(data){
+    var teamData = data;
+    var total_games = data.win + data.loss;
+    if(data.win+data.loss == 0){
+      teamData.average_points = 0;
+      teamData.average_rebounds = 0;
+      teamData.average_assists = 0;
+    }else{
+      teamData.average_points = (teamData.total_point/total_games).toFixed(1);
+      teamData.average_rebounds = (teamData.total_rebound/total_games).toFixed(1);
+      teamData.average_assists = (teamData.total_assist/total_games).toFixed(1);
+    }
+    console.log(teamData);
+    this.setData({
+      teamInfo: teamData
+    })
   },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
+  processFinishedGames(data){
+    var gameList = data;
+    var loaded_teams = wx.getStorageSync('allTeams');
+    gameList.forEach(v=>{
+      v.written_time = getDate.formatTime(new Date(v.time));
+      v.specific_time = getDate.formatSpecific(new Date(v.time));
+      loaded_teams.forEach(i=>{
+        if(i.team_name == v.team_list[0]){
+          v.team_1_data = i
+        }else if(i.team_name == v.team_list[1]){
+          v.team_2_data = i
+        }
+      })
+    })
+    this.setData({
+      finishedGames: gameList
+    })
   },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
+  processUpcomingGames(data){
+    var gameList = data;
+    var loaded_teams = wx.getStorageSync('allTeams');
+    gameList.forEach(v=>{
+      v.written_time = getDate.formatTime(new Date(v.time));
+      v.specific_time = getDate.formatSpecific(new Date(v.time));
+      loaded_teams.forEach(i=>{
+        if(i.team_name == v.team_list[0]){
+          v.team_1_data = i
+        }else if(i.team_name == v.team_list[1]){
+          v.team_2_data = i
+        }
+      })
+    })
+    this.setData({
+      upcomingGames: gameList
+    })
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
+  playerNavigator(e){
+    wx.navigateTo({
+      url:"/pages/player_card/index?openid=" + e.currentTarget.dataset.id
+    })
+  },
+  teamNavigator(e){
+    wx.navigateTo({
+      url:"/pages/team_card/index?league=" + e.currentTarget.dataset.league + "&team=" + e.currentTarget.dataset.team
+    })
+  },
+  gameNavigator(e){
+    wx.navigateTo({
+      url:"/pages/game_detail/index?id=" + e.currentTarget.dataset.id
+    })
+  },
 })

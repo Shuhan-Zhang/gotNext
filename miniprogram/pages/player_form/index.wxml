@@ -1,0 +1,92 @@
+<view class="all">
+    <view class="profileImage">
+        <image src="{{tempImage}}" mode="aspectFill" bindtap="getProfileImage"></image>
+    </view>
+    <view class="infoRow name">
+        <view class="left">
+            <view class="wrapper">
+                <image src="../../img/player_form/name.png" mode="aspectFill" class="icon"></image>
+            </view>
+        </view>
+        <view class="right">
+            <view class="top">
+                <text class="title">名称:</text>
+            </view>
+            <view class="line"></view>
+            <input class="bottom" bindinput="getName" value="" placeholder="名称" placeholder-style="font-family: PingFangSC-Semibold;font-size: 15px;color: #FFBFA0;"></input>
+        </view>
+    </view>
+    <view class="infoRow height">
+        <view class="left">
+            <view class="wrapper">
+                <image src="../../img/player_form/height.png" mode="aspectFill" class="icon"></image>
+            </view>
+        </view>
+        <view class="right">
+            <view class="top">
+                <text class="title">身高:</text>
+            </view>
+            <view class="line"></view>
+            <picker class="bottom" mode="selector" bindchange="changeHeight" range="{{heightRange}}" value="{{heightIndex}}">
+                <view class="picker">
+                    当前选择: {{heightRange[heightIndex]}}cm
+                </view>
+            </picker>
+        </view>
+    </view>
+    <view class="infoRow position">
+        <view class="left">
+            <view class="wrapper">
+                <image src="../../img/player_form/position.png" mode="aspectFill" class="icon"></image>
+            </view>
+        </view>
+        <view class="right">
+            <view class="top">
+                <text class="title">位置:</text>
+            </view>
+            <view class="line"></view>
+            <view class="bottom">
+                <button class="position {{selectedPosition == item ? 'active' : ''}}" wx:for="{{allPositions}}" data-position="{{item}}" bindtap="getPosition">{{item}}</button>
+            </view>
+        </view>
+    </view>
+    <view class="infoRow age">
+        <view class="left">
+            <view class="wrapper">
+                <image src="../../img/player_form/age.png" mode="aspectFill" class="icon"></image>
+            </view>
+        </view>
+        <view class="right">
+            <view class="top">
+                <text class="title">年龄:</text>
+            </view>
+            <view class="line"></view>
+            <picker class="bottom" mode="selector" bindchange="changeAge" range="{{ageRange}}" value="{{ageIndex}}">
+                <view class="picker">
+                    当前选择: {{ageRange[ageIndex]}}岁
+                </view>
+            </picker>
+        </view>
+    </view>
+    <view class="infoRow age">
+        <view class="left">
+            <view class="wrapper">
+                <image src="../../img/player_form/weight.png" mode="aspectFill" class="icon"></image>
+            </view>
+        </view>
+        <view class="right">
+            <view class="top">
+                <text class="title">体重:</text>
+            </view>
+            <view class="line"></view>
+            <picker class="bottom" mode="selector" bindchange="changeWeight" range="{{weightRange}}" value="{{weightIndex}}">
+                <view class="picker">
+                    当前选择: {{weightRange[weightIndex]}}kg
+                </view>
+            </picker>
+        </view>
+    </view>
+    <button class="bottom" bindtap="uploadInformation">
+        注册球员
+    </button>
+</view>

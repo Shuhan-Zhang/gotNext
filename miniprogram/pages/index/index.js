@@ -52,6 +52,7 @@ Page({
     this.getSwiperImage();
     this.getNews();
     this.getTeams();
+    this.getPlayerStatus();
   },
 
   // LOAD DATA FUNCTIONS START
@@ -93,9 +94,22 @@ Page({
     wx.cloud.database().collection("MVP").get()
     .then(res => {
       this.setData({
-        mvp:res.data[0],
+        mvpInfo:res.data[0],
       })
-      this.getLeagueInfo(res.data[0].league, res.data[0].team);
+      this.getMVPPlayerData(res.data[0].player_id);
+    }).catch(err => {
+      console.log("failed to pull data",err);
+    })
+  },
+  getMVPPlayerData(id){
+    wx.cloud.database().collection("players").where({
+      player_id: id
+    }).get()
+    .then(res => {
+      this.setData({
+        MVPplayerData: res.data[0]
+      })
+      this.getLeagueInfo(res.data[0].league, res.data[0].team_name);
     }).catch(err => {
       console.log("failed to pull data",err);
     })
@@ -140,7 +154,35 @@ Page({
     }).catch(err => {
       console.log("failed to pull data",err);
     })
-},
+  },
+  getPlayerStatus(){
+    try{
+      var userInfo = wx.getStorageSync('user');
+      wx.cloud.database().collection("players").where({
+        player_id: userInfo.openid
+      }).get()
+      .then(res => {
+        if(res.data.length == 0){
+          this.setData({
+            userStatus: 1
+          })
+          wx.setStorageSync('userStatus', 1);
+        }else{
+          this.setData({
+            userStatus: 2
+          })
+          wx.setStorageSync('userStatus', 2);
+        }
+      }).catch(err => {
+        console.log("failed to pull data",err);
+      })
+    }catch(err){
+      this.setData({
+        userStatus: 0
+      })
+      wx.setStorageSync('userStatus', 0);
+    }
+  },
   // LOAD DATA FUNCTIONS END
 
   // DATA PROCESSING FUNCTIONS START
@@ -445,6 +487,16 @@ Page({
         url:"/pages/game_detail/index?id=" + e.currentTarget.dataset.id
       })
     }
-}
+  },
+  playerNavigator(e){
+    wx.navigateTo({
+      url:"/pages/player_card/index?openid=" + e.currentTarget.dataset.id
+    })
+  },
+  teamNavigator(e){
+    wx.navigateTo({
+      url:"/pages/team_card/index?league=" + e.currentTarget.dataset.league + "&team=" + e.currentTarget.dataset.team
+    })
+  }
   // BUTTON FUNCTIONS END
 })

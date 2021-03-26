@@ -13,8 +13,8 @@
                     <view class="name">张书晗</view>
                     <view class="detail">185cm/控球后卫/19岁/110kg</view>
                     <view class="rewards">
-                        <text class="event iconfont icon-gou_wu_che2"> 0</text>
-                        <text class="rings iconfont icon-gou_wu_che2"> 0</text>
+                        <text class="event iconfont icon-bisai"> 0</text>
+                        <text class="rings iconfont iconfont icon-jiezhi"> 0</text>
                     </view>
                 </view>
             </view>
@@ -139,22 +139,22 @@
                         <view class="wrapper">
                             <view class="reward_column">
                                 <view class="personal wrapper2">
-                                    <text class="iconfont icon-gou_wu_che2"> 0</text>
+                                    <text class="iconfont icon-lanqiu"> 0</text>
                                 </view>
                             </view>
                             <view class="reward_column">
                                 <view class="team wrapper2">
-                                    <text class="iconfont icon-gou_wu_che2"> 0</text>
+                                    <text class="iconfont icon-lanqiuchang"> 0</text>
                                 </view>
                             </view>
                             <view class="reward_column">
                                 <view class="challenge wrapper2">
-                                    <text class="iconfont icon-gou_wu_che2"> 0</text>
+                                    <text class="iconfont icon-mubiao"> 0</text>
                                 </view>
                             </view>
                             <view class="reward_column">
                                 <view class="social wrapper2">
-                                    <text class="iconfont icon-gou_wu_che2"> 0</text>
+                                    <text class="iconfont icon-huodongzujian-29"> 0</text>
                                 </view>
                             </view>
                         </view>

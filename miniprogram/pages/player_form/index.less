@@ -1,0 +1,102 @@
+view.all {
+    background: #FF5400;
+    height: 135vh;
+    view.profileImage {
+        padding-top: 10px;
+        width: 100%;
+        align-items: center;
+        text-align: center;
+      image {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+      }
+    }
+    view.infoRow{
+        box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
+        width: 95%;
+        margin:0 auto;
+        display: flex;
+        margin-top: 15px;
+        background: #FFFFFF;
+        border-radius: 8px;
+        padding-top: 15px;
+        padding-bottom: 15px;
+        view.left{
+            flex: 0 0 15%;
+            max-width: 15%;
+            text-align: center;
+            view.wrapper{
+                position: relative;
+                top:50%;
+                transform: translateY(-50%);
+                image.icon{
+                    width: 40px;
+                    height: 40px;
+                }
+            }
+        }
+        view.right{
+            flex: 0 0 85%;
+            max-width: 85%;
+            view.top{
+                text.title{
+                    font-family: PingFangSC-Semibold;
+                    font-size: 20px;
+                    color: #FF5400;
+                }
+            }
+            view.line{
+                width:95%;
+                margin:10px auto 10px 0px;
+                height:1rpx;
+                background-color: #d1d1d1bb;
+            }
+        }
+    }
+    view.picker{
+        font-family: PingFangSC-Semibold;
+        font-size: 15px;
+        color: #FFBFA0;
+    }
+    button.position {
+        display: inline-block;
+        background: #FF9292;
+        border-radius: 14px;
+        font-family: PingFangSC-Semibold;
+        font-size: 15px;
+        color: #FFFFFF;
+        margin-right: 10px;
+        text-align: center;
+      }
+      .position.active{
+        display: inline-block;
+        background: #FF0000;
+        border-radius: 14px;
+        font-family: PingFangSC-Semibold;
+        font-size: 15px;
+        color: #FFFFFF;
+        margin-right: 10px;
+        text-align: center;
+      }
+  
+    button.bottom {
+        text-align: center;
+        background: #007FFF;
+        font-family: PingFangSC-Semibold;
+        font-size: 25px;
+        color: #FFFFFF;
+        height:8%;
+        justify-content: center;
+        align-items: center;
+        width:100%;
+        position: fixed;
+        bottom: 0;
+        border-radius: 8px 8px 0px 0px;
+    }
+    input{
+        font-family: PingFangSC-Semibold;
+        font-size: 15px;
+        color: #FFBFA0;
+    }
+  }

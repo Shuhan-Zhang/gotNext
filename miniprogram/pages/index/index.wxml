@@ -23,7 +23,9 @@
                     <button bindtap="allItems"  data-type="close_by">全部</button>
                 </view>
             </view>
-            <view class="nothing" wx:if="{{closeby_items.length == 0}}">暂时还没有这个哦</view>
+            <view class="nothing" wx:if="{{closeby_items.length == 0}}">
+                <text>暂时还没有这个哦</text>
+            </view>
                 <view class="close_row" wx:for="{{closeby_items}}" bindtap="rowNavigator" data-id="{{item._id}}" data-category="{{item.category}}">
                     <view class="left">
                         <view class="wrapper">
@@ -65,7 +67,9 @@
                     <button bindtap="allItems" data-type="recent">全部</button>
                 </view>
             </view>
-            <view class="nothing" wx:if="{{recent.length == 0}}">暂时还没有这个哦</view>
+            <view class="nothing" wx:if="{{recent.length == 0}}">
+                <text>暂时还没有这个哦</text>
+            </view>
             <view class="upcoming_row" wx:for="{{recent}}" bindtap="rowNavigator" data-id="{{item._id}}" data-category="{{item.category}}">
                 <view class="left">
                     <view class="wrapper">
@@ -94,18 +98,18 @@
                 <view class="card">
                     <view class="row">
                         <view class="left">
-                            <image src="{{mvp.img}}" mode="aspectFill"></image>
+                            <image src="{{MVPplayerData.player_pic}}" mode="aspectFill" bindtap="playerNavigator" data-id="{{mvpInfo.player_id}}"></image>
                         </view>
                         <view class="middle">
-                            <view class="name">{{mvp.name}}</view>
-                            <view class="stats">{{mvp.point}}分/{{mvp.rebound}}篮板/{{mvp.assist}}助攻</view>
+                            <view class="name">{{MVPplayerData.player_name}}</view>
+                            <view class="stats">{{mvpInfo.point}}分/{{mvpInfo.rebound}}篮板/{{mvpInfo.assist}}助攻</view>
                         </view>
                         <view class="right">
-                            <image src="{{MVPTeamImage}}" mode="aspectFill"></image>
+                            <image src="{{MVPTeamImage}}" mode="aspectFill" bindtap="teamNavigator" data-league="{{MVPplayerData.league}}" data-team="{{MVPplayerData.team_name}}"></image>
                         </view>
                     </view>
                     <view class="video">
-                        <video src="{{mvp.video}}"></video>
+                        <video src="{{mvpInfo.video}}"></video>
                     </view>
                 </view>
             </view>

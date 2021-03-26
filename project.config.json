@@ -102,6 +102,19 @@
         {
           "name": "球员主页",
           "pathName": "pages/player/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "球员注册页",
+          "pathName": "pages/player_form/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "球员卡有id",
+          "pathName": "pages/player_card/index",
+          "query": "openid=oj_zs4gVj7sva_PfJZYg9PTVD6iU",
           "scene": null
         }
       ]
