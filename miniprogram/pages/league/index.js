@@ -18,7 +18,8 @@ Page({
     unclickedButtonColor:"#ffb38e",
     isShowUserName: false,
     userInfo: null,
-    userStatus:0
+    userStatus:0,
+    userTeamInfo:{}
   },
   onLoad: function (options) {
     this.processAllGames();
@@ -27,6 +28,7 @@ Page({
     this.processTeams();
     this.getLeagues();
     this.getUserStatus();
+    this.getUserPlayerInfo();
   },
   onShow() {
     var user = app.globalData.userInfo;
@@ -62,6 +64,36 @@ Page({
       })
     }).catch(err => {
       console.log("failed to pull data",err);
+    })
+  },
+  getUserPlayerInfo(){
+    try{
+      var userId = wx.getStorageSync('openid');
+      wx.cloud.database().collection("players").where({
+        player_id : userId
+      }).get()
+      .then(res => {
+        var userTeam = res.data.team_name;
+        this.getUserTeam(userTeam);
+      }).catch(err => {
+        console.log("failed to pull data",err);
+      })
+    }catch{
+      console.log("user not logged in");
+    }
+  },
+  getUserTeam(team){
+    var userTeam = team;
+    wx.cloud.database().collection("teams").where({
+      team_name : userTeam
+    }).get().then(res=>{
+      // this.setData({
+      //   userTeamInfo: res.data[0]
+      // })
+      let teamInfo = res.data[0];
+      this.processTeamInfo(teamInfo);
+    }).catch(err=>{
+      console.log("error fetching user team",err);
     })
   },
   getUserStatus(){
@@ -174,6 +206,22 @@ Page({
       leagueOnlyTeamData: league_teams
     })
   },
+  processTeamInfo(data){
+    var teamData = data;
+    var total_games = data.win + data.loss;
+    if(data.win+data.loss == 0){
+      teamData.average_points = 0;
+      teamData.average_rebounds = 0;
+      teamData.average_assists = 0;
+    }else{
+      teamData.average_points = (teamData.total_point/total_games).toFixed(1);
+      teamData.average_rebounds = (teamData.total_rebound/total_games).toFixed(1);
+      teamData.average_assists = (teamData.total_assist/total_games).toFixed(1);
+    }
+    this.setData({
+      userTeamInfo: teamData
+    })
+  },
   //PROCESS DATA FUNCTIONS END
 
   //BUTTON FUNCTIONS START
@@ -216,6 +264,11 @@ Page({
     gameNavigator(e){
     wx.navigateTo({
       url:"/pages/game_detail/index?id=" + e.currentTarget.dataset.id
+    })
+  },
+  pastGameNavigator(e){
+    wx.navigateTo({
+      url:"/pages/item_list/index?function=getPastGames&league=" + e.currentTarget.dataset.league
     })
   },
   //BUTTON FUNCTIONS END

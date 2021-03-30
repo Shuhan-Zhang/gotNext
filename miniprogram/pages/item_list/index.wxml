@@ -1,2 +1,30 @@
-<!--pages/item_list/index.wxml-->
-<text>pages/item_list/index.wxml</text>
+<view class="all" style="background-color:{{backgroundColor}}">
+  <view class="content">
+    <view class="title">{{titleText}}</view>
+    <view class="nothing" wx:if="{{itemList.length == 0}}">
+      <text>暂时还没有这个哦</text>
+    </view>
+    <view class="row" wx:for="{{itemList}}" bindtap="rowNavigator" data-id="{{item._id}}" data-category="{{item.category}}" wx:if="{{itemList.length != 0}}">
+        <view class="left">
+            <view class="wrapper">
+                <image src="{{item.img}}" mode="aspectFill"></image>
+            </view>
+        </view>
+        <view class="middle">
+            <view class="wrapper">
+                <text class="name">{{item.name}}</text>
+                <view class="line"></view>
+                <text class="category iconfont icon-fenlei" wx:for="{{item.category}}"> {{item}}</text>
+                <view class="location iconfont icon-map-thumbtack"> {{item.location_name}}</view>
+                <view class="time iconfont icon-shijian"> {{item.specific_time}}</view>
+            </view>
+        </view>
+        <view class="right">
+            <view class="wrapper">
+                <button>立即加入</button>
+                <text class="money" wx:if="{{item.price_money}}">第一名奖金:{{item.price_money}}¥</text>
+            </view>
+        </view>
+    </view>
+  </view>
+</view>

@@ -48,7 +48,7 @@
                         </view>
                     </view>
                 </view>
-            <navigator class="more" wx:if="{{closeby_items.length > 3}}">查看更多</navigator>
+            <button class="more" bindtap="closeByNavigator" wx:if="{{closeby_items.length > 3}}">查看更多</button>
             <view class="map">
                 <text>篮球地图</text>
                 <map id= "123" markers="{{markers}}"></map>
@@ -92,7 +92,7 @@
                     </view>
                 </view>
             </view>
-            <navigator class="more" wx:if="{{recent.length > 3}}">查看更多</navigator>
+            <button class="more" bindtap="recentNavigator" wx:if="{{recent.length > 3}}">查看更多</button>
             <view class="MVP">
                 <view class="title">今日最佳球员</view>
                 <view class="card">

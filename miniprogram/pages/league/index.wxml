@@ -1,11 +1,60 @@
 <view class="league">
     <view class="login" wx:if="{{userStatus == 0}}">
-        <image class="background" src="../../img/league/top1.jpg" mode="aspectFill"></image>
+        <image class="background" src="../../img/league/signIn.jpg" mode="aspectFill"></image>
         <button bindgetuserinfo="login" open-type="getUserInfo">登陆</button>
     </view>
     <view class="login" wx:if="{{userStatus == 1}}">
-        <image class="background" src="../../img/league/top2.jpg" mode="aspectFill"></image>
-        <button bindtap="registerUser" data-openid = "{{userInfo.openid}}">立即加入</button>
+        <image class="background" src="../../img/league/top1.jpg" mode="aspectFill"></image>
+        <button bindtap="registerUser" data-openid = "{{userInfo.openid}}">立即注册</button>
+    </view>
+    <view class="login" wx:if="{{userStatus == 2}}">
+        <image class="background" src="../../img/league/register.jpg" mode="aspectFill"></image>
+        <button>立即加入</button>
+    </view>
+    <view class="userTeamInfo" wx:if="{{userStatus == 3}}">
+        <text class="title">我的球队</text>
+        <view class="teamInfo" bindtap="teamNavigator" data-team="{{userTeamInfo.team_name}}" data-league="{{userTeamInfo.league_name}}">
+            <view class="top_information" style="background-color:{{userTeamInfo.theme_color}}">
+                <view class="left">
+                    <image src="{{userTeamInfo.logo}}" mode="aspectFill"></image>
+                </view>
+                <view class="right">
+                    <view class="name">{{userTeamInfo.league_name}}{{userTeamInfo.team_name}}</view>
+                    <view class="detail">{{userTeamInfo.win}}胜-{{userTeamInfo.loss}}负</view>
+                    <view class="rewards">
+                        <text> U16排名第5</text>
+                    </view>
+                </view>
+            </view>
+            <view class="main_card" style="background-color:{{userTeamInfo.secondary_color}}">
+                <view class = "card">
+                    <view class="team_stats">
+                        <view class="title">球队数据</view>
+                        <view class="stat_line" style="background-color:{{userTeamInfo.theme_color}}">
+                            <view class='stat_column'>
+                                <view class="wrapper">
+                                    <view class="number">{{userTeamInfo.average_points}}</view>
+                                    <view class="description">场均得分</view>
+                                </view>
+                            </view>
+                            <view class='stat_column'>
+                                <view class="wrapper">
+                                    <view class="number">{{userTeamInfo.average_rebounds}}</view>
+                                    <view class="description">场均篮板</view>
+                                </view>
+                            </view>
+                            <view class='stat_column'>
+                                <view class="wrapper">
+                                    <view class="number">{{userTeamInfo.average_assists}}</view>
+                                    <view class="description">场均助攻</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
+        <text class="title">GOTNEXT联盟</text>
     </view>
     <scroll-view class="league_selector" scroll-x = "true">
         <button class="leagues {{league == item.league_name ? 'active' : ''}}" wx:for="{{allLeagues}}" data-league="{{item.league_name}}" bindtap="changeLeague">{{item.league_name}}</button>
@@ -20,7 +69,6 @@
                 <view class="left">
                     <view class="team1" bindtap="teamNavigator" data-team="{{item.team_1_data.team_name}}" data-league="{{item.league_name}}">
                         <image src="{{item.team_1_data.logo}}"></image>
-                        <!-- <text class="team_name  top">{{item.team_1}}</text> -->
                         <text class="team_name  top">{{item.team_1}}</text>
                     </view>
                     <view class="team2" bindtap="teamNavigator" data-team="{{item.team_2_data.team_name}}" data-league="{{item.league_name}}">
@@ -46,7 +94,7 @@
                     </view>
                 </view>
             </view>
-            <navigator class="view_more" wx:if="{{pastGames.length > 3}}">查看更多</navigator>
+            <button class="view_more" wx:if="{{pastGames.length > 3}}" bindtap="pastGameNavigator" data-league="{{league}}">查看更多</button>
         </view>
         <view class="stats_leaders">
             <text class="title">数据王</text>

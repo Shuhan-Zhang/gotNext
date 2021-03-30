@@ -4,7 +4,7 @@ view.all view.top_image image {
 view.all .participation {
   text-align: right;
   z-index: 10;
-  margin-top: -30px;
+  margin-top: -35px;
   font-family: PingFangSC-Semibold;
   font-size: 15px;
   color: #FFFFFF;
@@ -17,7 +17,7 @@ view.all view.main_card {
   flex-flow: column;
   position: relative;
   background-image: linear-gradient(180deg, #CE1241 0%, #360000 99%);
-  box-shadow: 0 -20px 20px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 -5px 5px 0 rgba(0, 0, 0, 0.5);
   border-radius: 10px 10px 0px 0px;
   margin-top: 5x;
   z-index: 1000;

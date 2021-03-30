@@ -2,7 +2,7 @@
     <view class="top_image">
         <image src="{{event.detail_img}}" mode="aspectFill"></image>
     </view>
-    <view class="participation">{{event.participants}}人已参加</view>
+    <view class="participation">{{event.participant_list.length}}人已参加</view>
     <view class="main_card">
         <view class="card">
             <view class="title">{{event.name}}</view>

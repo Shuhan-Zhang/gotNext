@@ -6,8 +6,7 @@
                 <view class="content">
                     <image src="{{team1.logo}}" mode="aspectFill"></image>
                     <view class="team_name">{{team1.team_name}}</view>
-                    <view class="record">{{team1.win}}W/{{team1.loss}}L</view>
-                    <view class="ranking">{{game.league_name}}第{{team1.ranking}}名</view>
+                    <view class="ranking">{{team1.win}}W/{{team1.loss}}L</view>
                 </view>
             </view>
             <view class="extra">
@@ -19,8 +18,7 @@
                 <view class="content">
                     <image src="{{team2.logo}}" mode="aspectFill"></image>
                     <view class="team_name">{{team2.team_name}}</view>
-                    <view class="record">{{team2.win}}W/{{team2.loss}}L</view>
-                    <view class="ranking">{{game.league_name}}第{{team2.ranking}}名</view>
+                    <view class="ranking">{{team2.win}}W/{{team2.loss}}L</view>
                 </view>
             </view>
         </view>

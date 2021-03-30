@@ -24,6 +24,111 @@ view.league view.login button {
   cursor: pointer;
   width: 50%;
 }
+view.league view.userTeamInfo {
+  width: 95%;
+  margin: 0px auto;
+  margin-bottom: 15px;
+}
+view.league view.userTeamInfo text.title {
+  font-family: PingFangSC-Semibold;
+  font-size: 30px;
+  color: #FF5400;
+  margin-bottom: 10px;
+}
+view.league view.userTeamInfo view.teamInfo view.top_information {
+  border-radius: 20px 20px 0px 0px;
+  padding-bottom: 20px;
+  padding-top: 10px;
+  display: flex;
+  background: #00788C;
+}
+view.league view.userTeamInfo view.teamInfo view.top_information view.left {
+  flex: 0 0 30%;
+  max-width: 30%;
+}
+view.league view.userTeamInfo view.teamInfo view.top_information view.left image {
+  padding-left: 5px;
+  margin-left: 5px;
+  z-index: 1000;
+  width: 100px;
+  height: 100px;
+}
+view.league view.userTeamInfo view.teamInfo view.top_information view.right {
+  position: relative;
+  transform: translate(-5%, 0%);
+  flex: 0 0 70%;
+  max-width: 70%;
+  text-align: right;
+}
+view.league view.userTeamInfo view.teamInfo view.top_information view.right view.name {
+  font-family: PingFangSC-Semibold;
+  font-size: 28px;
+  color: #FFFFFF;
+}
+view.league view.userTeamInfo view.teamInfo view.top_information view.right view.detail {
+  font-family: PingFangSC-Regular;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+view.league view.userTeamInfo view.teamInfo view.top_information view.right view.rewards text {
+  font-family: PingFangSC-Thin;
+  font-size: 17px;
+  color: #FFFFFF;
+}
+view.league view.userTeamInfo view.teamInfo view.main_card {
+  display: flex;
+  flex-flow: column;
+  position: relative;
+  background: #006272;
+  border-radius: 23px 23px 23px 23px;
+  margin-top: -20px;
+  z-index: 1000;
+  padding-bottom: 20px;
+}
+view.league view.userTeamInfo view.teamInfo view.main_card view.card {
+  width: 95%;
+  margin: 0 auto;
+}
+view.league view.userTeamInfo view.teamInfo view.main_card view.card view.team_stats {
+  padding-top: 15px;
+}
+view.league view.userTeamInfo view.teamInfo view.main_card view.card view.team_stats view.title {
+  font-family: PingFangSC-Regular;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+view.league view.userTeamInfo view.teamInfo view.main_card view.card view.team_stats view.stat_line {
+  height: 90px;
+  width: 100%;
+  display: flex;
+  margin-top: 15px;
+  background: #00788C;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 23px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+view.league view.userTeamInfo view.teamInfo view.main_card view.card view.team_stats view.stat_line view.stat_column {
+  text-align: center;
+  flex: 0 0 33.333%;
+  max-width: 33.333%;
+}
+view.league view.userTeamInfo view.teamInfo view.main_card view.card view.team_stats view.stat_line view.stat_column view.wrapper {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+view.league view.userTeamInfo view.teamInfo view.main_card view.card view.team_stats view.stat_line view.stat_column view.wrapper view.number {
+  font-family: PingFangSC-Semibold;
+  font-size: 25px;
+  color: #FFFFFF;
+}
+view.league view.userTeamInfo view.teamInfo view.main_card view.card view.team_stats view.stat_line view.stat_column view.wrapper view.description {
+  margin-top: 5px;
+  font-family: PingFangSC-Thin;
+  font-size: 15px;
+  color: #FFFFFF;
+}
 view.league scroll-view.league_selector {
   margin-top: -5px;
   display: flex;
@@ -178,13 +283,17 @@ view.league view.main view.newest view.game_row view.right view.score view.team2
   height: 11px;
   vertical-align: middle;
 }
-view.league view.main view.newest navigator.view_more {
+view.league view.main view.newest button.view_more {
   margin-top: 10px;
+  margin-bottom: -10px;
   font-family: PingFangSC-Semibold;
   font-size: 13px;
   color: #FF9E6E;
   background-color: white;
   text-align: center;
+}
+view.league view.main view.newest button::after {
+  border: none;
 }
 view.league view.main view.stats_leaders {
   margin-top: 15px;
@@ -488,7 +597,7 @@ view.league view.main view.team_ranking .tr {
 view.league view.main view.team_ranking .td {
   border-right: 1px solid #FFDCCA;
   font-family: PingFangSC-Thin;
-  font-size: 17px;
+  font-size: 15px;
   color: #FF5400;
 }
 view.league view.main view.team_ranking .th {
@@ -574,7 +683,7 @@ view.league view.main view.upcoming view.upcoming_row view.team1 view.record {
   margin-top: 5px;
   font-family: PingFangSC-Regular;
   font-size: 10px;
-  color: #D4C3BB;
+  color: #d49e85;
 }
 view.league view.main view.upcoming view.upcoming_row view.extra {
   text-align: center;
@@ -589,19 +698,19 @@ view.league view.main view.upcoming view.upcoming_row view.extra view.VS {
 view.league view.main view.upcoming view.upcoming_row view.extra view.name {
   margin-top: 5px;
   font-family: PingFangSC-Semibold;
-  font-size: 16px;
+  font-size: 18px;
   color: #000000;
 }
-view.league view.main view.upcoming view.upcoming_row view.extra view.location {
+view.league view.main view.upcoming view.upcoming_row view.extra text.location {
   margin-top: 5px;
   font-family: PingFangSC-Regular;
-  font-size: 10px;
+  font-size: 12px;
   color: #FF5400;
 }
-view.league view.main view.upcoming view.upcoming_row view.extra view.time {
+view.league view.main view.upcoming view.upcoming_row view.extra text.time {
   margin-top: 5px;
   font-family: PingFangSC-Regular;
-  font-size: 10px;
+  font-size: 12px;
   color: #147CE5;
 }
 view.league view.main view.upcoming view.upcoming_row view.extra button {
@@ -610,7 +719,7 @@ view.league view.main view.upcoming view.upcoming_row view.extra button {
   background: #FF5400;
   border-radius: 8px;
   font-family: PingFangSC-Semibold;
-  font-size: 10px;
+  font-size: 13px;
   color: #FFFFFF;
 }
 view.league view.main view.upcoming view.upcoming_row view.team2 {
@@ -633,5 +742,5 @@ view.league view.main view.upcoming view.upcoming_row view.team2 view.record {
   margin-top: 5px;
   font-family: PingFangSC-Regular;
   font-size: 10px;
-  color: #D4C3BB;
+  color: #d49e85;
 }

@@ -27,6 +27,122 @@ view.league {
         width:50%;
       }
     }
+    view.userTeamInfo{
+      width: 95%;
+      margin: 0px auto;
+      margin-bottom: 15px;
+      text.title {
+        font-family: PingFangSC-Semibold;
+        font-size: 30px;
+        color: #FF5400;
+        margin-bottom: 10px;
+      }
+      view.teamInfo {
+        view.top_information {
+          border-radius: 20px 20px 0px 0px;
+            padding-bottom: 20px;
+            padding-top: 10px;
+            display: flex;
+            background: #00788C;
+          view.left {
+            flex: 0 0 30%;
+            max-width: 30%;
+            image {
+                padding-left: 5px;
+                margin-left: 5px;
+                z-index: 1000;
+                width: 100px;
+                height: 100px;
+            }
+          }
+      
+          view.right {
+            position: relative;
+            transform: translate(-5%, 0%);
+            flex: 0 0 70%;
+            max-width: 70%;
+            text-align: right;
+            view.name {
+                font-family: PingFangSC-Semibold;
+                font-size: 28px;
+                color: #FFFFFF;
+            }
+      
+            view.detail {
+                font-family: PingFangSC-Regular;
+                font-size: 20px;
+                color: #FFFFFF;
+            }
+      
+            view.rewards {
+              text {
+                font-family: PingFangSC-Thin;
+                font-size: 17px;
+                color: #FFFFFF;
+              }
+            }
+          }
+        }
+      
+        view.main_card {
+            display:  flex;
+            flex-flow: column;
+            position: relative;
+            background: #006272;
+            border-radius: 23px 23px 23px 23px;
+            margin-top: -20px;
+            z-index: 1000;
+            padding-bottom: 20px;
+          view.card {
+            width:95%;
+            margin:0 auto;
+            view.team_stats {
+                padding-top: 15px;
+              view.title {
+                font-family: PingFangSC-Regular;
+                font-size: 15px;
+                color: #FFFFFF;
+              }
+      
+              view.stat_line {
+                height: 90px;
+                width:100%;
+                display: flex;
+                margin-top: 15px;
+                background: #00788C;
+                box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
+                border-radius: 23px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                view.stat_column {
+                    text-align: center;
+                    flex: 0 0 33.333%;
+                    max-width: 33.333%;
+                  view.wrapper {
+                    position: relative;
+                    top:50%;
+                    transform: translateY(-50%);
+                    view.number {
+                        font-family: PingFangSC-Semibold;
+                        font-size: 25px;
+                        color: #FFFFFF;
+                    }
+      
+                    view.description {
+                        margin-top: 5px;
+                        font-family: PingFangSC-Thin;
+                        font-size: 15px;
+                        color: #FFFFFF;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
   
     scroll-view.league_selector {
         margin-top:-5px;
@@ -202,14 +318,18 @@ view.league {
 
         }
   
-        navigator.view_more {
+        button.view_more {
             margin-top: 10px;
+            margin-bottom: -10px;
             font-family: PingFangSC-Semibold;
             font-size: 13px;
             color: #FF9E6E;
             background-color: white;
             text-align: center;
         }
+        button::after {
+          border: none;
+      }
       }
   
       view.stats_leaders {
@@ -528,7 +648,7 @@ view.league {
           .td {
               border-right:1px solid #FFDCCA;
               font-family: PingFangSC-Thin;
-              font-size: 17px;
+              font-size: 15px;
               color: #FF5400;
           }
           .th {
@@ -615,7 +735,7 @@ view.league {
                 margin-top: 5px;
                 font-family: PingFangSC-Regular;
                 font-size: 10px;
-                color: #D4C3BB;
+                color: #d49e85;
             }
           }
   
@@ -631,39 +751,24 @@ view.league {
             }
   
             view.name {
-              
                 margin-top: 5px;
                 font-family: PingFangSC-Semibold;
-                font-size: 16px;
+                font-size: 18px;
                 color: #000000;
             }
   
-            view.location {
+            text.location {
                 margin-top: 5px;
                 font-family: PingFangSC-Regular;
-                font-size: 10px;
+                font-size: 12px;
                 color: #FF5400;
-              text.location.iconfont.icon-map-thumbtack {
-  
-              }
-  
-              text.location {
-  
-              }
             }
   
-            view.time {
+            text.time {
                 margin-top: 5px;
                 font-family: PingFangSC-Regular;
-                font-size: 10px;
+                font-size: 12px;
                 color: #147CE5;
-              text.time.iconfont.icon-shijian {
-  
-              }
-  
-              text.time {
-  
-              }
             }
   
             button {
@@ -672,7 +777,7 @@ view.league {
                 background: #FF5400;
                 border-radius: 8px;
                 font-family: PingFangSC-Semibold;
-                font-size: 10px;
+                font-size: 13px;
                 color: #FFFFFF;
             }
           }
@@ -698,7 +803,7 @@ view.league {
                 margin-top: 5px;
                 font-family: PingFangSC-Regular;
                 font-size: 10px;
-                color: #D4C3BB;
+                color: #d49e85;
             }
           }
         }

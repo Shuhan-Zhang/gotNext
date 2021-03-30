@@ -58,8 +58,11 @@ Page({
   // LOAD DATA FUNCTIONS START
   getEventGames(){
     //读取活动数据
+    let db = wx.cloud.database()
+    const _ = db.command
     wx.cloud.database().collection("event").orderBy("time",'asc').get()
     .then(res => {
+      console.log(res);
       this.processEventTime(res.data);
     }).catch(err => {
       console.log("failed to pull data",err);
@@ -167,11 +170,16 @@ Page({
             userStatus: 1
           })
           wx.setStorageSync('userStatus', 1);
-        }else{
+        }else if(!res.data[0].team_name){
           this.setData({
             userStatus: 2
           })
           wx.setStorageSync('userStatus', 2);
+        }else{
+          this.setData({
+            userStatus: 3
+          })
+          wx.setStorageSync('userStatus', 3);
         }
       }).catch(err => {
         console.log("failed to pull data",err);
@@ -496,6 +504,16 @@ Page({
   teamNavigator(e){
     wx.navigateTo({
       url:"/pages/team_card/index?league=" + e.currentTarget.dataset.league + "&team=" + e.currentTarget.dataset.team
+    })
+  },
+  closeByNavigator(e){
+    wx.navigateTo({
+      url:"/pages/item_list/index?function=getAllCloseby&league=none"
+    })
+  },
+  recentNavigator(e){
+    wx.navigateTo({
+      url:"/pages/item_list/index?function=getAllRecent&league=none"
     })
   }
   // BUTTON FUNCTIONS END

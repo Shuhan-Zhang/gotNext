@@ -40,6 +40,9 @@
                 <view class="title">
                     近期比赛
                 </view>
+                <view class="nothing" wx:if="{{finishedGames.length == 0}}" style="background-color:{{teamInfo.theme_color}}">
+                    <text>暂时还没有这个哦</text>
+                </view>
                 <view class="game_row" wx:for="{{finishedGames}}" data-id="{{item._id}}" bindtap="gameNavigator" style="background-color:{{teamInfo.theme_color}}">
                     <view class="left">
                         <view class="team1" bindtap="teamNavigator" data-team="{{item.team_1_data.team_name}}" data-league="{{item.league_name}}">
@@ -71,7 +74,7 @@
                 </view>
             </view>
             <view class="roster">
-                <view class="title">球员列表</view> 
+                <view class="title">球员列表</view>
                 <view class="table ranking" style="background-color:{{teamInfo.theme_color}}">
                     <view class="tr" style="height:0px"></view>
                     <view class="tr" wx:for="{{allPlayers}}" bindtap="playerNavigator" data-id="{{item.player_id}}">
@@ -86,6 +89,9 @@
             </view>
             <view class="upcoming">
                 <view class="title">即将开打</view>
+                <view class="nothing" wx:if="{{upcomingGames.length == 0}}" style="background-color:{{teamInfo.theme_color}}">
+                    <text>暂时还没有这个哦</text>
+                </view>
                 <view class="upcoming_row" wx:for="{{upcomingGames}}" data-id="{{item._id}}" bindtap="gameNavigator" style="background-color:{{teamInfo.theme_color}}">
                     <view class="team1" bindtap="teamNavigator" data-team="{{item.team_1_data.team_name}}" data-league="{{item.league_name}}">
                         <view class="content">

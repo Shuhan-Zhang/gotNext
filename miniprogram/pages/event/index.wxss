@@ -1,21 +1,36 @@
+view.all view.nothing {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5);
+  margin-top: 10px;
+  width: 100%;
+  font-size: 20px;
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  text-align: center;
+  color: #FFFFFF;
+}
 view.all view.top_image swiper {
   height: 220px;
 }
 view.all view.top_image swiper image {
   width: 100%;
+  height: 220px;
 }
 view.all view.big {
   width: 97%;
   margin: 0px auto;
 }
 view.all view.participated {
-  margin-top: 10px;
+  margin-top: 0px;
 }
 view.all view.participated view.title {
   font-family: PingFangSC-Semibold;
   font-size: 30px;
   color: #FF5400;
   margin-bottom: 10px;
+}
+view.all view.participated view.nothing {
+  background-color: #FF5400;
 }
 view.all view.participated view.rows {
   background: #FF5400;
@@ -49,7 +64,7 @@ view.all view.participated view.rows view.row view.left image {
 }
 view.all view.participated view.rows view.row view.left view.name {
   font-family: PingFangSC-Semibold;
-  font-size: 25px;
+  font-size: 20px;
   color: #FF0000;
   text-align: left;
 }
@@ -100,6 +115,15 @@ view.all view.participated view.rows view.row view.right button.check_in {
 view.all view.category_selection {
   margin-top: 15px;
 }
+view.all view.category_selection button {
+  width: 100%;
+  padding: 0px;
+  text-align: none;
+  margin: 0px;
+}
+view.all view.category_selection button::after {
+  border: none;
+}
 view.all view.category_selection view.wrapper {
   width: 100%;
   display: flex;
@@ -130,7 +154,6 @@ view.all view.category_selection view.wrapper view.reward_column {
   max-width: 25%;
 }
 view.all view.category_selection view.wrapper view.reward_column text {
-  position: relative;
   top: 25%;
   transform: translateY(-25%);
   font-family: PingFangSC-Semibold;
@@ -244,13 +267,20 @@ view.all view.recent view.close_row view.right text.money {
   font-size: 10px;
   color: #FF0000;
 }
-view.all view.recent navigator.more {
+view.all view.recent button.more {
   margin-top: 10px;
+  margin-bottom: -15px;
   font-family: PingFangSC-Semibold;
   font-size: 13px;
   color: #FF9E6E;
   background-color: white;
   text-align: center;
+}
+view.all view.recent button::after {
+  border: none;
+}
+view.all view.recent view.basketball_map {
+  margin-top: 15px;
 }
 view.all view.recent view.basketball_map view.title {
   font-family: PingFangSC-Regular;
@@ -259,6 +289,7 @@ view.all view.recent view.basketball_map view.title {
   text-align: left;
 }
 view.all view.recent view.basketball_map map {
+  margin-top: 5px;
   width: 100%;
   border: 2px solid #FFE9DE;
   border-radius: 8px;

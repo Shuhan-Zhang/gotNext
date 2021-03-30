@@ -144,13 +144,17 @@ view.index view.content view.close_by view.close_row view.right text.money {
   font-size: 10px;
   color: #FF0000;
 }
-view.index view.content view.close_by navigator.more {
+view.index view.content view.close_by button.more {
   margin-top: 10px;
+  margin-bottom: -10px;
   font-family: PingFangSC-Semibold;
   font-size: 13px;
   color: #FF9E6E;
   background-color: white;
   text-align: center;
+}
+view.index view.content view.close_by button::after {
+  border: none;
 }
 view.index view.content view.close_by view.map {
   margin-top: 15px;
@@ -286,13 +290,17 @@ view.index view.content view.upcoming view.upcoming_row view.right text.money {
   font-size: 10px;
   color: #FF0000;
 }
-view.index view.content view.upcoming navigator.more {
+view.index view.content view.upcoming button.more {
   margin-top: 10px;
+  margin-bottom: -10px;
   font-family: PingFangSC-Semibold;
   font-size: 13px;
   color: #FF8B8B;
   background-color: white;
   text-align: center;
+}
+view.index view.content view.upcoming button::after {
+  border: none;
 }
 view.index view.content view.upcoming view.MVP {
   margin-top: 15px;

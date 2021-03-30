@@ -10,22 +10,24 @@
         
     </view>
     <view class="big">
-        <view class="participated">
+        <view class="participated" wx:if="{{userStatus == 2 || userStatus == 3}}">
             <view class="title">已参加活动</view>
-            <view class="rows">
+            <view class="nothing" wx:if="{{participatedEvents.length == 0}}">未参加任何活动</view>
+            <view class="rows" wx:if="{{participatedEvents.length != 0}}">
                 <view class="wrapper">
-                    <view class="row">
+                    <view class="row" wx:for="{{participatedEvents}}" bindtap="eventNavigator" data-id="{{item._id}}">
                         <view class="left">
-                            <image src="../../img/event/event1.jpg" mode="aspectFill"></image>
-                            <view class="name">NBA2K挑战</view>
+                            <image src="{{item.img}}" mode="aspectFill"></image>
+                            <view class="name">{{item.name}}</view>
                             <view class="line"></view>
-                            <view class="description">看看你能连续赢几局？</view>
+                            <view class="description">{{item.description}}</view>
                         </view>
                         <view class="right">
-                            <view class="location iconfont icon-map-thumbtack">优肯篮球万柳校区</view>
-                            <view class="time iconfont icon-shijian">2021/1/15 16:40-18:00</view>
-                            <view class="reward">第一名奖金:500¥</view>
-                            <button class="check_in">现场登记</button>
+                            <view class="location iconfont icon-map-thumbtack">{{item.location_name}}</view>
+                            <view class="time iconfont icon-shijian">{{item.specific_time}}</view>
+                            <view class="reward" wx:if="{{item.price_money}}">第一名奖金:{{item.price_money}}¥</view>
+                            <button class="check_in" wx:if="{{item.price_money}}">现场登记</button>
+                            <button class="check_in" style="margin-top:45px" wx:if="{{!item.price_money}}">现场登记</button>
                         </view>
                     </view>
                 </view>
@@ -34,24 +36,32 @@
         <view class="category_selection">
             <view class="wrapper">
                 <view class="reward_column">
-                    <view class="personal wrapper2">
-                        <text class="iconfont icon-lanqiu"> 个人活动</text>
-                    </view>
+                    <button bindtap="personalNavigator">
+                        <view class="personal wrapper2">
+                            <text class="iconfont icon-lanqiu"> 个人活动</text>
+                        </view>
+                    </button>
                 </view>
                 <view class="reward_column">
-                    <view class="team wrapper2">
-                        <text class="iconfont icon-lanqiuchang"> 团队活动</text>
-                    </view>
+                    <button bindtap="teamNavigator">
+                        <view class="team wrapper2">
+                            <text class="iconfont icon-lanqiuchang"> 团队活动</text>
+                        </view>
+                    </button>
                 </view>
                 <view class="reward_column">
-                    <view class="challenge wrapper2">
-                        <text class="iconfont icon-mubiao"> 挑战</text>
-                    </view>
+                    <button bindtap="challengeNavigator">
+                        <view class="challenge wrapper2">
+                            <text class="iconfont icon-mubiao"> 挑战</text>
+                        </view>
+                    </button>
                 </view>
                 <view class="reward_column">
-                    <view class="social wrapper2">
-                        <text class="iconfont icon-huodongzujian-29"> 社交</text>
-                    </view>
+                    <button bindtap="socialNavigator">
+                        <view class="social wrapper2">
+                            <text class="iconfont icon-huodongzujian-29"> 社交</text>
+                        </view>
+                    </button>
                 </view>
             </view>
         </view>
@@ -82,7 +92,7 @@
                     </view>
                 </view>
             </view>
-            <navigator class="more">查看更多</navigator>
+            <button class="more" wx:if="{{closeBy.length > 3}}" bindtap="closeByNavigator">查看更多</button>
             <view class="basketball_map">
                 <view class="title">篮球地图</view>
                 <map id = "123456" markers="{{markers}}"></map>
@@ -123,7 +133,7 @@
             </view>
         </view>
         <view class="upcoming">
-            <view class="title">即将开始</view>
+            <view class="title">未来活动</view>
             <view class="nothing" wx:if="{{recent.length == 0}}">
                 <text>当日没有任何活动哦</text>
             </view>

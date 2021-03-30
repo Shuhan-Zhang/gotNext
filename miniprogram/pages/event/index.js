@@ -8,11 +8,16 @@ Page({
     recent:[],
     points:[],
     markers:[],
-    swiper_image:[]
+    swiper_image:[],
+    userOpenId: wx.getStorageSync('openid'),
+    userStatus: wx.getStorageSync('userStatus'),
+    userPlayerInfo: {},
+    participatedEvents:[]
   },
   onLoad: function (options) {
     this.getEvents();
     this.getEventSwiper();
+    this.getUserInfo();
   },
 
   //LOAD DATA FUNCTIONS START
@@ -109,6 +114,20 @@ Page({
       console.log("failed to pull data",err);
     })
   },
+  getUserInfo(){
+    let id = this.data.userOpenId;
+    wx.cloud.database().collection("players").where({
+      player_id: id
+    }).get()
+    .then(res => {
+      this.setData({
+        userPlayerInfo: res.data[0]
+      });
+      this.processParticipatedEvents(res.data[0]._id);
+    }).catch(err => {
+      console.log("failed to pull data",err);
+    })
+  },
   //LOAD DATA FUNCTIONS END
 
 
@@ -126,6 +145,27 @@ Page({
         }
       }
     )
+  },
+  processParticipatedEvents(id){
+    let userID = id;
+    wx.cloud.database().collection("event").where({
+      participant_list: id
+    }).get()
+    .then(res => {
+      this.processEventTime(res.data);
+    }).catch(err => {
+      console.log("failed to pull data",err);
+    })
+  },
+  processEventTime(data){
+    var loaded_events = data;
+    loaded_events.forEach(v=>{
+      v.written_time = getDate.formatTime(new Date(v.time));
+      v.specific_time = getDate.formatSpecific(new Date(v.time));
+    })
+    this.setData({
+      participatedEvents: loaded_events
+    })
   },
 
   //PROCESS DATA FUNCTIONS END
@@ -148,6 +188,33 @@ Page({
     })
     this.setData({
       selectedDateEvents:selectedDate
+    })
+  },
+  personalNavigator(e){
+    wx.navigateTo({
+      url:"/pages/item_list/index?function=getPersonalEvents&league=none"
+    })
+    console.log(e);
+  },
+  
+  teamNavigator(e){
+    wx.navigateTo({
+      url:"/pages/item_list/index?function=getTeamEvents&league=none"
+    })
+  },
+  challengeNavigator(e){
+    wx.navigateTo({
+      url:"/pages/item_list/index?function=getChallengeEvents&league=none"
+    })
+  },
+  socialNavigator(e){
+    wx.navigateTo({
+      url:"/pages/item_list/index?function=getSocialEvents&league=none"
+    })
+  },
+  closeByNavigator(e){
+    wx.navigateTo({
+      url:"/pages/item_list/index?function=getNearbyEvents&league=none"
     })
   }
   //BUTTON FUNCTIONS END
