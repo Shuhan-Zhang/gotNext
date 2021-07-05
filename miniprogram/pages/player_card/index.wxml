@@ -1,10 +1,11 @@
 <view class="all">
     <view class="top_information">
         <view class="left" wx:if="{{!teamInfo}}">
-            <image src="../../img/index/nba.png" mode="aspectFit"></image>
+            <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/nba.png" mode="aspectFit"></image>
         </view>
         <view class="left" wx:if="{{teamInfo}}">
-            <image src="{{teamInfo.logo}}" mode="aspectFit"></image>
+            <image src="{{teamInfo.logo}}" mode="aspectFit"  bindtap="teamNavigator" data-team="{{teamInfo.team_name}}"
+                        data-league="{{teamInfo.league_name}}"></image>
         </view>
         <view class="middle">
             <image src="{{playerData.player_pic}}" mode="aspectFill"></image>
@@ -22,7 +23,7 @@
         </view>
     </view>
     <view class="main_card">
-        <view class = "card">
+        <view class="card">
             <view class="career_stats">
                 <view class="title">生涯数据</view>
                 <view class="stat_line">
@@ -51,40 +52,53 @@
                     <view class="stat_column">{{playerData.average_turnover}}失误</view>
                 </view>
             </view>
-            <view class="history_games" wx:if="{{teamInfo}}">
+            <view class="history_games" wx:if="{{finishedGame.length != 0 && finishedGame}}">
                 <view class="title">历史比赛数据</view>
-                <view class="history_game_row">
+                <view class="history_game_row" wx:for="{{finishedGame}}" data-id="{{item._id}}" bindtap="gameNavigator" wx:key="_id">
                     <view class="left">
                         <view class="wrapper">
-                            <image src="../../img/player_card/hawks.png"></image>
+                            <image src="{{item.team_1_data.logo}}" bindtap="teamNavigator" data-team="{{item.team_1_data.team_name}}"
+                data-league="{{item.league_name}}"></image>
                             <text>V.S</text>
-                            <image src="../../img/player_card/warriors.png"></image>
+                            <image src="{{item.team_2_data.logo}}" bindtap="teamNavigator" data-team="{{item.team_2_data.team_name}}"
+                data-league="{{item.league_name}}"></image>
                         </view>
                     </view>
                     <view class="middle">
                         <view class="stat">
                             <view class="wrapper">
-                                <view class="number">21</view>
+                                <view class="number" wx:if="{{item.team_1_stats[playerID].point}}">{{item.team_1_stats[playerID].point}}</view>
+                                <view class="number" wx:if="{{item.team_2_stats[playerID].point}}">{{item.team_2_stats[playerID].point}}</view>
+                                <view class="number" wx:if="{{!item.team_1_stats[playerID].point && !item.team_2_stats[playerID].point}}">0</view>
                                 <view class="description">得分</view>
                             </view>
                         </view>
                         <view class="stat">
                             <view class="wrapper">
-                                <view class="number">11</view>
+                                <view class="number" wx:if="{{item.team_1_stats[playerID].rebound}}">{{item.team_1_stats[playerID].rebound}}</view>
+                                <view class="number" wx:if="{{item.team_2_stats[playerID].rebound}}">{{item.team_2_stats[playerID].rebound}}</view>
+                                <view class="number" wx:if="{{!item.team_1_stats[playerID].rebound && !item.team_2_stats[playerID].rebound}}">0</view>
                                 <view class="description">篮板</view>
                             </view>
                         </view>
                         <view class="stat">
                             <view class="wrapper">
-                                <view class="number">14</view>
+                                <view class="number" wx:if="{{item.team_1_stats[playerID].assist}}">{{item.team_1_stats[playerID].assist}}</view>
+                                <view class="number" wx:if="{{item.team_2_stats[playerID].assist}}">{{item.team_2_stats[playerID].assist}}</view>
+                                <view class="number" wx:if="{{!item.team_1_stats[playerID].assist && !item.team_2_stats[playerID].assist}}">0</view>
                                 <view class="description">助攻</view>
                             </view>
                         </view>
                     </view>
-                    <view class="right">
+                    <view class="right" wx:if="{{playerData.team_name == item.winner}}">
                         <view class="wrapper">
-                        <view class="result">W</view>
+                            <view class="result win">W</view>
+                        </view>
                     </view>
+                    <view class="right" wx:if="{{playerData.team_name != item.winner}}">
+                        <view class="wrapper">
+                            <view class="result lose">L</view>
+                        </view>
                     </view>
                 </view>
             </view>

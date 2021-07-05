@@ -1,0 +1,18 @@
+page {
+  background: #FF5400;
+}
+text {
+  position: absolute;
+  top: 20%;
+  left: 27%;
+  font-family: PingFangSC-Regular;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+image {
+  position: absolute;
+  top: 30%;
+  left: 24%;
+  width: 200px;
+  height: 200px;
+}

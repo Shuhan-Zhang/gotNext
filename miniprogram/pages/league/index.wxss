@@ -1,3 +1,23 @@
+view.league {
+  width: 100%;
+  overflow: hidden;
+}
+view.league .nothing {
+  width: 100%;
+  display: flex;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  margin-top: 15px;
+  background: #FFF0E8;
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #DA463C;
+}
+view.league .nothing text {
+  flex: 0 0 100%;
+  max-width: 100%;
+  text-align: center;
+}
 view.league view.login {
   position: relative;
 }
@@ -175,15 +195,8 @@ view.league view.main view.newest text.title {
   color: #FF5400;
 }
 view.league view.main view.newest view.nothing {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
-  width: 100%;
-  margin-top: 10px;
-  font-size: 20px;
+  margin-top: 5px;
   background: #FFF0E8;
-  border-radius: 8px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
   color: #DA463C;
 }
 view.league view.main view.newest view.game_row {
@@ -245,7 +258,7 @@ view.league view.main view.newest view.game_row view.middle {
   max-width: 20%;
   font-family: PingFangSC-Thin;
   font-size: 10px;
-  color: #000000;
+  color: #797979;
 }
 view.league view.main view.newest view.game_row view.right {
   display: flex;
@@ -303,40 +316,19 @@ view.league view.main view.stats_leaders text.title {
   font-size: 30px;
   color: #FF5400;
 }
-view.league view.main view.stats_leaders view.nothingPoints {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
-  width: 100%;
+view.league view.main view.stats_leaders view.Points {
   margin-top: 10px;
-  font-size: 20px;
   background: #FF784B;
-  border-radius: 8px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
   color: #FCF6F0;
 }
-view.league view.main view.stats_leaders view.nothingRebounds {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
-  width: 100%;
+view.league view.main view.stats_leaders view.Rebounds {
   margin-top: 10px;
-  font-size: 20px;
   background: #DA463D;
-  border-radius: 8px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
   color: #ffffff;
 }
-view.league view.main view.stats_leaders view.nothingAssists {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
-  width: 100%;
+view.league view.main view.stats_leaders view.Assists {
   margin-top: 10px;
-  font-size: 20px;
   background: #50976A;
-  border-radius: 8px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
   color: #FFFFFF;
 }
 view.league view.main view.stats_leaders view.stats_leader_row.point {
@@ -539,18 +531,11 @@ view.league view.main view.team_ranking view.title {
   font-family: PingFangSC-Semibold;
   font-size: 30px;
   color: #FF5400;
-  margin-bottom: 15px;
+  margin-bottom: 5px;
 }
 view.league view.main view.team_ranking view.nothing {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
-  width: 100%;
-  margin-top: 10px;
-  font-size: 20px;
+  margin-top: 5px;
   background: #FFF0E8;
-  border-radius: 8px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
   color: #FF5400;
 }
 view.league view.main view.team_ranking .th.left {
@@ -582,6 +567,7 @@ view.league view.main view.team_ranking .right {
   border-right: 0px;
 }
 view.league view.main view.team_ranking .table {
+  margin-top: 10px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   border-radius: 27px;
   border: 0px solid darkgray;
@@ -639,16 +625,9 @@ view.league view.main view.upcoming text.title {
   color: #FF5400;
 }
 view.league view.main view.upcoming view.nothing {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
-  width: 100%;
-  margin-top: 10px;
-  font-size: 20px;
-  background: #FFEDED;
-  border-radius: 8px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
+  margin-top: 5px;
   color: #FF5400;
+  margin-bottom: 10px;
 }
 view.league view.main view.upcoming view.upcoming_row {
   position: relative;
@@ -656,7 +635,7 @@ view.league view.main view.upcoming view.upcoming_row {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
   width: 100%;
   display: flex;
-  margin-top: 15px;
+  margin-top: 10px;
   margin-bottom: 15px;
   background: #FFEDED;
   border-radius: 27px;
@@ -680,29 +659,23 @@ view.league view.main view.upcoming view.upcoming_row view.team1 view.team_name 
   color: #FF5400;
 }
 view.league view.main view.upcoming view.upcoming_row view.team1 view.record {
-  margin-top: 5px;
+  margin-top: 10px;
   font-family: PingFangSC-Regular;
   font-size: 10px;
-  color: #d49e85;
+  color: #797979;
 }
 view.league view.main view.upcoming view.upcoming_row view.extra {
   text-align: center;
   flex: 30%;
   max-width: 30%;
 }
-view.league view.main view.upcoming view.upcoming_row view.extra view.VS {
-  font-family: PingFangSC-Regular;
-  font-size: 25px;
-  color: #FF5400;
-}
 view.league view.main view.upcoming view.upcoming_row view.extra view.name {
-  margin-top: 5px;
   font-family: PingFangSC-Semibold;
-  font-size: 18px;
+  font-size: 20px;
   color: #000000;
 }
 view.league view.main view.upcoming view.upcoming_row view.extra text.location {
-  margin-top: 5px;
+  margin-top: 15px;
   font-family: PingFangSC-Regular;
   font-size: 12px;
   color: #FF5400;
@@ -739,8 +712,8 @@ view.league view.main view.upcoming view.upcoming_row view.team2 view.team_name 
   color: #FF5400;
 }
 view.league view.main view.upcoming view.upcoming_row view.team2 view.record {
-  margin-top: 5px;
+  margin-top: 10px;
   font-family: PingFangSC-Regular;
   font-size: 10px;
-  color: #d49e85;
+  color: #797979;
 }

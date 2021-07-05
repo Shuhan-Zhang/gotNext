@@ -2,7 +2,7 @@
 const cloud = require('wx-server-sdk')
 
 cloud.init({
-  env: cloud.DYNAMIC_CURRENT_ENV
+  env: "gotnext-7gc174phedbcfbb9"
 })
 
 // 云函数入口函数
@@ -27,6 +27,8 @@ exports.main = async (event, context) => {
       total_rebounds: 0,
       total_shots: 0,
       total_turnovers: 0,
+      total_blocks: 0,
+      total_steals:0,
       league: "",
       team_name: "",
       weight: event.finalWeight,

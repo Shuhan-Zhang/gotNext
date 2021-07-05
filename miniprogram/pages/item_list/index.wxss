@@ -1,17 +1,22 @@
 view.all {
+  width: 100%;
+  overflow: hidden;
   height: 100vh;
 }
 view.all .nothing {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
-  margin-top: 40px;
   width: 100%;
-  font-size: 20px;
-  background: #FFF0E8;
+  display: flex;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  margin-top: 10px;
+  background: #FFFFFF;
   border-radius: 8px;
   padding-top: 10px;
   padding-bottom: 10px;
+}
+view.all .nothing text {
+  flex: 0 0 100%;
+  max-width: 100%;
   text-align: center;
-  color: #DA463C;
 }
 view.all view.content {
   width: 95%;
@@ -29,7 +34,7 @@ view.all view.row {
   width: 100%;
   display: flex;
   margin-top: 15px;
-  background: #FFF0E8;
+  background: #FFF;
   border-radius: 8px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -94,6 +99,16 @@ view.all view.row view.right {
   flex: 0 0 30%;
   max-width: 30%;
   margin-left: 5px;
+}
+view.all view.row view.right button.past {
+  padding: 10px 0px 10px 0px;
+  width: 80%;
+  margin-left: 2px;
+  background: #797979;
+  border-radius: 8px;
+  font-family: PingFangSC-Semibold;
+  font-size: 15px;
+  color: #FFFFFF;
 }
 view.all view.row view.right button {
   padding: 10px 0px 10px 0px;

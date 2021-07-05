@@ -1,39 +1,16 @@
 <view class="all">
     <view class="top_image">
         <swiper autoplay circular>
-            <swiper-item wx:for="{{swiper_image}}">
-                <navigator>
-                    <image mode = "widthFix" src="{{item.img}}"></image>
-                </navigator>
+            <swiper-item wx:for="{{swiper_image}}" wx:key="_id">
+                <view class="wrapper">
+                    <image mode="widthFix" src="{{item.img}}" bindtap="swiperNavigator" data-eventid="{{item.event_id}}"></image>
+                </view>
             </swiper-item>
         </swiper>
-        
+
     </view>
-    <view class="big">
-        <view class="participated" wx:if="{{userStatus == 2 || userStatus == 3}}">
-            <view class="title">已参加活动</view>
-            <view class="nothing" wx:if="{{participatedEvents.length == 0}}">未参加任何活动</view>
-            <view class="rows" wx:if="{{participatedEvents.length != 0}}">
-                <view class="wrapper">
-                    <view class="row" wx:for="{{participatedEvents}}" bindtap="eventNavigator" data-id="{{item._id}}">
-                        <view class="left">
-                            <image src="{{item.img}}" mode="aspectFill"></image>
-                            <view class="name">{{item.name}}</view>
-                            <view class="line"></view>
-                            <view class="description">{{item.description}}</view>
-                        </view>
-                        <view class="right">
-                            <view class="location iconfont icon-map-thumbtack">{{item.location_name}}</view>
-                            <view class="time iconfont icon-shijian">{{item.specific_time}}</view>
-                            <view class="reward" wx:if="{{item.price_money}}">第一名奖金:{{item.price_money}}¥</view>
-                            <button class="check_in" wx:if="{{item.price_money}}">现场登记</button>
-                            <button class="check_in" style="margin-top:45px" wx:if="{{!item.price_money}}">现场登记</button>
-                        </view>
-                    </view>
-                </view>
-            </view>
-        </view>
-        <view class="category_selection">
+    <view class="category_selection">
+        <view class="title">活动分类</view>
             <view class="wrapper">
                 <view class="reward_column">
                     <button bindtap="personalNavigator">
@@ -65,12 +42,37 @@
                 </view>
             </view>
         </view>
+    <view class="big">
+        <view class="participated" wx:if="{{userStatus == 2 || userStatus == 3}}">
+            <view class="title">已参加活动</view>
+            <view class="nothing" wx:if="{{participatedEvents.length == 0}}">您未参加任何活动</view>
+            <view class="rows" wx:if="{{participatedEvents.length != 0}}">
+                <view class="wrapper">
+                    <view class="row" wx:for="{{participatedEvents}}" wx:key="_id" bindtap="eventNavigator" data-id="{{item._id}}">
+                        <view class="left">
+                            <image src="{{item.img}}" mode="aspectFill"></image>
+                            <view class="name">{{item.name}}</view>
+                            <view class="line"></view>
+                            <view class="description">{{item.description}}</view>
+                        </view>
+                        <view class="right">
+                            <view class="location iconfont icon-map-thumbtack">{{item.location_specific.name}}</view>
+                            <view class="time iconfont icon-shijian">{{item.specific_time}}</view>
+                            <view class="reward" wx:if="{{item.price_money}}">第一名奖金:{{item.price_money}}¥</view>
+                            <button class="check_in" wx:if="{{item.price_money}}">现场登记</button>
+                            <button class="check_in" style="margin-top:45px" wx:if="{{!item.price_money}}">现场登记</button>
+                        </view>
+                    </view>
+                </view>
+            </view>
+        </view>
         <view class="recent">
             <view class="title">附近活动</view>
             <view class="nothing" wx:if="{{closeBy.length == 0}}">
-                <text>当日没有任何活动哦</text>
+                <text>今天您的附近没有活动</text>
             </view>
-            <view class="close_row" wx:for="{{closeBy}}" bindtap="eventNavigator" data-id="{{item._id}}" data-category="{{item.category}}">
+            <view class="close_row" wx:for="{{closeBy}}" wx:key="_id" bindtap="eventNavigator" data-id="{{item._id}}"
+                data-category="{{item.category}}">
                 <view class="left">
                     <view class="wrapper">
                         <image src="{{item.img}}" mode="aspectFill"></image>
@@ -80,14 +82,15 @@
                     <view class="wrapper">
                         <text class="name">{{item.name}}</text>
                         <view class="line"></view>
-                        <text class="category iconfont icon-fenlei" wx:for="{{item.category}}"> {{item}}</text>
-                        <view class="location iconfont icon-map-thumbtack"> {{item.location_name}}</view>
+                        <text class="category iconfont icon-fenlei" wx:for="{{item.category}}" wx:key="*this"> {{item}}</text>
+                        <view class="location iconfont icon-map-thumbtack"> {{item.location_specific.name}}</view>
                         <view class="time iconfont icon-shijian"> {{item.specific_time}}</view>
                     </view>
                 </view>
                 <view class="right">
                     <view class="wrapper">
-                        <button>立即加入</button>
+                        <button wx:if="{{item.participated == true}}" bindtap="checkInNavigator">现场登记</button>
+                        <button wx:if="{{item.participated == false}}" bindtap="confirmationNavigator" data-category="{{item.category}}" data-name="{{item.name}}" data-time="{{item.specific_time}}" data-price="{{item.price}}" data-location="{{item.location_specific.name}}" data-eventid="{{item._id}}" data-participant_list="{{item.participant_list}}">立即加入</button>
                         <text class="money" wx:if="{{item.price_money}}">第一名奖金:{{item.price_money}}¥</text>
                     </view>
                 </view>
@@ -95,19 +98,22 @@
             <button class="more" wx:if="{{closeBy.length > 3}}" bindtap="closeByNavigator">查看更多</button>
             <view class="basketball_map">
                 <view class="title">篮球地图</view>
-                <map id = "123456" markers="{{markers}}"></map>
+                <map id="123" markers="{{markers}}" data-markers="{{markers}}" bindmarkertap='gotohere'></map>
             </view>
         </view>
         <view class="calendar">
             <view class="title">活动时间表</view>
             <view class="wrapper3">
-                <van-calendar title="日历" poppable="{{ false }}" show-confirm="{{ false }}" show-title = "{{ false }}" class="actual_calendar" type="single" color="#FF5400" show-mark="{{ false }}" bind:confirm="onConfirm"/>
+                <van-calendar title="日历" poppable="{{ false }}" show-confirm="{{ false }}" show-title="{{ false }}"
+                    class="actual_calendar" type="single" color="#FF5400" show-mark="{{ false }}"
+                    bind:confirm="onConfirm" />
                 <view class="today">
                     <view class="today_title">当日行程</view>
                     <view class="nothing" wx:if="{{selectedDateEvents.length == 0}}">
                         <text>当日没有任何活动哦</text>
                     </view>
-                    <view class="close_row" wx:for="{{selectedDateEvents}}" bindtap="eventNavigator" data-id="{{item._id}}" data-category="{{item.category}}">
+                    <view class="close_row" wx:for="{{selectedDateEvents}}" wx:key="_id" bindtap="eventNavigator"
+                        data-id="{{item._id}}" data-category="{{item.category}}">
                         <view class="left">
                             <view class="wrapper">
                                 <image src="{{item.img}}" mode="aspectFill"></image>
@@ -117,14 +123,15 @@
                             <view class="wrapper">
                                 <text class="name">{{item.name}}</text>
                                 <view class="line"></view>
-                                <text class="category iconfont icon-fenlei" wx:for="{{item.category}}"> {{item}}</text>
-                                <view class="location iconfont icon-map-thumbtack"> {{item.location_name}}</view>
+                                <text class="category iconfont icon-fenlei" wx:for="{{item.category}}" wx:key="*this"> {{item}}</text>
+                                <view class="location iconfont icon-map-thumbtack"> {{item.location_specific.name}}</view>
                                 <view class="time iconfont icon-shijian"> {{item.specific_time}}</view>
                             </view>
                         </view>
                         <view class="right">
                             <view class="wrapper">
-                                <button>立即加入</button>
+                                <button wx:if="{{item.participated == true}}" bindtap="checkInNavigator">现场登记</button>
+                                <button wx:if="{{item.participated == false}}" bindtap="confirmationNavigator" data-category="{{item.category}}" data-name="{{item.name}}" data-time="{{item.specific_time}}" data-price="{{item.price}}" data-location="{{item.location_specific.name}}" data-eventid="{{item._id}}" data-participant_list="{{item.participant_list}}">立即加入</button>
                                 <text class="money" wx:if="{{item.price_money}}">第一名奖金:{{item.price_money}}¥</text>
                             </view>
                         </view>
@@ -135,9 +142,10 @@
         <view class="upcoming">
             <view class="title">未来活动</view>
             <view class="nothing" wx:if="{{recent.length == 0}}">
-                <text>当日没有任何活动哦</text>
+                <text>最近没有任何活动哦</text>
             </view>
-            <view class="upcoming_row" wx:for="{{recent}}" bindtap="eventNavigator" data-id="{{item._id}}" data-category="{{item.category}}">
+            <view class="upcoming_row" wx:for="{{recent}}" wx:key="_id" bindtap="eventNavigator" data-id="{{item._id}}"
+                data-category="{{item.category}}">
                 <view class="left">
                     <view class="wrapper">
                         <image src="{{item.img}}" mode="aspectFill"></image>
@@ -147,14 +155,15 @@
                     <view class="wrapper">
                         <text class="name">{{item.name}}</text>
                         <view class="line"></view>
-                        <text class="category iconfont icon-fenlei" wx:for="{{item.category}}"> {{item}}</text>
-                        <view class="location iconfont icon-map-thumbtack">  {{item.location_name}}</view>
-                        <view class="time iconfont icon-shijian">  {{item.specific_time}}</view>
+                        <text class="category iconfont icon-fenlei" wx:for="{{item.category}}" wx:key="*this"> {{item}}</text>
+                        <view class="location iconfont icon-map-thumbtack"> {{item.location_specific.name}}</view>
+                        <view class="time iconfont icon-shijian"> {{item.specific_time}}</view>
                     </view>
                 </view>
                 <view class="right">
                     <view class="wrapper">
-                        <button>立即加入</button>
+                        <button wx:if="{{item.participated == true}}" bindtap="checkInNavigator">现场登记</button>
+                        <button wx:if="{{item.participated == false}}" bindtap="confirmationNavigator" data-category="{{item.category}}" data-name="{{item.name}}" data-time="{{item.specific_time}}" data-price="{{item.price}}" data-location="{{item.location_specific.name}}" data-eventid="{{item._id}}" data-participant_list="{{item.participant_list}}">立即加入</button>
                         <text class="money" wx:if="{{item.price_money}}">第一名奖金:{{item.price_money}}¥</text>
                     </view>
                 </view>

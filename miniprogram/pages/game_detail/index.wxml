@@ -1,20 +1,25 @@
 <view class="all">
     <view class="top">
-        <image class="background" src="../../img/game_detail/lebron.jpg" mode="aspectFill"></image>
+        <image class="background" src="{{game.img}}" mode="aspectFill"></image>
         <view class="upcoming_row">
-            <view class="team1">    
+            <view class="team1" bindtap="teamNavigator" data-league="{{team1.league_name}}" data-team="{{team1.team_name}}">
                 <view class="content">
                     <image src="{{team1.logo}}" mode="aspectFill"></image>
                     <view class="team_name">{{team1.team_name}}</view>
                     <view class="ranking">{{team1.win}}W/{{team1.loss}}L</view>
                 </view>
             </view>
-            <view class="extra">
+            <view class="extra" wx:if="{{!past}}">
                 <view class="content middle">
                     <view class="VS">V.S</view>
                 </view>
             </view>
-            <view class="team2">
+            <view class="extra" wx:if="{{past}}">
+                <view class="content middle">
+                    <view class="VS" style="font-size: 36px;">{{game.team_1_score}}:{{game.team_2_score}}</view>
+                </view>
+            </view>
+            <view class="team2" bindtap="teamNavigator" data-league="{{team2.league_name}}" data-team="{{team2.team_name}}">
                 <view class="content">
                     <image src="{{team2.logo}}" mode="aspectFill"></image>
                     <view class="team_name">{{team2.team_name}}</view>
@@ -24,14 +29,82 @@
         </view>
     </view>
     <view class="main_card">
-        <view class="card">
+        <view class="card" style="margin-bottom: 100px">
             <view class="title">{{game.name}}</view>
-            <view class="time iconfont icon-shijian"> 时间: {{game.specific_time}}</view>
-            <view class="location iconfont icon-map-thumbtack"> 地址: {{game.location_name}}</view>
-            <map id = "12345" markers="{{marker}}"></map>
+            <view class="participation" wx:if="{{participated}}">
+                <text>已购票</text>
+            </view>
+            <view class="price_money">票价: ¥{{game.price}}</view>
+            <view class="time iconfont icon-shijian"> 时间: {{game.specific_time}} - {{game.specific_endtime}}</view>
+            <view class="location iconfont icon-map-thumbtack"> 地址: {{game.location_specific.name}}</view>
+            <map id="12345" markers="{{marker}}" data-markers="{{marker}}" bindmarkertap='gotohere'></map>
+            <view class="boxScore" wx:if="{{game.team_1_score}}">
+            <view class="team">
+                <view class="teamName">
+                    {{team1.team_name}}
+                </view>
+                <scroll-view class="table" scroll-x="true">
+                    <view class="tr bg-w">
+                        <view class="th name">球员</view>
+                        <view class="th">得分</view>
+                        <view class="th">篮板</view>
+                        <view class="th">助攻</view>
+                        <view class="th">命中</view>
+                        <view class="th">三分</view>
+                        <view class="th">盖帽</view>
+                        <view class="th">抢断</view>
+                        <view class="th">失误</view>
+                    </view>
+                    <view class="tr" wx:for="{{game.team_1_stats}}" bindtap="playerNavigator" data-playerOpenID="{{item}}" wx:key="name">
+                        <view class="td name">{{item.name}}</view>
+                        <view class="td">{{item.point}}</view>
+                        <view class="td">{{item.rebound}}</view>
+                        <view class="td">{{item.assist}}</view>
+                        <view class="td">{{item.makes}}/{{item.makes + item.miss}}</view>
+                        <view class="td">{{item.threePointMakes}}/{{item.threePointMakes + item.threePointMiss}}</view>
+                        <view class="td">{{item.block}}</view>
+                        <view class="td">{{item.steal}}</view>
+                        <view class="td">{{item.turnover}}</view>
+                    </view>
+                </scroll-view>
+            </view>
+            <view class="team">
+                <view class="teamName">
+                    {{team2.team_name}}
+                </view>
+                <scroll-view class="table" scroll-x="true">
+                    <view class="tr bg-w">
+                        <view class="th">球员</view>
+                        <view class="th">得分</view>
+                        <view class="th">篮板</view>
+                        <view class="th">助攻</view>
+                        <view class="th">命中</view>
+                        <view class="th">三分</view>
+                        <view class="th">盖帽</view>
+                        <view class="th">抢断</view>
+                        <view class="th">失误</view>
+                    </view>
+                    <view class="tr" wx:for="{{game.team_2_stats}}" bindtap="playerNavigator" data-playerOpenID="{{item}}" wx:key="name">
+                        <view class="td">{{item.name}}</view>
+                        <view class="td">{{item.point}}</view>
+                        <view class="td">{{item.rebound}}</view>
+                        <view class="td">{{item.assist}}</view>
+                        <view class="td">{{item.makes}}/{{item.makes + item.miss}}</view>
+                        <view class="td">{{item.threePointMakes}}/{{item.threePointMakes + item.threePointMiss}}</view>
+                        <view class="td">{{item.block}}</view>
+                        <view class="td">{{item.steal}}</view>
+                        <view class="td">{{item.turnover}}</view>
+                    </view>
+                </scroll-view>
+            </view>
         </view>
-        <button class="join_button">
+        </view>
+
+        <button class="join_button" wx:if="{{!game.team_1_score && !participated}}" bindtap="confirmationNavigator">
             买球票
+        </button>
+        <button class="join_button" wx:if="{{!past && participated}}" bindtap="checkIn">
+            现场登记
         </button>
     </view>
 </view>

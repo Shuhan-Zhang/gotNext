@@ -1,0 +1,6 @@
+<image-cropper id="image-cropper" limit_move="{{true}}" disable_rotate="{{true}}" width="{{width}}" height="{{height}}" imgSrc="{{src}}" bindload="cropperload" bindimageload="loadimage" bindtapcut="clickcut" getImg="finishedCutting"></image-cropper>
+
+<view class="bottom">
+  <button class="cancel" bindtap="cancel">取消</button>
+  <button class="confirm" bindtap="confirm">确认</button>
+</view>

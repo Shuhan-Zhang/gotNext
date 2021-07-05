@@ -5,7 +5,7 @@
     <view class="infoRow name">
         <view class="left">
             <view class="wrapper">
-                <image src="../../img/player_form/name.png" mode="aspectFill" class="icon"></image>
+                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/name.png" mode="aspectFill" class="icon"></image>
             </view>
         </view>
         <view class="right">
@@ -13,13 +13,14 @@
                 <text class="title">名称:</text>
             </view>
             <view class="line"></view>
-            <input class="bottom" bindinput="getName" value="" placeholder="名称" placeholder-style="font-family: PingFangSC-Semibold;font-size: 15px;color: #FFBFA0;"></input>
+            <input class="bottom" bindinput="getName" value="" placeholder="名称"
+                placeholder-style="font-family: PingFangSC-Semibold;font-size: 15px;color: #FFBFA0;"></input>
         </view>
     </view>
     <view class="infoRow height">
         <view class="left">
             <view class="wrapper">
-                <image src="../../img/player_form/height.png" mode="aspectFill" class="icon"></image>
+                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/height.png" mode="aspectFill" class="icon"></image>
             </view>
         </view>
         <view class="right">
@@ -27,7 +28,8 @@
                 <text class="title">身高:</text>
             </view>
             <view class="line"></view>
-            <picker class="bottom" mode="selector" bindchange="changeHeight" range="{{heightRange}}" value="{{heightIndex}}">
+            <picker class="bottom" mode="selector" bindchange="changeHeight" range="{{heightRange}}"
+                value="{{heightIndex}}">
                 <view class="picker">
                     当前选择: {{heightRange[heightIndex]}}cm
                 </view>
@@ -37,7 +39,7 @@
     <view class="infoRow position">
         <view class="left">
             <view class="wrapper">
-                <image src="../../img/player_form/position.png" mode="aspectFill" class="icon"></image>
+                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/position.png" mode="aspectFill" class="icon"></image>
             </view>
         </view>
         <view class="right">
@@ -46,14 +48,15 @@
             </view>
             <view class="line"></view>
             <view class="bottom">
-                <button class="position {{selectedPosition == item ? 'active' : ''}}" wx:for="{{allPositions}}" data-position="{{item}}" bindtap="getPosition">{{item}}</button>
+                <button class="position {{selectedPosition == item ? 'active' : ''}}" wx:for="{{allPositions}}" wx:key="*this"
+                    data-position="{{item}}" bindtap="getPosition">{{item}}</button>
             </view>
         </view>
     </view>
     <view class="infoRow age">
         <view class="left">
             <view class="wrapper">
-                <image src="../../img/player_form/age.png" mode="aspectFill" class="icon"></image>
+                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/age.png" mode="aspectFill" class="icon"></image>
             </view>
         </view>
         <view class="right">
@@ -71,7 +74,7 @@
     <view class="infoRow age">
         <view class="left">
             <view class="wrapper">
-                <image src="../../img/player_form/weight.png" mode="aspectFill" class="icon"></image>
+                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/重量_weight9.png" mode="aspectFill" class="icon"></image>
             </view>
         </view>
         <view class="right">
@@ -79,7 +82,8 @@
                 <text class="title">体重:</text>
             </view>
             <view class="line"></view>
-            <picker class="bottom" mode="selector" bindchange="changeWeight" range="{{weightRange}}" value="{{weightIndex}}">
+            <picker class="bottom" mode="selector" bindchange="changeWeight" range="{{weightRange}}"
+                value="{{weightIndex}}">
                 <view class="picker">
                     当前选择: {{weightRange[weightIndex]}}kg
                 </view>

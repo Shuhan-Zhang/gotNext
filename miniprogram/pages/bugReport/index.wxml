@@ -1,0 +1,11 @@
+<view class="all">
+  <view class="title">
+    错误反馈
+  </view>
+  <view class="content">
+    <textarea placeholder="请输入您遇到的问题..." maxlength="{{-1}}"placeholder-style="font-family: PingFangSC-Medium;font-size: 17px;color: #FF7676;" auto-focus="{{true}}" bindinput="contentChange">
+
+    </textarea>
+  </view>
+</view>
+<button class="confirmation" bindtap="submit">确认提交</button>

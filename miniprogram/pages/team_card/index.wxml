@@ -12,7 +12,7 @@
         </view>
     </view>
     <view class="main_card" style="background-color:{{teamInfo.secondary_color}}">
-        <view class = "card">
+        <view class="card">
             <view class="team_stats">
                 <view class="title">球队数据</view>
                 <view class="stat_line" style="background-color:{{teamInfo.theme_color}}">
@@ -40,18 +40,24 @@
                 <view class="title">
                     近期比赛
                 </view>
-                <view class="nothing" wx:if="{{finishedGames.length == 0}}" style="background-color:{{teamInfo.theme_color}}">
-                    <text>暂时还没有这个哦</text>
+                <view class="nothing" wx:if="{{finishedGames.length == 0}}"
+                    style="background-color:{{teamInfo.theme_color}}">
+                    <text>球队最近没有结束的比赛</text>
                 </view>
-                <view class="game_row" wx:for="{{finishedGames}}" data-id="{{item._id}}" bindtap="gameNavigator" style="background-color:{{teamInfo.theme_color}}">
+                <view class="game_row" wx:for="{{finishedGames}}" wx:key="_id" data-id="{{item._id}}" bindtap="gameNavigator"
+                    style="background-color:{{teamInfo.theme_color}}">
                     <view class="left">
-                        <view class="team1" bindtap="teamNavigator" data-team="{{item.team_1_data.team_name}}" data-league="{{item.league_name}}">
+                        <view class="team1" bindtap="teamNavigator" data-team="{{item.team_1_data.team_name}}"
+                            data-league="{{item.league_name}}">
                             <image src="{{item.team_1_data.logo}}" mode="aspectFill"></image>
-                            <text class="team_name  top">{{item.team_1_data.team_name}}</text>
+                            <text class="team_name  top" style="font-weight: bold" wx:if="{{item.team_1_score > item.team_2_score}}">{{item.team_1_data.team_name}}</text>
+                            <text class="team_name  top" wx:if="{{item.team_2_score > item.team_1_score}}">{{item.team_1_data.team_name}}</text>
                         </view>
-                        <view class="team2" bindtap="teamNavigator" data-team="{{item.team_2_data.team_name}}" data-league="{{item.league_name}}">
+                        <view class="team2" bindtap="teamNavigator" data-team="{{item.team_2_data.team_name}}"
+                            data-league="{{item.league_name}}">
                             <image src="{{item.team_2_data.logo}}" mode="aspectFill"></image>
-                            <text class="team_name bottom">{{item.team_2_data.team_name}}</text>
+                            <text class="team_name bottom" style="font-weight: bold" wx:if="{{item.team_2_score > item.team_1_score}}">{{item.team_2_data.team_name}}</text>
+                            <text class="team_name bottom" wx:if="{{item.team_1_score > item.team_2_score}}">{{item.team_2_data.team_name}}</text>
                         </view>
                     </view>
                     <view class="middle">
@@ -62,12 +68,16 @@
                         <view class="vertical_line"></view>
                         <view class="score">
                             <view class="team1_score top">
-                                <text class="">{{item.team_1_score}}分</text>
-                                <image src="../../img/team_card/Triangle.png" mode="aspectFill"> wx:if="{{item.team_1_score > item.team_2_score}}"</image>
+                                <text class="" style="color:#FF0000; font-weight: bold" wx:if="{{item.team_1_score > item.team_2_score}}">{{item.team_1_score}}分</text>
+                                <text wx:if="{{item.team_2_score > item.team_1_score}}">{{item.team_1_score}}分</text>
+                                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/Triangle.png" mode="aspectFill"
+                                    wx:if="{{item.team_1_score > item.team_2_score}}"></image>
                             </view>
                             <view class="team2_score bottom">
-                                <text class="">{{item.team_2_score}}分</text>
-                                <image src="../../img/team_card/Triangle.png" mode="aspectFill" wx:if="{{item.team_2_score > item.team_1_score}}"></image>
+                                <text class="" style="color:#FF0000; font-weight: bold" wx:if="{{item.team_2_score > item.team_1_score}}">{{item.team_2_score}}分</text>
+                                <text class="" wx:if="{{item.team_1_score > item.team_2_score}}">{{item.team_2_score}}分</text>
+                                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/Triangle.png" mode="aspectFill"
+                                    wx:if="{{item.team_2_score > item.team_1_score}}"></image>
                             </view>
                         </view>
                     </view>
@@ -77,7 +87,7 @@
                 <view class="title">球员列表</view>
                 <view class="table ranking" style="background-color:{{teamInfo.theme_color}}">
                     <view class="tr" style="height:0px"></view>
-                    <view class="tr" wx:for="{{allPlayers}}" bindtap="playerNavigator" data-id="{{item.player_id}}">
+                    <view class="tr" wx:for="{{allPlayers}}" wx:key="_id" bindtap="playerNavigator" data-id="{{item.player_id}}">
                         <view class="td left">{{index+1}}.</view>
                         <view class="td middle">
                             <image src="{{item.player_pic}}" mode="aspectFill"></image>
@@ -89,11 +99,14 @@
             </view>
             <view class="upcoming">
                 <view class="title">即将开打</view>
-                <view class="nothing" wx:if="{{upcomingGames.length == 0}}" style="background-color:{{teamInfo.theme_color}}">
-                    <text>暂时还没有这个哦</text>
+                <view class="nothing" wx:if="{{upcomingGames.length == 0}}"
+                    style="background-color:{{teamInfo.theme_color}}">
+                    <text>球队暂时没有比赛</text>
                 </view>
-                <view class="upcoming_row" wx:for="{{upcomingGames}}" data-id="{{item._id}}" bindtap="gameNavigator" style="background-color:{{teamInfo.theme_color}}">
-                    <view class="team1" bindtap="teamNavigator" data-team="{{item.team_1_data.team_name}}" data-league="{{item.league_name}}">
+                <view class="upcoming_row" wx:for="{{upcomingGames}}" wx:key="_id" data-id="{{item._id}}" bindtap="gameNavigator"
+                    style="background-color:{{teamInfo.theme_color}}">
+                    <view class="team1" bindtap="teamNavigator" data-team="{{item.team_1_data.team_name}}"
+                        data-league="{{item.league_name}}">
                         <view class="content">
                             <image src="{{item.team_1_data.logo}}" mode="aspectFill"></image>
                             <view class="team_name">{{item.team_1_data.team_name}}</view>
@@ -102,17 +115,17 @@
                     </view>
                     <view class="extra">
                         <view class="content middle">
-                            <view class="VS">V.S</view>
                             <view class="name">{{item.name}}</view>
                             <view class="location">
-                                <text class="location iconfont icon-map-thumbtack">{{item.location_name}}</text>
+                                <text class="location iconfont icon-map-thumbtack">{{item.location_specific.name}}</text>
                             </view>
                             <view class="time">
-                                <text class="time iconfont icon-shijian">{{item.written_time}}</text>
+                                <text class="time iconfont icon-shijian">{{item.specific_time}}</text>
                             </view>
                         </view>
                     </view>
-                    <view class="team2" bindtap="teamNavigator" data-team="{{item.team_2_data.team_name}}" data-league="{{item.league_name}}">
+                    <view class="team2" bindtap="teamNavigator" data-team="{{item.team_2_data.team_name}}"
+                        data-league="{{item.league_name}}">
                         <view class="content">
                             <image src="{{item.team_2_data.logo}}" mode="aspectFill"></image>
                             <view class="team_name">{{item.team_2_data.team_name}}</view>

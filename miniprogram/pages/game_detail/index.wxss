@@ -1,10 +1,14 @@
+view.all {
+  width: 100%;
+  overflow-x: hidden;
+}
 view.all view.top image.background {
+  width: 100%;
+  overflow: hidden;
   position: absolute;
   top: 0;
-  left: -10%;
-  width: 120%;
   z-index: -1;
-  filter: blur(6px);
+  filter: blur(3px);
 }
 view.all view.top view.upcoming_row {
   position: relative;
@@ -47,7 +51,7 @@ view.all view.top view.upcoming_row view.team1 view.ranking {
   margin-top: 5px;
   font-family: PingFangSC-Regular;
   font-size: 12px;
-  color: #FF5400;
+  color: #FFF;
 }
 view.all view.top view.upcoming_row view.extra {
   text-align: center;
@@ -55,7 +59,7 @@ view.all view.top view.upcoming_row view.extra {
   max-width: 20%;
 }
 view.all view.top view.upcoming_row view.extra view.VS {
-  font-family: PingFangSC-Regular;
+  font-family: PingFangSC-Semibold;
   font-size: 35px;
   color: #FFFFFF;
 }
@@ -74,24 +78,16 @@ view.all view.top view.upcoming_row view.team2 view.team_name {
   font-size: 21px;
   color: #FFFFFF;
 }
-view.all view.top view.upcoming_row view.team2 view.record {
-  margin-top: 5px;
-  font-family: PingFangSC-Regular;
-  font-size: 12px;
-  color: #008FFF;
-  margin-bottom: 5px;
-}
 view.all view.top view.upcoming_row view.team2 view.ranking {
   font-family: PingFangSC-Regular;
   font-size: 12px;
-  color: #FF5400;
+  color: #FFF;
 }
 view.all view.main_card {
-  height: calc(100vh);
   display: flex;
   flex-flow: column;
   position: relative;
-  background: #00579B;
+  background: #FF5400;
   border-radius: 15px 15px 0px 0px;
   margin-top: -30px;
   z-index: 1000;
@@ -107,17 +103,34 @@ view.all view.main_card view.card view.title {
   color: #FFFFFF;
   text-align: left;
 }
+view.all view.main_card view.card view.price_money {
+  font-family: PingFangSC-Semibold;
+  font-size: 20px;
+  margin-top: 10px;
+  color: #34cf2f;
+}
+view.all view.main_card view.card view.participation {
+  margin-top: 10px;
+  margin-bottom: 5px;
+}
+view.all view.main_card view.card view.participation text {
+  background: #FF0000;
+  border-radius: 10px;
+  padding: 5px;
+  font-size: 15px;
+  color: #FFFFFF;
+}
 view.all view.main_card view.card view.time {
-  margin-top: 15px;
+  margin-top: 5px;
   font-family: PingFangSC-Regular;
-  font-size: 18px;
+  font-size: 15px;
   color: #FFFFFF;
 }
 view.all view.main_card view.card view.location {
   margin-top: 5px;
   margin-bottom: 15px;
   font-family: PingFangSC-Regular;
-  font-size: 18px;
+  font-size: 15px;
   color: #FFFFFF;
 }
 view.all view.main_card view.card map {
@@ -126,13 +139,69 @@ view.all view.main_card view.card map {
   height: 300px;
   border-radius: 8px;
 }
+view.all view.main_card view.card view.team view.teamName {
+  margin-top: 20px;
+  font-family: PingFangSC-Regular;
+  font-size: 20px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.team scroll-view.table {
+  background: #d84800;
+  text-align: center;
+  width: auto;
+  overflow-x: auto;
+  white-space: nowrap;
+  margin-top: 10px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 27px;
+  border: 0px solid FFFFFF;
+  padding: 20px 25px 20px 25px;
+}
+view.all view.main_card view.card view.team scroll-view.table view.tr {
+  display: flex;
+  width: 500px;
+  height: 3rem;
+  align-items: center;
+  border-bottom: 1px solid #FFFFFF;
+}
+view.all view.main_card view.card view.team scroll-view.table view.td {
+  font-family: PingFangSC-Thin;
+  font-size: 15px;
+  color: #FFFFFF;
+  flex: 11%;
+  max-width: 11%;
+}
+view.all view.main_card view.card view.team scroll-view.table .th {
+  font-family: PingFangSC-Semibold;
+  font-size: 18px;
+  color: #FFFFFF;
+  display: flex;
+  height: 3rem;
+  align-items: center;
+  margin-right: 4px;
+  flex: 15%;
+  max-width: 15%;
+  text-align: center;
+}
+view.all view.main_card view.card view.team scroll-view.table .td.name {
+  text-align: left;
+  flex: 15%;
+  max-width: 15%;
+}
+view.all view.main_card view.card view.team scroll-view.table .th.name {
+  flex: 25%;
+  max-width: 25%;
+}
+view.all view.main_card view.card view.team scroll-view.table view.bg-w {
+  border-bottom: 1px solid #FFFFFF;
+}
 view.all view.main_card button.join_button {
   text-align: center;
   background: #FF0000;
   font-family: PingFangSC-Semibold;
   font-size: 25px;
   color: #FFFFFF;
-  height: 8%;
+  height: 10%;
   justify-content: center;
   align-items: center;
   width: 100%;

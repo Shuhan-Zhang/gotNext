@@ -1,0 +1,75 @@
+view.all {
+    width:95%;
+    margin: 0px auto;
+  view.title {
+      margin-top: 10px;
+    text {
+        font-family: PingFangSC-Semibold;
+        font-size: 30px;
+        color: #FF0000;
+    }
+  }
+  view.userParticipationView{
+      text-align: right;
+    text.userParticipated{
+        background: red;
+        border-radius: 10px;
+        padding: 5px;
+        font-size: 15px;
+        color: #FFFFFF;
+    }
+  }
+
+  view.body {
+      height: 100vh;
+    view.row {
+        box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.12);
+        width: 100%;
+        display: flex;
+        margin-top: 30px;
+        background: #FF5400;
+        border-radius: 20px;
+        padding-top: 20px;
+        padding-bottom: 20px;
+      view.left {
+        flex: 0 0 63%;
+        max-width: 63%;
+        padding-left: 15px;
+        position: relative;
+        top: 18%;
+        font-family: PingFangSC-Medium;
+        font-size: 25px;
+        color: #FFFFFF;
+      }
+
+
+      view.right {
+        flex: 0 0 28%;
+        max-width: 28%;
+        text-align: right;
+        text {
+                position: relative;
+                top: 25%;
+                font-family: PingFangSC-Regular;
+                font-size: 15px;
+                color: #FFFFFF;
+                padding:3px 10px 3px 10px;
+                border: 1px solid #FFFFFF;
+                border-radius: 10.5px;
+        }
+      }
+    }
+  }
+}
+  button.confirmation{
+        text-align: center;
+        background: #FF0000;
+        font-family: PingFangSC-Semibold;
+        font-size: 25px;
+        color: #FFFFFF;
+        height:10%;
+        width:100%;
+        position: fixed;
+        bottom: 0;
+        border-radius: 8px 8px 0px 0px;
+  }

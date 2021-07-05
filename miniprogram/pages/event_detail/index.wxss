@@ -1,3 +1,7 @@
+view.all {
+  width: 100%;
+  overflow: hidden;
+}
 view.all view.top_image image {
   width: 100%;
 }
@@ -11,12 +15,11 @@ view.all .participation {
   margin-right: 5px;
 }
 view.all view.main_card {
-  height: calc(100vh);
-  /*50+60*/
+  height: calc(130vh);
   display: flex;
   flex-flow: column;
   position: relative;
-  background-image: linear-gradient(180deg, #CE1241 0%, #360000 99%);
+  background-image: linear-gradient(180deg, #FF0000 0%, #360000 99%);
   box-shadow: 0 -5px 5px 0 rgba(0, 0, 0, 0.5);
   border-radius: 10px 10px 0px 0px;
   margin-top: 5x;
@@ -35,27 +38,94 @@ view.all view.main_card view.card view.title {
 }
 view.all view.main_card view.card view.description {
   margin-top: 10px;
-  margin-bottom: 30px;
+  margin-bottom: 15px;
   font-family: PingFangSC-Semibold;
+  font-size: 15px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.user_participation {
+  margin-top: 5px;
+}
+view.all view.main_card view.card view.user_participation text {
+  background: #FF5400;
+  border-radius: 10px;
+  padding: 5px;
   font-size: 15px;
   color: #FFFFFF;
 }
 view.all view.main_card view.card view.price_money {
   font-family: PingFangSC-Semibold;
-  font-size: 25px;
-  color: #3DE300;
+  font-size: 20px;
+  margin-top: 13px;
+  color: #34cf2f;
+}
+view.all view.main_card view.card view.ranking {
+  margin-top: 10px;
+  margin-bottom: 15px;
+}
+view.all view.main_card view.card view.ranking view.row {
+  box-shadow: 1px 2px 20px rgba(0, 0, 0, 0.12);
+  width: 100%;
+  display: flex;
+  margin-top: 15px;
+  background: #FF5400;
+  border-radius: 20px;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+view.all view.main_card view.card view.ranking view.row view.left {
+  flex: 0 0 20%;
+  max-width: 20%;
+  padding-left: 15px;
+}
+view.all view.main_card view.card view.ranking view.row view.left image {
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+}
+view.all view.main_card view.card view.ranking view.row view.left .category {
+  border-radius: 0;
+  width: 65px;
+  height: 65px;
+}
+view.all view.main_card view.card view.ranking view.row view.middle {
+  flex: 0 0 43%;
+  max-width: 43%;
+  padding-left: 15px;
+}
+view.all view.main_card view.card view.ranking view.row view.middle text {
+  position: relative;
+  top: 20%;
+  font-family: PingFangSC-Semibold;
+  font-size: 23px;
+  color: #FFFFFF;
+}
+view.all view.main_card view.card view.ranking view.row view.right {
+  flex: 0 0 25%;
+  max-width: 25%;
+  text-align: right;
+}
+view.all view.main_card view.card view.ranking view.row view.right text {
+  position: relative;
+  top: 25%;
+  font-family: PingFangSC-Regular;
+  font-size: 20px;
+  color: #FFFFFF;
+  padding: 3px 10px 3px 10px;
+  border: 1px solid #FFFFFF;
+  border-radius: 10.5px;
 }
 view.all view.main_card view.card view.time.iconfont.icon-shijian {
   margin-top: 10px;
   font-family: PingFangSC-Regular;
-  font-size: 18px;
+  font-size: 15px;
   color: #FFFFFF;
 }
 view.all view.main_card view.card view.location.iconfont.icon-map-thumbtack {
   margin-top: 10px;
   margin-bottom: 10px;
   font-family: PingFangSC-Regular;
-  font-size: 18px;
+  font-size: 15px;
   color: #FFFFFF;
 }
 view.all view.main_card view.card map {
@@ -70,7 +140,7 @@ view.all view.main_card button.join_button {
   font-family: PingFangSC-Semibold;
   font-size: 25px;
   color: #FFFFFF;
-  height: 8%;
+  height: 10%;
   justify-content: center;
   align-items: center;
   width: 100%;

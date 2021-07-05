@@ -1,13 +1,21 @@
-view.all view.nothing {
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.5);
-  margin-top: 10px;
+view.all {
   width: 100%;
-  font-size: 20px;
+  overflow: hidden;
+}
+view.all view.nothing {
+  width: 100%;
+  display: flex;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  margin-top: 5px;
   border-radius: 8px;
   padding-top: 10px;
   padding-bottom: 10px;
-  text-align: center;
   color: #FFFFFF;
+}
+view.all view.nothing text {
+  flex: 0 0 100%;
+  max-width: 100%;
+  text-align: center;
 }
 view.all view.top_image swiper {
   height: 220px;
@@ -21,7 +29,7 @@ view.all view.big {
   margin: 0px auto;
 }
 view.all view.participated {
-  margin-top: 0px;
+  margin-top: 15px;
 }
 view.all view.participated view.title {
   font-family: PingFangSC-Semibold;
@@ -30,6 +38,7 @@ view.all view.participated view.title {
   margin-bottom: 10px;
 }
 view.all view.participated view.nothing {
+  justify-content: center;
   background-color: #FF5400;
 }
 view.all view.participated view.rows {
@@ -47,7 +56,7 @@ view.all view.participated view.rows view.row {
   width: 100%;
   display: flex;
   margin-top: 10px;
-  background: #FFF0E8;
+  background: #FFFFFF;
   border-radius: 8px;
   padding-top: 15px;
   padding-bottom: 15px;
@@ -58,14 +67,14 @@ view.all view.participated view.rows view.row view.left {
   margin-left: 10px;
 }
 view.all view.participated view.rows view.row view.left image {
-  width: 90%;
+  width: 95%;
   height: 100px;
   border-radius: 8px;
 }
 view.all view.participated view.rows view.row view.left view.name {
   font-family: PingFangSC-Semibold;
   font-size: 20px;
-  color: #FF0000;
+  color: #FF5400;
   text-align: left;
 }
 view.all view.participated view.rows view.row view.left view.line {
@@ -77,8 +86,8 @@ view.all view.participated view.rows view.row view.left view.line {
 }
 view.all view.participated view.rows view.row view.left view.description {
   font-family: PingFangSC-Regular;
-  font-size: 13px;
-  color: #000000;
+  font-size: 11px;
+  color: #797979;
 }
 view.all view.participated view.rows view.row view.right {
   flex: 0 0 50%;
@@ -112,8 +121,11 @@ view.all view.participated view.rows view.row view.right button.check_in {
   color: #FFFFFF;
   width: 70%;
 }
-view.all view.category_selection {
-  margin-top: 15px;
+view.all view.category_selection view.title {
+  font-family: PingFangSC-Semibold;
+  font-size: 30px;
+  color: #FF5400;
+  margin-bottom: 10px;
 }
 view.all view.category_selection button {
   width: 100%;
@@ -169,15 +181,7 @@ view.all view.recent view.title {
   color: #FF5400;
 }
 view.all view.recent view.nothing {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
-  margin-top: 40px;
-  width: 100%;
-  font-size: 20px;
   background: #FFF0E8;
-  border-radius: 8px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
   color: #FF5400;
 }
 view.all view.recent view.close_row {
@@ -231,7 +235,7 @@ view.all view.recent view.close_row .middle text.category {
   border-radius: 10px;
   background: #DA463C;
   font-family: PingFangSC-Regular;
-  font-size: 12px;
+  font-size: 11px;
   color: white;
 }
 view.all view.recent view.close_row .middle view.location {
@@ -284,7 +288,7 @@ view.all view.recent view.basketball_map {
 }
 view.all view.recent view.basketball_map view.title {
   font-family: PingFangSC-Regular;
-  font-size: 15px;
+  font-size: 20px;
   color: #FF5400;
   text-align: left;
 }
@@ -328,15 +332,7 @@ view.all view.calendar view.wrapper3 view.today view.today_title {
   text-align: left;
 }
 view.all view.calendar view.wrapper3 view.today view.nothing {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
-  margin-top: 40px;
-  width: 100%;
-  font-size: 20px;
   background: #FFF0E8;
-  border-radius: 8px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
   color: #FF5400;
 }
 view.all view.calendar view.wrapper3 view.today view.close_row {
@@ -390,7 +386,7 @@ view.all view.calendar view.wrapper3 view.today view.close_row .middle text.cate
   border-radius: 10px;
   background: #DA463C;
   font-family: PingFangSC-Regular;
-  font-size: 12px;
+  font-size: 11px;
   color: white;
 }
 view.all view.calendar view.wrapper3 view.today view.close_row .middle view.location {
@@ -431,21 +427,13 @@ view.all view.upcoming {
 }
 view.all view.upcoming view.title {
   margin-bottom: 10px;
-  font-family: PingFangSC-Regular;
+  font-family: PingFangSC-Semibold;
   font-size: 30px;
   color: #FF0000;
   text-align: left;
 }
 view.all view.upcoming view.nothing {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
-  margin-top: 40px;
-  width: 100%;
-  font-size: 20px;
   background: #FFEDED;
-  border-radius: 8px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-  text-align: center;
   color: #DA463C;
 }
 view.all view.upcoming view.upcoming_row {
@@ -499,7 +487,7 @@ view.all view.upcoming view.upcoming_row .middle text.category {
   border-radius: 10px;
   background: #DA463C;
   font-family: PingFangSC-Regular;
-  font-size: 12px;
+  font-size: 11px;
   color: white;
 }
 view.all view.upcoming view.upcoming_row .middle view.location {

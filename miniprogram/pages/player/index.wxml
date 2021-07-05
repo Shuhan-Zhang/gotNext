@@ -1,87 +1,114 @@
+<view class="login" wx:if="{{playerStatus == 0}}">
+    <!-- <image class="background" src="cloud://gotnext-4gf0yqmd157c5235.676f-gotnext-4gf0yqmd157c5235-1302256051/signIn.jpg" mode="aspectFill"></image> -->
+    <button bindtap="login">登陆</button>
+</view>
+<view class="login" wx:if="{{playerStatus == 1}}">
+    <!-- <image class="background" src="cloud://gotnext-4gf0yqmd157c5235.676f-gotnext-4gf0yqmd157c5235-1302256051/top1.jpg" mode="aspectFill"></image> -->
+    <button bindtap="registerUser" data-openid="{{userInfo.openid}}">立即注册</button>
+</view>
 <view class="all">
-    <view class="player_card">
-        <view class="title">Got Next球员卡</view>
+<view class="player_card" wx:if="{{playerStatus == 2 || playerStatus == 3}}"> 
+        <view class="title">GotNext球员卡</view>
         <view class="card">
             <view class="top_information">
-                <view class="left">
-                    <image src="../../img/player_card/charlotte.png"></image>
+                <view class="left" wx:if="{{!teamInfo}}">
+                    <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/nba.png" mode="aspectFit"></image>
+                </view>
+                <view class="left" wx:if="{{teamInfo}}">
+                    <image src="{{teamInfo.logo}}" mode="aspectFit"></image>
                 </view>
                 <view class="middle">
-                    <image src="../../img/player_card/melo.png" mode="aspectFill"></image>
+                    <image src="{{playerData.player_pic}}" mode="aspectFill"></image>
                 </view>
                 <view class="right">
-                    <view class="name">张书晗</view>
-                    <view class="detail">185cm/控球后卫/19岁/110kg</view>
-                    <view class="rewards">
-                        <text class="event iconfont icon-bisai"> 0</text>
-                        <text class="rings iconfont iconfont icon-jiezhi"> 0</text>
+                    <view class="name">{{playerData.player_name}}</view>
+                    <view class="detail">
+                        <text class="iconfont icon-chizi-celiang"> {{playerData.height}}CM </text>
+                        <text class="iconfont icon-zhongliangweight9"> {{playerData.weight}}KG</text>
+                    </view>
+                    <view class="detail">
+                        <text class="iconfont icon-nianling"> {{playerData.age}}岁 </text>
+                        <text class="iconfont icon-lanqiu1"> {{playerData.position}}</text>
                     </view>
                 </view>
             </view>
             <view class="main_card">
-                <view class = "card">
+                <view class="card">
                     <view class="career_stats">
                         <view class="title">生涯数据</view>
                         <view class="stat_line">
                             <view class='stat_column'>
                                 <view class="wrapper">
-                                    <view class="number">20.5</view>
+                                    <view class="number">{{playerData.average_points}}</view>
                                     <view class="description">场均得分</view>
                                 </view>
                             </view>
                             <view class='stat_column'>
                                 <view class="wrapper">
-                                    <view class="number">11.8</view>
+                                    <view class="number">{{playerData.average_rebounds}}</view>
                                     <view class="description">场均篮板</view>
                                 </view>
                             </view>
                             <view class='stat_column'>
                                 <view class="wrapper">
-                                    <view class="number">9.4</view>
+                                    <view class="number">{{playerData.average_assists}}</view>
                                     <view class="description">场均助攻</view>
                                 </view>
                             </view>
                         </view>
                         <view class="stat_line_small">
-                            <view class="stat_column">44%命中率</view>
-                            <view class="stat_column">34%三分命中率</view>
-                            <view class="stat_column">3.1失误</view>
+                            <view class="stat_column">{{playerData.total_percentage}}%命中率</view>
+                            <view class="stat_column">{{playerData.three_percentage}}%三分率</view>
+                            <view class="stat_column">{{playerData.average_turnover}}失误</view>
                         </view>
                     </view>
-                    <view class="history_games">
+                    <view class="history_games" wx:if="{{finishedGame.length != 0}}">
                         <view class="title">历史比赛数据</view>
-                        <view class="history_game_row">
+                        <view class="history_game_row" wx:for="{{finishedGame}}" data-id="{{item._id}}" bindtap="gameNavigator" wx:key="_id">
                             <view class="left">
                                 <view class="wrapper">
-                                    <image src="../../img/player_card/hawks.png"></image>
+                                    <image src="{{item.team_1_data.logo}}" bindtap="teamNavigator" data-team="{{item.team_1_data.team_name}}"
+                        data-league="{{item.league_name}}"></image>
                                     <text>V.S</text>
-                                    <image src="../../img/player_card/warriors.png"></image>
+                                    <image src="{{item.team_2_data.logo}}" bindtap="teamNavigator" data-team="{{item.team_2_data.team_name}}"
+                        data-league="{{item.league_name}}"></image>
                                 </view>
                             </view>
                             <view class="middle">
                                 <view class="stat">
                                     <view class="wrapper">
-                                        <view class="number">21</view>
+                                        <view class="number" wx:if="{{item.team_1_stats[playerID].point}}">{{item.team_1_stats[playerID].point}}</view>
+                                        <view class="number" wx:if="{{item.team_2_stats[playerID].point}}">{{item.team_2_stats[playerID].point}}</view>
+                                        <view class="number" wx:if="{{!item.team_1_stats[playerID].point && !item.team_2_stats[playerID].point}}">0</view>
                                         <view class="description">得分</view>
                                     </view>
                                 </view>
                                 <view class="stat">
                                     <view class="wrapper">
-                                        <view class="number">11</view>
+                                        <view class="number" wx:if="{{item.team_1_stats[playerID].rebound}}">{{item.team_1_stats[playerID].rebound}}</view>
+                                        <view class="number" wx:if="{{item.team_2_stats[playerID].rebound}}">{{item.team_2_stats[playerID].rebound}}</view>
+                                        <view class="number" wx:if="{{!item.team_1_stats[playerID].rebound && !item.team_2_stats[playerID].rebound}}">0</view>
                                         <view class="description">篮板</view>
                                     </view>
                                 </view>
                                 <view class="stat">
                                     <view class="wrapper">
-                                        <view class="number">14</view>
+                                        <view class="number" wx:if="{{item.team_1_stats[playerID].assist}}">{{item.team_1_stats[playerID].assist}}</view>
+                                        <view class="number" wx:if="{{item.team_2_stats[playerID].assist}}">{{item.team_2_stats[playerID].assist}}</view>
+                                        <view class="number" wx:if="{{!item.team_1_stats[playerID].assist && !item.team_2_stats[playerID].assist}}">0</view>
                                         <view class="description">助攻</view>
                                     </view>
                                 </view>
                             </view>
-                            <view class="right">
+                            <view class="right" wx:if="{{playerData.team_name == item.winner}}">
                                 <view class="wrapper">
-                                <view class="result">W</view>
+                                    <view class="result win">W</view>
+                                </view>
                             </view>
+                            <view class="right" wx:if="{{playerData.team_name != item.winner}}">
+                                <view class="wrapper">
+                                    <view class="result lose">L</view>
+                                </view>
                             </view>
                         </view>
                     </view>
@@ -90,43 +117,43 @@
                         <view class="reward_row">
                             <view class="stats_column">
                                 <view class="wrapper">
-                                    <view class="number">0</view>
+                                    <view class="number">{{playerData.rings}}</view>
                                     <view class="description">总冠军</view>
                                 </view>
                             </view>
                             <view class="stats_column">
                                 <view class="wrapper">
-                                    <view class="number">0</view>
+                                    <view class="number">{{playerData.MVP_number}}</view>
                                     <view class="description">MVP</view>
                                 </view>
                             </view>
                             <view class="stats_column">
                                 <view class="wrapper">
-                                    <view class="number">0</view>
+                                    <view class="number">{{playerData.ROY_number}}</view>
                                     <view class="description">最佳新秀</view>
                                 </view>
                             </view>
                             <view class="stats_column">
                                 <view class="wrapper">
-                                    <view class="number">0</view>
+                                    <view class="number">{{playerData.scoring_champion_number}}</view>
                                     <view class="description">得分王</view>
                                 </view>
                             </view>
                             <view class="stats_column">
                                 <view class="wrapper">
-                                    <view class="number">0</view>
+                                    <view class="number">{{playerData.rebound_champion_number}}</view>
                                     <view class="description">篮板王</view>
                                 </view>
                             </view>
                             <view class="stats_column">
                                 <view class="wrapper">
-                                    <view class="number">0</view>
+                                    <view class="number">{{playerData.assist_champion_number}}</view>
                                     <view class="description">助攻王</view>
                                 </view>
                             </view>
                             <view class="stats_column">
                                 <view class="wrapper">
-                                    <view class="number">0</view>
+                                    <view class="number">{{playerData.other_reward_number}}</view>
                                     <view class="description">其他</view>
                                 </view>
                             </view>
@@ -139,22 +166,56 @@
                         <view class="wrapper">
                             <view class="reward_column">
                                 <view class="personal wrapper2">
-                                    <text class="iconfont icon-lanqiu"> 0</text>
+                                    <text class="iconfont icon-lanqiu"> {{playerData.solo_event_reward_number}}</text>
                                 </view>
                             </view>
                             <view class="reward_column">
                                 <view class="team wrapper2">
-                                    <text class="iconfont icon-lanqiuchang"> 0</text>
+                                    <text class="iconfont icon-lanqiuchang"> {{playerData.team_event_reward_number}}</text>
                                 </view>
                             </view>
                             <view class="reward_column">
                                 <view class="challenge wrapper2">
-                                    <text class="iconfont icon-mubiao"> 0</text>
+                                    <text class="iconfont icon-mubiao"> {{playerData.challenge_event_reward_number}}</text>
                                 </view>
                             </view>
                             <view class="reward_column">
                                 <view class="social wrapper2">
-                                    <text class="iconfont icon-huodongzujian-29"> 0</text>
+                                    <text class="iconfont icon-huodongzujian-29"> {{playerData.social_event_number}}</text>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="recentEvents" wx:if="{{recentEvent.length != 0}}">
+                        <view class="title">我的最近活动</view>
+                        <view class="close_row" wx:for="{{recentEvent}}" wx:key="_id" bindtap="rowNavigator" data-id="{{item._id}}" data-category="{{item.category}}">
+                            <view class="left">
+                                <view class="wrapper">
+                                    <image src="{{item.img}}" mode="aspectFill"></image>
+                                </view>
+                            </view>
+                            <view class="middle">
+                                <view class="wrapper">
+                                    <text class="name">{{item.name}}</text>
+                                    <view class="location iconfont icon-map-thumbtack"> {{item.location_specific.name}}</view>
+                                    <view class="time iconfont icon-shijian"> {{item.specific_time}}</view>
+                                </view>
+                            </view>
+                        </view>
+                    </view>
+                    <view class="recentGame" wx:if="{{recentGame.length != 0}}">
+                        <view class="title">我的最近比赛</view>
+                        <view class="close_row" wx:for="{{recentGame}}" wx:key="_id" bindtap="rowNavigator" data-id="{{item._id}}" data-category="{{item.category}}">
+                            <view class="left">
+                                <view class="wrapper">
+                                    <image src="{{item.img}}" mode="aspectFill"></image>
+                                </view>
+                            </view>
+                            <view class="middle">
+                                <view class="wrapper">
+                                    <text class="name">{{item.name}}</text>
+                                    <view class="location iconfont icon-map-thumbtack"> {{item.location_specific.name}}</view>
+                                    <view class="time iconfont icon-shijian"> {{item.specific_time}}</view>
                                 </view>
                             </view>
                         </view>
@@ -163,33 +224,31 @@
             </view>
         </view>
     </view>
-    <view class="calendar">
-        <view class="title">时间表</view>
-        <view class="wrapper">
-            <van-calendar title="日历" poppable="{{ false }}" show-confirm="{{ false }}" show-title = "{{ false }}" class="actual_calendar" type="single" color="#FF5400" show-mark="{{ false }}" />
+    <view class="calendar" wx:if="{{playerStatus == 2 || playerStatus == 3}}">
+        <view class="title">活动时间表</view>
+        <view class="wrapper3">
+            <van-calendar title="日历" poppable="{{ false }}" show-confirm="{{ false }}" show-title="{{ false }}"
+                class="actual_calendar" type="single" color="#FF5400" show-mark="{{ false }}"
+                bind:confirm="onConfirm" />
             <view class="today">
-                <view class="today_title">你的当日活动/比赛</view>
-                <view class="recent_row">
+                <view class="today_title">当日行程</view>
+                <view class="nothing" wx:if="{{selected.length == 0}}">
+                    <text>当日您没有任何活动/比赛</text>
+                </view>
+                <view class="close_row" wx:for="{{selected}}" wx:key="_id" bindtap="rowNavigator"
+                    data-id="{{item._id}}" data-category="{{item.category}}">
                     <view class="left">
-                        <view class="wrapper2">
-                            <image src="../../img/event/event2.jpg" mode="widthFix"></image>
+                        <view class="wrapper">
+                            <image src="{{item.img}}" mode="aspectFill"></image>
                         </view>
                     </view>
-                    <view class="row_content">
-                        <view class="wrapper2">
-                            <text class="name">周五1V1球场之王</text>
+                    <view class="middle">
+                        <view class="wrapper">
+                            <text class="name">{{item.name}}</text>
                             <view class="line"></view>
-                            <text class="location iconfont icon-map-thumbtack"></text>
-                            <text class="location">北京工业大学</text>
-                            <text>\n</text>
-                            <text class="time iconfont icon-shijian"></text>
-                            <text class="time">2021/1/13 19:00-22:00</text>
-                        </view>
-                    </view>
-                    <view class="join">
-                        <view class="wrapper2">
-                            <button>立即加入</button>
-                            <text class="money">第一名奖金：500¥</text>
+                            <text class="category iconfont icon-fenlei" wx:for="{{item.category}}" wx:key="*this"> {{item}}</text>
+                            <view class="location iconfont icon-map-thumbtack"> {{item.location_specific.name}}</view>
+                            <view class="time iconfont icon-shijian"> {{item.specific_time}}</view>
                         </view>
                     </view>
                 </view>
@@ -198,28 +257,36 @@
     </view>
     <view class="setting">
         <view class="title">设置</view>
-        <view class="setting_row">
-            <view class="caption"><view class="wrapper">错误反馈</view></view>
+        <view class="setting_row" bindtap="errorNavigator">
+            <view class="caption">
+                <view class="wrapper">错误反馈</view>
+            </view>
             <view class="icon">
-                <image class = "tip" src="../../img/player/error.png" mode="aspectFill"></image>
+                <image class="tip" src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/error.png" mode="aspectFill"></image>
+            </view>
+        </view>
+        <view class="setting_row" bindtap="adviceNavigator">
+            <view class="caption">
+                <view class="wrapper">功能建议</view>
+            </view>
+            <view class="icon">
+                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/advice.png" mode="aspectFill"></image>
+            </view>
+        </view>
+        <view class="setting_row" bindtap="developerNavigator">
+            <view class="caption">
+                <view class="wrapper">开发者信息</view>
+            </view>
+            <view class="icon">
+                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/developer.png" mode="aspectFill"></image>
             </view>
         </view>
         <view class="setting_row">
-            <view class="caption"><view class="wrapper">功能建议</view></view>
-            <view class="icon">
-                <image src="../../img/player/advice.png" mode="aspectFill"></image>
+            <view class="caption">
+                <view class="wrapper">打赏</view>
             </view>
-        </view>
-        <view class="setting_row">
-            <view class="caption"><view class="wrapper">开发者信息</view></view>
             <view class="icon">
-                <image src="../../img/player/developer.png" mode="aspectFill"></image>
-            </view>
-        </view>
-        <view class="setting_row">
-            <view class="caption"><view class="wrapper">打赏</view></view>
-            <view class="icon">
-                <image class="tip" src="../../img/player/tip.png" mode="aspectFill"></image>
+                <image class="tip" src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/tip.png" mode="aspectFill"></image>
             </view>
         </view>
     </view>

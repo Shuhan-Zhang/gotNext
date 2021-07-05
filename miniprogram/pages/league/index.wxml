@@ -1,19 +1,20 @@
 <view class="league">
     <view class="login" wx:if="{{userStatus == 0}}">
-        <image class="background" src="../../img/league/signIn.jpg" mode="aspectFill"></image>
-        <button bindgetuserinfo="login" open-type="getUserInfo">登陆</button>
+        <image class="background" src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/signIn.jpeg" mode="aspectFill"></image>
+        <button bindtap="login">登陆</button>
     </view>
     <view class="login" wx:if="{{userStatus == 1}}">
-        <image class="background" src="../../img/league/top1.jpg" mode="aspectFill"></image>
-        <button bindtap="registerUser" data-openid = "{{userInfo.openid}}">立即注册</button>
+        <image class="background" src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/top1.jpeg" mode="aspectFill"></image>
+        <button bindtap="registerUser">立即注册</button>
     </view>
     <view class="login" wx:if="{{userStatus == 2}}">
-        <image class="background" src="../../img/league/register.jpg" mode="aspectFill"></image>
-        <button>立即加入</button>
+        <image class="background" src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/register.jpeg" mode="aspectFill"></image>
+        <button>加入联盟</button>
     </view>
     <view class="userTeamInfo" wx:if="{{userStatus == 3}}">
         <text class="title">我的球队</text>
-        <view class="teamInfo" bindtap="teamNavigator" data-team="{{userTeamInfo.team_name}}" data-league="{{userTeamInfo.league_name}}">
+        <view class="teamInfo" bindtap="teamNavigator" data-team="{{userTeamInfo.team_name}}"
+            data-league="{{userTeamInfo.league_name}}">
             <view class="top_information" style="background-color:{{userTeamInfo.theme_color}}">
                 <view class="left">
                     <image src="{{userTeamInfo.logo}}" mode="aspectFill"></image>
@@ -27,7 +28,7 @@
                 </view>
             </view>
             <view class="main_card" style="background-color:{{userTeamInfo.secondary_color}}">
-                <view class = "card">
+                <view class="card">
                     <view class="team_stats">
                         <view class="title">球队数据</view>
                         <view class="stat_line" style="background-color:{{userTeamInfo.theme_color}}">
@@ -56,52 +57,63 @@
         </view>
         <text class="title">GOTNEXT联盟</text>
     </view>
-    <scroll-view class="league_selector" scroll-x = "true">
-        <button class="leagues {{league == item.league_name ? 'active' : ''}}" wx:for="{{allLeagues}}" data-league="{{item.league_name}}" bindtap="changeLeague">{{item.league_name}}</button>
+    <scroll-view class="league_selector" scroll-x="true">
+        <button class="leagues {{league == item.league_name ? 'active' : ''}}" wx:for="{{allLeagues}}" wx:key="league_name"
+            data-league="{{item.league_name}}" bindtap="changeLeague">{{item.league_name}}</button>
     </scroll-view>
     <view class="main">
         <view class="newest">
             <text class="title">最新比赛</text>
             <view class="nothing" wx:if="{{pastGames.length == 0}}">
-                <text>暂时还没有这个哦</text>
+                <text>最近没有任何结束的比赛</text>
             </view>
-            <view class="game_row" wx:for="{{pastGames}}" data-id="{{item._id}}" bindtap="gameNavigator" >
+            <view class="game_row" wx:for="{{pastGames}}" data-id="{{item._id}}" bindtap="gameNavigator" wx:key="_id">
                 <view class="left">
-                    <view class="team1" bindtap="teamNavigator" data-team="{{item.team_1_data.team_name}}" data-league="{{item.league_name}}">
-                        <image src="{{item.team_1_data.logo}}"></image>
-                        <text class="team_name  top">{{item.team_1}}</text>
-                    </view>
-                    <view class="team2" bindtap="teamNavigator" data-team="{{item.team_2_data.team_name}}" data-league="{{item.league_name}}">
-                        <image src="{{item.team_2_data.logo}}"></image>
-                        <text class="team_name bottom">{{item.team_2}}</text>
-                    </view>
-                </view>
-                <view class="middle">
-                    <view class="record top">{{item.team_1_data.win}}胜:{{item.team_1_data.loss}}负</view>
-                    <view class="record bottom">{{item.team_2_data.win}}胜:{{item.team_2_data.loss}}负</view>
-                </view>
-                <view class="right">
-                    <view class="vertical_line"></view>
-                    <view class="score">
-                        <view class="team1_score top">
-                            <text class="">{{item.team_1_score}}分</text>
-                            <image src="../../img/league/Triangle.png" wx:if="{{item.team_1_score > item.team_2_score}}"></image>
+                        <view class="team1" bindtap="teamNavigator" data-team="{{item.team_1_data.team_name}}"
+                            data-league="{{item.league_name}}">
+                            <image src="{{item.team_1_data.logo}}" mode="aspectFill"></image>
+                            <text class="team_name  top" style="color:#FF5400; font-weight: bold" wx:if="{{item.team_1_score > item.team_2_score}}">{{item.team_1_data.team_name}}</text>
+                            <text class="team_name  top" style="color:#FFC0A0"  wx:if="{{item.team_2_score > item.team_1_score}}">{{item.team_1_data.team_name}}</text>
                         </view>
-                        <view class="team2_score bottom">
-                            <text class="">{{item.team_2_score}}分</text>
-                            <image src="../../img/league/Triangle.png" wx:if="{{item.team_2_score > item.team_1_score}}"></image>
+                        <view class="team2" bindtap="teamNavigator" data-team="{{item.team_2_data.team_name}}"
+                            data-league="{{item.league_name}}">
+                            <image src="{{item.team_2_data.logo}}" mode="aspectFill"></image>
+                            <text class="team_name bottom" style="color:#FF5400; font-weight: bold" wx:if="{{item.team_2_score > item.team_1_score}}">{{item.team_2_data.team_name}}</text>
+                            <text class="team_name bottom" style="color:#FFC0A0"  wx:if="{{item.team_1_score > item.team_2_score}}">{{item.team_2_data.team_name}}</text>
                         </view>
                     </view>
-                </view>
+                    <view class="middle">
+                        <view class="record top">{{item.team_1_data.win}}胜:{{item.team_1_data.loss}}负</view>
+                        <view class="record bottom">{{item.team_2_data.win}}胜:{{item.team_2_data.loss}}负</view>
+                    </view>
+                    <view class="right">
+                        <view class="vertical_line"></view>
+                        <view class="score">
+                            <view class="team1_score top">
+                                <text class="" style="color:#FF5400; font-weight: bold" wx:if="{{item.team_1_score > item.team_2_score}}">{{item.team_1_score}}分</text>
+                                <text style="color:#FFC0A0" wx:if="{{item.team_2_score > item.team_1_score}}">{{item.team_1_score}}分</text>
+                                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/Triangle.png" mode="aspectFill"
+                                    wx:if="{{item.team_1_score > item.team_2_score}}"></image>
+                            </view>
+                            <view class="team2_score bottom">
+                                <text class="" style="color:#FF5400; font-weight: bold" wx:if="{{item.team_2_score > item.team_1_score}}">{{item.team_2_score}}分</text>
+                                <text class="" style="color:#FFC0A0"  wx:if="{{item.team_1_score > item.team_2_score}}">{{item.team_2_score}}分</text>
+                                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/Triangle.png" mode="aspectFill"
+                                    wx:if="{{item.team_2_score > item.team_1_score}}"></image>
+                            </view>
+                        </view>
+                    </view>
             </view>
-            <button class="view_more" wx:if="{{pastGames.length > 3}}" bindtap="pastGameNavigator" data-league="{{league}}">查看更多</button>
+            <button class="view_more" wx:if="{{pastGames.length > 3}}" bindtap="pastGameNavigator"
+                data-league="{{league}}">查看更多</button>
         </view>
         <view class="stats_leaders">
             <text class="title">数据王</text>
-            <view class="nothingPoints" wx:if="{{!pointLeader}}">
-                <text>暂时还没有这个哦</text>
+            <view class="nothing Points" wx:if="{{!pointLeader}}">
+                <text>暂时还没有得分王</text>
             </view>
-            <view class="stats_leader_row point" wx:if="{{pointLeader}}" bindtap="playerNavigator" data-id="{{pointLeader.player_id}}">
+            <view class="stats_leader_row point" wx:if="{{pointLeader}}" bindtap="playerNavigator"
+                data-id="{{pointLeader.player_id}}">
                 <view class="points">
                     <text>得分</text>
                 </view>
@@ -113,10 +125,11 @@
                     <image src="{{pointLeader.player_pic}}" mode="aspectFill"></image>
                 </view>
             </view>
-            <view class="nothingRebounds" wx:if="{{!reboundLeader}}">
-                <text>暂时还没有这个哦</text>
+            <view class="nothing Rebounds" wx:if="{{!reboundLeader}}">
+                <text>暂时还没有篮板王</text>
             </view>
-            <view class="stats_leader_row rebound" wx:if="{{reboundLeader}}" bindtap="playerNavigator" data-id="{{reboundLeader.player_id}}">
+            <view class="stats_leader_row rebound" wx:if="{{reboundLeader}}" bindtap="playerNavigator"
+                data-id="{{reboundLeader.player_id}}">
                 <view class="player_pic">
                     <image src="{{reboundLeader.player_pic}}" mode="aspectFill"></image>
                 </view>
@@ -128,10 +141,11 @@
                     <text>篮板</text>
                 </view>
             </view>
-            <view class="nothingAssists" wx:if="{{!assistLeader}}">
-                <text>暂时还没有这个哦</text>
+            <view class="nothing Assists" wx:if="{{!assistLeader}}">
+                <text>暂时还没有助攻王</text>
             </view>
-            <view class="stats_leader_row assist" wx:if="{{assistLeader}}" bindtap="playerNavigator" data-id="{{assistLeader.player_id}}">
+            <view class="stats_leader_row assist" wx:if="{{assistLeader}}" bindtap="playerNavigator"
+                data-id="{{assistLeader.player_id}}">
                 <view class="assists">
                     <text>助攻</text>
                 </view>
@@ -147,7 +161,7 @@
         <view class="team_ranking">
             <view class="title">联盟排名</view>
             <view class="nothing" wx:if="{{leagueOnlyTeamData.length == 0}}">
-                <text>暂时还没有这个哦</text>
+                <text>在是还没有联盟排名</text>
             </view>
             <view class="table ranking" wx:if="{{leagueOnlyTeamData.length != 0}}">
                 <view class="tr bg-w">
@@ -155,8 +169,9 @@
                     <view class="th middle">队名</view>
                     <view class="th right">赢场/输场</view>
                 </view>
-                <view class="tr" wx:for="{{leagueOnlyTeamData}}" bindtap="teamNavigator" data-team="{{item.team_name}}" data-league="{{item.league_name}}">
-                    <view class="td left">{{index+1}}.</view>
+                <view class="tr" wx:for="{{leagueOnlyTeamData}}" bindtap="teamNavigator" data-team="{{item.team_name}}" wx:key="_id"
+                    data-league="{{item.league_name}}">
+                    <view class="td left">{{index+1}}</view>
                     <view class="td middle">
                         <image src="{{item.logo}}"></image>
                         <text>{{item.team_name}}</text>
@@ -168,10 +183,11 @@
         <view class="upcoming">
             <text class="title">即将打响</text>
             <view class="nothing" wx:if="{{upcomingGames.length == 0}}">
-                <text>暂时还没有这个哦</text>
+                <text>暂时没有比赛</text>
             </view>
-            <view class="upcoming_row" wx:for="{{upcomingGames}}" data-id="{{item._id}}" bindtap="gameNavigator">
-                <view class="team1" bindtap="teamNavigator" data-team="{{item.team_1_data.team_name}}" data-league="{{item.league_name}}">
+            <view class="upcoming_row" wx:for="{{upcomingGames}}" wx:key="_id" data-id="{{item._id}}" bindtap="gameNavigator">
+                <view class="team1" bindtap="teamNavigator" data-team="{{item.team_1_data.team_name}}"
+                    data-league="{{item.league_name}}">
                     <view class="content">
                         <image src="{{item.team_1_data.logo}}"></image>
                         <view class="team_name">{{item.team_1}}</view>
@@ -180,18 +196,19 @@
                 </view>
                 <view class="extra">
                     <view class="content middle">
-                        <view class="VS">V.S</view>
                         <view class="name">{{item.name}}</view>
                         <view class="location">
-                            <text class="location iconfont icon-map-thumbtack">{{item.location_name}}</text>
+                            <text class="location iconfont icon-map-thumbtack">{{item.location_specific.name}}</text>
                         </view>
                         <view class="time">
                             <text class="time iconfont icon-shijian">{{item.written_time}}</text>
                         </view>
-                        <button>立即加入</button>
+                        <button wx:if="{{!item.participated}}" bindtap="confirmationNavigator" data-category="{{item.category}}" data-name="{{item.name}}" data-time="{{item.specific_time}}" data-price="{{item.price}}" data-location="{{item.location_specific.name}}" data-eventid="{{item._id}}" data-participant_list="{{item.participant_list}}">买票观战</button>
+                        <button wx:if="{{item.participated}}" bindtap="checkInNavigator">现场登记</button>
                     </view>
                 </view>
-                <view class="team2" bindtap="teamNavigator" data-team="{{item.team_2_data.team_name}}" data-league="{{item.league_name}}">
+                <view class="team2" bindtap="teamNavigator" data-team="{{item.team_2_data.team_name}}"
+                    data-league="{{item.league_name}}">
                     <view class="content">
                         <image src="{{item.team_2_data.logo}}"></image>
                         <view class="team_name">{{item.team_2}}</view>

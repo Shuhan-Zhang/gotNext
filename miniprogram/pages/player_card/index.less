@@ -1,5 +1,7 @@
 view.all {
   height:100%;
+      width:100%;
+    overflow: hidden;
     view.top_information {
         display: flex;
         background: #FF5400;
@@ -9,17 +11,19 @@ view.all {
         image {
             margin-left: 5px;
             z-index: 1000;
-            width: 50px;
-            height: 50px;        }
+            width: 45px;
+            height: 45px;
+          }
       }
   
       view.middle {
         flex: 0 0 29%;
         max-width: 29%;
         image {
-            width:150px;
-            height: 150px;
-            border-radius: 25px 25px 0px 0px;
+            width:140px;
+            height: 140px;
+            margin-bottom: 20px;
+            border-radius: 25px 25px 25px 25px;
         }
       }
   
@@ -31,9 +35,8 @@ view.all {
         text-align: right;
         view.name {
             font-family: PingFangSC-Semibold;
-            font-size: 35px;
+            font-size: 30px;
             color: #FFFFFF;
-            margin-bottom: -5px;
         }
   
         view.detail {
@@ -41,20 +44,6 @@ view.all {
             font-family: PingFangSC-Thin;
             font-size: 15px;
             color: #FFFFFF;
-        }
-  
-        view.rewards {
-            margin-top: 10px;
-            font-family: PingFangSC-Semibold;
-            font-size: 16px;
-            color: #FFFFFF;
-          text.event {
-            padding-right: 10px;
-          }
-  
-          text.rings {
-            padding-right: 10px;
-          }
         }
       }
     }
@@ -140,7 +129,6 @@ view.all {
           view.history_game_row {
             padding-left: 10px;
             height: 75px;
-            width:100%;
             display: flex;
             margin-top: 15px;
             background: #FF5400;
@@ -157,8 +145,8 @@ view.all {
                 flex: 0 0 40%;
                 max-width: 40%;
               image {
-                width: 85rpx;
-                height:85rpx;
+                width: 75rpx;
+                height:75rpx;
                 vertical-align: middle;
               }
   
@@ -216,7 +204,6 @@ view.all {
           view.reward_row {
             padding-left: 10px;
             height: 75px;
-            width:100%;
             display: flex;
             margin-top: 15px;
             background: #FF5400;

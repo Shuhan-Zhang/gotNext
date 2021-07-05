@@ -6,14 +6,63 @@
     <view class="main_card">
         <view class="card">
             <view class="title">{{event.name}}</view>
+            <view class="user_participation" wx:if="{{participated && !past}}">
+                <text>已购票</text>
+            </view>
+            <view class="user_participation" wx:if="{{past && !participated}}">
+                <text style="background: #797979">活动已结束</text>
+            </view>
+            <view class="user_participation" wx:if="{{past && participated}}">
+                <text style="margin-right:10px">已购票</text> 
+                <text style="background: #797979; margin-top:5px">活动已结束</text>
+            </view>
+            <view class="price_money">参加价格: ¥{{event.price}}</view>
+            <view class="price_money firstPlace" wx:if="{{event.price_money != 0}}">第一名: ¥{{event.price_money}}</view>
             <view class="description">{{event.description}}</view>
-            <view class="price_money" wx:if="{{event.price_money != 0}}">第一名:{{event.price_money}}¥</view>
-            <view class="time iconfont icon-shijian"> 时间:{{event.specific_time}}</view>
-            <view class="location iconfont icon-map-thumbtack"> 地址:{{event.location_name}}</view>
-            <map id = "1234" markers="{{marker}}"></map>
+            <view class="time iconfont icon-shijian"> 时间:{{event.specific_time}} - {{event.specific_endtime}}</view>
+            <view class="location iconfont icon-map-thumbtack"> 地址:{{event.location_specific.name}}</view>
+            <view class="ranking">
+                <view class="row" wx:if="{{event.first_place}}" bindtap="playerNavigator" data-id="{{firstPlaceData.player_id}}">
+                    <view class="left">
+                        <image mode="aspectFill" src="{{firstPlaceData.player_pic}}"></image>
+                    </view>
+                    <view class="middle">
+                        <text>{{firstPlaceData.player_name}}</text>
+                    </view>
+                    <view class="right">
+                        <text>第一名</text>
+                    </view>
+                </view>
+                <view class="row" wx:if="{{event.second_place}}" bindtap="playerNavigator" data-id="{{secondPlaceData.player_id}}">
+                    <view class="left">
+                        <image mode="aspectFill" src="{{secondPlaceData.player_pic}}"></image>
+                    </view>
+                    <view class="middle">
+                        <text>{{secondPlaceData.player_name}}</text>
+                    </view>
+                    <view class="right">
+                        <text>第二名</text>
+                    </view>
+                </view>
+                <view class="row" wx:if="{{event.third_place}}" bindtap="playerNavigator" data-id="{{thirdPlaceData.player_id}}">
+                    <view class="left">
+                        <image mode="aspectFill" src="{{thirdPlaceData.player_pic}}"></image>
+                    </view>
+                    <view class="middle">
+                        <text>{{thirdPlaceData.player_name}}</text>
+                    </view>
+                    <view class="right">
+                        <text>第三名</text>
+                    </view>
+                </view>
+            </view>
+            <map id="1234" markers="{{marker}}" data-markers="{{marker}}" bindmarkertap='gotohere'></map>
         </view>
-        <button class="join_button">
+        <button wx:if="{{!past && !participated}}" class="join_button" bindtap="eventPayment" data-name="{{event.name}}" data-location="{{event.location_specific.name}}" data-time="{{event.specific_time}}" data-price="{{event.price}}">
             立即加入
+        </button>
+        <button class="join_button" wx:if="{{!past && participated}}" bindtap="checkIn">
+            现场登记
         </button>
     </view>
 </view>

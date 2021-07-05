@@ -2,7 +2,7 @@
   "miniprogramRoot": "miniprogram/",
   "cloudfunctionRoot": "cloudfunctions/",
   "setting": {
-    "urlCheck": true,
+    "urlCheck": false,
     "es6": true,
     "enhance": true,
     "postcss": true,
@@ -21,17 +21,14 @@
     "compileHotReLoad": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
-    "useApiHostProcess": true,
+    "useApiHostProcess": false,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
     "enableEngineNative": false,
-    "bundle": false,
     "useIsolateContext": true,
-    "useCompilerModule": true,
-    "userConfirmedUseCompilerModuleSwitch": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": true,
     "packNpmRelationList": [
@@ -40,11 +37,13 @@
         "miniprogramNpmDistDir": "./miniprogram/"
       }
     ],
-    "minifyWXSS": true
+    "minifyWXSS": true,
+    "showES6CompileOption": false
   },
-  "appid": "wx424f77966597b181",
+  "appid": "wx5da194cab9646fda",
   "projectname": "%E6%8E%A5%E6%B3%A2Got%20Next",
   "libVersion": "2.14.1",
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
   "condition": {
     "plugin": {
       "list": []
@@ -115,6 +114,42 @@
           "name": "球员卡有id",
           "pathName": "pages/player_card/index",
           "query": "openid=oj_zs4gVj7sva_PfJZYg9PTVD6iU",
+          "scene": null
+        },
+        {
+          "name": "错误反馈",
+          "pathName": "pages/bugReport/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "建议",
+          "pathName": "pages/advice/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "开发者信息",
+          "pathName": "pages/developerInfo/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "付款确认页",
+          "pathName": "pages/paymentConfirmation/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "登记页",
+          "pathName": "pages/checkIn/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/imageCropper/index",
+          "pathName": "pages/imageCropper/index",
+          "query": "src=http://tmp/PvLSDeiIwGU500762494af8ca3ed86648156f9359cf4.jpg",
           "scene": null
         }
       ]

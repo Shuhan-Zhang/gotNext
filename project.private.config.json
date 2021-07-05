@@ -1,0 +1,119 @@
+{
+  "condition": {
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": -1,
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
+        },
+        {
+          "name": "联盟",
+          "pathName": "pages/league/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "球员卡",
+          "pathName": "pages/player_card/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "球队卡",
+          "pathName": "pages/team_card/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "活动详情",
+          "pathName": "pages/event_detail/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "比赛详情",
+          "pathName": "pages/game_detail/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "活动",
+          "pathName": "pages/event/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "球员主页",
+          "pathName": "pages/player/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "球员注册页",
+          "pathName": "pages/player_form/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "球员卡有id",
+          "pathName": "pages/player_card/index",
+          "query": "openid=oj_zs4gVj7sva_PfJZYg9PTVD6iU",
+          "scene": null
+        },
+        {
+          "name": "错误反馈",
+          "pathName": "pages/bugReport/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "建议",
+          "pathName": "pages/advice/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "开发者信息",
+          "pathName": "pages/developerInfo/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "付款确认页",
+          "pathName": "pages/paymentConfirmation/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "登记页",
+          "pathName": "pages/checkIn/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/imageCropper/index",
+          "pathName": "pages/imageCropper/index",
+          "query": "src=http://tmp/PvLSDeiIwGU500762494af8ca3ed86648156f9359cf4.jpg",
+          "scene": null
+        },
+        {
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

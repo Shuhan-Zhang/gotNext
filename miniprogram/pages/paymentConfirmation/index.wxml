@@ -1,0 +1,90 @@
+<view class="event" wx:if="{{category == 'event'}}">
+  <view class="all" style="margin-bottom:10px">
+      <view class="title">
+          <text>确认信息</text>
+      </view>
+      <view class="userParticipationView">
+        <text class="userParticipated" wx:if="{{participated}}">已参加</text>
+      </view>
+      <view class="body">
+          <view class="row">
+              <view class="left">
+                <text>{{name}}</text>
+              </view>
+              <view class="right">
+                  <text>活动名称</text>
+              </view>
+          </view>
+          <view class="row">
+              <view class="left">
+                <text>{{time}}</text>
+              </view>
+              <view class="right">
+                  <text>活动时间</text>
+              </view>
+          </view>
+          <view class="row">
+              <view class="left">
+                <text>{{location}}</text>
+              </view>
+              <view class="right">
+                  <text>活动地点</text>
+              </view>
+          </view>
+          <view class="row">
+              <view class="left">
+                <text>¥{{price}}</text>
+              </view>
+              <view class="right">
+                  <text>价格</text>
+              </view>
+          </view>
+      </view>
+  </view>
+  <button class="confirmation" bindtap="registerEvent" wx:if="{{!participated}}">确认预约</button>
+</view>
+<view class="game" wx:if="{{category == 'game'}}">
+  <view class="all" style="margin-bottom:10px">
+      <view class="title">
+          <text>确认信息</text>
+      </view>
+      <view class="userParticipationView">
+        <text class="userParticipated" wx:if="{{participated}}">已参加</text>
+      </view>
+      <view class="body">
+          <view class="row">
+              <view class="left">
+                <text>{{name}}</text>
+              </view>
+              <view class="right">
+                  <text>比赛名称</text>
+              </view>
+          </view>
+          <view class="row">
+              <view class="left">
+                <text>{{time}}</text>
+              </view>
+              <view class="right">
+                  <text>比赛时间</text>
+              </view>
+          </view>
+          <view class="row">
+              <view class="left">
+                <text>{{location}}</text>
+              </view>
+              <view class="right">
+                  <text>比赛地点</text>
+              </view>
+          </view>
+          <view class="row">
+              <view class="left">
+                <text>¥{{price}}</text>
+              </view>
+              <view class="right">
+                  <text>票价</text>
+              </view>
+          </view>
+      </view>
+  </view>
+  <button class="confirmation" bindtap="registerGame" wx:if="{{!participated}}">确认预约</button>
+</view>

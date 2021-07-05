@@ -1,0 +1,46 @@
+view.all {
+  width: 95%;
+  margin: 0px auto;
+}
+view.all view.title {
+  margin-top: 15px;
+  font-family: PingFangSC-Semibold;
+  font-size: 30px;
+  color: #FF7777;
+}
+view.all view.content {
+  margin-top: 10px;
+  border-radius: 20px;
+  padding: 20px 20px 20px 20px;
+  background-color: #CB5252;
+}
+view.all view.content textarea {
+  width: 100%;
+  color: #FFFFFF;
+  font-size: 17px;
+  height: 70vh;
+}
+button {
+  text-align: center;
+  background: #CB5252;
+  font-family: PingFangSC-Semibold;
+  font-size: 25px;
+  color: #FFFFFF;
+  height: 10%;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  border-radius: 8px 8px 0px 0px;
+}
+.button-hover {
+  text-align: center;
+  background: #CB5252;
+  font-family: PingFangSC-Semibold;
+  font-size: 25px;
+  color: #FFFFFF;
+  height: 10%;
+  width: 100%;
+  position: fixed;
+  bottom: 0;
+  border-radius: 8px 8px 0px 0px;
+}

@@ -1,16 +1,21 @@
 view.all{
-    height: 100vh;
-    .nothing{
-        box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
-        margin-top: 40px;
         width:100%;
-        font-size: 20px;
-        background: #FFF0E8;
+    overflow: hidden;
+    height: 100vh;
+    .nothing {
+        width: 100%;
+        display: flex;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.50);
+        margin-top: 10px;
+        background: #FFFFFF;
         border-radius: 8px;
         padding-top: 10px;
         padding-bottom: 10px;
-        text-align: center;
-        color:#DA463C;
+        text{
+            flex: 0 0 100%;
+            max-width: 100%;
+            text-align: center;
+        }
     }
     view.content{
         width: 95%;
@@ -24,12 +29,11 @@ view.all{
         color: #FFFFFF;
     }
     view.row {
-
         box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
         width:100%;
         display: flex;
         margin-top: 15px;
-        background: #FFF0E8;
+        background: #FFF;
         border-radius: 8px;
         padding-top: 10px;
         padding-bottom: 10px;
@@ -94,6 +98,16 @@ view.all{
             flex: 0 0 30%;
             max-width: 30%;
             margin-left: 5px;
+            button.past{
+                padding:10px 0px 10px 0px;
+                width:80%;
+                margin-left: 2px;
+                background: #797979;
+                border-radius: 8px;
+                font-family: PingFangSC-Semibold;
+                font-size: 15px;
+                color: #FFFFFF;
+            }
             button {
                 padding:10px 0px 10px 0px;
                 width:80%;

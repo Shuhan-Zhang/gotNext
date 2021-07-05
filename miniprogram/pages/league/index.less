@@ -1,7 +1,24 @@
 view.league {
+      width:100%;
+    overflow: hidden;
+        .nothing {
+        width: 100%;
+        display: flex;
+        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.50);
+        margin-top: 15px;
+        background: #FFF0E8;
+        border-radius: 8px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: #DA463C;
+        text{
+            flex: 0 0 100%;
+            max-width: 100%;
+            text-align: center;
+        }
+    }
     view.login {
         position: relative;
-        
       image.background {
         width: 100%;
         height:220px;
@@ -189,15 +206,8 @@ view.league {
             color: #FF5400;
         }
         view.nothing{
-          box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
-          width:100%;
-          margin-top: 10px;
-          font-size: 20px;
+          margin-top: 5px;
           background: #FFF0E8;
-          border-radius: 8px;
-          padding-top: 10px;
-          padding-bottom: 10px;
-          text-align: center;
           color:#DA463C;
         }
         view.game_row {
@@ -266,7 +276,7 @@ view.league {
             max-width: 20%;
             font-family: PingFangSC-Thin;
             font-size: 10px;
-            color: #000000;
+            color: #797979;
         }
           
         view.right{
@@ -339,40 +349,19 @@ view.league {
             font-size: 30px;
             color: #FF5400;
         }
-        view.nothingPoints{
-          box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
-          width:100%;
+        view.Points{
           margin-top: 10px;
-          font-size: 20px;
           background: #FF784B;
-          border-radius: 8px;
-          padding-top: 10px;
-          padding-bottom: 10px;
-          text-align: center;
           color:#FCF6F0;
         }
-        view.nothingRebounds{
-          box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
-          width:100%;
+        view.Rebounds{
           margin-top: 10px;
-          font-size: 20px;
           background: #DA463D;
-          border-radius: 8px;
-          padding-top: 10px;
-          padding-bottom: 10px;
-          text-align: center;
           color:#ffffff;
         }
-        view.nothingAssists{
-          box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
-          width:100%;
+        view.Assists{
           margin-top: 10px;
-          font-size: 20px;
           background: #50976A;
-          border-radius: 8px;
-          padding-top: 10px;
-          padding-bottom: 10px;
-          text-align: center;
           color:#FFFFFF;
         }
         view.stats_leader_row.point {
@@ -589,18 +578,11 @@ view.league {
             font-family: PingFangSC-Semibold;
             font-size: 30px;
             color: #FF5400;
-            margin-bottom: 15px;
+            margin-bottom: 5px;
         }
         view.nothing{
-          box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
-          width:100%;
-          margin-top: 10px;
-          font-size: 20px;
+          margin-top: 5px;
           background: #FFF0E8;
-          border-radius: 8px;
-          padding-top: 10px;
-          padding-bottom: 10px;
-          text-align: center;
           color:#FF5400;
         }
         .th.left{
@@ -633,6 +615,7 @@ view.league {
             border-right: 0px;
         }
         .table {
+          margin-top: 10px;
             box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
             border-radius: 27px;
             border: 0px solid darkgray;
@@ -691,16 +674,9 @@ view.league {
             color: #FF5400;
         }
         view.nothing{
-          box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
-          width:100%;
-          margin-top: 10px;
-          font-size: 20px;
-          background: #FFEDED;
-          border-radius: 8px;
-          padding-top: 10px;
-          padding-bottom: 10px;
-          text-align: center;
+          margin-top: 5px;
           color:#FF5400;
+          margin-bottom: 10px;
         }
         view.upcoming_row {
             position:relative;
@@ -708,7 +684,7 @@ view.league {
             box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
             width:100%;
             display: flex;
-            margin-top: 15px;
+            margin-top: 10px;
             margin-bottom: 15px;
             background: #FFEDED;
             border-radius: 27px;
@@ -732,10 +708,10 @@ view.league {
             }
   
             view.record {
-                margin-top: 5px;
+                margin-top: 10px;
                 font-family: PingFangSC-Regular;
                 font-size: 10px;
-                color: #d49e85;
+                color: #797979;
             }
           }
   
@@ -743,22 +719,16 @@ view.league {
             text-align: center;
             flex:30%;
             max-width: 30%;
- 
-            view.VS {
-                font-family: PingFangSC-Regular;
-                font-size: 25px;
-                color: #FF5400;
-            }
+
   
             view.name {
-                margin-top: 5px;
                 font-family: PingFangSC-Semibold;
-                font-size: 18px;
+                font-size: 20px;
                 color: #000000;
             }
   
             text.location {
-                margin-top: 5px;
+                margin-top: 15px;
                 font-family: PingFangSC-Regular;
                 font-size: 12px;
                 color: #FF5400;
@@ -800,10 +770,10 @@ view.league {
             }
   
             view.record {
-                margin-top: 5px;
+                margin-top: 10px;
                 font-family: PingFangSC-Regular;
                 font-size: 10px;
-                color: #d49e85;
+                color: #797979;
             }
           }
         }

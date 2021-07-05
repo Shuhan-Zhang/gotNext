@@ -9,7 +9,13 @@
     "pages/event_detail/index",
     "pages/game_detail/index",
     "pages/player_form/index",
-    "pages/item_list/index"
+    "pages/item_list/index",
+    "pages/advice/index",
+    "pages/bugReport/index",
+    "pages/developerInfo/index",
+    "pages/paymentConfirmation/index",
+    "pages/checkIn/index",
+    "pages/imageCropper/index"
   ],
   "permission": {
     "scope.userLocation": {
@@ -17,11 +23,12 @@
     }
   },
   "window": {
-    "backgroundColor": "#FF5400",
+    "backgroundColor": "#FFFFFF",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#FF5400",
-    "navigationBarTitleText": "接波GotNext",
-    "navigationBarTextStyle": "white"
+    "navigationBarTitleText": "GotNext接波",
+    "navigationBarTextStyle": "white",
+    "enablePullDownRefresh" : false
   },"tabBar": {
     "color": "FFFFFF",
     "selectedColor": "#FF5400",
