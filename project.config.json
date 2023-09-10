@@ -21,14 +21,14 @@
     "compileHotReLoad": false,
     "useMultiFrameRuntime": true,
     "useApiHook": true,
-    "useApiHostProcess": false,
+    "useApiHostProcess": true,
     "babelSetting": {
       "ignore": [],
       "disablePlugins": [],
       "outputPath": ""
     },
     "enableEngineNative": false,
-    "useIsolateContext": true,
+    "useIsolateContext": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": true,
     "packNpmRelationList": [
@@ -38,12 +38,17 @@
       }
     ],
     "minifyWXSS": true,
-    "showES6CompileOption": false
+    "disableUseStrict": false,
+    "minifyWXML": true,
+    "showES6CompileOption": false,
+    "useCompilerPlugins": false,
+    "ignoreUploadUnusedFiles": true,
+    "useStaticServer": true
   },
   "appid": "wx5da194cab9646fda",
   "projectname": "%E6%8E%A5%E6%B3%A2Got%20Next",
   "libVersion": "2.14.1",
-  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
   "condition": {
     "plugin": {
       "list": []
@@ -154,5 +159,16 @@
         }
       ]
     }
-  }
+  },
+  "compileType": "miniprogram",
+  "srcMiniprogramRoot": "miniprogram/",
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
+  },
+  "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html"
 }

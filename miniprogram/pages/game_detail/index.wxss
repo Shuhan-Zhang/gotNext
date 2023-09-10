@@ -44,13 +44,13 @@ view.all view.top view.upcoming_row view.team1 image {
 }
 view.all view.top view.upcoming_row view.team1 view.team_name {
   font-family: PingFangSC-Semibold;
-  font-size: 21px;
+  font-size: 17px;
   color: #FFFFFF;
 }
 view.all view.top view.upcoming_row view.team1 view.ranking {
   margin-top: 5px;
   font-family: PingFangSC-Regular;
-  font-size: 12px;
+  font-size: 10px;
   color: #FFF;
 }
 view.all view.top view.upcoming_row view.extra {
@@ -75,106 +75,135 @@ view.all view.top view.upcoming_row view.team2 image {
 }
 view.all view.top view.upcoming_row view.team2 view.team_name {
   font-family: PingFangSC-Semibold;
-  font-size: 21px;
+  font-size: 17px;
   color: #FFFFFF;
 }
 view.all view.top view.upcoming_row view.team2 view.ranking {
   font-family: PingFangSC-Regular;
-  font-size: 12px;
+  font-size: 10px;
   color: #FFF;
 }
 view.all view.main_card {
-  display: flex;
-  flex-flow: column;
-  position: relative;
-  background: #FF5400;
-  border-radius: 15px 15px 0px 0px;
   margin-top: -30px;
+  background-color: white;
+  display: flex;
+  position: relative;
+  border-radius: 23px 23px 0px 0px;
   z-index: 1000;
 }
 view.all view.main_card view.card {
-  width: 93%;
+  width: 95%;
   margin: 0 auto;
 }
-view.all view.main_card view.card view.title {
-  padding-top: 15px;
+view.all view.main_card view.card view.info {
+  display: flex;
+  width: 100%;
+  margin-top: 15px;
+  margin-bottom: 30px;
+  line-height: 0.8em;
+}
+view.all view.main_card view.card view.info view.info_row {
+  flex: 0 0 25%;
+  max-width: 25%;
+  text-align: center;
+}
+view.all view.main_card view.card view.info view.info_row image {
+  width: 25px;
+  height: 25px;
+}
+view.all view.main_card view.card view.info view.info_row view.desc {
+  margin-top: 7px;
   font-family: PingFangSC-Semibold;
-  font-size: 30px;
-  color: #FFFFFF;
+  font-size: 10px;
+  color: #000000;
+}
+view.all view.main_card view.card view.info view.info_row view.vertical_line {
+  border-right: 1px solid #D9D9D9;
+  height: 20px;
+  margin-top: -40px;
+}
+view.all view.main_card view.card view.info view.info_row view.time {
+  margin-top: -52.5px;
+}
+view.all view.main_card view.card view.info view.info_row view.location {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: clip;
+}
+view.all view.main_card view.card view.headline {
+  margin-bottom: 10px;
+  display: flex;
+}
+view.all view.main_card view.card view.headline view.title {
+  flex: 0 0 80%;
+  max-width: 80%;
+  font-family: PingFangSC-Semibold;
+  font-size: 25px;
+  color: #000000;
   text-align: left;
 }
-view.all view.main_card view.card view.price_money {
-  font-family: PingFangSC-Semibold;
-  font-size: 20px;
-  margin-top: 10px;
-  color: #34cf2f;
+view.all view.main_card view.card view.headline view.user_participation {
+  text-align: right;
+  margin-top: 5px;
+  flex: 0 0 20%;
+  max-width: 20%;
 }
-view.all view.main_card view.card view.participation {
-  margin-top: 10px;
-  margin-bottom: 5px;
-}
-view.all view.main_card view.card view.participation text {
-  background: #FF0000;
+view.all view.main_card view.card view.headline view.user_participation text {
+  background: #FF5400;
   border-radius: 10px;
-  padding: 5px;
-  font-size: 15px;
+  padding: 5px 10px 5px 10px;
+  font-size: 10px;
   color: #FFFFFF;
 }
-view.all view.main_card view.card view.time {
-  margin-top: 5px;
-  font-family: PingFangSC-Regular;
-  font-size: 15px;
-  color: #FFFFFF;
+view.all view.main_card view.card view.video {
+  text-align: center;
 }
-view.all view.main_card view.card view.location {
-  margin-top: 5px;
-  margin-bottom: 15px;
-  font-family: PingFangSC-Regular;
-  font-size: 15px;
-  color: #FFFFFF;
+view.all view.main_card view.card view.video video {
+  width: 100%;
+  border-radius: 8px;
 }
 view.all view.main_card view.card map {
+  margin-top: 15px;
   width: 100%;
-  border: 2px solid #FFE9DE;
+  border: 2px solid #D9D9D9;
   height: 300px;
   border-radius: 8px;
 }
 view.all view.main_card view.card view.team view.teamName {
-  margin-top: 20px;
-  font-family: PingFangSC-Regular;
-  font-size: 20px;
-  color: #FFFFFF;
+  margin-top: 15px;
+  font-family: PingFangSC-Medium;
+  font-size: 15px;
+  color: #000;
 }
 view.all view.main_card view.card view.team scroll-view.table {
-  background: #d84800;
   text-align: center;
   width: auto;
   overflow-x: auto;
   white-space: nowrap;
   margin-top: 10px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   border-radius: 27px;
-  border: 0px solid FFFFFF;
-  padding: 20px 25px 20px 25px;
+  border: 0px solid #979797;
+  padding: 15px 25px 20px 25px;
 }
 view.all view.main_card view.card view.team scroll-view.table view.tr {
   display: flex;
   width: 500px;
   height: 3rem;
   align-items: center;
-  border-bottom: 1px solid #FFFFFF;
+  border-bottom: 1px solid #979797;
 }
 view.all view.main_card view.card view.team scroll-view.table view.td {
-  font-family: PingFangSC-Thin;
-  font-size: 15px;
-  color: #FFFFFF;
-  flex: 11%;
-  max-width: 11%;
+  font-family: PingFangSC-Regular;
+  font-size: 13px;
+  color: #000;
+  flex: 10.5%;
+  max-width: 10.5%;
 }
 view.all view.main_card view.card view.team scroll-view.table .th {
   font-family: PingFangSC-Semibold;
-  font-size: 18px;
-  color: #FFFFFF;
+  font-size: 15px;
+  color: #000;
   display: flex;
   height: 3rem;
   align-items: center;
@@ -185,26 +214,27 @@ view.all view.main_card view.card view.team scroll-view.table .th {
 }
 view.all view.main_card view.card view.team scroll-view.table .td.name {
   text-align: left;
-  flex: 15%;
-  max-width: 15%;
+  flex: 14%;
+  max-width: 14%;
 }
 view.all view.main_card view.card view.team scroll-view.table .th.name {
   flex: 25%;
   max-width: 25%;
 }
 view.all view.main_card view.card view.team scroll-view.table view.bg-w {
-  border-bottom: 1px solid #FFFFFF;
+  border-bottom: 1px solid #979797;
 }
 view.all view.main_card button.join_button {
+  padding-bottom: 40px;
   text-align: center;
-  background: #FF0000;
+  background: #FF5400;
   font-family: PingFangSC-Semibold;
-  font-size: 25px;
+  font-size: 17px;
   color: #FFFFFF;
-  height: 10%;
-  justify-content: center;
-  align-items: center;
-  width: 100%;
+  height: 5%;
+  width: 90%;
+  left: 5%;
   position: fixed;
-  bottom: 0;
+  bottom: 20px;
+  border-radius: 8px;
 }

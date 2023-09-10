@@ -33,6 +33,7 @@ Page({
         this.setTime(res.data);
         this.setLocation(res.data);
         this.getLeagueInfo(res.data.league, res.data.team_list[0], res.data.team_list[1]);
+        this.getVideo(gameID);
         this.setData({
           game: res.data
         })
@@ -84,7 +85,17 @@ Page({
       })
   },
 
-
+  getVideo(id){
+    wx.cloud.database().collection("video").where({
+      game_link: id
+    }).get().then(res=>{
+      this.setData({
+        video: res.data[0].video
+      })
+    }).catch(err=>{
+      console.log("no videos", err);
+    })
+  },
   //PROCESS DATA FUNCTIONS
 
   //检查用户是否已经购买球票
@@ -158,6 +169,8 @@ Page({
     loaded_games.written_time = getDate.formatTime(new Date(loaded_games.start_time));
     loaded_games.specific_time = getDate.formatSpecific(new Date(loaded_games.start_time));
     loaded_games.specific_endtime = getDate.formatSpecific(new Date(loaded_games.end_time));
+    loaded_games.start_hour = getDate.formatHour(new Date(loaded_games.start_time));
+    loaded_games.end_hour = getDate.formatHour(new Date(loaded_games.end_time));
     if(new Date(loaded_games.end_time) > new Date()){
       this.setData({
         past:false

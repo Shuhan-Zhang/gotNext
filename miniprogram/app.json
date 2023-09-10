@@ -15,7 +15,8 @@
     "pages/developerInfo/index",
     "pages/paymentConfirmation/index",
     "pages/checkIn/index",
-    "pages/imageCropper/index"
+    "pages/imageCropper/index",
+    "pages/orderList/index"
   ],
   "permission": {
     "scope.userLocation": {
@@ -25,9 +26,9 @@
   "window": {
     "backgroundColor": "#FFFFFF",
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#FF5400",
+    "navigationBarBackgroundColor": "#FFFFFF",
     "navigationBarTitleText": "GotNext接波",
-    "navigationBarTextStyle": "white",
+    "navigationBarTextStyle": "black",
     "enablePullDownRefresh" : false
   },"tabBar": {
     "color": "FFFFFF",

@@ -16,7 +16,7 @@ Page({
     mvp: {},
     gotNextID:wx.getStorageSync('gotNextID'),
     userStatus:wx.getStorageSync('userStatus'),
-    MVPTeamImage: "",
+    MVPTeam: [],
     loaded:false,
     options: [{
       city_id: '001',
@@ -155,7 +155,7 @@ Page({
       }).get()
       .then(res => {
         this.setData({
-          MVPTeamImage: res.data[0].logo
+          MVPTeam: res.data[0]
         })
       }).catch(err => {
         console.log("failed to pull data", err);
@@ -296,7 +296,7 @@ Page({
     const all_events = wx.getStorageSync('allEvents');
     const all_games = wx.getStorageSync('allGames');
     //处理活动
-    all_events.slice(0, 3).forEach(v => {
+    all_events.forEach(v => {
       //如果活动地址和用户地址的直线距离小于20公里，活动的开始日期在今天，并且活动的结束时间大于现在的时间，则加入附近列表
       if (this.getDistance(user_latitude, user_longitude, v.location_specific.latitude, v.location_specific.longitude) <= 20 && v.written_time == today && Date.parse(v.end_time) >= currentTime) {
         final_closeby.push(v);
@@ -307,7 +307,7 @@ Page({
       }
     })
     //处理活动
-    all_games.slice(0, 3).forEach(v => {
+    all_games.forEach(v => {
       //如果比赛地址和用户地址的直线距离小于20公里，比赛的开始日期在今天，并且比赛的结束时间大于现在的时间，则加入附近列表
       if (this.getDistance(user_latitude, user_longitude, v.location_specific.latitude, v.location_specific.longitude) <= 20 && v.written_time == today && Date.parse(v.end_time) >= currentTime) {
         final_closeby.push(v);
@@ -319,6 +319,8 @@ Page({
         final_past.push(v);
       }
     })
+
+    final_recent.slice(0,3);
 
     //创建地标数组
     var counter = 0;
@@ -354,7 +356,7 @@ Page({
     })
 
     //将最近数组按开始时间升序排序
-    final_recent.sort(function (a, b) {
+    final_recent.slice(0,3).sort(function (a, b) {
       var value1 = Date.parse(a.start_time);
       var value2 = Date.parse(b.start_time);
       return value1 - value2;
@@ -374,7 +376,7 @@ Page({
       points: final_points,
       markers: final_markers,
       closeby_items: final_closeby,
-      recent: final_recent,
+      recent: final_recent.slice(0,3),
       past: final_past
     })
     wx.setStorage({

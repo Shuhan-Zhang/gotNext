@@ -1,17 +1,18 @@
 view.league {
       width:100%;
-    overflow: hidden;
-        .nothing {
+      overflow: hidden;
+    .nothing {
         width: 100%;
         display: flex;
-        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.50);
-        margin-top: 15px;
-        background: #FFF0E8;
+        box-shadow: 0 1px 4px 0 rgba(0,0,0,0.50);
+        margin-top: 5px;
         border-radius: 8px;
         padding-top: 10px;
         padding-bottom: 10px;
-        color: #DA463C;
+        color: #000;
         text{
+            font-family: PingFangSC-Medium;
+            font-size: 13px;
             flex: 0 0 100%;
             max-width: 100%;
             text-align: center;
@@ -50,17 +51,16 @@ view.league {
       margin-bottom: 15px;
       text.title {
         font-family: PingFangSC-Semibold;
-        font-size: 30px;
-        color: #FF5400;
-        margin-bottom: 10px;
+        font-size: 25px;
+        color: #000;
       }
       view.teamInfo {
+        margin-top: 10px;
         view.top_information {
           border-radius: 20px 20px 0px 0px;
             padding-bottom: 20px;
             padding-top: 10px;
             display: flex;
-            background: #00788C;
           view.left {
             flex: 0 0 30%;
             max-width: 30%;
@@ -80,21 +80,24 @@ view.league {
             max-width: 70%;
             text-align: right;
             view.name {
+                margin-top: 7px;
                 font-family: PingFangSC-Semibold;
-                font-size: 28px;
+                font-size: 25px;
                 color: #FFFFFF;
             }
       
             view.detail {
+                margin-top: 5px;
                 font-family: PingFangSC-Regular;
-                font-size: 20px;
+                font-size: 15px;
                 color: #FFFFFF;
             }
       
             view.rewards {
               text {
+                margin-top: 5px;
                 font-family: PingFangSC-Thin;
-                font-size: 17px;
+                font-size: 15px;
                 color: #FFFFFF;
               }
             }
@@ -122,8 +125,8 @@ view.league {
               }
       
               view.stat_line {
-                height: 90px;
-                width:100%;
+                height: 80px;
+                width: 100%;
                 display: flex;
                 margin-top: 15px;
                 background: #00788C;
@@ -141,7 +144,7 @@ view.league {
                     transform: translateY(-50%);
                     view.number {
                         font-family: PingFangSC-Semibold;
-                        font-size: 25px;
+                        font-size: 20px;
                         color: #FFFFFF;
                     }
       
@@ -162,18 +165,16 @@ view.league {
 
   
     scroll-view.league_selector {
-        margin-top:-5px;
+        margin-top:-15px;
         display: flex;
         width:auto;
         overflow-x: auto;
         white-space: nowrap;
-        background: rgba(255,179,142,0.54);
-        box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
       button.leagues {
         margin:7px 10px 7px 10px;
         display: inline-block;
         width: 80px;
-        background: rgba(255,84,0,0.18);
+        background: #d8d8d8;
         box-shadow: 0 1px 4px 0 rgba(0,0,0,0.50);
         border-radius: 27px;
         font-family: PingFangSC-Regular;
@@ -185,7 +186,7 @@ view.league {
         margin:7px 10px 7px 10px;
         display: inline-block;
         width: 80px;
-        background: #FF784B;
+        background: #FF5400;
         box-shadow: 0 1px 4px 0 rgba(0,0,0,0.50);
         border-radius: 27px;
         font-family: PingFangSC-Regular;
@@ -199,25 +200,18 @@ view.league {
         width:95%;
         margin:0 auto;
       view.newest {
-        margin-top: 20px;
         text.title {
-            font-family: PingFangSC-Semibold;
-            font-size: 30px;
-            color: #FF5400;
-        }
-        view.nothing{
-          margin-top: 5px;
-          background: #FFF0E8;
-          color:#DA463C;
+          font-family: PingFangSC-Semibold;
+          font-size: 25px;
+          color: #000000;
+          margin-bottom: -15px;
         }
         view.game_row {
             height: 80px;
-            box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
+            box-shadow: 0 1px 4px 0 rgba(0,0,0,0.50);
             width:100%;
             display: flex;
             margin-top: 10px;
-            margin-bottom: 15px;
-            background: #FFF0E8;
             border-radius: 8px;
             padding-top: 10px;
             padding-bottom: 10px;
@@ -236,8 +230,8 @@ view.league {
             }
             view.left{
                 margin-left: 30px;
-                flex: 0 0 45%;
-                max-width: 45%;
+                flex: 0 0 50%;
+                max-width: 50%;
                 view.team1 {
                     image {
                         vertical-align: middle;
@@ -249,9 +243,9 @@ view.league {
                         margin-left: 15px;
                         font-family: PingFangSC-Regular;
                         font-size: 13px;
-                        color: #FF5400;
+                        color: #000;
                     }
-        
+
                 }
     
                 view.team2 {
@@ -267,13 +261,13 @@ view.league {
                         margin-left: 15px;
                         font-family: PingFangSC-Regular;
                         font-size: 13px;
-                        color: #FFC0A0;
+                        color: #696969;
                     }
                 }
             }
         view.middle{
-            flex:20%;
-            max-width: 20%;
+            flex:0 0 12%;
+            max-width: 12%;
             font-family: PingFangSC-Thin;
             font-size: 10px;
             color: #797979;
@@ -285,7 +279,7 @@ view.league {
             max-width: 35%;
             view.vertical_line {
                 margin-top:9px;
-                border-left: 1px solid #FFDCCA;
+                border-left: 1px solid #D9D9D9;
                 height: 60px;
             }
     
@@ -333,7 +327,7 @@ view.league {
             margin-bottom: -10px;
             font-family: PingFangSC-Semibold;
             font-size: 13px;
-            color: #FF9E6E;
+            color: #696969;
             background-color: white;
             text-align: center;
         }
@@ -346,33 +340,17 @@ view.league {
         margin-top: 15px;
         text.title {
             font-family: PingFangSC-Semibold;
-            font-size: 30px;
-            color: #FF5400;
-        }
-        view.Points{
-          margin-top: 10px;
-          background: #FF784B;
-          color:#FCF6F0;
-        }
-        view.Rebounds{
-          margin-top: 10px;
-          background: #DA463D;
-          color:#ffffff;
-        }
-        view.Assists{
-          margin-top: 10px;
-          background: #50976A;
-          color:#FFFFFF;
+            font-size: 25px;
+            color: #000000;
         }
         view.stats_leader_row.point {
             position:relative;
             height:100px;
-            box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
+            border-radius: 27px;
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
             width:100%;
             display: flex;
-            margin-top: 10px;
-            background: #FF784B;
-            border-radius: 27px;
+            margin-top: 5px;
             padding-top: 10px;
             padding-bottom: 10px;
           view.points {
@@ -387,7 +365,8 @@ view.league {
                 font-size: 20px;
                 color: #FCF6F0;
                 padding:3px 10px 3px 10px;
-                border: 1px solid #FCF6F0;
+                background: #FF784B;
+                font-family: PingFangSC-Regular;
                 border-radius: 10.5px;
             }
           }
@@ -399,21 +378,20 @@ view.league {
 
             view.name {
                 font-family: PingFangSC-Regular;
-                font-size: 25px;
-                color: #FCF6F0;
+                font-size: 20px;
+                color: #000;
                 position: relative;
-                top:15%;
-                transform: translateY(-15%);
+                top:27%;
+                transform: translateY(-27%);
             }
   
             view.stats {
                 font-family: PingFangSC-Semibold;
-                font-size: 30px;
-                color: #FCF6F0;
-                text-shadow: 0 2px 4px rgba(0,0,0,0.50);
+                font-size: 25px;
+                color: #000;
                 position: relative;
-                top:20%;
-                transform: translateY(-20%);
+                top:32%;
+                transform: translateY(-32%);
             }
           }
   
@@ -422,13 +400,13 @@ view.league {
             max-width: 27.5%;
             position:relative;
             top:50%;
-            left:5%;
+            left:3%;
             transform: translate(0%, -45%);
             image {
-                width:90px;
-                height:90px;
+                width:95px;
+                height:95px;
                 box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
-                border-radius: 27px;
+                border-radius: 23px;
             }
           }
         }
@@ -436,11 +414,10 @@ view.league {
         view.stats_leader_row.rebound {
             position:relative;
             height:100px;
-            box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
             width:100%;
             display: flex;
             margin-top: 15px;
-            background: #DA463D;
             border-radius: 27px;
             padding-top: 10px;
             padding-bottom: 10px;
@@ -454,9 +431,10 @@ view.league {
                 transform: translateY(-50%);
                 font-family: PingFangSC-Regular;
                 font-size: 20px;
-                color: #ffffff;
+                color: #FFF;
                 padding:3px 10px 3px 10px;
-                border: 1px solid #ffffff;
+                background: #DA463D;
+                font-family: PingFangSC-Regular;
                 border-radius: 10.5px;
             }
           }
@@ -465,24 +443,23 @@ view.league {
             flex: 0 0 40%;
             max-width: 40%;
             text-align: left;
-            margin-left: 20px;
+            margin-left: 15px;
             view.name {
                 font-family: PingFangSC-Regular;
-                font-size: 25px;
-                color: #ffffff;
+                font-size: 20px;
+                color: #000;
                 position: relative;
-                top:15%;
-                transform: translateY(-15%);
+                top:27%;
+                transform: translateY(-27%);
             }
   
             view.stats {
                 font-family: PingFangSC-Semibold;
-                font-size: 30px;
-                color: #ffffff;
-                text-shadow: 0 2px 4px rgba(0,0,0,0.50);
+                font-size: 25px;
+                color: #000;
                 position: relative;
-                top:20%;
-                transform: translateY(-20%);
+                top:32%;
+                transform: translateY(-32%);
             }
           }
   
@@ -491,7 +468,7 @@ view.league {
             max-width: 25%;
             position:relative;
             top:50%;
-            padding-left: 15px;
+            padding-left: 10px;
             transform: translate(0%, -45%);
             image {
                 width:90px;
@@ -505,11 +482,10 @@ view.league {
         view.stats_leader_row.assist {
             position:relative;
             height:100px;
-            box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
+            box-shadow: 0 2px 4px 0 rgba(0,0,0,0.50);
             width:100%;
             display: flex;
             margin-top: 15px;
-            background: #50976A;
             border-radius: 27px;
             padding-top: 10px;
             padding-bottom: 10px;
@@ -523,9 +499,10 @@ view.league {
                 transform: translateY(-50%);
                 font-family: PingFangSC-Regular;
                 font-size: 20px;
-                color: #ffffff;
+                color: #FFF;
                 padding:3px 10px 3px 10px;
-                border: 1px solid #ffffff;
+                background: #50976A;
+                font-family: PingFangSC-Regular;
                 border-radius: 10.5px;
             }
           }
@@ -537,21 +514,20 @@ view.league {
 
             view.name {
                 font-family: PingFangSC-Regular;
-                font-size: 25px;
-                color: #ffffff;
+                font-size: 20px;
+                color: #000;
                 position: relative;
-                top:15%;
-                transform: translateY(-15%);
+                top:27%;
+                transform: translateY(-27%);
             }
   
             view.stats {
                 font-family: PingFangSC-Semibold;
-                font-size: 30px;
-                color: #ffffff;
-                text-shadow: 0 2px 4px rgba(0,0,0,0.50);
+                font-size: 25px;
+                color: #000;
                 position: relative;
-                top:20%;
-                transform: translateY(-20%);
+                top:32%;
+                transform: translateY(-32%);
             }
           }
   
@@ -575,15 +551,14 @@ view.league {
       view.team_ranking {
         margin-top: 20px;
         view.title{
-            font-family: PingFangSC-Semibold;
-            font-size: 30px;
-            color: #FF5400;
-            margin-bottom: 5px;
+          font-family: PingFangSC-Semibold;
+          font-size: 25px;
+          color: #000000;
+          margin-bottom: 5px;
         }
         view.nothing{
           margin-top: 5px;
-          background: #FFF0E8;
-          color:#FF5400;
+          color:#000;
         }
         .th.left{
             padding-left:0px;
@@ -626,24 +601,24 @@ view.league {
             width: 100%;
             height: 3rem;
             align-items: center;
-            border-bottom: 1px solid #FFDCCA;
+            border-bottom: 1px solid #DBDBDB;
           }
           .td {
-              border-right:1px solid #FFDCCA;
+              border-right:1px solid #DBDBDB;
               font-family: PingFangSC-Thin;
               font-size: 15px;
-              color: #FF5400;
+              color: #000;
           }
           .th {
             font-family: PingFangSC-Semibold;
             font-size: 20px;
-            color: #FF5400;
+            color: #000;
             display: flex;
             height: 3rem;
             align-items: center;
           }
           .bg-w{
-              border-bottom:1px solid #FF5400;
+              border-bottom:1px solid #DBDBDB;
           }
           .bg-g{
             background: #E6F3F9;
@@ -657,7 +632,7 @@ view.league {
       }
   
       view.upcoming {
-          margin-top: 20px;
+          margin-top: 15px;
         view.content{
             position: relative;
             top:50%;
@@ -670,23 +645,22 @@ view.league {
         }
         text.title {
             font-family: PingFangSC-Semibold;
-            font-size: 30px;
-            color: #FF5400;
+            font-size: 25px;
+            color: #000;
         }
         view.nothing{
           margin-top: 5px;
-          color:#FF5400;
+          color:#000;
           margin-bottom: 10px;
         }
         view.upcoming_row {
             position:relative;
-            height:205px;
-            box-shadow: 0 4px 4px 0 rgba(0,0,0,0.50);
+            height:160px;
+            box-shadow: 0 1px 4px 0 rgba(0,0,0,0.50);
             width:100%;
             display: flex;
             margin-top: 10px;
             margin-bottom: 15px;
-            background: #FFEDED;
             border-radius: 27px;
             padding-top: 10px;
             padding-bottom: 10px;
@@ -702,16 +676,17 @@ view.league {
             }
   
             view.team_name {
-                font-family: PingFangSC-Regular;
-                font-size: 13px;
-                color: #FF5400;
+              margin-top: 5px;
+              font-family: PingFangSC-Medium;
+              font-size: 10px;
+              color: #000000;
             }
   
             view.record {
-                margin-top: 10px;
+                margin-top: 5px;
                 font-family: PingFangSC-Regular;
                 font-size: 10px;
-                color: #797979;
+                color: #696969;
             }
           }
   
@@ -720,35 +695,38 @@ view.league {
             flex:30%;
             max-width: 30%;
 
-  
-            view.name {
+            
+            view.VS {
                 font-family: PingFangSC-Semibold;
-                font-size: 20px;
+                font-size: 27px;
                 color: #000000;
             }
-  
-            text.location {
-                margin-top: 15px;
-                font-family: PingFangSC-Regular;
-                font-size: 12px;
-                color: #FF5400;
+            view.location{
+              text.location {
+                  font-family: PingFangSC-Regular;
+                  font-size: 10px;
+                  color: #696969;
+              }
             }
-  
-            text.time {
-                margin-top: 5px;
-                font-family: PingFangSC-Regular;
-                font-size: 12px;
-                color: #147CE5;
+            view.time{
+              text.time {
+                  font-family: PingFangSC-Regular;
+                  font-size: 10px;
+                  color: #696969;
+              }
             }
   
             button {
                 margin-top: 10px;
                 width:80px;
-                background: #FF5400;
+                background: #FFF1EA;
                 border-radius: 8px;
                 font-family: PingFangSC-Semibold;
-                font-size: 13px;
-                color: #FFFFFF;
+                font-size: 11px;
+                color: #FF5400;
+            }
+            button::after {
+                border: none;
             }
           }
   
@@ -764,16 +742,17 @@ view.league {
             }
   
             view.team_name {
-                font-family: PingFangSC-Regular;
-                font-size: 13px;
-                color: #FF5400;
+              margin-top: 5px;
+              font-family: PingFangSC-Medium;
+              font-size: 10px;
+              color: #000000;
             }
   
             view.record {
-                margin-top: 10px;
+                margin-top: 5px;
                 font-family: PingFangSC-Regular;
                 font-size: 10px;
-                color: #797979;
+                color: #696969;
             }
           }
         }

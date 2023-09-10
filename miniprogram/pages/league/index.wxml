@@ -72,32 +72,32 @@
                         <view class="team1" bindtap="teamNavigator" data-team="{{item.team_1_data.team_name}}"
                             data-league="{{item.league_name}}">
                             <image src="{{item.team_1_data.logo}}" mode="aspectFill"></image>
-                            <text class="team_name  top" style="color:#FF5400; font-weight: bold" wx:if="{{item.team_1_score > item.team_2_score}}">{{item.team_1_data.team_name}}</text>
-                            <text class="team_name  top" style="color:#FFC0A0"  wx:if="{{item.team_2_score > item.team_1_score}}">{{item.team_1_data.team_name}}</text>
+                            <text class="team_name  top" style="font-family: PingFangSC-Semibold; font-size: 13px; color: #000000;" wx:if="{{item.team_1_score > item.team_2_score}}">{{item.team_1_data.team_name}}</text>
+                            <text class="team_name  top" style="font-family: PingFangSC-Regular; font-size: 13px; color: #696969;"  wx:if="{{item.team_2_score > item.team_1_score}}">{{item.team_1_data.team_name}}</text>
                         </view>
                         <view class="team2" bindtap="teamNavigator" data-team="{{item.team_2_data.team_name}}"
                             data-league="{{item.league_name}}">
                             <image src="{{item.team_2_data.logo}}" mode="aspectFill"></image>
-                            <text class="team_name bottom" style="color:#FF5400; font-weight: bold" wx:if="{{item.team_2_score > item.team_1_score}}">{{item.team_2_data.team_name}}</text>
-                            <text class="team_name bottom" style="color:#FFC0A0"  wx:if="{{item.team_1_score > item.team_2_score}}">{{item.team_2_data.team_name}}</text>
+                            <text class="team_name bottom" style="font-family: PingFangSC-Semibold; font-size: 13px; color: #000000;" wx:if="{{item.team_2_score > item.team_1_score}}">{{item.team_2_data.team_name}}</text>
+                            <text class="team_name bottom" style="font-family: PingFangSC-Regular; font-size: 13px; color: #696969;"  wx:if="{{item.team_1_score > item.team_2_score}}">{{item.team_2_data.team_name}}</text>
                         </view>
                     </view>
                     <view class="middle">
-                        <view class="record top">{{item.team_1_data.win}}胜:{{item.team_1_data.loss}}负</view>
-                        <view class="record bottom">{{item.team_2_data.win}}胜:{{item.team_2_data.loss}}负</view>
+                        <view class="record top">{{item.team_1_data.win}}-{{item.team_1_data.loss}}</view>
+                        <view class="record bottom">{{item.team_2_data.win}}-{{item.team_2_data.loss}}</view>
                     </view>
                     <view class="right">
                         <view class="vertical_line"></view>
                         <view class="score">
                             <view class="team1_score top">
-                                <text class="" style="color:#FF5400; font-weight: bold" wx:if="{{item.team_1_score > item.team_2_score}}">{{item.team_1_score}}分</text>
-                                <text style="color:#FFC0A0" wx:if="{{item.team_2_score > item.team_1_score}}">{{item.team_1_score}}分</text>
+                                <text class="" style="font-family: PingFangSC-Semibold; font-size: 13px; color: #000000;" wx:if="{{item.team_1_score > item.team_2_score}}">{{item.team_1_score}}分</text>
+                                <text style="font-family: PingFangSC-Regular; font-size: 13px; color: #696969;" wx:if="{{item.team_2_score > item.team_1_score}}">{{item.team_1_score}}分</text>
                                 <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/Triangle.png" mode="aspectFill"
                                     wx:if="{{item.team_1_score > item.team_2_score}}"></image>
                             </view>
                             <view class="team2_score bottom">
-                                <text class="" style="color:#FF5400; font-weight: bold" wx:if="{{item.team_2_score > item.team_1_score}}">{{item.team_2_score}}分</text>
-                                <text class="" style="color:#FFC0A0"  wx:if="{{item.team_1_score > item.team_2_score}}">{{item.team_2_score}}分</text>
+                                <text class="" style="font-family: PingFangSC-Semibold; font-size: 13px; color: #000000;" wx:if="{{item.team_2_score > item.team_1_score}}">{{item.team_2_score}}分</text>
+                                <text class="" style="font-family: PingFangSC-Regular; font-size: 13px; color: #696969;"  wx:if="{{item.team_1_score > item.team_2_score}}">{{item.team_2_score}}分</text>
                                 <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/Triangle.png" mode="aspectFill"
                                     wx:if="{{item.team_2_score > item.team_1_score}}"></image>
                             </view>
@@ -161,7 +161,7 @@
         <view class="team_ranking">
             <view class="title">联盟排名</view>
             <view class="nothing" wx:if="{{leagueOnlyTeamData.length == 0}}">
-                <text>在是还没有联盟排名</text>
+                <text>暂时还没有联盟排名</text>
             </view>
             <view class="table ranking" wx:if="{{leagueOnlyTeamData.length != 0}}">
                 <view class="tr bg-w">
@@ -176,7 +176,7 @@
                         <image src="{{item.logo}}"></image>
                         <text>{{item.team_name}}</text>
                     </view>
-                    <view class="td right">{{item.win}}W/{{item.loss}}L</view>
+                    <view class="td right">{{item.win}}-{{item.loss}}</view>
                 </view>
             </view>
         </view>
@@ -190,29 +190,29 @@
                     data-league="{{item.league_name}}">
                     <view class="content">
                         <image src="{{item.team_1_data.logo}}"></image>
-                        <view class="team_name">{{item.team_1}}</view>
-                        <view class="record">{{item.team_1_data.win}}W/{{item.team_1_data.loss}}L</view>
+                        <view class="team_name">{{item.team_1_data.team_name}}</view>
+                        <view class="record">{{item.team_1_data.win}}-{{item.team_1_data.loss}}</view>
                     </view>
                 </view>
                 <view class="extra">
                     <view class="content middle">
-                        <view class="name">{{item.name}}</view>
+                        <view class="VS">V.S</view>
                         <view class="location">
                             <text class="location iconfont icon-map-thumbtack">{{item.location_specific.name}}</text>
                         </view>
                         <view class="time">
                             <text class="time iconfont icon-shijian">{{item.written_time}}</text>
                         </view>
-                        <button wx:if="{{!item.participated}}" bindtap="confirmationNavigator" data-category="{{item.category}}" data-name="{{item.name}}" data-time="{{item.specific_time}}" data-price="{{item.price}}" data-location="{{item.location_specific.name}}" data-eventid="{{item._id}}" data-participant_list="{{item.participant_list}}">买票观战</button>
-                        <button wx:if="{{item.participated}}" bindtap="checkInNavigator">现场登记</button>
+                        <button wx:if="{{!item.participated}}" bindtap="confirmationNavigator" data-category="{{item.category}}" data-name="{{item.name}}" data-time="{{item.specific_time}}" data-price="{{item.price}}" data-location="{{item.location_specific.name}}" data-eventid="{{item._id}}" data-participant_list="{{item.participant_list}}">+购票</button>
+                        <button wx:if="{{item.participated}}" bindtap="checkInNavigator">登记</button>
                     </view>
                 </view>
                 <view class="team2" bindtap="teamNavigator" data-team="{{item.team_2_data.team_name}}"
                     data-league="{{item.league_name}}">
                     <view class="content">
                         <image src="{{item.team_2_data.logo}}"></image>
-                        <view class="team_name">{{item.team_2}}</view>
-                        <view class="record">{{item.team_2_data.win}}W/{{item.team_2_data.loss}}L</view>
+                        <view class="team_name">{{item.team_2_data.team_name}}</view>
+                        <view class="record">{{item.team_2_data.win}}-{{item.team_2_data.loss}}</view>
                     </view>
                 </view>
             </view>

@@ -5,14 +5,15 @@ view.index {
     .nothing {
         width: 100%;
         display: flex;
-        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.50);
-        margin-top: 40px;
-        background: #FFF0E8;
+        box-shadow: 0 1px 4px 0 rgba(0,0,0,0.50);
+        margin-top: 5px;
         border-radius: 8px;
         padding-top: 10px;
         padding-bottom: 10px;
-        color: #DA463C;
+        color: #000;
         text{
+            font-family: PingFangSC-Medium;
+            font-size: 13px;
             flex: 0 0 100%;
             max-width: 100%;
             text-align: center;
@@ -21,130 +22,23 @@ view.index {
 
     text.title {
         font-family: PingFangSC-Semibold;
-        font-size: 30px;
-        color: #FF0000;
-        float: left;
-        margin-bottom: 10px;
+        font-size: 25px;
+        color: #000000;
+        text-align: left;
     }
 
     text.subTitle {
-        margin-bottom: 10px;
         font-family: PingFangSC-Regular;
-        font-size: 20px;
-        color: #FF8F8F;
+        font-size: 15px;
+        color: #000000;
+        text-align: left;
     }
-
-    view.row {
-        box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.50);
-        width: 100%;
-        display: flex;
-        margin-top: 15px;
-        background: #FFF0E8;
-        border-radius: 8px;
-        padding-top: 10px;
-        padding-bottom: 10px;
-
-        .wrapper {
-            position: relative;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-
-        .left {
-            flex: 0 0 25%;
-            max-width: 25%;
-            text-align: center;
-            margin-left: 5px;
-
-            image {
-                width: 95%;
-                height: 95px;
-                border-radius: 8px;
-            }
-        }
-
-        .middle {
-            flex: 0 0 45%;
-            max-width: 45%;
-            margin-left: 5px;
-
-            text.name {
-                font-family: PingFangSC-Semibold;
-                font-size: 20px;
-                color: #000000;
-
-            }
-
-            view.line {
-                margin-top: 5px;
-                margin-bottom: 5px;
-                width: 100%;
-                height: 1rpx;
-                background-color: #d1d1d1bb;
-            }
-
-            text.category {
-                width: 33%;
-                margin-top: 3px;
-                margin-right: 3px;
-                padding: 4px 5px 4px 5px;
-                border-radius: 10px;
-                background: #DA463C;
-                font-family: PingFangSC-Regular;
-                font-size: 11px;
-                color: white;
-            }
-
-            view.location {
-                margin-top: 3px;
-                font-family: PingFangSC-Regular;
-                font-size: 12px;
-                color: #FF5400;
-            }
-
-            view.time {
-                margin-top: 3px;
-                font-family: PingFangSC-Regular;
-                font-size: 12px;
-                color: #147CE5;
-            }
-        }
-
-        view.right {
-            flex: 0 0 30%;
-            max-width: 30%;
-            margin-left: 5px;
-
-            button {
-                padding: 10px 0px 10px 0px;
-                width: 80%;
-                margin-left: 2px;
-                background: #FF5400;
-                border-radius: 8px;
-                font-family: PingFangSC-Semibold;
-                font-size: 15px;
-                color: #FFFFFF;
-            }
-
-            text.money {
-                margin-left: 10px;
-                font-family: PingFangSC-Regular;
-                font-size: 10px;
-                color: #FF0000;
-            }
-        }
-        button::after {
-            border: none;
-        }
-    }
-
-
 
 // actual blocks styles
     view.index_swiper {
-        background-image: linear-gradient(180deg, #FF5400 0%, #FFCECE 100%);
-        box-shadow: 0 5px 4px 0 #FFCECE;
-        border-radius: 0px;
+        // background-image: linear-gradient(180deg, #FF5400 0%, #FFCECE 100%);
+        // box-shadow: 0 5px 4px 0 #FFCECE;
+        // border-radius: 0px;
         height: 210px;
         swiper{
             padding-top: 15px;
@@ -166,14 +60,14 @@ view.index {
         width: 95%;
         margin: 0 auto;
         view.close_by {
-            padding-top: 20px;
+            margin-top: 10px;
             view.title {
                 view.category_selector {
-                    margin-top: -5px;
+                    margin-top: 5px;
                     text-align: right;
                     font-family: PingFangSC-Semibold;
                     font-size: 13px;
-                    color: #FFA97E;
+                    color: #696969;
                     float: right;
                     button::after {
                         border: none;
@@ -181,39 +75,86 @@ view.index {
                     button {
                         background-color: #fff;
                         display: inline;
-                        color: #FFA97E;
+                        color: #696969;
+                        font-size: 13px;
                         padding-right: 5px;
                         padding-left: 5px;
                     }
+                    button:focus{
+                        color: red;
+                    }
                 }
             }
-            view.row {
-                background: #FFF0E8;
-            }
-            button.more {
-                margin-top: 10px;
-                margin-bottom: -10px;
-                font-family: PingFangSC-Semibold;
-                font-size: 13px;
-                color: #FF9E6E;
-                background-color: white;
-                text-align: center;
+            view.close_row {
+                margin-top: 15px;
+                box-shadow: -1px -1px 10px 0 rgba(0,0,0,0.04), 1px 1px 10px 0 rgba(0,0,0,0.40);
+                border-radius: 8px;
+                height: 150px;
+                background-repeat: no-repeat;
+                background-size: cover;
+                view.button{
+                    width: 100%;
+                    height:50%;
+                    position: relative;
+                    button{
+                        position: relative;
+                        width: 17%;
+                        top: 15px;
+                        left: 135px;
+                        background: rgba(255,84,0,0.90);
+                        border-radius: 8px;
+                        font-family: PingFangSC-Semibold;
+                        font-size: 11px;
+                        color: #FFFFFF;
+                    }
+                    button::after {
+                        border: none;
+                    }
+                }
+                view.information{
+                    height:50%;
+                    background: rgba(9,9,9,0.70);
+                    box-shadow: 0 -5px 4px 0 rgba(0,0,0,0.70);
+                    backdrop-filter: blur(1px);
+                    border-radius: 10px;
+                    view.text{
+                        margin-left: 8px;
+                        view.title{
+                            margin-top: 1px;
+                            font-family: PingFangSC-Semibold;
+                            font-size: 22px;
+                            color: #FFFFFF;
+                        }
+                        view.location{
+                            margin-top: 4px;
+                            font-family: PingFangSC-Regular;
+                            font-size: 10px;
+                            color: #FFFFFF;
+                        }
+                        view.time{
+                            margin-top: 5px;
+                            font-family: PingFangSC-Regular;
+                            font-size: 10px;
+                            color: #FFFFFF;
+                        }
+                    }
+                }
             }
             button::after {
                 border: none;
             }
             view.map {
                 margin-top: 15px;
+                border-radius: 8px;
                 text {
-                    font-family: PingFangSC-Regular;
-                    font-size: 20px;
-                    color: #FF5400;
+                    font-family: PingFangSC-Medium;
+                    font-size: 13px;
+                    color: #000000;
                     text-align: left;
                 }
                 map {
                     margin-top: 5px;
                     width: 100%;
-                    border: 2px solid #FFE9DE;
                     border-radius: 8px;
                     height: 300px;
                 }
@@ -221,18 +162,15 @@ view.index {
         }
 
         view.upcoming {
-            padding-top: 20px;
-            view.nothing {
-                background: #FFEDED;
-                color: #FF0000;
-            }
+            margin-top: 15px;
             view.title {
+                margin-bottom: -10px;
                 view.category_selector {
-                    margin-top: -5px;
+                    margin-top: 5px;
                     text-align: right;
                     font-family: PingFangSC-Semibold;
                     font-size: 13px;
-                    color: #FF8F8F;
+                    color: #696969;
                     float: right;
                     button::after {
                         border: none;
@@ -240,21 +178,107 @@ view.index {
                     button {
                         background-color: #fff;
                         display: inline;
-                        color: #FF8F8F;
+                        color: #696969;
+                        font-size: 13px;
                         padding-right: 5px;
                         padding-left: 5px;
                     }
                 }
             }
-            view.row {
-                background: #FFEDED;
+            view.recent_row {
+                background: #FFFFFF;
+                box-shadow: 0 1px 4px 0 rgba(0,0,0,0.50);
+                border-radius: 8px;
+                width: 100%;
+                display: flex;
+                margin-top: 15px;
+                padding-top: 10px;
+                padding-bottom: 10px;
+                .wrapper {
+                    position: relative;
+                    top: 50%;
+                    transform: translateY(-50%);
+                }
+
+                .left {
+                    flex: 0 0 25%;
+                    max-width: 25%;
+                    text-align: center;
+                    margin-left: 8px;
+
+                    image {
+                        width: 100%;
+                        height: 95px;
+                        border-radius: 8px;
+                        box-shadow: 1px 1px 3px 0 rgba(0,0,0,0.50), -1px -1px 3px 0 rgba(0,0,0,0.50);
+                    }
+                }
+
+                .middle {
+                    flex: 0 0 57%;
+                    max-width: 57%;
+                    margin-left: 8px;
+                    text.name {
+                        font-family: PingFangSC-Semibold;
+                        font-size: 19px;
+                        color: #000000;
+                        text-align: left;
+                    }
+
+                    view.line {
+                        margin-top: 10px;
+                        margin-bottom: 8px;
+                        width: 90%;
+                        height: 1rpx;
+                        background-color: #C7C7C7;
+                    }
+                    view.info{
+                        text.location {
+                            font-family: PingFangSC-Regular;
+                            font-size: 10px;
+                            color: #000000;
+                            text.iconfont{
+                                color: #FF5400;
+                                font-size: 13px;
+                            }
+                        }
+
+                        text.time {
+                            margin-left: 10px;
+                            font-family: PingFangSC-Regular;
+                            font-size: 10px;
+                            color: #000000;
+                            text.iconfont{
+                                color: #FF5400;
+                                font-size: 13px;
+                            }
+                        }
+                    }
+                }
+
+                view.right {
+                    flex: 0 0 16%;
+                    max-width: 16%;
+                    margin-left: -13px;
+                    margin-top: 15px;
+                    button{
+                        background: #FFF1EA;
+                        border-radius: 8px;
+                        font-family: PingFangSC-Semibold;
+                        font-size: 10px;
+                        color: #FF5400;
+                    }
+                }
+                button::after {
+                    border: none;
+                }
             }
             button.more {
-                margin-top: 10px;
+                margin-top: 5px;
                 margin-bottom: -10px;
                 font-family: PingFangSC-Semibold;
                 font-size: 13px;
-                color: #FF8B8B;
+                color: #696969;
                 background-color: white;
                 text-align: center;
             }
@@ -264,60 +288,77 @@ view.index {
 
             view.MVP {
                 margin-top: 15px;
+                text.subTitle{
+                    font-family: PingFangSC-Semibold;
+                    font-size: 24px;
+                    color: #000000;
+                    margin-bottom: 20px;
+                }
                 view.card {
-                    width: 95%;
+                    width: 98%;
                     margin: 0px auto;
-                    background: #DA463D;
                     box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.50);
                     border-radius: 8px;
-                    view.topCard {
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    view.wrapper{
                         width: 100%;
-                        display: flex;
-                        padding-top: 10px;
-                        padding-bottom: 10px;
-                        view.left {
-                            margin-left: 10px;
-                            flex: 0 0 30%;
-                            max-width: 30%;
-                            image {
-                                width: 85px;
-                                height: 85px;
-                                box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
+                        height: 100%;
+                        backdrop-filter: blur(20px);
+                        view.topCard {
+                            margin-top: 5px;
+                            border-radius: 8px;
+                            
+                            width: 100%;
+                            display: flex;
+                            padding-top: 10px;
+                            padding-bottom: 10px;
+                            view.left {
+                                margin-left: 10px;
+                                flex: 0 0 30%;
+                                max-width: 30%;
+                                image {
+                                    width: 100px;
+                                    height: 100px;
+                                    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
+                                    border-radius: 8px;
+                                }
+                            }
+                            view.middle {
+                                flex: 0 0 47%;
+                                max-width: 47%;
+                                position: relative;
+                                top: 50%;
+                                transform: translateY(10%);
+                                margin-left: 5px;
+                                view.name {
+                                    font-family: PingFangSC-Semibold;
+                                    font-size: 30px;
+                                    color: #FFFFFF;
+                                }
+                                view.stats {
+                                    margin-top: 10px;
+                                    font-family: PingFangSC-Regular;
+                                    font-size: 15px;
+                                    color: #FFFFFF;
+                                }
+                            }
+                            view.right {
+                                flex: 0 0 32%;
+                                max-width: 32%;
+                                image {
+                                    width: 50px;
+                                    height: 50px;
+                                }
+                            }
+                        }
+                        view.video {
+                            backdrop-filter: blur(20px);
+                            text-align: center;
+                            video {
+                                width: 95%;
                                 border-radius: 8px;
                             }
-                        }
-                        view.middle {
-                            flex: 0 0 38%;
-                            max-width: 38%;
-                            position: relative;
-                            top: 50%;
-                            transform: translateY(10%);
-                            view.name {
-                                font-family: PingFangSC-Semibold;
-                                font-size: 30px;
-                                color: #FFFFFF;
-                                text-shadow: 0 2px 4px rgba(0, 0, 0, 0.50);
-                            }
-                            view.stats {
-                                padding-top: 5px;
-                                font-family: PingFangSC-Regular;
-                                font-size: 13px;
-                                color: #FFFFFF;
-                            }
-                        }
-                        view.right {
-                            flex: 0 0 32%;
-                            max-width: 32%;
-                            image {
-                                width: 85px;
-                                height: 85px;
-                            }
-                        }
-                    }
-                    view.video {
-                        text-align: center;
-                        video {
-                            border-radius: 8px;
                         }
                     }
                 }
@@ -325,65 +366,67 @@ view.index {
         }
 
         view.news {
-            padding-top: 20px;
-            padding-bottom: 10px;
+            margin-top: 15px;
+            margin-bottom: 10px;
             view.title {
+                margin-bottom: -5px;
                 text.title {
-                    color: #147CE5;
+                    font-family: PingFangSC-Semibold;
+                    font-size: 25px;
+                    color: #000000;
+                    text-align: left;
                 }
                 view.category_selector {
+                    margin-top: 5px;
                     text-align: center;
-                    font-family: PingFangSC-Semibold;
-                    font-size: 13px;
+                    font-family: PingFangSC-Regular;
+                    font-size: 10px;
                     color: #147CE5;
                     float: right;
-                    width: 30%;
+                    width: 25%;
                 }
             }
             view.nothing {
-                background: #C0DFFF;
-                color: #147CE5;
+                background: #FFF;
+                color: #000;
                 margin-left: 0px;
                 padding-left: 0px;
+                box-shadow: 0 1px 4px 0 rgba(0,0,0,0.50);
             }
             view.news_row {
-                box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.50);
+                box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.50);
                 width: 100%;
                 display: flex;
                 margin-top: 15px;
-                background: #C0DFFF;
                 border-radius: 8px;
                 padding-top: 10px;
                 padding-bottom: 10px;
                 view.left {
                     flex: 0 0 60%;
-                    max-width: 65%;
+                    max-width: 60%;
                     margin-left: 10px;
-                    view.written {
-                        transform: translateY(10%);
-                    }
-                    view.category {
-                        font-family: PingFangSC-Regular;
-                        font-size: 13px;
-                        color: #FF5400;
-                    }
-                    view.title {
-                        font-family: PingFangSC-Semibold;
-                        font-size: 16px;
-                        color: #000000;
-                        text-align: left;
-                    }
-                    view.line {
-                        margin-top: 5px;
-                        margin-bottom: 10px;
-                        width: 100%;
-                        height: 1rpx;
-                        background-color: #D1D1D1;
-                    }
-                    view.news_description {
-                        font-family: PingFangSC-Regular;
-                        font-size: 10px;
-                        color: #636363;
+                    view.wrapper{
+                        position: relative;
+                        top: 40%;
+                        transform: translateY(-40%);
+                        view.category {
+                            font-family: PingFangSC-Regular;
+                            font-size: 10px;
+                            color: #FF5400;
+                        }
+                        view.title {
+                            margin-top: 15px;
+                            font-family: PingFangSC-Semibold;
+                            font-size: 20px;
+                            color: #000000;
+                            text-align: left;
+                        }
+                        view.news_description {
+                            margin-top: 15px;
+                            font-family: PingFangSC-Regular;
+                            font-size: 10px;
+                            color: #696969;
+                        }
                     }
                 }
 
@@ -393,8 +436,8 @@ view.index {
                     image {
                         border-radius: 8px;
                         margin-left: 5px;
-                        height: 130px;
-                        width: 130px;
+                        height: 120px;
+                        width: 85%;
                     }
                 }
             }

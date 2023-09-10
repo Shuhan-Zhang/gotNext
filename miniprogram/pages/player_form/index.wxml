@@ -5,7 +5,7 @@
     <view class="infoRow name">
         <view class="left">
             <view class="wrapper">
-                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/name.png" mode="aspectFill" class="icon"></image>
+                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/user.png" mode="aspectFill" class="icon"></image>
             </view>
         </view>
         <view class="right">
@@ -20,7 +20,7 @@
     <view class="infoRow height">
         <view class="left">
             <view class="wrapper">
-                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/height.png" mode="aspectFill" class="icon"></image>
+                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/尺子.png" mode="aspectFill" class="icon"></image>
             </view>
         </view>
         <view class="right">
@@ -39,7 +39,7 @@
     <view class="infoRow position">
         <view class="left">
             <view class="wrapper">
-                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/position.png" mode="aspectFill" class="icon"></image>
+                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/篮球 (3).png" mode="aspectFill" class="icon"></image>
             </view>
         </view>
         <view class="right">
@@ -56,7 +56,7 @@
     <view class="infoRow age">
         <view class="left">
             <view class="wrapper">
-                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/age.png" mode="aspectFill" class="icon"></image>
+                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/年龄.png" mode="aspectFill" class="icon"></image>
             </view>
         </view>
         <view class="right">

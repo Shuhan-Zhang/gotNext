@@ -2,10 +2,12 @@
     <view class="top_image">
         <image src="{{event.detail_img}}" mode="aspectFill"></image>
     </view>
-    <view class="participation">{{event.participant_list.length}}人已参加</view>
-    <view class="main_card">
-        <view class="card">
+    <view class="headline">
+        <view class="left">
             <view class="title">{{event.name}}</view>
+            <view class="description">{{event.description}}</view>
+        </view>
+        <view class="right">
             <view class="user_participation" wx:if="{{participated && !past}}">
                 <text>已购票</text>
             </view>
@@ -13,14 +15,54 @@
                 <text style="background: #797979">活动已结束</text>
             </view>
             <view class="user_participation" wx:if="{{past && participated}}">
-                <text style="margin-right:10px">已购票</text> 
                 <text style="background: #797979; margin-top:5px">活动已结束</text>
             </view>
-            <view class="price_money">参加价格: ¥{{event.price}}</view>
-            <view class="price_money firstPlace" wx:if="{{event.price_money != 0}}">第一名: ¥{{event.price_money}}</view>
-            <view class="description">{{event.description}}</view>
-            <view class="time iconfont icon-shijian"> 时间:{{event.specific_time}} - {{event.specific_endtime}}</view>
-            <view class="location iconfont icon-map-thumbtack"> 地址:{{event.location_specific.name}}</view>
+        </view>
+    </view>
+
+
+    <view class="main_card">
+        <view class="card">
+            <view class="info">
+                <view class="info_row">
+                    <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/detail_user.png"></image>
+                    <view class="desc">
+                        <text>{{event.participant_list.length}}人已参加</text>
+                    </view>
+                    <view class="vertical_line"></view>
+                </view>
+                <view class="info_row">
+                    <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/detail_price.png"></image>
+                    <view class="desc">
+                        <text>票价 : ¥{{event.price}}</text>
+                    </view>
+                    <view class="vertical_line"></view>
+                </view>
+                <view class="info_row">
+                    <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/detail_time.png"></image>
+                    <view class="desc">
+                        <text>{{event.written_time}}\n</text>
+                        <text>{{event.start_hour}} - {{event.end_hour}}</text>
+                    </view>
+                    <view class="time vertical_line"></view>
+                </view>
+                <view class="info_row">
+                    <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/detail_pin.png"></image>
+                    <view class="location desc">
+                        <text>{{event.location_specific.name}}</text>
+                    </view>
+                    <view class="vertical_line"></view>
+                </view>
+                <view class="info_row">
+                    <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/奖杯 (4).png"></image>
+                    <view class="desc">
+                        <text>第一名 : ¥{{event.price_money}}</text>
+                    </view>
+                </view>
+            </view>
+            <view class="video" wx:if="{{video}}">
+                <video src="{{video}}" objectFit='cover'></video>
+            </view>
             <view class="ranking">
                 <view class="row" wx:if="{{event.first_place}}" bindtap="playerNavigator" data-id="{{firstPlaceData.player_id}}">
                     <view class="left">
@@ -59,7 +101,7 @@
             <map id="1234" markers="{{marker}}" data-markers="{{marker}}" bindmarkertap='gotohere'></map>
         </view>
         <button wx:if="{{!past && !participated}}" class="join_button" bindtap="eventPayment" data-name="{{event.name}}" data-location="{{event.location_specific.name}}" data-time="{{event.specific_time}}" data-price="{{event.price}}">
-            立即加入
+            + 立即加入
         </button>
         <button class="join_button" wx:if="{{!past && participated}}" bindtap="checkIn">
             现场登记

@@ -1,32 +1,38 @@
-<view class="all" style="background-color:{{backgroundColor}}">
+<view class="all">
     <view class="content">
         <view class="title">{{titleText}}</view>
         <view class="nothing" wx:if="{{itemList.length == 0}}">
-            <text style="color:{{backgroundColor}}">暂时没有该类型的活动/比赛</text>
+            <text>暂时没有该类型的活动/比赛</text>
         </view>
         <view class="row" wx:for="{{itemList}}" wx:key="_id" bindtap="rowNavigator" data-id="{{item._id}}"
             data-category="{{item.category}}" wx:if="{{itemList.length != 0}}">
-            <view class="left">
+            <view class="left" bindtap="rowNavigator" data-id="{{item._id}}"
+            data-category="{{item.category}}">
                 <view class="wrapper">
                     <image src="{{item.img}}" mode="aspectFill"></image>
                 </view>
             </view>
-            <view class="middle">
+            <view class="middle" bindtap="rowNavigator" data-id="{{item._id}}"
+            data-category="{{item.category}}">
                 <view class="wrapper">
                     <text class="name">{{item.name}}</text>
                     <view class="line"></view>
-                    <text class="category iconfont icon-fenlei" wx:for="{{item.category}}" wx:key="*this"> {{item}}</text>
-                    <view class="location iconfont icon-map-thumbtack"> {{item.location_specific.name}}</view>
-                    <view class="time iconfont icon-shijian"> {{item.specific_time}}</view>
+                    <view class="info">
+                        <text class="location">
+                            <text class="iconfont icon-map-thumbtack"> </text>
+                            <text>{{item.location_specific.name}}</text>
+                        </text>
+                        <text class="time">
+                            <text class="iconfont icon-shijian"> </text>
+                            <text>{{item.specific_time}}</text>
+                        </text>
+                    </view>
                 </view>
             </view>
             <view class="right">
-                <view class="wrapper">
-                    <button class= "past" wx:if="{{item.past == true}}">活动已结束</button>
-                    <button wx:if="{{item.participated == true && item.past == false}}" bindtap="checkInNavigator">现场登记</button>
-                    <button wx:if="{{item.participated == false && item.past == false}}" bindtap="confirmationNavigator" data-category="{{item.category}}" data-name="{{item.name}}" data-time="{{item.specific_time}}" data-price="{{item.price}}" data-location="{{item.location_specific.name}}" data-eventid="{{item._id}}" data-participant_list="{{item.participant_list}}">立即加入</button>
-                    <text class="money" wx:if="{{item.price_money}}">第一名奖金:{{item.price_money}}¥</text>
-                </view>
+                    <button wx:if="{{item.participated == true && !item.past}}" bindtap="checkInNavigator">登记</button>
+                    <button wx:if="{{item.participated == false && !item.past}}" bindtap="confirmationNavigator" data-category="{{item.category}}" data-name="{{item.name}}" data-time="{{item.specific_time}}" data-price="{{item.price}}" data-location="{{item.location_specific.name}}" data-eventid="{{item._id}}" data-participant_list="{{item.participant_list}}">+加入</button>
+                    <button wx:if="{{item.past}}" style="background-color:#CECECE; color:#FFF">已结束</button>
             </view>
         </view>
     </view>

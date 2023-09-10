@@ -74,6 +74,12 @@ Page({
         })
         wx.hideLoading()
         break
+      case "getHistory":
+        this.getHistory(options.league, options.team, options.id);
+        this.setData({
+          titleText: "活动+比赛历史"
+        })
+        break
       default:
         wx.hideLoading()
         wx.showToast({
@@ -200,6 +206,48 @@ Page({
     })
   },
 
+  getHistory(league, team, id){
+    let db = wx.cloud.database()
+    const _ = db.command
+    
+    wx.cloud.database().collection("event").where({
+      participant_list: id
+    }).get()
+    .then(res => {
+      this.processEventTime(res.data)
+    }).catch(err => {
+      console.log("failed to pull data", err);
+      wx.showToast({
+        title: '加载出错',
+        icon: 'error'
+      });
+    })
+    
+    if(league && team){
+      wx.cloud.database().collection("game").where(_.or([
+        {
+          league_name: league,
+          team_list: team
+        },  
+        {
+          participant_list: id
+        }
+      ])
+        ).get()
+      .then(res => {
+        wx.hideLoading();
+        this.processFinishedGames(res.data);
+      }).catch(err => {
+        console.log("failed to pull data", err);
+        wx.hideLoading();
+        wx.showToast({
+          title: '加载出错',
+          icon: 'error'
+        });
+      })
+    }
+  },
+
   //PROCESS DATA FUNCTIONS
 
   //处理过去比赛数据
@@ -218,10 +266,21 @@ Page({
         } else if (i.team_name == v.team_list[1]) {
           v.team_2_data = i
         }
+        if(new Date(v.end_time) < new Date()){
+          v.past = true;
+        }else{
+          v.past = false;
+        }
       })
     })
+    var final = this.data.itemList.concat(gameList);
+    final.sort(function (a, b) {
+      var value1 = Date.parse(a.start_time);
+      var value2 = Date.parse(b.start_time);
+      return value1 - value2;
+    });
     this.setData({
-      itemList: gameList
+      itemList: final
     })
   },
   //处理未来比赛数据
@@ -241,10 +300,21 @@ Page({
         } else if (i.team_name == v.team_list[1]) {
           v.team_2_data = i
         }
+        if(new Date(v.end_time) < new Date()){
+          v.past = true;
+        }else{
+          v.past = false;
+        }
       })
     })
+    var final = this.data.itemList.concat(gameList);
+    final.sort(function (a, b) {
+      var value1 = Date.parse(a.start_time);
+      var value2 = Date.parse(b.start_time);
+      return value1 - value2;
+    });
     this.setData({
-      itemList: gameList
+      itemList: final
     })
   },
 
@@ -266,8 +336,14 @@ Page({
         v.past = false;
       }
     })
+    var final = this.data.itemList.concat(loaded_events);
+    final.sort(function (a, b) {
+      var value1 = Date.parse(a.start_time);
+      var value2 = Date.parse(b.start_time);
+      return value1 - value2;
+    });
     this.setData({
-      itemList: loaded_events
+      itemList: final
     })
   },
 

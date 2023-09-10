@@ -3,11 +3,11 @@ view.login {
   margin-bottom: 15px;
 }
 view.login button {
-  background: rgba(255, 84, 0, 0.74);
+  background: #FF5400;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.5);
   border-radius: 15px;
   font-family: PingFangSC-Semibold;
-  font-size: 25px;
+  font-size: 20px;
   color: #FFFFFF;
   text-align: center;
   padding: 12px 24px;
@@ -22,79 +22,92 @@ view.all {
 view.all view.nothing {
   width: 100%;
   display: flex;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
-  margin-top: 5px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  margin-top: 15px;
   border-radius: 8px;
   padding-top: 10px;
   padding-bottom: 10px;
-  background: #FFF0E8;
-  color: #FF5400;
+  color: #000;
 }
 view.all view.nothing text {
+  font-family: PingFangSC-Medium;
+  font-size: 13px;
   flex: 0 0 100%;
   max-width: 100%;
   text-align: center;
 }
 view.all view.player_card {
-  margin-top: 10px;
+  padding-top: 10px;
 }
 view.all view.player_card view.title {
   font-family: PingFangSC-Semibold;
-  font-size: 30px;
-  color: #FF5400;
+  font-size: 25px;
+  color: #000;
 }
 view.all view.player_card view.top_information {
-  padding-top: 10px;
   border-radius: 15px 15px 0px 0px;
-  display: flex;
-  background: #FF5400;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 130%;
 }
-view.all view.player_card view.top_information view.left {
+view.all view.player_card view.top_information view.wrapper {
+  border-radius: 15px;
+  backdrop-filter: blur(20px);
+  width: 100%;
+  height: 100%;
+  display: flex;
+}
+view.all view.player_card view.top_information view.wrapper view.left {
   flex: 0 0 16%;
   max-width: 16%;
 }
-view.all view.player_card view.top_information view.left image {
+view.all view.player_card view.top_information view.wrapper view.left image {
+  margin-top: 10px;
   margin-left: 5px;
   z-index: 1000;
   width: 45px;
   height: 45px;
 }
-view.all view.player_card view.top_information view.middle {
+view.all view.player_card view.top_information view.wrapper view.middle {
   flex: 0 0 29%;
   max-width: 29%;
 }
-view.all view.player_card view.top_information view.middle image {
+view.all view.player_card view.top_information view.wrapper view.middle image {
+  margin-top: 10px;
   width: 140px;
   height: 140px;
   margin-bottom: 20px;
   border-radius: 25px 25px 25px 25px;
 }
-view.all view.player_card view.top_information view.right {
+view.all view.player_card view.top_information view.wrapper view.right {
   position: relative;
-  transform: translate(-5%, 5%);
+  transform: translate(-5%, 10%);
   flex: 0 0 55%;
   max-width: 55%;
   text-align: right;
 }
-view.all view.player_card view.top_information view.right view.name {
+view.all view.player_card view.top_information view.wrapper view.right view.name {
   font-family: PingFangSC-Semibold;
-  font-size: 30px;
-  color: #FFFFFF;
+  font-size: 28px;
+  color: #FFF;
 }
-view.all view.player_card view.top_information view.right view.detail {
-  margin-top: 10px;
-  font-family: PingFangSC-Thin;
+view.all view.player_card view.top_information view.wrapper view.right view.detail {
+  margin-top: 13px;
+}
+view.all view.player_card view.top_information view.wrapper view.right view.detail text {
+  font-family: PingFangSC-Semibold;
   font-size: 15px;
-  color: #FFFFFF;
+  color: #FFF;
 }
 view.all view.player_card view.main_card {
+  background-color: #FFF;
   display: flex;
   flex-flow: column;
   position: relative;
-  background: #9D3400;
   border-radius: 15px;
-  margin-top: -20px;
+  margin-top: -15px;
   z-index: 1000;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
 }
 view.all view.player_card view.main_card view.card {
   width: 92%;
@@ -106,15 +119,14 @@ view.all view.player_card view.main_card view.card view.career_stats {
 view.all view.player_card view.main_card view.card view.career_stats view.title {
   font-family: PingFangSC-Regular;
   font-size: 15px;
-  color: #FFFFFF;
+  color: #000;
 }
 view.all view.player_card view.main_card view.card view.career_stats view.stat_line {
+  color: #000;
   height: 90px;
   width: 100%;
   display: flex;
-  margin-top: 15px;
-  background: #FF5400;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   border-radius: 23px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -132,13 +144,13 @@ view.all view.player_card view.main_card view.card view.career_stats view.stat_l
 view.all view.player_card view.main_card view.card view.career_stats view.stat_line view.stat_column view.number {
   font-family: PingFangSC-Semibold;
   font-size: 25px;
-  color: #FFFFFF;
+  color: #000;
 }
 view.all view.player_card view.main_card view.card view.career_stats view.stat_line view.stat_column view.description {
   margin-top: 5px;
   font-family: PingFangSC-Thin;
   font-size: 15px;
-  color: #FFFFFF;
+  color: #000;
 }
 view.all view.player_card view.main_card view.card view.career_stats view.stat_line_small {
   height: 25px;
@@ -152,7 +164,7 @@ view.all view.player_card view.main_card view.card view.career_stats view.stat_l
   max-width: 33.333%;
   font-family: PingFangSC-Ultralight;
   font-size: 15px;
-  color: #FFFFFF;
+  color: #000;
 }
 view.all view.player_card view.main_card view.card view.history_games {
   margin-top: 10px;
@@ -160,15 +172,15 @@ view.all view.player_card view.main_card view.card view.history_games {
 view.all view.player_card view.main_card view.card view.history_games view.title {
   font-family: PingFangSC-Regular;
   font-size: 15px;
-  color: #FFFFFF;
+  color: #000;
 }
 view.all view.player_card view.main_card view.card view.history_games view.history_game_row {
+  color: #000;
   padding-left: 10px;
   height: 75px;
   display: flex;
   margin-top: 15px;
-  background: #FF5400;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   border-radius: 23px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -191,7 +203,7 @@ view.all view.player_card view.main_card view.card view.history_games view.histo
   margin: 0px 10px 0px 10px;
   font-family: PingFangSC-Semibold;
   font-size: 20px;
-  color: #FFFFFF;
+  color: #000;
 }
 view.all view.player_card view.main_card view.card view.history_games view.history_game_row view.middle {
   flex: 0 0 45%;
@@ -206,12 +218,12 @@ view.all view.player_card view.main_card view.card view.history_games view.histo
 view.all view.player_card view.main_card view.card view.history_games view.history_game_row view.middle view.stat view.number {
   font-family: PingFangSC-Semibold;
   font-size: 20px;
-  color: #FFFFFF;
+  color: #000;
 }
 view.all view.player_card view.main_card view.card view.history_games view.history_game_row view.middle view.stat view.description {
   font-family: PingFangSC-Thin;
   font-size: 10px;
-  color: #FFFFFF;
+  color: #000;
 }
 view.all view.player_card view.main_card view.card view.history_games view.history_game_row view.right {
   padding-left: 10px;
@@ -220,7 +232,7 @@ view.all view.player_card view.main_card view.card view.history_games view.histo
 }
 view.all view.player_card view.main_card view.card view.history_games view.history_game_row view.right view.result {
   font-family: PingFangSC-Semibold;
-  font-size: 30px;
+  font-size: 25px;
 }
 view.all view.player_card view.main_card view.card view.history_games view.history_game_row view.right view.win {
   color: #00FE02;
@@ -234,15 +246,14 @@ view.all view.player_card view.main_card view.card view.total_reward {
 view.all view.player_card view.main_card view.card view.total_reward view.title {
   font-family: PingFangSC-Regular;
   font-size: 15px;
-  color: #FFFFFF;
+  color: #000;
 }
 view.all view.player_card view.main_card view.card view.total_reward view.reward_row {
   padding-left: 10px;
   height: 75px;
   display: flex;
   margin-top: 15px;
-  background: #FF5400;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   border-radius: 23px;
   padding-top: 5px;
   padding-bottom: 5px;
@@ -260,12 +271,12 @@ view.all view.player_card view.main_card view.card view.total_reward view.reward
 view.all view.player_card view.main_card view.card view.total_reward view.reward_row view.stats_column view.wrapper view.number {
   font-family: PingFangSC-Semibold;
   font-size: 20px;
-  color: #FFFFFF;
+  color: #000;
 }
 view.all view.player_card view.main_card view.card view.total_reward view.reward_row view.stats_column view.wrapper view.description {
   font-family: PingFangSC-Thin;
   font-size: 10px;
-  color: #FFFFFF;
+  color: #000;
 }
 view.all view.player_card view.main_card view.card view.event_reward {
   margin-top: 10px;
@@ -274,7 +285,7 @@ view.all view.player_card view.main_card view.card view.event_reward {
 view.all view.player_card view.main_card view.card view.event_reward view.title {
   font-family: PingFangSC-Regular;
   font-size: 15px;
-  color: #FFFFFF;
+  color: #000;
 }
 view.all view.player_card view.main_card view.card view.event_reward view.wrapper {
   margin-top: 10px;
@@ -284,21 +295,9 @@ view.all view.player_card view.main_card view.card view.event_reward view.wrappe
 view.all view.player_card view.main_card view.card view.event_reward view.wrapper view.wrapper2 {
   width: 90%;
   margin: 0px auto;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   height: 50px;
   border-radius: 8px;
-}
-view.all view.player_card view.main_card view.card view.event_reward view.wrapper view.personal {
-  background-color: #FF5400;
-}
-view.all view.player_card view.main_card view.card view.event_reward view.wrapper view.team {
-  background-color: #147CE5;
-}
-view.all view.player_card view.main_card view.card view.event_reward view.wrapper view.challenge {
-  background-color: #51976A;
-}
-view.all view.player_card view.main_card view.card view.event_reward view.wrapper view.social {
-  background-color: #DA463C;
 }
 view.all view.player_card view.main_card view.card view.event_reward view.wrapper view.reward_column {
   height: 50px;
@@ -312,7 +311,19 @@ view.all view.player_card view.main_card view.card view.event_reward view.wrappe
   transform: translateY(-25%);
   font-family: PingFangSC-Semibold;
   font-size: 20px;
-  color: #FFFFFF;
+  color: #000;
+}
+view.all view.player_card view.main_card view.card view.event_reward view.wrapper view.reward_column text.personal {
+  color: #FF5400;
+}
+view.all view.player_card view.main_card view.card view.event_reward view.wrapper view.reward_column text.team {
+  color: #147CE5;
+}
+view.all view.player_card view.main_card view.card view.event_reward view.wrapper view.reward_column text.challenge {
+  color: #51976A;
+}
+view.all view.player_card view.main_card view.card view.event_reward view.wrapper view.reward_column text.social {
+  color: #DA463C;
 }
 view.all view.player_card view.recentEvents {
   margin-top: 10px;
@@ -321,14 +332,13 @@ view.all view.player_card view.recentEvents {
 view.all view.player_card view.recentEvents view.title {
   font-family: PingFangSC-Regular;
   font-size: 15px;
-  color: #FFFFFF;
+  color: #000;
 }
 view.all view.player_card view.recentEvents view.close_row {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   width: 100%;
   display: flex;
   margin-top: 10px;
-  background: #FF5400;
   border-radius: 8px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -358,20 +368,20 @@ view.all view.player_card view.recentEvents view.close_row .middle {
 view.all view.player_card view.recentEvents view.close_row .middle text.name {
   font-family: PingFangSC-Semibold;
   font-size: 21px;
-  color: #FFF;
+  color: #000;
   margin-bottom: 7px;
 }
 view.all view.player_card view.recentEvents view.close_row .middle view.location {
-  margin-top: 3px;
+  margin-top: 11px;
   font-family: PingFangSC-Regular;
   font-size: 11px;
-  color: #FFF;
+  color: #696969;
 }
 view.all view.player_card view.recentEvents view.close_row .middle view.time {
   margin-top: 3px;
   font-family: PingFangSC-Regular;
   font-size: 11px;
-  color: #FFF;
+  color: #696969;
 }
 view.all view.player_card view.recentGame {
   margin-top: 5px;
@@ -380,14 +390,13 @@ view.all view.player_card view.recentGame {
 view.all view.player_card view.recentGame view.title {
   font-family: PingFangSC-Regular;
   font-size: 15px;
-  color: #FFFFFF;
+  color: #000;
 }
 view.all view.player_card view.recentGame view.close_row {
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
   width: 100%;
   display: flex;
   margin-top: 10px;
-  background: #FF5400;
   border-radius: 8px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -417,20 +426,45 @@ view.all view.player_card view.recentGame view.close_row .middle {
 view.all view.player_card view.recentGame view.close_row .middle text.name {
   font-family: PingFangSC-Semibold;
   font-size: 21px;
-  color: #FFF;
+  color: #000;
   margin-bottom: 7px;
 }
 view.all view.player_card view.recentGame view.close_row .middle view.location {
-  margin-top: 3px;
+  margin-top: 11px;
   font-family: PingFangSC-Regular;
   font-size: 11px;
-  color: #FFF;
+  color: #000;
 }
 view.all view.player_card view.recentGame view.close_row .middle view.time {
   margin-top: 3px;
   font-family: PingFangSC-Regular;
   font-size: 11px;
-  color: #FFF;
+  color: #000;
+}
+view.all view.player_card view.orderWrapper {
+  display: flex;
+  width: 100%;
+}
+view.all view.player_card view.orderWrapper view.orders {
+  margin: 0px auto;
+  flex: 0 0 50%;
+  max-width: 45%;
+  text-align: center;
+  display: flex;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  margin-top: 20px;
+  margin-bottom: 15px;
+  border-radius: 8px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  color: #000;
+}
+view.all view.player_card view.orderWrapper view.orders text {
+  flex: 0 0 100%;
+  max-width: 100%;
+  text-align: center;
+  font-family: PingFangSC-Semibold;
+  font-size: 13px;
 }
 view.all view.calendar {
   margin-top: 15px;
@@ -438,43 +472,44 @@ view.all view.calendar {
 view.all view.calendar view.title {
   margin-bottom: 10px;
   font-family: PingFangSC-Semibold;
-  font-size: 30px;
-  color: #FF5400;
+  font-size: 25px;
+  color: #000;
 }
 view.all view.calendar view.wrapper3 {
-  background: #FF8B52;
+  background: #FFF;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   padding-top: 10px;
   padding-bottom: 10px;
   border-radius: 10px;
 }
 view.all view.calendar view.wrapper3 .actual_calendar {
   --calendar-height: 500px;
-  --calendar-background-color: #FF8B52;
-  color: #FFFFFF;
+  --calendar-background-color: #FFF;
+  color: #000;
 }
 view.all view.calendar view.wrapper3 view.today {
   width: 95%;
   margin: 0px auto;
 }
 view.all view.calendar view.wrapper3 view.today view.today_title {
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 15px;
+  margin-bottom: -5px;
   font-family: PingFangSC-Semibold;
   font-size: 20px;
-  color: #FFFFFF;
+  color: #000;
   text-align: left;
 }
 view.all view.calendar view.wrapper3 view.today view.nothing {
-  background: #FFF0E8;
-  color: #FF5400;
+  background: #FFFFFF;
+  color: #000;
 }
 view.all view.calendar view.wrapper3 view.today view.close_row {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  background: #FFFFFF;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
   width: 100%;
   display: flex;
   margin-top: 15px;
-  background: #FFF0E8;
-  border-radius: 8px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -484,71 +519,68 @@ view.all view.calendar view.wrapper3 view.today view.close_row .wrapper {
   transform: translateY(-50%);
 }
 view.all view.calendar view.wrapper3 view.today view.close_row .left {
-  flex: 0 0 30%;
-  max-width: 30%;
+  flex: 0 0 25%;
+  max-width: 25%;
   text-align: center;
-  margin-left: 5px;
+  margin-left: 8px;
 }
 view.all view.calendar view.wrapper3 view.today view.close_row .left image {
-  width: 95%;
-  height: 105px;
+  width: 100%;
+  height: 95px;
   border-radius: 8px;
+  box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.5), -1px -1px 3px 0 rgba(0, 0, 0, 0.5);
 }
 view.all view.calendar view.wrapper3 view.today view.close_row .middle {
-  flex: 0 0 65%;
-  max-width: 65%;
-  margin-left: 5px;
-  text-align: right;
+  flex: 0 0 70%;
+  max-width: 70%;
+  margin-left: 8px;
 }
 view.all view.calendar view.wrapper3 view.today view.close_row .middle text.name {
   font-family: PingFangSC-Semibold;
-  font-size: 23px;
+  font-size: 19px;
   color: #000000;
+  text-align: left;
 }
 view.all view.calendar view.wrapper3 view.today view.close_row .middle view.line {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  width: 100%;
+  margin-top: 10px;
+  margin-bottom: 8px;
+  width: 90%;
   height: 1rpx;
-  background-color: #d1d1d1bb;
+  background-color: #C7C7C7;
 }
-view.all view.calendar view.wrapper3 view.today view.close_row .middle text.category {
-  width: 33%;
-  margin-top: 3px;
-  margin-right: 3px;
-  padding: 4px 5px 4px 5px;
-  border-radius: 10px;
-  background: #DA463C;
+view.all view.calendar view.wrapper3 view.today view.close_row .middle view.info text.location {
   font-family: PingFangSC-Regular;
-  font-size: 14px;
-  color: white;
+  font-size: 10px;
+  color: #000000;
 }
-view.all view.calendar view.wrapper3 view.today view.close_row .middle view.location {
-  margin-top: 3px;
-  font-family: PingFangSC-Regular;
-  font-size: 13px;
+view.all view.calendar view.wrapper3 view.today view.close_row .middle view.info text.location text.iconfont {
   color: #FF5400;
-}
-view.all view.calendar view.wrapper3 view.today view.close_row .middle view.time {
-  margin-top: 3px;
-  font-family: PingFangSC-Regular;
   font-size: 13px;
-  color: #147CE5;
+}
+view.all view.calendar view.wrapper3 view.today view.close_row .middle view.info text.time {
+  margin-left: 7px;
+  font-family: PingFangSC-Regular;
+  font-size: 10px;
+  color: #000000;
+}
+view.all view.calendar view.wrapper3 view.today view.close_row .middle view.info text.time text.iconfont {
+  color: #FF5400;
+  font-size: 13px;
 }
 view.all view.setting {
   margin-top: 10px;
 }
 view.all view.setting view.title {
   font-family: PingFangSC-Semibold;
-  font-size: 30px;
-  color: #FF5400;
+  font-size: 25px;
+  color: #000;
   margin-bottom: 10px;
 }
 view.all view.setting view.setting_row {
   margin-bottom: 15px;
-  background: #FF5400;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
-  border-radius: 4px;
+  background: #FFF;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
   padding-top: 10px;
   padding-bottom: 10px;
   display: flex;
@@ -562,9 +594,9 @@ view.all view.setting view.setting_row view.caption {
   margin-left: 15px;
   flex: 0 0 45%;
   max-width: 45%;
-  font-family: PingFangSC-Semibold;
-  font-size: 25px;
-  color: #FFFFFF;
+  font-family: PingFangSC-Medium;
+  font-size: 19px;
+  color: #000;
 }
 view.all view.setting view.setting_row view.icon {
   text-align: right;

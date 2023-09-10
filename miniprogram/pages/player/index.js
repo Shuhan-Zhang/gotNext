@@ -2,6 +2,7 @@ var getDate = require('../../getDate.js');
 const app = getApp();
 Page({
   data: {
+    gotNextID: wx.getStorageSync('gotNextID'),
     playerID: "",
     playerData: {},
     allEvent: [],
@@ -62,6 +63,12 @@ Page({
         this.processPlayerData(res.data[0]);
         if (res.data[0].team_name.length != 0 && res.data[0].league.length != 0) {
           this.getTeamData(res.data[0].league, res.data[0].team_name)
+        }else{
+          this.setData({
+            teamInfo:{
+              logo:"https://676f-gotnext-7gc174phedbcfbb9-1306413881.tcb.qcloud.la/nbalogo.png?sign=d469e7ce49654ba929b7990f87c9a032&t=1627118302"
+            }
+          })
         }
         wx.hideLoading();
       }).catch(err => {
@@ -378,6 +385,12 @@ Page({
     })
   },
 
+  historyNavigator(e) {
+    wx.navigateTo({
+      url: "/pages/item_list/index?function=getHistory&league=" + this.data.teamInfo.league_name + "&team=" + this.data.teamInfo.team_name + "&id=" + this.data.gotNextID
+    })
+  },
+
   //跳转到建议页
   adviceNavigator(e){
     wx.navigateTo({
@@ -410,6 +423,12 @@ Page({
         url: "/pages/game_detail/index?id=" + e.currentTarget.dataset.id
       })
     }
+  },
+
+  orderListNavigator(e){
+    wx.navigateTo({
+      url: "/pages/orderList/index?openid=" + this.data.playerData
+    })
   },
   onPullDownRefresh: function () {
     wx.showNavigationBarLoading() //启用标题栏显示加载状态

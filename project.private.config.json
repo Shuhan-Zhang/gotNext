@@ -1,18 +1,9 @@
 {
+  "setting": {},
   "condition": {
-    "plugin": {
-      "list": []
-    },
-    "game": {
-      "list": []
-    },
-    "gamePlugin": {
-      "list": []
-    },
     "miniprogram": {
       "list": [
         {
-          "id": -1,
           "name": "db guide",
           "pathName": "pages/databaseGuide/databaseGuide",
           "query": ""
@@ -112,8 +103,45 @@
           "pathName": "pages/index/index",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "pages/orderList/index",
+          "pathName": "pages/orderList/index",
+          "query": "openid=oFTXO5TpGyPIShpcPIC7J2_7lRO4",
+          "scene": null
+        },
+        {
+          "name": "pages/event_detail/index",
+          "pathName": "pages/event_detail/index",
+          "query": "id=28ee4e3e60477e4109c443813b6a243f",
+          "scene": null
+        },
+        {
+          "name": "pages/game_detail/index",
+          "pathName": "pages/game_detail/index",
+          "query": "id=79550af2603d44a207ca92a7506fa4c5",
+          "scene": null
+        },
+        {
+          "name": "pages/game_detail/index",
+          "pathName": "pages/game_detail/index",
+          "query": "id=b00064a760df1b502471d071073d587d",
+          "scene": null
+        },
+        {
+          "name": "pages/game_detail/index",
+          "pathName": "pages/game_detail/index",
+          "query": "id=b00064a760df1b502471d071073d587d",
+          "scene": null
+        },
+        {
+          "name": "pages/event_detail/index",
+          "pathName": "pages/event_detail/index",
+          "query": "id=28ee4e3e60477e4109c443813b6a243f",
+          "scene": null
         }
       ]
     }
-  }
+  },
+  "description": "项目私有配置文件。此文件中的内容将覆盖 project.config.json 中的相同字段。项目的改动优先同步到此文件中。详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html"
 }

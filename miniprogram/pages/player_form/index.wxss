@@ -1,5 +1,4 @@
 view.all {
-  background: #FF5400;
   height: 135vh;
   width: 100%;
   overflow: hidden;
@@ -82,7 +81,7 @@ view.all .position.active {
 }
 view.all button.bottom {
   text-align: center;
-  background: #007FFF;
+  background: #FF5400;
   font-family: PingFangSC-Semibold;
   font-size: 25px;
   color: #FFFFFF;

@@ -20,6 +20,14 @@ function formatTimeWithHours(date) {
  
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute].map(formatNumber).join(':')
 }
+
+function formatTimeHour(date) {
+  var hour = date.getHours()
+  var minute = date.getMinutes()
+  var second = date.getSeconds()
+ 
+  return [hour, minute].map(formatNumber).join(':')
+}
  
 function formatNumber(n) {
   n = n.toString()
@@ -28,5 +36,6 @@ function formatNumber(n) {
  
 module.exports = {
   formatTime: formatTime,
-  formatSpecific: formatTimeWithHours
+  formatSpecific: formatTimeWithHours,
+  formatHour: formatTimeHour
 }

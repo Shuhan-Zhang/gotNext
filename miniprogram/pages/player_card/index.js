@@ -148,4 +148,9 @@ Page({
       url: "/pages/team_card/index?league=" + e.currentTarget.dataset.league + "&team=" + e.currentTarget.dataset.team
     })
   },
+  gameNavigator(e) {
+    wx.navigateTo({
+      url: "/pages/game_detail/index?id=" + e.currentTarget.dataset.id
+    })
+  },
 })

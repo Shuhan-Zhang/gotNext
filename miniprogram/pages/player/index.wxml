@@ -7,35 +7,35 @@
     <button bindtap="registerUser" data-openid="{{userInfo.openid}}">立即注册</button>
 </view>
 <view class="all">
-<view class="player_card" wx:if="{{playerStatus == 2 || playerStatus == 3}}"> 
-        <view class="title">GotNext球员卡</view>
+<view class="player_card" wx:if="{{playerStatus == 2 || playerStatus == 3}}">
         <view class="card">
-            <view class="top_information">
-                <view class="left" wx:if="{{!teamInfo}}">
-                    <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/nba.png" mode="aspectFit"></image>
-                </view>
-                <view class="left" wx:if="{{teamInfo}}">
-                    <image src="{{teamInfo.logo}}" mode="aspectFit"></image>
-                </view>
-                <view class="middle">
-                    <image src="{{playerData.player_pic}}" mode="aspectFill"></image>
-                </view>
-                <view class="right">
-                    <view class="name">{{playerData.player_name}}</view>
-                    <view class="detail">
-                        <text class="iconfont icon-chizi-celiang"> {{playerData.height}}CM </text>
-                        <text class="iconfont icon-zhongliangweight9"> {{playerData.weight}}KG</text>
+            <view class="top_information" style="background-image: url({{teamInfo.logo}});" >
+                <view class="wrapper">
+                    <view class="left" wx:if="{{!teamInfo}}">
+                        <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/nba.png" mode="aspectFit"></image>
                     </view>
-                    <view class="detail">
-                        <text class="iconfont icon-nianling"> {{playerData.age}}岁 </text>
-                        <text class="iconfont icon-lanqiu1"> {{playerData.position}}</text>
+                    <view class="left" wx:if="{{teamInfo}}" bindtap="teamNavigator" data-team="{{teamInfo.team_name}}" data-league="{{teamInfo.league_name}}">
+                        <image src="{{teamInfo.logo}}" mode="aspectFit"></image>
+                    </view>
+                    <view class="middle">
+                        <image src="{{playerData.player_pic}}" mode="aspectFill"></image>
+                    </view>
+                    <view class="right">
+                        <view class="name">{{playerData.player_name}}</view>
+                        <view class="detail">
+                            <text class="iconfont icon-chizi-celiang"> {{playerData.height}}CM   </text>
+                            <text class="iconfont icon-zhongliangweight9"> {{playerData.weight}}KG</text>
+                        </view>
+                        <view class="detail">
+                            <text class="iconfont icon-nianling"> {{playerData.age}}岁   </text>
+                            <text class="iconfont icon-lanqiu1"> {{playerData.position}}</text>
+                        </view>
                     </view>
                 </view>
             </view>
             <view class="main_card">
                 <view class="card">
                     <view class="career_stats">
-                        <view class="title">生涯数据</view>
                         <view class="stat_line">
                             <view class='stat_column'>
                                 <view class="wrapper">
@@ -165,23 +165,27 @@
                         </view>
                         <view class="wrapper">
                             <view class="reward_column">
-                                <view class="personal wrapper2">
-                                    <text class="iconfont icon-lanqiu"> {{playerData.solo_event_reward_number}}</text>
+                                <view class="wrapper2">
+                                    <text class="personal iconfont icon-lanqiu"></text>
+                                    <text> {{playerData.solo_event_reward_number}}</text>
                                 </view>
                             </view>
                             <view class="reward_column">
-                                <view class="team wrapper2">
-                                    <text class="iconfont icon-lanqiuchang"> {{playerData.team_event_reward_number}}</text>
+                                <view class="wrapper2">
+                                    <text class="team iconfont icon-lanqiuchang"></text>
+                                    <text> {{playerData.team_event_reward_number}}</text>
                                 </view>
                             </view>
                             <view class="reward_column">
-                                <view class="challenge wrapper2">
-                                    <text class="iconfont icon-mubiao"> {{playerData.challenge_event_reward_number}}</text>
+                                <view class="wrapper2">
+                                    <text class="challenge iconfont icon-mubiao"></text>
+                                    <text> {{playerData.challenge_event_reward_number}}</text>
                                 </view>
                             </view>
                             <view class="reward_column">
-                                <view class="social wrapper2">
-                                    <text class="iconfont icon-huodongzujian-29"> {{playerData.social_event_number}}</text>
+                                <view class="wrapper2">
+                                    <text class="social iconfont icon-huodongzujian-29"></text>
+                                    <text> {{playerData.social_event_number}}</text>
                                 </view>
                             </view>
                         </view>
@@ -220,12 +224,20 @@
                             </view>
                         </view>
                     </view>
+                    <view class="orderWrapper">
+                        <view class="orders" bindtap="orderListNavigator">
+                            <text>我的所有订单</text>
+                        </view>
+                        <view class="orders" bindtap="historyNavigator">
+                            <text>我的历史活动+比赛</text>
+                        </view>
+                    </view>
                 </view>
             </view>
         </view>
     </view>
     <view class="calendar" wx:if="{{playerStatus == 2 || playerStatus == 3}}">
-        <view class="title">活动时间表</view>
+        <view class="title">我的时间表</view>
         <view class="wrapper3">
             <van-calendar title="日历" poppable="{{ false }}" show-confirm="{{ false }}" show-title="{{ false }}"
                 class="actual_calendar" type="single" color="#FF5400" show-mark="{{ false }}"
@@ -237,18 +249,28 @@
                 </view>
                 <view class="close_row" wx:for="{{selected}}" wx:key="_id" bindtap="rowNavigator"
                     data-id="{{item._id}}" data-category="{{item.category}}">
-                    <view class="left">
+                    <view class="left" bindtap="rowNavigator" data-id="{{item._id}}"
+                    data-category="{{item.category}}">
                         <view class="wrapper">
                             <image src="{{item.img}}" mode="aspectFill"></image>
                         </view>
                     </view>
-                    <view class="middle">
+                    <view class="middle" bindtap="rowNavigator" data-id="{{item._id}}"
+                    data-category="{{item.category}}">
                         <view class="wrapper">
                             <text class="name">{{item.name}}</text>
                             <view class="line"></view>
-                            <text class="category iconfont icon-fenlei" wx:for="{{item.category}}" wx:key="*this"> {{item}}</text>
-                            <view class="location iconfont icon-map-thumbtack"> {{item.location_specific.name}}</view>
-                            <view class="time iconfont icon-shijian"> {{item.specific_time}}</view>
+                            <view class="info">
+                                <text class="location">
+                                    <text class="iconfont icon-map-thumbtack"> </text>
+                                    <text>{{item.location_specific.name}}</text>
+                                </text>
+                                <text class="time">
+                                    <text class="iconfont icon-shijian"> </text>
+                                    <text>{{item.specific_time}}</text>
+                                </text>
+                                
+                            </view>
                         </view>
                     </view>
                 </view>
@@ -262,7 +284,7 @@
                 <view class="wrapper">错误反馈</view>
             </view>
             <view class="icon">
-                <image class="tip" src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/error.png" mode="aspectFill"></image>
+                <image class="tip" src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/错误 (2).png" mode="aspectFill"></image>
             </view>
         </view>
         <view class="setting_row" bindtap="adviceNavigator">
@@ -270,7 +292,7 @@
                 <view class="wrapper">功能建议</view>
             </view>
             <view class="icon">
-                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/advice.png" mode="aspectFill"></image>
+                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/建议.png" mode="aspectFill"></image>
             </view>
         </view>
         <view class="setting_row" bindtap="developerNavigator">
@@ -278,15 +300,7 @@
                 <view class="wrapper">开发者信息</view>
             </view>
             <view class="icon">
-                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/developer.png" mode="aspectFill"></image>
-            </view>
-        </view>
-        <view class="setting_row">
-            <view class="caption">
-                <view class="wrapper">打赏</view>
-            </view>
-            <view class="icon">
-                <image class="tip" src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/tip.png" mode="aspectFill"></image>
+                <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/名片.png" mode="aspectFill"></image>
             </view>
         </view>
     </view>

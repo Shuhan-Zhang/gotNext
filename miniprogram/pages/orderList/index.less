@@ -1,0 +1,95 @@
+view.all{
+    width:100%;
+    overflow: hidden;
+    min-height: 100vh;
+    .nothing {
+        width: 100%;
+        display: flex;
+        box-shadow: 0 1px 4px 0 rgba(0,0,0,0.50);
+        margin-top: 10px;
+        border-radius: 8px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        color: #000;
+        text{
+            font-family: PingFangSC-Medium;
+            font-size: 13px;
+            flex: 0 0 100%;
+            max-width: 100%;
+            text-align: center;
+        }
+    }
+    view.content{
+        width: 97%;
+        margin: 0px auto;
+    }
+    view.title{
+        margin-top: 10px;
+        margin-left: 5px;
+        margin-bottom: -5px;
+        font-family: PingFangSC-Semibold;
+        font-size: 25px;
+        color: #000;
+    }
+    view.row {
+        box-shadow: 0 1px 4px 0 rgba(0,0,0,0.50);
+        width:100%;
+        display: flex;
+        margin-top: 15px;
+        color:#000;
+        border-radius: 8px;
+        padding-top: 10px;
+        padding-bottom: 10px;
+        .wrapper{
+            position: relative;
+            top:50%;
+            transform: translateY(-50%);
+        }
+        .left {
+            flex: 0 0 70%;
+            max-width: 70%;
+            text-align: left;
+            margin-left: 5px;
+            view.orderID{
+                font-family: PingFangSC-Regular;
+                color: #696969;
+                font-size: 13px;
+                text{
+                    font-size: 9px;
+                }
+            }
+            view.goodName{
+                font-family: PingFangSC-Medium;
+                font-size: 20px;
+                margin-top: 15px;
+            }
+            view.time{
+                color: #696969;
+                font-family: PingFangSC-Regular;
+                margin-top: 15px;
+                font-size: 10px;
+            }
+        }
+
+        view.right{
+            flex: 0 0 30%;
+            max-width: 30%;
+            view.price{
+                text-align: center;
+                font-family: PingFangSC-Semibold;
+                font-size: 28px;
+            }
+            button {
+                padding:3px 0px 3px 0px;
+                width:85%;
+                margin-top: 5px;
+                margin-left: 5px;
+                background: #FF5400;
+                border-radius: 8px;
+                font-family: PingFangSC-Semibold;
+                font-size: 13px;
+                color: #FFFFFF;
+            }
+        }
+    }
+}

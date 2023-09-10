@@ -5,15 +5,16 @@ view.league {
 view.league .nothing {
   width: 100%;
   display: flex;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
-  margin-top: 15px;
-  background: #FFF0E8;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  margin-top: 5px;
   border-radius: 8px;
   padding-top: 10px;
   padding-bottom: 10px;
-  color: #DA463C;
+  color: #000;
 }
 view.league .nothing text {
+  font-family: PingFangSC-Medium;
+  font-size: 13px;
   flex: 0 0 100%;
   max-width: 100%;
   text-align: center;
@@ -51,16 +52,17 @@ view.league view.userTeamInfo {
 }
 view.league view.userTeamInfo text.title {
   font-family: PingFangSC-Semibold;
-  font-size: 30px;
-  color: #FF5400;
-  margin-bottom: 10px;
+  font-size: 25px;
+  color: #000;
+}
+view.league view.userTeamInfo view.teamInfo {
+  margin-top: 10px;
 }
 view.league view.userTeamInfo view.teamInfo view.top_information {
   border-radius: 20px 20px 0px 0px;
   padding-bottom: 20px;
   padding-top: 10px;
   display: flex;
-  background: #00788C;
 }
 view.league view.userTeamInfo view.teamInfo view.top_information view.left {
   flex: 0 0 30%;
@@ -81,18 +83,21 @@ view.league view.userTeamInfo view.teamInfo view.top_information view.right {
   text-align: right;
 }
 view.league view.userTeamInfo view.teamInfo view.top_information view.right view.name {
+  margin-top: 7px;
   font-family: PingFangSC-Semibold;
-  font-size: 28px;
+  font-size: 25px;
   color: #FFFFFF;
 }
 view.league view.userTeamInfo view.teamInfo view.top_information view.right view.detail {
+  margin-top: 5px;
   font-family: PingFangSC-Regular;
-  font-size: 20px;
+  font-size: 15px;
   color: #FFFFFF;
 }
 view.league view.userTeamInfo view.teamInfo view.top_information view.right view.rewards text {
+  margin-top: 5px;
   font-family: PingFangSC-Thin;
-  font-size: 17px;
+  font-size: 15px;
   color: #FFFFFF;
 }
 view.league view.userTeamInfo view.teamInfo view.main_card {
@@ -118,7 +123,7 @@ view.league view.userTeamInfo view.teamInfo view.main_card view.card view.team_s
   color: #FFFFFF;
 }
 view.league view.userTeamInfo view.teamInfo view.main_card view.card view.team_stats view.stat_line {
-  height: 90px;
+  height: 80px;
   width: 100%;
   display: flex;
   margin-top: 15px;
@@ -140,7 +145,7 @@ view.league view.userTeamInfo view.teamInfo view.main_card view.card view.team_s
 }
 view.league view.userTeamInfo view.teamInfo view.main_card view.card view.team_stats view.stat_line view.stat_column view.wrapper view.number {
   font-family: PingFangSC-Semibold;
-  font-size: 25px;
+  font-size: 20px;
   color: #FFFFFF;
 }
 view.league view.userTeamInfo view.teamInfo view.main_card view.card view.team_stats view.stat_line view.stat_column view.wrapper view.description {
@@ -150,19 +155,17 @@ view.league view.userTeamInfo view.teamInfo view.main_card view.card view.team_s
   color: #FFFFFF;
 }
 view.league scroll-view.league_selector {
-  margin-top: -5px;
+  margin-top: -15px;
   display: flex;
   width: auto;
   overflow-x: auto;
   white-space: nowrap;
-  background: rgba(255, 179, 142, 0.54);
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
 }
 view.league scroll-view.league_selector button.leagues {
   margin: 7px 10px 7px 10px;
   display: inline-block;
   width: 80px;
-  background: rgba(255, 84, 0, 0.18);
+  background: #d8d8d8;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   border-radius: 27px;
   font-family: PingFangSC-Regular;
@@ -174,7 +177,7 @@ view.league scroll-view.league_selector .leagues.active {
   margin: 7px 10px 7px 10px;
   display: inline-block;
   width: 80px;
-  background: #FF784B;
+  background: #FF5400;
   box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   border-radius: 27px;
   font-family: PingFangSC-Regular;
@@ -186,27 +189,18 @@ view.league view.main {
   width: 95%;
   margin: 0 auto;
 }
-view.league view.main view.newest {
-  margin-top: 20px;
-}
 view.league view.main view.newest text.title {
   font-family: PingFangSC-Semibold;
-  font-size: 30px;
-  color: #FF5400;
-}
-view.league view.main view.newest view.nothing {
-  margin-top: 5px;
-  background: #FFF0E8;
-  color: #DA463C;
+  font-size: 25px;
+  color: #000000;
+  margin-bottom: -15px;
 }
 view.league view.main view.newest view.game_row {
   height: 80px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   width: 100%;
   display: flex;
   margin-top: 10px;
-  margin-bottom: 15px;
-  background: #FFF0E8;
   border-radius: 8px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -225,8 +219,8 @@ view.league view.main view.newest view.game_row .bottom {
 }
 view.league view.main view.newest view.game_row view.left {
   margin-left: 30px;
-  flex: 0 0 45%;
-  max-width: 45%;
+  flex: 0 0 50%;
+  max-width: 50%;
 }
 view.league view.main view.newest view.game_row view.left view.team1 image {
   vertical-align: middle;
@@ -237,7 +231,7 @@ view.league view.main view.newest view.game_row view.left view.team1 text.team_n
   margin-left: 15px;
   font-family: PingFangSC-Regular;
   font-size: 13px;
-  color: #FF5400;
+  color: #000;
 }
 view.league view.main view.newest view.game_row view.left view.team2 {
   margin-top: 10px;
@@ -251,11 +245,11 @@ view.league view.main view.newest view.game_row view.left view.team2 text.team_n
   margin-left: 15px;
   font-family: PingFangSC-Regular;
   font-size: 13px;
-  color: #FFC0A0;
+  color: #696969;
 }
 view.league view.main view.newest view.game_row view.middle {
-  flex: 20%;
-  max-width: 20%;
+  flex: 0 0 12%;
+  max-width: 12%;
   font-family: PingFangSC-Thin;
   font-size: 10px;
   color: #797979;
@@ -267,7 +261,7 @@ view.league view.main view.newest view.game_row view.right {
 }
 view.league view.main view.newest view.game_row view.right view.vertical_line {
   margin-top: 9px;
-  border-left: 1px solid #FFDCCA;
+  border-left: 1px solid #D9D9D9;
   height: 60px;
 }
 view.league view.main view.newest view.game_row view.right view.score {
@@ -301,7 +295,7 @@ view.league view.main view.newest button.view_more {
   margin-bottom: -10px;
   font-family: PingFangSC-Semibold;
   font-size: 13px;
-  color: #FF9E6E;
+  color: #696969;
   background-color: white;
   text-align: center;
 }
@@ -313,33 +307,17 @@ view.league view.main view.stats_leaders {
 }
 view.league view.main view.stats_leaders text.title {
   font-family: PingFangSC-Semibold;
-  font-size: 30px;
-  color: #FF5400;
-}
-view.league view.main view.stats_leaders view.Points {
-  margin-top: 10px;
-  background: #FF784B;
-  color: #FCF6F0;
-}
-view.league view.main view.stats_leaders view.Rebounds {
-  margin-top: 10px;
-  background: #DA463D;
-  color: #ffffff;
-}
-view.league view.main view.stats_leaders view.Assists {
-  margin-top: 10px;
-  background: #50976A;
-  color: #FFFFFF;
+  font-size: 25px;
+  color: #000000;
 }
 view.league view.main view.stats_leaders view.stats_leader_row.point {
   position: relative;
   height: 100px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 27px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   width: 100%;
   display: flex;
-  margin-top: 10px;
-  background: #FF784B;
-  border-radius: 27px;
+  margin-top: 5px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
@@ -352,11 +330,11 @@ view.league view.main view.stats_leaders view.stats_leader_row.point view.points
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-family: PingFangSC-Regular;
   font-size: 20px;
   color: #FCF6F0;
   padding: 3px 10px 3px 10px;
-  border: 1px solid #FCF6F0;
+  background: #FF784B;
+  font-family: PingFangSC-Regular;
   border-radius: 10.5px;
 }
 view.league view.main view.stats_leaders view.stats_leader_row.point view.name_and_stats {
@@ -366,43 +344,41 @@ view.league view.main view.stats_leaders view.stats_leader_row.point view.name_a
 }
 view.league view.main view.stats_leaders view.stats_leader_row.point view.name_and_stats view.name {
   font-family: PingFangSC-Regular;
-  font-size: 25px;
-  color: #FCF6F0;
+  font-size: 20px;
+  color: #000;
   position: relative;
-  top: 15%;
-  transform: translateY(-15%);
+  top: 27%;
+  transform: translateY(-27%);
 }
 view.league view.main view.stats_leaders view.stats_leader_row.point view.name_and_stats view.stats {
   font-family: PingFangSC-Semibold;
-  font-size: 30px;
-  color: #FCF6F0;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 25px;
+  color: #000;
   position: relative;
-  top: 20%;
-  transform: translateY(-20%);
+  top: 32%;
+  transform: translateY(-32%);
 }
 view.league view.main view.stats_leaders view.stats_leader_row.point view.player_pic {
   flex: 0 0 27.5%;
   max-width: 27.5%;
   position: relative;
   top: 50%;
-  left: 5%;
+  left: 3%;
   transform: translate(0%, -45%);
 }
 view.league view.main view.stats_leaders view.stats_leader_row.point view.player_pic image {
-  width: 90px;
-  height: 90px;
+  width: 95px;
+  height: 95px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
-  border-radius: 27px;
+  border-radius: 23px;
 }
 view.league view.main view.stats_leaders view.stats_leader_row.rebound {
   position: relative;
   height: 100px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   width: 100%;
   display: flex;
   margin-top: 15px;
-  background: #DA463D;
   border-radius: 27px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -416,42 +392,41 @@ view.league view.main view.stats_leaders view.stats_leader_row.rebound view.rebo
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-family: PingFangSC-Regular;
   font-size: 20px;
-  color: #ffffff;
+  color: #FFF;
   padding: 3px 10px 3px 10px;
-  border: 1px solid #ffffff;
+  background: #DA463D;
+  font-family: PingFangSC-Regular;
   border-radius: 10.5px;
 }
 view.league view.main view.stats_leaders view.stats_leader_row.rebound view.name_and_stats {
   flex: 0 0 40%;
   max-width: 40%;
   text-align: left;
-  margin-left: 20px;
+  margin-left: 15px;
 }
 view.league view.main view.stats_leaders view.stats_leader_row.rebound view.name_and_stats view.name {
   font-family: PingFangSC-Regular;
-  font-size: 25px;
-  color: #ffffff;
+  font-size: 20px;
+  color: #000;
   position: relative;
-  top: 15%;
-  transform: translateY(-15%);
+  top: 27%;
+  transform: translateY(-27%);
 }
 view.league view.main view.stats_leaders view.stats_leader_row.rebound view.name_and_stats view.stats {
   font-family: PingFangSC-Semibold;
-  font-size: 30px;
-  color: #ffffff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 25px;
+  color: #000;
   position: relative;
-  top: 20%;
-  transform: translateY(-20%);
+  top: 32%;
+  transform: translateY(-32%);
 }
 view.league view.main view.stats_leaders view.stats_leader_row.rebound view.player_pic {
   flex: 0 0 25%;
   max-width: 25%;
   position: relative;
   top: 50%;
-  padding-left: 15px;
+  padding-left: 10px;
   transform: translate(0%, -45%);
 }
 view.league view.main view.stats_leaders view.stats_leader_row.rebound view.player_pic image {
@@ -463,11 +438,10 @@ view.league view.main view.stats_leaders view.stats_leader_row.rebound view.play
 view.league view.main view.stats_leaders view.stats_leader_row.assist {
   position: relative;
   height: 100px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   width: 100%;
   display: flex;
   margin-top: 15px;
-  background: #50976A;
   border-radius: 27px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -481,11 +455,11 @@ view.league view.main view.stats_leaders view.stats_leader_row.assist view.assis
   position: absolute;
   top: 50%;
   transform: translateY(-50%);
-  font-family: PingFangSC-Regular;
   font-size: 20px;
-  color: #ffffff;
+  color: #FFF;
   padding: 3px 10px 3px 10px;
-  border: 1px solid #ffffff;
+  background: #50976A;
+  font-family: PingFangSC-Regular;
   border-radius: 10.5px;
 }
 view.league view.main view.stats_leaders view.stats_leader_row.assist view.name_and_stats {
@@ -495,20 +469,19 @@ view.league view.main view.stats_leaders view.stats_leader_row.assist view.name_
 }
 view.league view.main view.stats_leaders view.stats_leader_row.assist view.name_and_stats view.name {
   font-family: PingFangSC-Regular;
-  font-size: 25px;
-  color: #ffffff;
+  font-size: 20px;
+  color: #000;
   position: relative;
-  top: 15%;
-  transform: translateY(-15%);
+  top: 27%;
+  transform: translateY(-27%);
 }
 view.league view.main view.stats_leaders view.stats_leader_row.assist view.name_and_stats view.stats {
   font-family: PingFangSC-Semibold;
-  font-size: 30px;
-  color: #ffffff;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+  font-size: 25px;
+  color: #000;
   position: relative;
-  top: 20%;
-  transform: translateY(-20%);
+  top: 32%;
+  transform: translateY(-32%);
 }
 view.league view.main view.stats_leaders view.stats_leader_row.assist view.player_pic {
   flex: 0 0 27.5%;
@@ -529,14 +502,13 @@ view.league view.main view.team_ranking {
 }
 view.league view.main view.team_ranking view.title {
   font-family: PingFangSC-Semibold;
-  font-size: 30px;
-  color: #FF5400;
+  font-size: 25px;
+  color: #000000;
   margin-bottom: 5px;
 }
 view.league view.main view.team_ranking view.nothing {
   margin-top: 5px;
-  background: #FFF0E8;
-  color: #FF5400;
+  color: #000;
 }
 view.league view.main view.team_ranking .th.left {
   padding-left: 0px;
@@ -578,24 +550,24 @@ view.league view.main view.team_ranking .tr {
   width: 100%;
   height: 3rem;
   align-items: center;
-  border-bottom: 1px solid #FFDCCA;
+  border-bottom: 1px solid #DBDBDB;
 }
 view.league view.main view.team_ranking .td {
-  border-right: 1px solid #FFDCCA;
+  border-right: 1px solid #DBDBDB;
   font-family: PingFangSC-Thin;
   font-size: 15px;
-  color: #FF5400;
+  color: #000;
 }
 view.league view.main view.team_ranking .th {
   font-family: PingFangSC-Semibold;
   font-size: 20px;
-  color: #FF5400;
+  color: #000;
   display: flex;
   height: 3rem;
   align-items: center;
 }
 view.league view.main view.team_ranking .bg-w {
-  border-bottom: 1px solid #FF5400;
+  border-bottom: 1px solid #DBDBDB;
 }
 view.league view.main view.team_ranking .bg-g {
   background: #E6F3F9;
@@ -607,7 +579,7 @@ view.league view.main view.team_ranking image {
   margin-right: 10px;
 }
 view.league view.main view.upcoming {
-  margin-top: 20px;
+  margin-top: 15px;
 }
 view.league view.main view.upcoming view.content {
   position: relative;
@@ -621,23 +593,22 @@ view.league view.main view.upcoming view.content.middle {
 }
 view.league view.main view.upcoming text.title {
   font-family: PingFangSC-Semibold;
-  font-size: 30px;
-  color: #FF5400;
+  font-size: 25px;
+  color: #000;
 }
 view.league view.main view.upcoming view.nothing {
   margin-top: 5px;
-  color: #FF5400;
+  color: #000;
   margin-bottom: 10px;
 }
 view.league view.main view.upcoming view.upcoming_row {
   position: relative;
-  height: 205px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  height: 160px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   width: 100%;
   display: flex;
   margin-top: 10px;
   margin-bottom: 15px;
-  background: #FFEDED;
   border-radius: 27px;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -654,46 +625,48 @@ view.league view.main view.upcoming view.upcoming_row view.team1 image {
   border-radius: 50%;
 }
 view.league view.main view.upcoming view.upcoming_row view.team1 view.team_name {
-  font-family: PingFangSC-Regular;
-  font-size: 13px;
-  color: #FF5400;
+  margin-top: 5px;
+  font-family: PingFangSC-Medium;
+  font-size: 10px;
+  color: #000000;
 }
 view.league view.main view.upcoming view.upcoming_row view.team1 view.record {
-  margin-top: 10px;
+  margin-top: 5px;
   font-family: PingFangSC-Regular;
   font-size: 10px;
-  color: #797979;
+  color: #696969;
 }
 view.league view.main view.upcoming view.upcoming_row view.extra {
   text-align: center;
   flex: 30%;
   max-width: 30%;
 }
-view.league view.main view.upcoming view.upcoming_row view.extra view.name {
+view.league view.main view.upcoming view.upcoming_row view.extra view.VS {
   font-family: PingFangSC-Semibold;
-  font-size: 20px;
+  font-size: 27px;
   color: #000000;
 }
-view.league view.main view.upcoming view.upcoming_row view.extra text.location {
-  margin-top: 15px;
+view.league view.main view.upcoming view.upcoming_row view.extra view.location text.location {
   font-family: PingFangSC-Regular;
-  font-size: 12px;
-  color: #FF5400;
+  font-size: 10px;
+  color: #696969;
 }
-view.league view.main view.upcoming view.upcoming_row view.extra text.time {
-  margin-top: 5px;
+view.league view.main view.upcoming view.upcoming_row view.extra view.time text.time {
   font-family: PingFangSC-Regular;
-  font-size: 12px;
-  color: #147CE5;
+  font-size: 10px;
+  color: #696969;
 }
 view.league view.main view.upcoming view.upcoming_row view.extra button {
   margin-top: 10px;
   width: 80px;
-  background: #FF5400;
+  background: #FFF1EA;
   border-radius: 8px;
   font-family: PingFangSC-Semibold;
-  font-size: 13px;
-  color: #FFFFFF;
+  font-size: 11px;
+  color: #FF5400;
+}
+view.league view.main view.upcoming view.upcoming_row view.extra button::after {
+  border: none;
 }
 view.league view.main view.upcoming view.upcoming_row view.team2 {
   text-align: center;
@@ -707,13 +680,14 @@ view.league view.main view.upcoming view.upcoming_row view.team2 image {
   border-radius: 50%;
 }
 view.league view.main view.upcoming view.upcoming_row view.team2 view.team_name {
-  font-family: PingFangSC-Regular;
-  font-size: 13px;
-  color: #FF5400;
+  margin-top: 5px;
+  font-family: PingFangSC-Medium;
+  font-size: 10px;
+  color: #000000;
 }
 view.league view.main view.upcoming view.upcoming_row view.team2 view.record {
-  margin-top: 10px;
+  margin-top: 5px;
   font-family: PingFangSC-Regular;
   font-size: 10px;
-  color: #797979;
+  color: #696969;
 }

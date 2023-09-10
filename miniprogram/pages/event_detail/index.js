@@ -1,6 +1,5 @@
 var getDate = require('../../getDate.js');
 Page({
-
   data: {
     eventID:"",
     event: {},
@@ -28,6 +27,7 @@ Page({
       .then(res => {
         console.log("data pulled successfully", res);
 
+        this.getVideo(eventID);
         //处理活动时间
         this.setTime(res.data);
 
@@ -60,7 +60,17 @@ Page({
         });
       })
   },
-
+  getVideo(id){
+    wx.cloud.database().collection("video").where({
+      event_link: id
+    }).get().then(res=>{
+      this.setData({
+        video: res.data[0].video
+      })
+    }).catch(err=>{
+      console.log("no videos", err);
+    })
+  },
   getFirstPlace(id){
     wx.cloud.database().collection("players").doc(id).get()
       .then(res => {
@@ -163,6 +173,8 @@ Page({
     loaded_events.written_time = getDate.formatTime(new Date(loaded_events.start_time));
     loaded_events.specific_time = getDate.formatSpecific(new Date(loaded_events.start_time));
     loaded_events.specific_endtime = getDate.formatSpecific(new Date(loaded_events.end_time));
+    loaded_events.start_hour = getDate.formatHour(new Date(loaded_events.start_time));
+    loaded_events.end_hour = getDate.formatHour(new Date(loaded_events.end_time));
     if((new Date(loaded_events.end_time)) > (new Date())){
       this.setData({
         past:false

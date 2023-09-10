@@ -6,7 +6,7 @@
                 <view class="content">
                     <image src="{{team1.logo}}" mode="aspectFill"></image>
                     <view class="team_name">{{team1.team_name}}</view>
-                    <view class="ranking">{{team1.win}}W/{{team1.loss}}L</view>
+                    <view class="ranking">{{team1.win}}-{{team1.loss}}</view>
                 </view>
             </view>
             <view class="extra" wx:if="{{!past}}">
@@ -23,21 +23,58 @@
                 <view class="content">
                     <image src="{{team2.logo}}" mode="aspectFill"></image>
                     <view class="team_name">{{team2.team_name}}</view>
-                    <view class="ranking">{{team2.win}}W/{{team2.loss}}L</view>
+                    <view class="ranking">{{team2.win}}-{{team2.loss}}</view>
                 </view>
             </view>
         </view>
     </view>
     <view class="main_card">
         <view class="card" style="margin-bottom: 100px">
-            <view class="title">{{game.name}}</view>
-            <view class="participation" wx:if="{{participated}}">
-                <text>已购票</text>
+            <view class="info">
+                <view class="info_row">
+                    <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/detail_user.png"></image>
+                    <view class="desc">
+                        <text>{{game.participant_list.length}}人已参加</text>
+                    </view>
+                    <view class="vertical_line"></view>
+                </view>
+                <view class="info_row">
+                    <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/detail_price.png"></image>
+                    <view class="desc">
+                        <text>票价 : ¥{{game.price}}</text>
+                    </view>
+                    <view class="vertical_line"></view>
+                </view>
+                <view class="info_row">
+                    <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/detail_time.png"></image>
+                    <view class="desc">
+                        <text>{{game.written_time}}\n</text>
+                        <text>{{game.start_hour}} - {{game.end_hour}}</text>
+                    </view>
+                    <view class="time vertical_line"></view>
+                </view>
+                <view class="info_row">
+                    <image src="cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/detail_pin.png"></image>
+                    <view class="location desc">
+                        <text>{{game.location_specific.name}}</text>
+                    </view>
+                </view>
             </view>
-            <view class="price_money">票价: ¥{{game.price}}</view>
-            <view class="time iconfont icon-shijian"> 时间: {{game.specific_time}} - {{game.specific_endtime}}</view>
-            <view class="location iconfont icon-map-thumbtack"> 地址: {{game.location_specific.name}}</view>
-            <map id="12345" markers="{{marker}}" data-markers="{{marker}}" bindmarkertap='gotohere'></map>
+            <view class="headline">
+                <view class="title">{{game.name}}</view>
+                <view class="user_participation" wx:if="{{participated && !past}}">
+                    <text>已购票</text>
+                </view>
+                <view class="user_participation" wx:if="{{past && !participated}}">
+                    <text style="background: #797979">比赛已结束</text>
+                </view>
+                <view class="user_participation" wx:if="{{past && participated}}">
+                    <text style="background: #797979; margin-top:5px">比赛已结束</text>
+                </view>
+            </view>
+            <view class="video" wx:if="{{video}}">
+                <video src="{{video}}" objectFit='cover'></video>
+            </view>
             <view class="boxScore" wx:if="{{game.team_1_score}}">
             <view class="team">
                 <view class="teamName">
@@ -74,7 +111,7 @@
                 </view>
                 <scroll-view class="table" scroll-x="true">
                     <view class="tr bg-w">
-                        <view class="th">球员</view>
+                        <view class="th name">球员</view>
                         <view class="th">得分</view>
                         <view class="th">篮板</view>
                         <view class="th">助攻</view>
@@ -85,7 +122,7 @@
                         <view class="th">失误</view>
                     </view>
                     <view class="tr" wx:for="{{game.team_2_stats}}" bindtap="playerNavigator" data-playerOpenID="{{item}}" wx:key="name">
-                        <view class="td">{{item.name}}</view>
+                        <view class="td name">{{item.name}}</view>
                         <view class="td">{{item.point}}</view>
                         <view class="td">{{item.rebound}}</view>
                         <view class="td">{{item.assist}}</view>
@@ -98,10 +135,11 @@
                 </scroll-view>
             </view>
         </view>
+            <map id="12345" markers="{{marker}}" data-markers="{{marker}}" bindmarkertap='gotohere'></map>
         </view>
 
         <button class="join_button" wx:if="{{!game.team_1_score && !participated}}" bindtap="confirmationNavigator">
-            买球票
+            + 买球票
         </button>
         <button class="join_button" wx:if="{{!past && participated}}" bindtap="checkIn">
             现场登记

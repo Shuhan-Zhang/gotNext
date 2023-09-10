@@ -5,126 +5,33 @@ view.index {
 view.index .nothing {
   width: 100%;
   display: flex;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
-  margin-top: 40px;
-  background: #FFF0E8;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  margin-top: 5px;
   border-radius: 8px;
   padding-top: 10px;
   padding-bottom: 10px;
-  color: #DA463C;
+  color: #000;
 }
 view.index .nothing text {
+  font-family: PingFangSC-Medium;
+  font-size: 13px;
   flex: 0 0 100%;
   max-width: 100%;
   text-align: center;
 }
 view.index text.title {
   font-family: PingFangSC-Semibold;
-  font-size: 30px;
-  color: #FF0000;
-  float: left;
-  margin-bottom: 10px;
+  font-size: 25px;
+  color: #000000;
+  text-align: left;
 }
 view.index text.subTitle {
-  margin-bottom: 10px;
   font-family: PingFangSC-Regular;
-  font-size: 20px;
-  color: #FF8F8F;
-}
-view.index view.row {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
-  width: 100%;
-  display: flex;
-  margin-top: 15px;
-  background: #FFF0E8;
-  border-radius: 8px;
-  padding-top: 10px;
-  padding-bottom: 10px;
-}
-view.index view.row .wrapper {
-  position: relative;
-  top: 50%;
-  transform: translateY(-50%);
-}
-view.index view.row .left {
-  flex: 0 0 25%;
-  max-width: 25%;
-  text-align: center;
-  margin-left: 5px;
-}
-view.index view.row .left image {
-  width: 95%;
-  height: 95px;
-  border-radius: 8px;
-}
-view.index view.row .middle {
-  flex: 0 0 45%;
-  max-width: 45%;
-  margin-left: 5px;
-}
-view.index view.row .middle text.name {
-  font-family: PingFangSC-Semibold;
-  font-size: 20px;
-  color: #000000;
-}
-view.index view.row .middle view.line {
-  margin-top: 5px;
-  margin-bottom: 5px;
-  width: 100%;
-  height: 1rpx;
-  background-color: #d1d1d1bb;
-}
-view.index view.row .middle text.category {
-  width: 33%;
-  margin-top: 3px;
-  margin-right: 3px;
-  padding: 4px 5px 4px 5px;
-  border-radius: 10px;
-  background: #DA463C;
-  font-family: PingFangSC-Regular;
-  font-size: 11px;
-  color: white;
-}
-view.index view.row .middle view.location {
-  margin-top: 3px;
-  font-family: PingFangSC-Regular;
-  font-size: 12px;
-  color: #FF5400;
-}
-view.index view.row .middle view.time {
-  margin-top: 3px;
-  font-family: PingFangSC-Regular;
-  font-size: 12px;
-  color: #147CE5;
-}
-view.index view.row view.right {
-  flex: 0 0 30%;
-  max-width: 30%;
-  margin-left: 5px;
-}
-view.index view.row view.right button {
-  padding: 10px 0px 10px 0px;
-  width: 80%;
-  margin-left: 2px;
-  background: #FF5400;
-  border-radius: 8px;
-  font-family: PingFangSC-Semibold;
   font-size: 15px;
-  color: #FFFFFF;
-}
-view.index view.row view.right text.money {
-  margin-left: 10px;
-  font-family: PingFangSC-Regular;
-  font-size: 10px;
-  color: #FF0000;
-}
-view.index view.row button::after {
-  border: none;
+  color: #000000;
+  text-align: left;
 }
 view.index view.index_swiper {
-  background-image: linear-gradient(180deg, #FF5400 0%, #FFCECE 100%);
-  box-shadow: 0 5px 4px 0 #FFCECE;
-  border-radius: 0px;
   height: 210px;
 }
 view.index view.index_swiper swiper {
@@ -143,14 +50,14 @@ view.index view.content {
   margin: 0 auto;
 }
 view.index view.content view.close_by {
-  padding-top: 20px;
+  margin-top: 10px;
 }
 view.index view.content view.close_by view.title view.category_selector {
-  margin-top: -5px;
+  margin-top: 5px;
   text-align: right;
   font-family: PingFangSC-Semibold;
   font-size: 13px;
-  color: #FFA97E;
+  color: #696969;
   float: right;
 }
 view.index view.content view.close_by view.title view.category_selector button::after {
@@ -159,54 +66,100 @@ view.index view.content view.close_by view.title view.category_selector button::
 view.index view.content view.close_by view.title view.category_selector button {
   background-color: #fff;
   display: inline;
-  color: #FFA97E;
+  color: #696969;
+  font-size: 13px;
   padding-right: 5px;
   padding-left: 5px;
 }
-view.index view.content view.close_by view.row {
-  background: #FFF0E8;
+view.index view.content view.close_by view.title view.category_selector button:focus {
+  color: red;
 }
-view.index view.content view.close_by button.more {
-  margin-top: 10px;
-  margin-bottom: -10px;
+view.index view.content view.close_by view.close_row {
+  margin-top: 15px;
+  box-shadow: -1px -1px 10px 0 rgba(0, 0, 0, 0.04), 1px 1px 10px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 8px;
+  height: 150px;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+view.index view.content view.close_by view.close_row view.button {
+  width: 100%;
+  height: 50%;
+  position: relative;
+}
+view.index view.content view.close_by view.close_row view.button button {
+  position: relative;
+  width: 17%;
+  top: 15px;
+  left: 135px;
+  background: rgba(255, 84, 0, 0.9);
+  border-radius: 8px;
   font-family: PingFangSC-Semibold;
-  font-size: 13px;
-  color: #FF9E6E;
-  background-color: white;
-  text-align: center;
+  font-size: 11px;
+  color: #FFFFFF;
+}
+view.index view.content view.close_by view.close_row view.button button::after {
+  border: none;
+}
+view.index view.content view.close_by view.close_row view.information {
+  height: 50%;
+  background: rgba(9, 9, 9, 0.7);
+  box-shadow: 0 -5px 4px 0 rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(1px);
+  border-radius: 10px;
+}
+view.index view.content view.close_by view.close_row view.information view.text {
+  margin-left: 8px;
+}
+view.index view.content view.close_by view.close_row view.information view.text view.title {
+  margin-top: 1px;
+  font-family: PingFangSC-Semibold;
+  font-size: 22px;
+  color: #FFFFFF;
+}
+view.index view.content view.close_by view.close_row view.information view.text view.location {
+  margin-top: 4px;
+  font-family: PingFangSC-Regular;
+  font-size: 10px;
+  color: #FFFFFF;
+}
+view.index view.content view.close_by view.close_row view.information view.text view.time {
+  margin-top: 5px;
+  font-family: PingFangSC-Regular;
+  font-size: 10px;
+  color: #FFFFFF;
 }
 view.index view.content view.close_by button::after {
   border: none;
 }
 view.index view.content view.close_by view.map {
   margin-top: 15px;
+  border-radius: 8px;
 }
 view.index view.content view.close_by view.map text {
-  font-family: PingFangSC-Regular;
-  font-size: 20px;
-  color: #FF5400;
+  font-family: PingFangSC-Medium;
+  font-size: 13px;
+  color: #000000;
   text-align: left;
 }
 view.index view.content view.close_by view.map map {
   margin-top: 5px;
   width: 100%;
-  border: 2px solid #FFE9DE;
   border-radius: 8px;
   height: 300px;
 }
 view.index view.content view.upcoming {
-  padding-top: 20px;
+  margin-top: 15px;
 }
-view.index view.content view.upcoming view.nothing {
-  background: #FFEDED;
-  color: #FF0000;
+view.index view.content view.upcoming view.title {
+  margin-bottom: -10px;
 }
 view.index view.content view.upcoming view.title view.category_selector {
-  margin-top: -5px;
+  margin-top: 5px;
   text-align: right;
   font-family: PingFangSC-Semibold;
   font-size: 13px;
-  color: #FF8F8F;
+  color: #696969;
   float: right;
 }
 view.index view.content view.upcoming view.title view.category_selector button::after {
@@ -215,19 +168,97 @@ view.index view.content view.upcoming view.title view.category_selector button::
 view.index view.content view.upcoming view.title view.category_selector button {
   background-color: #fff;
   display: inline;
-  color: #FF8F8F;
+  color: #696969;
+  font-size: 13px;
   padding-right: 5px;
   padding-left: 5px;
 }
-view.index view.content view.upcoming view.row {
-  background: #FFEDED;
+view.index view.content view.upcoming view.recent_row {
+  background: #FFFFFF;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  width: 100%;
+  display: flex;
+  margin-top: 15px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+view.index view.content view.upcoming view.recent_row .wrapper {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+}
+view.index view.content view.upcoming view.recent_row .left {
+  flex: 0 0 25%;
+  max-width: 25%;
+  text-align: center;
+  margin-left: 8px;
+}
+view.index view.content view.upcoming view.recent_row .left image {
+  width: 100%;
+  height: 95px;
+  border-radius: 8px;
+  box-shadow: 1px 1px 3px 0 rgba(0, 0, 0, 0.5), -1px -1px 3px 0 rgba(0, 0, 0, 0.5);
+}
+view.index view.content view.upcoming view.recent_row .middle {
+  flex: 0 0 57%;
+  max-width: 57%;
+  margin-left: 8px;
+}
+view.index view.content view.upcoming view.recent_row .middle text.name {
+  font-family: PingFangSC-Semibold;
+  font-size: 19px;
+  color: #000000;
+  text-align: left;
+}
+view.index view.content view.upcoming view.recent_row .middle view.line {
+  margin-top: 10px;
+  margin-bottom: 8px;
+  width: 90%;
+  height: 1rpx;
+  background-color: #C7C7C7;
+}
+view.index view.content view.upcoming view.recent_row .middle view.info text.location {
+  font-family: PingFangSC-Regular;
+  font-size: 10px;
+  color: #000000;
+}
+view.index view.content view.upcoming view.recent_row .middle view.info text.location text.iconfont {
+  color: #FF5400;
+  font-size: 13px;
+}
+view.index view.content view.upcoming view.recent_row .middle view.info text.time {
+  margin-left: 10px;
+  font-family: PingFangSC-Regular;
+  font-size: 10px;
+  color: #000000;
+}
+view.index view.content view.upcoming view.recent_row .middle view.info text.time text.iconfont {
+  color: #FF5400;
+  font-size: 13px;
+}
+view.index view.content view.upcoming view.recent_row view.right {
+  flex: 0 0 16%;
+  max-width: 16%;
+  margin-left: -13px;
+  margin-top: 15px;
+}
+view.index view.content view.upcoming view.recent_row view.right button {
+  background: #FFF1EA;
+  border-radius: 8px;
+  font-family: PingFangSC-Semibold;
+  font-size: 10px;
+  color: #FF5400;
+}
+view.index view.content view.upcoming view.recent_row button::after {
+  border: none;
 }
 view.index view.content view.upcoming button.more {
-  margin-top: 10px;
+  margin-top: 5px;
   margin-bottom: -10px;
   font-family: PingFangSC-Semibold;
   font-size: 13px;
-  color: #FF8B8B;
+  color: #696969;
   background-color: white;
   text-align: center;
 }
@@ -237,124 +268,144 @@ view.index view.content view.upcoming button::after {
 view.index view.content view.upcoming view.MVP {
   margin-top: 15px;
 }
+view.index view.content view.upcoming view.MVP text.subTitle {
+  font-family: PingFangSC-Semibold;
+  font-size: 24px;
+  color: #000000;
+  margin-bottom: 20px;
+}
 view.index view.content view.upcoming view.MVP view.card {
-  width: 95%;
+  width: 98%;
   margin: 0px auto;
-  background: #DA463D;
   box-shadow: 0 3px 4px 0 rgba(0, 0, 0, 0.5);
   border-radius: 8px;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
-view.index view.content view.upcoming view.MVP view.card view.topCard {
+view.index view.content view.upcoming view.MVP view.card view.wrapper {
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(20px);
+}
+view.index view.content view.upcoming view.MVP view.card view.wrapper view.topCard {
+  margin-top: 5px;
+  border-radius: 8px;
   width: 100%;
   display: flex;
   padding-top: 10px;
   padding-bottom: 10px;
 }
-view.index view.content view.upcoming view.MVP view.card view.topCard view.left {
+view.index view.content view.upcoming view.MVP view.card view.wrapper view.topCard view.left {
   margin-left: 10px;
   flex: 0 0 30%;
   max-width: 30%;
 }
-view.index view.content view.upcoming view.MVP view.card view.topCard view.left image {
-  width: 85px;
-  height: 85px;
+view.index view.content view.upcoming view.MVP view.card view.wrapper view.topCard view.left image {
+  width: 100px;
+  height: 100px;
   box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.5);
   border-radius: 8px;
 }
-view.index view.content view.upcoming view.MVP view.card view.topCard view.middle {
-  flex: 0 0 38%;
-  max-width: 38%;
+view.index view.content view.upcoming view.MVP view.card view.wrapper view.topCard view.middle {
+  flex: 0 0 47%;
+  max-width: 47%;
   position: relative;
   top: 50%;
   transform: translateY(10%);
+  margin-left: 5px;
 }
-view.index view.content view.upcoming view.MVP view.card view.topCard view.middle view.name {
+view.index view.content view.upcoming view.MVP view.card view.wrapper view.topCard view.middle view.name {
   font-family: PingFangSC-Semibold;
   font-size: 30px;
   color: #FFFFFF;
-  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
 }
-view.index view.content view.upcoming view.MVP view.card view.topCard view.middle view.stats {
-  padding-top: 5px;
+view.index view.content view.upcoming view.MVP view.card view.wrapper view.topCard view.middle view.stats {
+  margin-top: 10px;
   font-family: PingFangSC-Regular;
-  font-size: 13px;
+  font-size: 15px;
   color: #FFFFFF;
 }
-view.index view.content view.upcoming view.MVP view.card view.topCard view.right {
+view.index view.content view.upcoming view.MVP view.card view.wrapper view.topCard view.right {
   flex: 0 0 32%;
   max-width: 32%;
 }
-view.index view.content view.upcoming view.MVP view.card view.topCard view.right image {
-  width: 85px;
-  height: 85px;
+view.index view.content view.upcoming view.MVP view.card view.wrapper view.topCard view.right image {
+  width: 50px;
+  height: 50px;
 }
-view.index view.content view.upcoming view.MVP view.card view.video {
+view.index view.content view.upcoming view.MVP view.card view.wrapper view.video {
+  backdrop-filter: blur(20px);
   text-align: center;
 }
-view.index view.content view.upcoming view.MVP view.card view.video video {
+view.index view.content view.upcoming view.MVP view.card view.wrapper view.video video {
+  width: 95%;
   border-radius: 8px;
 }
 view.index view.content view.news {
-  padding-top: 20px;
-  padding-bottom: 10px;
+  margin-top: 15px;
+  margin-bottom: 10px;
+}
+view.index view.content view.news view.title {
+  margin-bottom: -5px;
 }
 view.index view.content view.news view.title text.title {
-  color: #147CE5;
+  font-family: PingFangSC-Semibold;
+  font-size: 25px;
+  color: #000000;
+  text-align: left;
 }
 view.index view.content view.news view.title view.category_selector {
+  margin-top: 5px;
   text-align: center;
-  font-family: PingFangSC-Semibold;
-  font-size: 13px;
+  font-family: PingFangSC-Regular;
+  font-size: 10px;
   color: #147CE5;
   float: right;
-  width: 30%;
+  width: 25%;
 }
 view.index view.content view.news view.nothing {
-  background: #C0DFFF;
-  color: #147CE5;
+  background: #FFF;
+  color: #000;
   margin-left: 0px;
   padding-left: 0px;
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
 }
 view.index view.content view.news view.news_row {
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.5);
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.5);
   width: 100%;
   display: flex;
   margin-top: 15px;
-  background: #C0DFFF;
   border-radius: 8px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 view.index view.content view.news view.news_row view.left {
   flex: 0 0 60%;
-  max-width: 65%;
+  max-width: 60%;
   margin-left: 10px;
 }
-view.index view.content view.news view.news_row view.left view.written {
-  transform: translateY(10%);
+view.index view.content view.news view.news_row view.left view.wrapper {
+  position: relative;
+  top: 40%;
+  transform: translateY(-40%);
 }
-view.index view.content view.news view.news_row view.left view.category {
+view.index view.content view.news view.news_row view.left view.wrapper view.category {
   font-family: PingFangSC-Regular;
-  font-size: 13px;
+  font-size: 10px;
   color: #FF5400;
 }
-view.index view.content view.news view.news_row view.left view.title {
+view.index view.content view.news view.news_row view.left view.wrapper view.title {
+  margin-top: 15px;
   font-family: PingFangSC-Semibold;
-  font-size: 16px;
+  font-size: 20px;
   color: #000000;
   text-align: left;
 }
-view.index view.content view.news view.news_row view.left view.line {
-  margin-top: 5px;
-  margin-bottom: 10px;
-  width: 100%;
-  height: 1rpx;
-  background-color: #D1D1D1;
-}
-view.index view.content view.news view.news_row view.left view.news_description {
+view.index view.content view.news view.news_row view.left view.wrapper view.news_description {
+  margin-top: 15px;
   font-family: PingFangSC-Regular;
   font-size: 10px;
-  color: #636363;
+  color: #696969;
 }
 view.index view.content view.news view.news_row view.right {
   flex: 0 0 40%;
@@ -363,6 +414,6 @@ view.index view.content view.news view.news_row view.right {
 view.index view.content view.news view.news_row view.right image {
   border-radius: 8px;
   margin-left: 5px;
-  height: 130px;
-  width: 130px;
+  height: 120px;
+  width: 85%;
 }

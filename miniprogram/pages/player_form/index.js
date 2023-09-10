@@ -9,7 +9,7 @@ Page({
     weightIndex: 0,
     allPositions: ["PG", "SG", "SF", "PF", "C"],
     finalID: wx.getStorageSync('openid'),
-    tempImage: "cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/profilePic.png",
+    tempImage: "cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/球员照片.png",
     finalName: "",
     selectedPosition: "PG",
     finalHeight: 150,
@@ -155,7 +155,7 @@ Page({
         title: '名称不能超过5个字符',
         icon: 'none'
       })
-    }else if(tempPath == "cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/profilePic.png"){
+    }else if(tempPath == "cloud://gotnext-7gc174phedbcfbb9.676f-gotnext-7gc174phedbcfbb9-1306413881/球员照片.png"){
       wx.showToast({
         title: '未选择头像照片',
         icon: 'none'
